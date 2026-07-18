@@ -1,6 +1,6 @@
 # Machine-Learning-Course
 
-This repository contains all course materials for the **Machine Learning** course for **CPE students**. It includes lab exercises, source code, assignments, projects, and additional learning resources.
+This repository contains all course materials for the **Machine Learning** course for **CPE students**. It includes lab exercises, source code, assignments, projects, and additional learning resources. 
 
 ## Course Contents
 
