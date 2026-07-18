@@ -1,7 +1,5 @@
 # Machine-Learning-Course
 
-Machine Learning Course Materials, Labs, Datasets, and Source Code.
-
 This repository contains all course materials for the **Machine Learning** course for **CPE students** in **Semester 1, Academic Year 2026 (2569)**. It includes lecture slides, lab exercises, datasets, source code, assignments, projects, and additional learning resources. 
 
 ## Course Contents
@@ -21,11 +19,8 @@ This repository contains all course materials for the **Machine Learning** cours
 
 ## Repository Includes
 
-- 📖 Lecture Slides
 - 💻 Laboratory Exercises
-- 📂 Datasets
 - 🐍 Python Source Code
-- 📓 Jupyter Notebooks
 - 📝 Assignments
 - 🚀 Course Projects
 - 📚 Additional Learning Resources
