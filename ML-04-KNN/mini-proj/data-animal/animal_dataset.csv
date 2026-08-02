@@ -1,0 +1,1001 @@
+Animal_ID,Species,Average_Lifespan (Years),Weight (kg),Height (cm),Diet_Type,Habitat,Conservation_Status,Domesticated,Primary_Region,Nocturnal,Speed (km/h),Intelligence_Level,Endangered_Level (1-5)
+ANM_1,Giraffe,59,865.12,232.66,Carnivore,Urban,Critically Endangered,Yes,Australia,Yes,25.03,High,3
+ANM_2,Giraffe,67,452.46,359.8,Herbivore,Desert,Vulnerable,Yes,Europe,No,27.97,Medium,5
+ANM_3,Panda,54,17.65,393.57,Omnivore,Ocean,Critically Endangered,No,Antarctica,Yes,77.03,Low,3
+ANM_4,Deer,32,2990.88,348.27,Herbivore,Forest,Critically Endangered,No,Antarctica,Yes,52.95,Medium,4
+ANM_5,Elephant,71,1398.41,238.9,Carnivore,Desert,Vulnerable,Yes,South America,Yes,52.19,Low,2
+ANM_6,Lion,79,417.37,114.6,Carnivore,Urban,Extinct,Yes,North America,No,19.72,Medium,5
+ANM_7,Cat,33,2829.19,306.21,Herbivore,Grassland,Least Concern,No,Europe,Yes,64.47,High,2
+ANM_8,Horse,79,300.43,154.0,Herbivore,Grassland,Critically Endangered,Yes,Australia,No,71.36,Medium,3
+ANM_9,Panda,40,2555.19,368.77,Omnivore,Grassland,Critically Endangered,No,Australia,No,9.79,Low,3
+ANM_10,Panda,37,336.63,151.99,Omnivore,Urban,Critically Endangered,Yes,Australia,No,43.87,High,4
+ANM_11,Giraffe,11,4274.29,280.06,Omnivore,Urban,Extinct,No,Australia,No,40.48,High,3
+ANM_12,Dog,75,280.21,60.18,Carnivore,Forest,Endangered,Yes,Antarctica,Yes,85.32,Medium,4
+ANM_13,Lion,45,3402.38,178.4,Carnivore,Forest,Critically Endangered,Yes,South America,No,30.66,Medium,3
+ANM_14,Horse,24,385.63,151.22,Herbivore,Forest,Extinct,Yes,Africa,No,51.04,Medium,5
+ANM_15,Dog,52,2583.33,24.25,Herbivore,Urban,Endangered,Yes,Antarctica,No,85.73,Low,4
+ANM_16,Horse,37,409.03,31.69,Herbivore,Forest,Critically Endangered,No,North America,No,15.03,Low,2
+ANM_17,Tiger,60,4512.69,394.91,Herbivore,Grassland,Vulnerable,No,Europe,Yes,78.65,Medium,4
+ANM_18,Dog,7,1581.24,291.55,Herbivore,Grassland,Extinct,Yes,North America,Yes,82.52,Medium,3
+ANM_19,Horse,76,1739.92,341.49,Omnivore,Wetland,Least Concern,No,Antarctica,No,38.62,Medium,5
+ANM_20,Tiger,40,417.45,204.99,Omnivore,Forest,Extinct,No,South America,No,71.08,Low,3
+ANM_21,Panda,10,3855.88,171.58,Herbivore,Urban,Least Concern,No,South America,No,25.61,Low,1
+ANM_22,Giraffe,52,399.34,264.8,Omnivore,Grassland,Vulnerable,No,Africa,Yes,19.37,Medium,5
+ANM_23,Lion,59,3834.11,219.45,Herbivore,Forest,Least Concern,No,Africa,No,11.26,Low,3
+ANM_24,Giraffe,34,1792.83,121.37,Herbivore,Urban,Least Concern,No,Antarctica,No,43.37,High,1
+ANM_25,Elephant,30,3791.64,206.78,Carnivore,Wetland,Critically Endangered,Yes,Africa,No,18.73,Low,2
+ANM_26,Elephant,38,1786.91,396.66,Carnivore,Forest,Vulnerable,No,Antarctica,Yes,67.5,Low,2
+ANM_27,Tiger,50,759.11,46.16,Omnivore,Urban,Critically Endangered,Yes,Antarctica,No,18.94,Medium,4
+ANM_28,Horse,67,3112.38,263.27,Herbivore,Grassland,Endangered,Yes,Africa,Yes,97.05,Medium,1
+ANM_29,Panda,17,889.46,271.94,Herbivore,Desert,Critically Endangered,Yes,South America,Yes,33.36,High,5
+ANM_30,Dog,66,4939.14,46.36,Omnivore,Urban,Least Concern,No,Asia,Yes,23.79,Medium,5
+ANM_31,Cat,56,1724.03,358.28,Omnivore,Ocean,Endangered,No,North America,Yes,96.73,High,1
+ANM_32,Elephant,72,3974.51,123.54,Omnivore,Desert,Endangered,Yes,North America,No,42.6,High,3
+ANM_33,Cat,16,2905.2,235.96,Carnivore,Wetland,Critically Endangered,No,Africa,No,17.57,Low,5
+ANM_34,Lion,67,3402.0,144.45,Omnivore,Wetland,Critically Endangered,Yes,Australia,No,47.69,High,3
+ANM_35,Panda,38,858.87,98.35,Carnivore,Grassland,Least Concern,No,Australia,No,59.89,High,5
+ANM_36,Dog,79,3865.57,31.92,Herbivore,Wetland,Least Concern,Yes,Antarctica,No,20.47,Low,5
+ANM_37,Lion,32,976.93,203.25,Herbivore,Forest,Extinct,No,Europe,Yes,9.38,High,4
+ANM_38,Horse,15,158.41,203.81,Herbivore,Forest,Extinct,No,Africa,No,60.14,Low,1
+ANM_39,Elephant,21,4144.08,326.99,Carnivore,Grassland,Least Concern,Yes,South America,No,22.24,Medium,1
+ANM_40,Deer,59,2408.24,179.72,Herbivore,Wetland,Vulnerable,No,Europe,No,85.02,Medium,3
+ANM_41,Giraffe,19,3248.81,293.35,Omnivore,Forest,Endangered,No,Asia,Yes,53.39,High,5
+ANM_42,Panda,42,573.38,156.8,Omnivore,Ocean,Extinct,No,Europe,Yes,97.09,Low,4
+ANM_43,Kangaroo,51,1647.58,94.58,Carnivore,Forest,Least Concern,Yes,Africa,No,11.96,Low,1
+ANM_44,Horse,59,1648.23,192.53,Omnivore,Urban,Endangered,No,Europe,No,77.92,Medium,3
+ANM_45,Dog,77,732.07,37.86,Omnivore,Grassland,Critically Endangered,Yes,Africa,No,7.08,High,3
+ANM_46,Cat,66,3550.44,211.39,Carnivore,Ocean,Extinct,Yes,Africa,No,18.51,Medium,5
+ANM_47,Cat,14,106.3,110.68,Herbivore,Wetland,Extinct,No,Africa,Yes,73.96,Medium,3
+ANM_48,Panda,60,3925.77,339.35,Omnivore,Forest,Extinct,Yes,Asia,Yes,66.78,High,4
+ANM_49,Panda,51,4921.1,343.95,Omnivore,Grassland,Endangered,No,South America,No,27.54,High,1
+ANM_50,Deer,51,3096.85,256.95,Carnivore,Ocean,Extinct,Yes,North America,No,57.65,High,2
+ANM_51,Lion,33,231.23,123.64,Omnivore,Wetland,Endangered,No,Asia,Yes,47.89,Low,1
+ANM_52,Cat,40,3375.34,137.24,Herbivore,Grassland,Endangered,No,North America,No,71.48,Low,1
+ANM_53,Deer,8,390.93,286.43,Herbivore,Ocean,Extinct,Yes,North America,No,44.7,High,3
+ANM_54,Panda,30,1944.05,162.3,Omnivore,Desert,Extinct,No,Europe,No,21.3,Low,2
+ANM_55,Horse,71,4568.49,97.52,Omnivore,Grassland,Least Concern,Yes,Europe,Yes,17.42,Low,5
+ANM_56,Cat,26,33.21,213.77,Herbivore,Wetland,Endangered,No,Africa,No,34.05,Low,2
+ANM_57,Tiger,31,2824.84,39.03,Omnivore,Desert,Critically Endangered,Yes,Asia,Yes,97.67,Low,1
+ANM_58,Kangaroo,19,3036.27,354.51,Omnivore,Desert,Extinct,No,North America,Yes,34.8,High,5
+ANM_59,Lion,7,554.41,333.35,Omnivore,Grassland,Endangered,Yes,North America,No,31.91,Medium,2
+ANM_60,Horse,10,707.45,81.12,Omnivore,Ocean,Extinct,No,Africa,No,21.4,Low,3
+ANM_61,Horse,22,546.22,334.86,Herbivore,Forest,Extinct,Yes,Europe,Yes,19.97,High,2
+ANM_62,Elephant,75,3365.14,295.99,Omnivore,Ocean,Critically Endangered,Yes,Australia,No,41.57,High,3
+ANM_63,Elephant,34,4191.73,85.65,Omnivore,Desert,Extinct,No,Europe,No,32.79,Medium,1
+ANM_64,Panda,7,4248.01,328.83,Omnivore,Wetland,Critically Endangered,No,Australia,Yes,12.02,High,2
+ANM_65,Tiger,74,4072.55,293.54,Herbivore,Desert,Least Concern,Yes,South America,Yes,22.92,Medium,3
+ANM_66,Deer,7,27.14,303.47,Carnivore,Urban,Endangered,Yes,Asia,Yes,92.9,Low,5
+ANM_67,Tiger,46,625.35,325.75,Carnivore,Forest,Least Concern,No,Antarctica,Yes,41.0,Medium,1
+ANM_68,Cat,28,3931.26,134.3,Omnivore,Wetland,Least Concern,No,North America,Yes,88.34,Low,2
+ANM_69,Elephant,79,1071.13,116.08,Omnivore,Grassland,Least Concern,Yes,North America,Yes,54.35,High,4
+ANM_70,Tiger,55,3111.61,233.76,Omnivore,Forest,Extinct,Yes,Europe,Yes,26.97,Medium,4
+ANM_71,Elephant,29,1348.67,105.97,Herbivore,Urban,Critically Endangered,No,Europe,No,52.81,Low,2
+ANM_72,Giraffe,52,107.38,241.88,Herbivore,Desert,Least Concern,Yes,Asia,No,90.3,High,1
+ANM_73,Giraffe,24,1695.88,226.04,Omnivore,Urban,Least Concern,Yes,Australia,Yes,82.19,Medium,3
+ANM_74,Giraffe,68,2368.67,77.54,Omnivore,Desert,Least Concern,No,South America,Yes,90.49,Medium,5
+ANM_75,Lion,45,341.5,287.84,Carnivore,Wetland,Vulnerable,No,South America,No,53.92,High,5
+ANM_76,Panda,72,623.67,99.06,Carnivore,Grassland,Extinct,Yes,Asia,No,16.1,High,4
+ANM_77,Panda,34,2249.74,41.6,Carnivore,Desert,Extinct,Yes,Africa,Yes,70.08,Low,2
+ANM_78,Kangaroo,8,2827.88,63.83,Herbivore,Ocean,Vulnerable,No,Antarctica,Yes,43.06,High,1
+ANM_79,Kangaroo,71,3733.3,310.4,Herbivore,Wetland,Least Concern,Yes,South America,Yes,76.62,Low,4
+ANM_80,Giraffe,63,3601.46,189.89,Herbivore,Forest,Critically Endangered,Yes,South America,No,93.09,Low,1
+ANM_81,Tiger,40,4949.02,159.43,Omnivore,Ocean,Least Concern,Yes,South America,Yes,8.54,High,2
+ANM_82,Giraffe,69,1485.72,370.08,Carnivore,Ocean,Critically Endangered,No,Asia,No,84.69,Medium,5
+ANM_83,Tiger,10,499.71,360.22,Herbivore,Forest,Extinct,No,Africa,No,46.55,High,4
+ANM_84,Lion,65,1331.34,57.22,Carnivore,Urban,Endangered,No,Australia,No,17.36,Medium,5
+ANM_85,Lion,50,367.15,65.03,Herbivore,Wetland,Least Concern,No,Asia,Yes,32.69,Medium,2
+ANM_86,Cat,32,2915.76,67.73,Herbivore,Ocean,Critically Endangered,No,Europe,No,36.9,Medium,2
+ANM_87,Lion,9,4858.86,349.28,Omnivore,Wetland,Endangered,Yes,North America,Yes,24.71,Medium,4
+ANM_88,Panda,50,3246.41,206.42,Omnivore,Desert,Extinct,Yes,Asia,No,18.34,High,5
+ANM_89,Giraffe,57,287.09,113.03,Carnivore,Desert,Least Concern,No,North America,Yes,60.27,Low,4
+ANM_90,Kangaroo,72,3780.37,56.54,Herbivore,Grassland,Least Concern,Yes,Antarctica,No,28.53,Low,2
+ANM_91,Elephant,28,4066.13,126.96,Carnivore,Wetland,Critically Endangered,Yes,Asia,Yes,17.69,Medium,1
+ANM_92,Dog,6,1138.86,256.92,Herbivore,Forest,Endangered,No,North America,No,78.04,Medium,2
+ANM_93,Cat,66,1143.73,293.77,Carnivore,Ocean,Vulnerable,No,Antarctica,Yes,42.82,Low,4
+ANM_94,Horse,55,4011.43,100.44,Carnivore,Grassland,Least Concern,No,Australia,No,48.28,High,4
+ANM_95,Horse,44,3245.01,247.03,Herbivore,Ocean,Extinct,Yes,Australia,No,75.04,Medium,3
+ANM_96,Kangaroo,25,3729.91,27.66,Herbivore,Forest,Critically Endangered,Yes,North America,Yes,31.05,Low,5
+ANM_97,Giraffe,31,1819.88,205.53,Carnivore,Wetland,Least Concern,No,South America,No,65.46,Low,1
+ANM_98,Kangaroo,31,1831.37,321.51,Carnivore,Forest,Endangered,No,Asia,Yes,17.38,Medium,2
+ANM_99,Panda,45,2309.5,308.94,Carnivore,Ocean,Endangered,Yes,North America,Yes,17.58,High,4
+ANM_100,Elephant,41,4058.95,134.59,Herbivore,Urban,Critically Endangered,Yes,Africa,Yes,67.42,Medium,5
+ANM_101,Giraffe,59,1576.5,386.34,Carnivore,Ocean,Vulnerable,No,Europe,Yes,88.62,Medium,1
+ANM_102,Panda,56,4334.07,102.55,Omnivore,Desert,Critically Endangered,Yes,Australia,No,21.76,Low,3
+ANM_103,Lion,36,368.16,256.22,Carnivore,Ocean,Extinct,Yes,South America,Yes,13.27,Medium,5
+ANM_104,Deer,51,175.74,219.11,Omnivore,Forest,Extinct,No,Antarctica,Yes,82.92,Low,4
+ANM_105,Lion,54,2692.93,383.98,Omnivore,Ocean,Endangered,No,Australia,Yes,44.91,Low,3
+ANM_106,Giraffe,32,1142.92,398.08,Omnivore,Desert,Least Concern,Yes,Antarctica,Yes,6.06,High,1
+ANM_107,Dog,30,4491.44,223.54,Herbivore,Desert,Critically Endangered,Yes,Australia,No,66.41,High,1
+ANM_108,Panda,30,4033.49,23.13,Omnivore,Wetland,Least Concern,No,North America,No,6.29,High,3
+ANM_109,Deer,36,496.34,376.08,Herbivore,Desert,Extinct,Yes,North America,Yes,24.85,Low,3
+ANM_110,Deer,73,1423.53,187.1,Omnivore,Grassland,Endangered,No,Europe,No,51.14,Medium,5
+ANM_111,Tiger,52,3429.11,323.8,Herbivore,Desert,Vulnerable,No,Europe,Yes,99.65,High,1
+ANM_112,Tiger,37,4808.62,130.22,Herbivore,Forest,Extinct,No,Africa,Yes,82.83,Medium,5
+ANM_113,Panda,78,4608.2,181.87,Omnivore,Urban,Endangered,Yes,Antarctica,No,33.74,Low,2
+ANM_114,Cat,77,1373.1,370.88,Omnivore,Urban,Endangered,Yes,Asia,No,29.65,High,5
+ANM_115,Cat,68,2660.95,208.52,Herbivore,Forest,Critically Endangered,Yes,Europe,Yes,78.71,Low,4
+ANM_116,Kangaroo,21,3392.99,335.82,Herbivore,Grassland,Least Concern,No,Europe,No,39.7,Low,1
+ANM_117,Panda,48,255.51,67.98,Omnivore,Ocean,Vulnerable,Yes,Antarctica,Yes,68.45,Low,4
+ANM_118,Deer,34,48.12,306.34,Carnivore,Ocean,Extinct,No,South America,No,16.24,Low,2
+ANM_119,Panda,78,4123.53,30.52,Omnivore,Urban,Least Concern,No,South America,Yes,47.9,Low,5
+ANM_120,Elephant,42,936.44,175.94,Carnivore,Urban,Vulnerable,Yes,Asia,Yes,98.33,High,4
+ANM_121,Elephant,7,2367.55,165.79,Carnivore,Urban,Endangered,Yes,Asia,No,83.82,Low,5
+ANM_122,Lion,57,3932.83,148.23,Omnivore,Desert,Vulnerable,Yes,Antarctica,Yes,66.17,Medium,3
+ANM_123,Tiger,27,4294.15,362.57,Herbivore,Desert,Vulnerable,Yes,Australia,No,32.6,Medium,5
+ANM_124,Tiger,67,2850.5,34.59,Herbivore,Grassland,Endangered,Yes,Antarctica,No,73.98,Medium,5
+ANM_125,Panda,15,3337.5,309.39,Carnivore,Forest,Critically Endangered,No,Antarctica,No,17.68,Medium,4
+ANM_126,Kangaroo,7,1049.42,149.52,Carnivore,Urban,Critically Endangered,No,Asia,Yes,35.49,Low,4
+ANM_127,Cat,46,638.61,103.54,Omnivore,Ocean,Endangered,Yes,Europe,Yes,51.86,Medium,2
+ANM_128,Kangaroo,33,1388.54,337.18,Herbivore,Desert,Least Concern,Yes,South America,No,54.43,Medium,4
+ANM_129,Kangaroo,61,2112.89,74.26,Carnivore,Grassland,Endangered,Yes,Europe,No,64.82,Medium,2
+ANM_130,Giraffe,45,2848.39,318.8,Omnivore,Wetland,Extinct,No,Antarctica,No,19.12,Low,4
+ANM_131,Horse,61,3672.11,34.34,Herbivore,Desert,Critically Endangered,Yes,South America,Yes,69.43,Medium,1
+ANM_132,Kangaroo,26,441.27,142.77,Omnivore,Desert,Critically Endangered,No,Antarctica,Yes,15.47,High,5
+ANM_133,Horse,14,3687.17,376.49,Herbivore,Desert,Endangered,Yes,South America,No,28.61,High,2
+ANM_134,Kangaroo,49,3116.03,365.9,Herbivore,Wetland,Endangered,Yes,Australia,Yes,54.22,High,4
+ANM_135,Tiger,38,1673.92,251.8,Carnivore,Ocean,Least Concern,No,North America,Yes,64.15,Low,4
+ANM_136,Tiger,40,4526.51,362.05,Carnivore,Desert,Critically Endangered,Yes,Australia,No,66.13,Low,4
+ANM_137,Deer,14,2188.41,303.35,Herbivore,Wetland,Least Concern,Yes,Antarctica,Yes,85.49,Medium,3
+ANM_138,Horse,73,495.63,371.26,Carnivore,Desert,Extinct,No,Europe,Yes,64.95,Low,2
+ANM_139,Lion,36,2971.02,164.79,Omnivore,Wetland,Extinct,Yes,Africa,Yes,76.31,High,1
+ANM_140,Giraffe,51,4699.52,198.1,Herbivore,Wetland,Vulnerable,Yes,Antarctica,Yes,80.9,High,3
+ANM_141,Kangaroo,10,4792.89,27.64,Carnivore,Urban,Least Concern,Yes,Antarctica,No,91.53,High,3
+ANM_142,Giraffe,15,4707.0,265.75,Herbivore,Ocean,Critically Endangered,Yes,Asia,No,71.72,High,1
+ANM_143,Kangaroo,60,1226.29,358.68,Herbivore,Desert,Vulnerable,Yes,Africa,Yes,39.8,Medium,1
+ANM_144,Horse,53,4621.44,271.7,Carnivore,Grassland,Endangered,Yes,Antarctica,Yes,91.81,Medium,2
+ANM_145,Horse,45,1251.03,397.54,Carnivore,Urban,Critically Endangered,Yes,Asia,No,59.15,Medium,1
+ANM_146,Lion,74,3177.92,309.87,Omnivore,Urban,Critically Endangered,Yes,Africa,No,99.4,Medium,4
+ANM_147,Giraffe,38,4667.41,390.5,Carnivore,Desert,Extinct,No,Europe,No,34.19,Medium,1
+ANM_148,Dog,50,3742.45,366.43,Carnivore,Desert,Extinct,No,Antarctica,No,79.1,High,1
+ANM_149,Deer,57,1284.17,269.14,Carnivore,Wetland,Endangered,Yes,Antarctica,Yes,48.31,Medium,3
+ANM_150,Elephant,22,1531.86,68.79,Omnivore,Ocean,Critically Endangered,No,Australia,No,85.44,Low,2
+ANM_151,Elephant,43,3057.46,251.97,Carnivore,Desert,Least Concern,No,Asia,No,74.25,High,1
+ANM_152,Elephant,68,1412.92,321.84,Omnivore,Desert,Least Concern,Yes,Australia,No,8.54,High,5
+ANM_153,Elephant,5,880.74,36.25,Omnivore,Urban,Critically Endangered,Yes,Asia,Yes,69.57,Medium,4
+ANM_154,Giraffe,13,515.17,308.85,Herbivore,Desert,Endangered,No,Europe,No,64.2,Medium,5
+ANM_155,Cat,29,4893.1,61.16,Carnivore,Forest,Least Concern,No,Asia,Yes,67.25,High,4
+ANM_156,Cat,45,950.15,337.42,Omnivore,Wetland,Endangered,Yes,Antarctica,No,32.94,Low,3
+ANM_157,Kangaroo,27,1096.77,379.36,Herbivore,Desert,Vulnerable,No,North America,Yes,60.87,Low,2
+ANM_158,Cat,64,4487.34,399.01,Omnivore,Forest,Endangered,No,South America,No,72.89,High,1
+ANM_159,Deer,78,1751.8,53.67,Carnivore,Ocean,Endangered,Yes,South America,Yes,92.77,Low,1
+ANM_160,Lion,54,4854.46,179.53,Herbivore,Grassland,Endangered,Yes,Asia,No,67.19,Medium,3
+ANM_161,Lion,25,2555.45,167.06,Carnivore,Desert,Least Concern,Yes,Antarctica,Yes,23.66,High,1
+ANM_162,Kangaroo,79,2149.7,40.19,Herbivore,Forest,Endangered,Yes,Asia,No,73.17,Low,4
+ANM_163,Lion,78,1906.8,330.81,Carnivore,Grassland,Least Concern,No,Europe,No,8.48,Medium,1
+ANM_164,Tiger,44,2628.38,359.23,Omnivore,Grassland,Extinct,No,Australia,No,97.7,Low,2
+ANM_165,Deer,32,953.55,170.07,Herbivore,Forest,Endangered,No,Africa,No,83.07,Medium,5
+ANM_166,Lion,25,3784.01,358.91,Herbivore,Desert,Critically Endangered,No,Europe,Yes,92.56,Low,5
+ANM_167,Elephant,55,2566.79,329.73,Herbivore,Wetland,Vulnerable,Yes,Australia,No,76.02,High,2
+ANM_168,Panda,36,3742.67,140.99,Herbivore,Forest,Vulnerable,No,Australia,No,36.4,Low,5
+ANM_169,Lion,68,2204.61,99.93,Herbivore,Urban,Critically Endangered,Yes,North America,Yes,39.71,Medium,3
+ANM_170,Deer,70,511.69,93.03,Carnivore,Forest,Least Concern,Yes,Australia,No,69.95,Medium,4
+ANM_171,Giraffe,55,2999.2,71.95,Herbivore,Desert,Endangered,No,Asia,Yes,9.37,Low,3
+ANM_172,Horse,44,4470.98,263.33,Herbivore,Urban,Extinct,Yes,Africa,No,51.01,High,2
+ANM_173,Horse,40,3323.8,373.48,Herbivore,Wetland,Endangered,No,Antarctica,Yes,79.4,Medium,5
+ANM_174,Lion,52,4302.11,189.75,Omnivore,Forest,Vulnerable,Yes,Asia,Yes,9.56,High,2
+ANM_175,Kangaroo,7,1090.29,329.32,Carnivore,Forest,Least Concern,No,Asia,Yes,36.44,High,4
+ANM_176,Cat,12,2383.97,173.9,Herbivore,Desert,Critically Endangered,Yes,Europe,Yes,17.68,Medium,1
+ANM_177,Dog,44,4963.12,30.0,Carnivore,Urban,Critically Endangered,Yes,Asia,No,72.39,Low,3
+ANM_178,Lion,54,4004.84,299.4,Omnivore,Wetland,Least Concern,No,Asia,Yes,29.96,Medium,5
+ANM_179,Horse,26,718.69,337.05,Carnivore,Wetland,Least Concern,Yes,Europe,No,29.17,Low,1
+ANM_180,Giraffe,76,1416.45,101.93,Herbivore,Wetland,Least Concern,Yes,North America,Yes,25.7,High,5
+ANM_181,Giraffe,44,2368.02,179.03,Carnivore,Grassland,Extinct,Yes,Antarctica,Yes,16.44,High,3
+ANM_182,Deer,73,4110.78,327.15,Carnivore,Urban,Critically Endangered,Yes,Asia,No,55.79,Low,2
+ANM_183,Lion,76,2437.2,245.07,Omnivore,Forest,Critically Endangered,No,South America,Yes,66.85,Medium,4
+ANM_184,Panda,28,2348.27,37.81,Carnivore,Desert,Critically Endangered,Yes,Africa,No,92.47,Medium,3
+ANM_185,Tiger,67,2874.06,209.09,Omnivore,Wetland,Endangered,No,South America,No,22.31,High,5
+ANM_186,Panda,79,1232.73,166.09,Herbivore,Wetland,Extinct,No,South America,Yes,78.54,Low,5
+ANM_187,Cat,8,3219.43,380.72,Carnivore,Desert,Least Concern,No,Africa,Yes,28.44,High,5
+ANM_188,Horse,60,891.58,185.4,Omnivore,Grassland,Endangered,No,Antarctica,No,75.97,Low,4
+ANM_189,Tiger,26,2219.55,20.84,Carnivore,Wetland,Least Concern,No,Europe,No,6.11,Low,1
+ANM_190,Giraffe,21,2892.47,120.92,Carnivore,Forest,Critically Endangered,Yes,South America,No,57.97,Low,3
+ANM_191,Panda,73,4040.23,244.0,Omnivore,Wetland,Vulnerable,No,Antarctica,Yes,90.11,Medium,3
+ANM_192,Lion,24,4950.41,43.91,Omnivore,Grassland,Critically Endangered,No,North America,No,46.97,Low,2
+ANM_193,Deer,74,4910.43,163.65,Herbivore,Forest,Extinct,Yes,South America,Yes,7.73,Medium,1
+ANM_194,Horse,45,1534.03,212.63,Herbivore,Grassland,Critically Endangered,No,South America,Yes,40.69,Medium,1
+ANM_195,Elephant,78,4583.0,32.22,Carnivore,Grassland,Extinct,No,Antarctica,Yes,96.07,High,4
+ANM_196,Elephant,11,4549.98,258.64,Carnivore,Forest,Vulnerable,Yes,Africa,Yes,85.24,High,2
+ANM_197,Kangaroo,40,1367.62,107.94,Herbivore,Desert,Least Concern,No,Europe,Yes,43.08,Low,3
+ANM_198,Elephant,23,4196.31,203.5,Omnivore,Desert,Endangered,No,Antarctica,No,55.12,Medium,5
+ANM_199,Elephant,72,50.38,233.67,Herbivore,Forest,Critically Endangered,No,Australia,No,74.62,Low,5
+ANM_200,Lion,45,223.46,201.46,Herbivore,Ocean,Least Concern,No,Europe,Yes,56.43,Medium,5
+ANM_201,Panda,26,4993.12,38.0,Carnivore,Desert,Extinct,Yes,Africa,No,11.04,Low,1
+ANM_202,Cat,52,1867.41,152.65,Carnivore,Wetland,Vulnerable,Yes,Australia,No,46.98,High,2
+ANM_203,Giraffe,25,3329.34,87.7,Omnivore,Forest,Endangered,Yes,Africa,Yes,11.71,Low,1
+ANM_204,Lion,34,2136.19,168.92,Herbivore,Ocean,Critically Endangered,No,Europe,Yes,81.8,Medium,5
+ANM_205,Giraffe,50,3776.81,212.51,Carnivore,Grassland,Least Concern,Yes,Africa,No,65.52,Low,3
+ANM_206,Cat,68,160.67,353.88,Herbivore,Grassland,Extinct,Yes,Australia,No,85.99,High,5
+ANM_207,Tiger,39,1928.32,146.3,Herbivore,Forest,Least Concern,No,South America,Yes,16.96,Medium,2
+ANM_208,Cat,18,345.47,146.02,Herbivore,Desert,Vulnerable,No,North America,No,15.53,Medium,3
+ANM_209,Deer,69,4512.47,308.84,Carnivore,Wetland,Critically Endangered,No,Africa,No,94.65,Low,4
+ANM_210,Dog,77,1598.39,168.33,Carnivore,Urban,Vulnerable,No,South America,Yes,23.04,High,3
+ANM_211,Horse,53,3486.14,357.83,Carnivore,Wetland,Endangered,Yes,Europe,Yes,10.59,Low,5
+ANM_212,Deer,28,4791.85,362.83,Herbivore,Desert,Critically Endangered,Yes,Africa,Yes,7.43,Low,2
+ANM_213,Lion,61,3383.14,237.51,Carnivore,Wetland,Endangered,No,Asia,Yes,53.06,Low,5
+ANM_214,Tiger,27,1923.98,373.79,Herbivore,Forest,Vulnerable,No,Australia,Yes,24.28,High,5
+ANM_215,Kangaroo,61,1425.71,250.06,Herbivore,Desert,Vulnerable,Yes,South America,No,31.81,Medium,4
+ANM_216,Horse,50,2158.04,330.94,Carnivore,Desert,Vulnerable,No,Europe,Yes,59.36,High,5
+ANM_217,Tiger,41,526.61,302.72,Omnivore,Wetland,Critically Endangered,No,South America,Yes,77.51,Low,4
+ANM_218,Dog,29,2530.31,58.85,Herbivore,Forest,Least Concern,Yes,Europe,No,64.18,High,2
+ANM_219,Tiger,68,3979.16,170.03,Herbivore,Desert,Extinct,No,Antarctica,Yes,11.04,High,5
+ANM_220,Horse,78,1722.7,297.82,Carnivore,Desert,Endangered,Yes,North America,Yes,68.18,Medium,4
+ANM_221,Kangaroo,73,4891.83,293.95,Omnivore,Grassland,Least Concern,Yes,South America,No,98.48,Low,1
+ANM_222,Elephant,63,3722.65,115.94,Carnivore,Forest,Critically Endangered,No,Africa,No,11.74,Medium,4
+ANM_223,Horse,75,3634.41,328.72,Herbivore,Forest,Vulnerable,No,North America,No,61.16,Low,5
+ANM_224,Giraffe,54,1599.02,87.64,Herbivore,Forest,Least Concern,Yes,North America,No,86.1,High,1
+ANM_225,Dog,44,3987.39,210.38,Omnivore,Wetland,Critically Endangered,No,Europe,Yes,58.38,Medium,3
+ANM_226,Cat,5,4807.68,194.15,Herbivore,Forest,Least Concern,No,Asia,No,8.31,High,4
+ANM_227,Lion,57,4893.57,359.06,Omnivore,Desert,Vulnerable,Yes,South America,Yes,38.03,High,1
+ANM_228,Deer,67,3626.25,44.24,Carnivore,Ocean,Vulnerable,Yes,Africa,No,62.05,Medium,4
+ANM_229,Giraffe,67,2895.78,301.84,Carnivore,Desert,Extinct,Yes,Asia,No,18.17,High,5
+ANM_230,Dog,65,2734.3,80.38,Herbivore,Urban,Least Concern,Yes,South America,Yes,43.88,Low,2
+ANM_231,Cat,16,860.37,250.84,Herbivore,Ocean,Vulnerable,No,South America,No,50.72,Low,2
+ANM_232,Deer,50,4361.68,327.95,Herbivore,Wetland,Vulnerable,No,South America,Yes,76.98,High,1
+ANM_233,Lion,56,3632.8,352.14,Herbivore,Ocean,Endangered,Yes,Europe,No,56.96,Low,2
+ANM_234,Dog,24,2581.42,179.93,Omnivore,Forest,Critically Endangered,No,North America,Yes,18.72,Medium,3
+ANM_235,Giraffe,51,2807.38,56.87,Carnivore,Ocean,Extinct,Yes,Antarctica,No,97.1,Low,1
+ANM_236,Elephant,18,4260.03,179.29,Carnivore,Desert,Vulnerable,Yes,Antarctica,Yes,32.68,Medium,4
+ANM_237,Horse,25,4194.91,44.71,Carnivore,Forest,Least Concern,No,Europe,Yes,76.77,Low,2
+ANM_238,Lion,11,702.5,369.88,Carnivore,Ocean,Least Concern,Yes,Asia,Yes,34.08,Medium,4
+ANM_239,Lion,10,907.08,309.44,Herbivore,Desert,Vulnerable,No,Antarctica,No,67.22,Low,3
+ANM_240,Dog,73,1831.06,244.23,Herbivore,Forest,Vulnerable,Yes,Africa,Yes,50.48,Low,4
+ANM_241,Dog,21,1756.28,168.02,Herbivore,Urban,Vulnerable,No,Australia,Yes,7.63,Medium,5
+ANM_242,Deer,36,2651.48,230.81,Omnivore,Forest,Critically Endangered,Yes,Asia,Yes,10.47,Low,5
+ANM_243,Dog,38,4938.07,391.43,Carnivore,Desert,Critically Endangered,Yes,Australia,Yes,6.8,High,3
+ANM_244,Tiger,18,779.8,291.5,Omnivore,Ocean,Endangered,Yes,Europe,Yes,45.64,Medium,3
+ANM_245,Elephant,78,3261.69,304.93,Herbivore,Ocean,Extinct,No,Africa,No,78.76,Low,3
+ANM_246,Panda,30,3590.84,131.47,Carnivore,Grassland,Least Concern,Yes,South America,No,87.55,Low,1
+ANM_247,Horse,75,985.56,242.07,Carnivore,Wetland,Endangered,Yes,Asia,No,80.94,High,4
+ANM_248,Horse,35,4891.23,79.29,Carnivore,Ocean,Critically Endangered,No,Australia,No,28.47,Low,3
+ANM_249,Deer,52,4740.3,53.96,Herbivore,Ocean,Endangered,No,North America,Yes,55.55,Medium,1
+ANM_250,Tiger,42,881.97,343.83,Carnivore,Forest,Least Concern,No,Africa,No,83.87,Low,1
+ANM_251,Lion,54,3207.01,312.17,Carnivore,Grassland,Vulnerable,No,South America,Yes,45.73,Medium,4
+ANM_252,Panda,51,2621.04,221.56,Carnivore,Forest,Endangered,No,Africa,No,9.33,Low,1
+ANM_253,Deer,35,2186.42,333.14,Herbivore,Ocean,Least Concern,Yes,Asia,Yes,39.3,High,4
+ANM_254,Elephant,39,1676.88,125.12,Carnivore,Forest,Least Concern,Yes,Asia,Yes,93.91,Medium,3
+ANM_255,Deer,12,1307.69,238.04,Omnivore,Grassland,Extinct,Yes,South America,Yes,69.37,Medium,1
+ANM_256,Giraffe,6,4653.06,324.35,Herbivore,Wetland,Least Concern,No,Africa,No,24.31,Medium,3
+ANM_257,Dog,63,1433.13,44.32,Omnivore,Urban,Least Concern,No,Europe,No,31.71,Medium,4
+ANM_258,Cat,69,460.45,107.66,Carnivore,Urban,Critically Endangered,No,Asia,No,50.52,Low,3
+ANM_259,Horse,46,1970.44,64.16,Carnivore,Forest,Vulnerable,No,Australia,No,14.55,Medium,4
+ANM_260,Giraffe,52,1061.99,279.44,Omnivore,Forest,Extinct,No,Africa,No,83.31,Medium,5
+ANM_261,Dog,72,4323.61,35.93,Carnivore,Forest,Critically Endangered,No,North America,Yes,73.12,Low,2
+ANM_262,Deer,78,1063.95,202.86,Herbivore,Grassland,Extinct,No,Antarctica,No,96.62,Low,1
+ANM_263,Deer,68,3162.43,209.08,Carnivore,Ocean,Least Concern,No,Asia,No,10.39,Low,3
+ANM_264,Lion,31,3683.72,71.3,Omnivore,Forest,Extinct,Yes,Antarctica,Yes,12.53,Medium,3
+ANM_265,Tiger,73,364.72,66.11,Omnivore,Forest,Endangered,Yes,Asia,Yes,27.7,High,3
+ANM_266,Deer,70,1398.86,90.55,Carnivore,Forest,Endangered,No,Africa,No,40.93,High,1
+ANM_267,Elephant,68,2002.56,374.27,Carnivore,Grassland,Vulnerable,Yes,Europe,No,5.84,High,3
+ANM_268,Elephant,38,2934.98,155.78,Herbivore,Forest,Critically Endangered,No,North America,Yes,43.8,Medium,3
+ANM_269,Horse,16,4991.14,158.07,Herbivore,Grassland,Least Concern,Yes,Africa,No,73.92,Low,1
+ANM_270,Lion,24,4569.52,58.28,Herbivore,Grassland,Least Concern,Yes,Africa,Yes,64.13,Medium,5
+ANM_271,Tiger,79,4223.81,256.46,Carnivore,Ocean,Least Concern,Yes,North America,No,68.54,High,5
+ANM_272,Tiger,17,4756.35,377.19,Herbivore,Wetland,Extinct,No,Africa,No,98.59,High,3
+ANM_273,Cat,6,1377.52,345.24,Omnivore,Grassland,Critically Endangered,Yes,Africa,Yes,16.09,Low,4
+ANM_274,Panda,73,435.67,111.54,Carnivore,Ocean,Vulnerable,No,Antarctica,Yes,28.23,Low,4
+ANM_275,Panda,79,3987.6,67.71,Herbivore,Forest,Extinct,No,North America,Yes,8.97,High,2
+ANM_276,Elephant,22,3949.55,65.07,Carnivore,Ocean,Critically Endangered,Yes,Australia,Yes,97.58,High,1
+ANM_277,Kangaroo,74,3716.74,339.36,Omnivore,Grassland,Extinct,Yes,Antarctica,No,82.53,Low,3
+ANM_278,Dog,38,3429.74,271.48,Carnivore,Desert,Extinct,No,Antarctica,Yes,40.27,Medium,5
+ANM_279,Kangaroo,75,1193.04,79.71,Carnivore,Urban,Vulnerable,Yes,Europe,No,42.56,High,2
+ANM_280,Deer,76,158.06,96.43,Omnivore,Grassland,Endangered,Yes,Africa,No,29.54,Low,2
+ANM_281,Kangaroo,31,2850.31,309.25,Omnivore,Urban,Vulnerable,No,Europe,No,36.57,High,4
+ANM_282,Dog,55,4169.39,28.47,Omnivore,Wetland,Extinct,Yes,South America,Yes,16.61,Medium,4
+ANM_283,Dog,10,1768.24,58.27,Carnivore,Urban,Extinct,Yes,Africa,Yes,29.12,High,4
+ANM_284,Dog,13,3668.53,182.57,Herbivore,Forest,Vulnerable,Yes,Antarctica,No,30.49,Low,3
+ANM_285,Horse,61,1208.41,278.58,Herbivore,Forest,Extinct,Yes,Antarctica,No,97.11,High,4
+ANM_286,Lion,35,3306.22,238.97,Herbivore,Forest,Extinct,No,Europe,No,95.78,Low,1
+ANM_287,Deer,57,3986.4,245.87,Omnivore,Grassland,Critically Endangered,Yes,South America,No,11.9,Medium,4
+ANM_288,Deer,72,3748.04,243.82,Herbivore,Grassland,Vulnerable,Yes,Africa,Yes,49.81,Medium,5
+ANM_289,Deer,46,3852.16,226.51,Carnivore,Grassland,Extinct,No,Antarctica,No,34.72,Medium,2
+ANM_290,Dog,16,3520.61,90.85,Omnivore,Grassland,Least Concern,Yes,Asia,Yes,69.78,Low,4
+ANM_291,Kangaroo,44,3298.09,64.3,Carnivore,Ocean,Least Concern,No,North America,No,74.9,High,1
+ANM_292,Kangaroo,45,2499.27,328.93,Omnivore,Grassland,Critically Endangered,Yes,Asia,No,87.55,High,1
+ANM_293,Dog,42,3510.46,221.53,Omnivore,Wetland,Endangered,No,Australia,No,62.6,High,2
+ANM_294,Cat,25,1921.09,276.97,Herbivore,Grassland,Least Concern,No,North America,Yes,10.31,Medium,3
+ANM_295,Horse,13,460.48,118.25,Carnivore,Urban,Critically Endangered,No,South America,No,25.07,Medium,5
+ANM_296,Deer,8,3195.24,53.43,Herbivore,Grassland,Endangered,No,Australia,No,67.75,Medium,3
+ANM_297,Lion,53,1854.38,204.41,Carnivore,Wetland,Vulnerable,Yes,Australia,No,15.3,Medium,4
+ANM_298,Lion,22,2460.85,205.87,Carnivore,Wetland,Endangered,No,Africa,Yes,14.54,High,1
+ANM_299,Tiger,79,165.63,276.99,Herbivore,Ocean,Endangered,Yes,North America,No,94.0,High,3
+ANM_300,Giraffe,18,884.91,181.44,Omnivore,Grassland,Extinct,Yes,Australia,Yes,45.84,Low,2
+ANM_301,Horse,35,3857.96,364.43,Omnivore,Ocean,Extinct,Yes,South America,No,14.64,High,3
+ANM_302,Elephant,40,4868.93,109.52,Omnivore,Ocean,Extinct,No,Europe,Yes,24.06,High,3
+ANM_303,Cat,37,4273.82,345.41,Herbivore,Desert,Extinct,Yes,North America,No,92.86,High,1
+ANM_304,Deer,58,1471.11,180.88,Carnivore,Grassland,Vulnerable,No,Antarctica,No,42.04,Low,5
+ANM_305,Elephant,24,1088.03,240.69,Carnivore,Grassland,Endangered,No,Africa,No,24.52,Medium,1
+ANM_306,Panda,25,3543.13,36.53,Carnivore,Grassland,Endangered,Yes,Antarctica,No,91.62,High,1
+ANM_307,Horse,14,3127.41,235.39,Omnivore,Wetland,Extinct,Yes,Africa,Yes,45.02,High,5
+ANM_308,Giraffe,16,4881.89,209.75,Herbivore,Desert,Least Concern,No,Antarctica,No,47.78,High,1
+ANM_309,Giraffe,55,677.63,304.45,Omnivore,Grassland,Extinct,Yes,Asia,No,22.83,Low,3
+ANM_310,Elephant,55,1673.27,22.0,Omnivore,Desert,Least Concern,Yes,Australia,Yes,14.78,Medium,5
+ANM_311,Tiger,40,2138.31,109.7,Omnivore,Urban,Least Concern,No,South America,Yes,97.75,Low,5
+ANM_312,Tiger,52,4995.47,193.54,Omnivore,Wetland,Critically Endangered,No,Australia,No,46.58,Medium,1
+ANM_313,Elephant,44,3450.26,267.24,Herbivore,Ocean,Vulnerable,No,Africa,No,86.94,Medium,5
+ANM_314,Elephant,5,610.16,161.8,Carnivore,Grassland,Least Concern,No,Asia,Yes,93.44,Low,5
+ANM_315,Kangaroo,78,2354.23,300.75,Carnivore,Wetland,Endangered,Yes,Antarctica,Yes,70.78,Medium,5
+ANM_316,Kangaroo,57,3639.7,196.92,Herbivore,Wetland,Critically Endangered,Yes,Asia,No,8.6,Low,4
+ANM_317,Elephant,63,3197.28,365.38,Carnivore,Urban,Least Concern,No,Antarctica,No,73.13,Low,1
+ANM_318,Tiger,27,620.27,217.91,Omnivore,Grassland,Endangered,Yes,Europe,No,76.35,Medium,1
+ANM_319,Cat,17,3045.44,304.13,Omnivore,Ocean,Critically Endangered,Yes,Australia,Yes,99.83,Low,5
+ANM_320,Lion,40,2186.41,228.14,Omnivore,Wetland,Endangered,No,Australia,Yes,39.79,Medium,2
+ANM_321,Elephant,48,3721.03,157.24,Omnivore,Desert,Extinct,Yes,Europe,No,42.23,High,3
+ANM_322,Kangaroo,18,3059.71,203.53,Carnivore,Urban,Extinct,Yes,Antarctica,Yes,48.92,Medium,4
+ANM_323,Elephant,59,56.6,365.82,Omnivore,Desert,Critically Endangered,No,Antarctica,No,85.54,Medium,5
+ANM_324,Cat,65,272.27,125.07,Omnivore,Desert,Vulnerable,Yes,Europe,No,92.14,High,4
+ANM_325,Dog,29,663.53,311.65,Herbivore,Urban,Vulnerable,No,South America,Yes,9.59,High,3
+ANM_326,Dog,12,2061.3,383.94,Herbivore,Desert,Extinct,No,Australia,Yes,81.03,Medium,5
+ANM_327,Dog,74,3667.48,91.84,Omnivore,Forest,Extinct,Yes,Europe,Yes,53.99,High,5
+ANM_328,Deer,47,2390.99,188.1,Omnivore,Urban,Endangered,Yes,Antarctica,Yes,53.12,Low,3
+ANM_329,Lion,61,278.43,206.35,Carnivore,Ocean,Vulnerable,No,Antarctica,Yes,78.66,Low,5
+ANM_330,Horse,58,4303.94,173.17,Carnivore,Urban,Least Concern,No,Africa,Yes,54.37,Low,1
+ANM_331,Cat,51,331.56,349.25,Omnivore,Grassland,Least Concern,No,South America,Yes,92.1,Low,2
+ANM_332,Tiger,52,3325.81,303.5,Herbivore,Ocean,Vulnerable,No,Antarctica,No,38.45,Low,4
+ANM_333,Lion,78,3002.88,44.01,Carnivore,Ocean,Critically Endangered,Yes,Africa,No,19.69,Medium,3
+ANM_334,Giraffe,55,2541.39,316.19,Herbivore,Urban,Extinct,Yes,Australia,No,52.6,High,3
+ANM_335,Giraffe,24,1195.41,291.08,Carnivore,Desert,Least Concern,No,Australia,No,45.36,Low,3
+ANM_336,Giraffe,28,4932.72,175.86,Carnivore,Wetland,Vulnerable,No,Asia,Yes,69.51,High,4
+ANM_337,Deer,79,743.59,112.13,Carnivore,Wetland,Endangered,No,Asia,Yes,73.59,Medium,2
+ANM_338,Elephant,65,2043.21,316.76,Omnivore,Ocean,Least Concern,Yes,Antarctica,No,62.05,High,2
+ANM_339,Cat,15,847.02,326.57,Omnivore,Urban,Endangered,No,Australia,Yes,41.12,High,3
+ANM_340,Elephant,46,1023.85,313.05,Omnivore,Grassland,Extinct,No,South America,No,7.85,High,5
+ANM_341,Elephant,33,739.31,98.06,Omnivore,Forest,Critically Endangered,Yes,North America,No,17.81,Medium,4
+ANM_342,Horse,60,1032.96,397.89,Omnivore,Desert,Endangered,Yes,Africa,Yes,65.07,Low,5
+ANM_343,Dog,9,1752.82,40.84,Carnivore,Forest,Endangered,No,Australia,Yes,32.24,Low,3
+ANM_344,Deer,16,3180.31,36.01,Herbivore,Forest,Vulnerable,No,Asia,Yes,31.17,Medium,3
+ANM_345,Elephant,45,354.11,63.06,Carnivore,Ocean,Endangered,Yes,Antarctica,Yes,81.72,Low,3
+ANM_346,Horse,30,354.68,369.69,Herbivore,Grassland,Endangered,No,Australia,Yes,87.67,Medium,1
+ANM_347,Lion,46,1103.46,367.84,Carnivore,Urban,Least Concern,No,Australia,No,47.43,Low,5
+ANM_348,Giraffe,44,1475.24,79.86,Herbivore,Grassland,Critically Endangered,No,Australia,Yes,34.99,High,4
+ANM_349,Giraffe,45,2040.9,325.34,Omnivore,Urban,Critically Endangered,No,Australia,Yes,45.94,High,1
+ANM_350,Elephant,72,2337.91,115.46,Herbivore,Ocean,Vulnerable,Yes,South America,Yes,96.75,Medium,1
+ANM_351,Elephant,52,2283.81,225.52,Herbivore,Grassland,Extinct,No,North America,Yes,30.43,Medium,1
+ANM_352,Horse,15,3931.11,158.08,Herbivore,Urban,Critically Endangered,No,Asia,No,90.9,Medium,5
+ANM_353,Horse,36,4055.52,340.14,Carnivore,Urban,Critically Endangered,No,South America,No,9.24,Low,1
+ANM_354,Panda,18,1508.29,353.8,Omnivore,Forest,Extinct,Yes,North America,Yes,29.43,High,1
+ANM_355,Lion,76,2878.57,145.26,Carnivore,Forest,Endangered,No,North America,No,46.84,Low,4
+ANM_356,Lion,47,4639.18,338.33,Herbivore,Urban,Vulnerable,Yes,Africa,No,6.4,High,2
+ANM_357,Panda,24,3434.2,373.18,Herbivore,Ocean,Critically Endangered,Yes,Antarctica,Yes,73.61,Low,3
+ANM_358,Lion,69,724.86,298.06,Carnivore,Urban,Critically Endangered,Yes,Australia,Yes,75.46,Medium,5
+ANM_359,Kangaroo,21,4843.82,152.47,Herbivore,Desert,Least Concern,Yes,Australia,Yes,40.48,Medium,5
+ANM_360,Giraffe,59,2780.1,161.97,Omnivore,Desert,Vulnerable,Yes,Africa,No,56.65,Low,5
+ANM_361,Dog,43,301.19,95.63,Herbivore,Ocean,Extinct,Yes,South America,No,86.78,Low,5
+ANM_362,Cat,74,2691.48,287.69,Carnivore,Desert,Least Concern,No,Antarctica,No,34.26,High,3
+ANM_363,Tiger,29,4856.0,35.8,Herbivore,Urban,Vulnerable,Yes,Asia,Yes,20.7,Medium,2
+ANM_364,Lion,77,2840.4,117.36,Herbivore,Ocean,Extinct,No,Antarctica,No,86.94,Medium,2
+ANM_365,Dog,74,1057.79,230.35,Carnivore,Ocean,Vulnerable,No,Asia,Yes,18.41,Low,2
+ANM_366,Cat,55,2815.69,71.65,Carnivore,Ocean,Extinct,No,North America,No,96.02,Low,3
+ANM_367,Cat,41,93.74,311.39,Omnivore,Grassland,Extinct,No,Australia,Yes,94.67,Medium,2
+ANM_368,Tiger,66,4400.16,254.35,Herbivore,Wetland,Least Concern,Yes,South America,Yes,79.32,Medium,4
+ANM_369,Lion,37,4581.47,200.7,Carnivore,Forest,Extinct,No,Africa,Yes,14.13,High,4
+ANM_370,Cat,25,723.32,349.17,Carnivore,Wetland,Vulnerable,No,Asia,No,7.54,Low,1
+ANM_371,Elephant,51,4754.25,66.97,Omnivore,Forest,Least Concern,Yes,North America,Yes,94.12,Low,1
+ANM_372,Giraffe,15,4568.58,74.79,Omnivore,Urban,Vulnerable,Yes,North America,No,43.88,Medium,3
+ANM_373,Kangaroo,21,1665.84,120.75,Carnivore,Urban,Endangered,No,Asia,No,19.64,Low,2
+ANM_374,Panda,70,4972.88,89.04,Omnivore,Desert,Endangered,No,Asia,Yes,45.11,High,4
+ANM_375,Tiger,16,396.46,70.57,Herbivore,Desert,Extinct,Yes,Asia,No,21.98,Low,5
+ANM_376,Dog,47,2778.89,160.2,Omnivore,Desert,Vulnerable,No,Antarctica,Yes,54.08,Low,2
+ANM_377,Dog,65,4084.89,24.39,Carnivore,Ocean,Vulnerable,Yes,Europe,Yes,37.61,Medium,4
+ANM_378,Panda,38,4299.37,245.01,Omnivore,Urban,Vulnerable,Yes,North America,No,87.22,High,1
+ANM_379,Dog,36,4423.75,145.72,Herbivore,Grassland,Critically Endangered,Yes,Antarctica,No,7.03,Low,4
+ANM_380,Dog,75,3790.17,176.96,Herbivore,Wetland,Critically Endangered,No,Africa,No,74.97,High,2
+ANM_381,Kangaroo,73,134.94,371.63,Omnivore,Desert,Extinct,Yes,Africa,Yes,59.84,High,4
+ANM_382,Kangaroo,50,2171.22,321.94,Omnivore,Forest,Critically Endangered,Yes,South America,Yes,13.02,Low,4
+ANM_383,Elephant,20,2628.5,357.31,Herbivore,Ocean,Least Concern,Yes,Australia,Yes,19.22,High,5
+ANM_384,Horse,57,4415.87,310.11,Omnivore,Desert,Extinct,No,Antarctica,No,84.95,High,4
+ANM_385,Elephant,39,234.12,371.94,Omnivore,Grassland,Extinct,No,Antarctica,No,22.97,High,5
+ANM_386,Elephant,32,962.2,235.21,Omnivore,Grassland,Least Concern,Yes,Asia,Yes,59.7,Low,1
+ANM_387,Cat,9,1225.43,153.32,Carnivore,Grassland,Least Concern,Yes,Asia,Yes,93.17,Low,4
+ANM_388,Kangaroo,25,374.7,93.64,Omnivore,Ocean,Endangered,No,Asia,Yes,72.76,Medium,3
+ANM_389,Giraffe,43,4382.73,355.77,Carnivore,Ocean,Critically Endangered,No,Asia,Yes,42.88,High,2
+ANM_390,Giraffe,57,2249.92,108.6,Omnivore,Wetland,Endangered,No,Europe,Yes,88.65,High,3
+ANM_391,Deer,10,2832.53,70.5,Herbivore,Wetland,Critically Endangered,Yes,Africa,Yes,28.85,Medium,1
+ANM_392,Dog,48,1887.14,265.53,Herbivore,Wetland,Critically Endangered,No,South America,Yes,83.97,Low,1
+ANM_393,Horse,45,2528.58,60.91,Omnivore,Grassland,Extinct,No,South America,No,54.94,Medium,5
+ANM_394,Giraffe,47,3063.19,338.17,Omnivore,Grassland,Vulnerable,No,Europe,No,86.56,Medium,4
+ANM_395,Dog,29,2052.96,236.85,Herbivore,Urban,Least Concern,No,North America,No,72.2,Low,2
+ANM_396,Tiger,22,2721.66,173.56,Carnivore,Grassland,Extinct,Yes,North America,No,14.34,Medium,4
+ANM_397,Kangaroo,67,289.52,136.66,Omnivore,Wetland,Vulnerable,Yes,South America,No,5.5,High,2
+ANM_398,Panda,19,1581.31,56.78,Omnivore,Wetland,Endangered,No,Europe,No,49.44,Low,4
+ANM_399,Cat,9,2954.13,350.31,Herbivore,Wetland,Critically Endangered,No,North America,No,60.36,High,1
+ANM_400,Tiger,55,3474.04,272.56,Herbivore,Desert,Least Concern,Yes,Australia,Yes,11.67,Medium,4
+ANM_401,Deer,65,1586.16,115.53,Carnivore,Forest,Endangered,No,Africa,Yes,47.38,Medium,2
+ANM_402,Dog,54,3924.85,145.59,Omnivore,Ocean,Least Concern,Yes,Australia,No,96.69,Medium,2
+ANM_403,Horse,7,2635.33,65.6,Carnivore,Wetland,Least Concern,Yes,Australia,Yes,73.91,Low,2
+ANM_404,Giraffe,70,4268.58,273.0,Omnivore,Desert,Least Concern,Yes,Asia,No,30.61,Medium,1
+ANM_405,Panda,18,3035.45,302.35,Herbivore,Forest,Least Concern,No,North America,Yes,57.94,Medium,4
+ANM_406,Panda,10,4232.67,289.83,Herbivore,Urban,Critically Endangered,No,Africa,No,43.86,High,1
+ANM_407,Tiger,29,1463.46,238.37,Omnivore,Desert,Vulnerable,No,Antarctica,No,48.16,High,2
+ANM_408,Tiger,58,1413.44,219.61,Herbivore,Wetland,Critically Endangered,Yes,Asia,No,44.67,Low,5
+ANM_409,Horse,15,3076.16,308.57,Omnivore,Grassland,Least Concern,Yes,South America,No,23.56,High,2
+ANM_410,Dog,26,827.46,83.7,Carnivore,Desert,Critically Endangered,No,South America,No,69.13,High,5
+ANM_411,Kangaroo,27,468.03,317.64,Omnivore,Grassland,Endangered,No,South America,Yes,25.44,Medium,3
+ANM_412,Elephant,57,1950.32,214.43,Carnivore,Desert,Endangered,No,North America,No,61.83,Medium,4
+ANM_413,Lion,67,4746.97,290.93,Carnivore,Grassland,Least Concern,No,South America,No,78.32,High,1
+ANM_414,Dog,65,3344.97,288.1,Omnivore,Ocean,Extinct,No,Antarctica,No,51.92,Medium,3
+ANM_415,Giraffe,10,3489.43,397.71,Herbivore,Forest,Vulnerable,Yes,Europe,No,33.78,Medium,5
+ANM_416,Giraffe,44,557.48,266.23,Herbivore,Urban,Vulnerable,No,Europe,No,60.41,Medium,1
+ANM_417,Tiger,6,2829.85,350.45,Herbivore,Grassland,Least Concern,No,Africa,Yes,39.46,High,1
+ANM_418,Cat,77,703.55,32.85,Herbivore,Wetland,Vulnerable,Yes,Europe,No,92.97,High,5
+ANM_419,Panda,9,2985.14,259.58,Omnivore,Desert,Endangered,No,Africa,Yes,57.18,High,2
+ANM_420,Deer,33,1887.4,282.01,Herbivore,Ocean,Least Concern,No,North America,No,95.08,Low,3
+ANM_421,Lion,75,737.38,305.15,Herbivore,Ocean,Least Concern,No,Antarctica,Yes,90.95,High,3
+ANM_422,Kangaroo,20,3018.92,91.78,Carnivore,Desert,Critically Endangered,Yes,Africa,No,52.74,High,4
+ANM_423,Giraffe,13,2245.6,203.31,Omnivore,Wetland,Extinct,Yes,Antarctica,No,84.97,Low,4
+ANM_424,Giraffe,62,4177.28,362.05,Herbivore,Forest,Endangered,Yes,Asia,Yes,90.78,Low,4
+ANM_425,Deer,6,1267.69,186.79,Herbivore,Ocean,Endangered,No,North America,Yes,41.34,High,2
+ANM_426,Panda,54,3427.36,382.28,Herbivore,Forest,Endangered,No,Europe,Yes,65.41,High,1
+ANM_427,Dog,37,680.69,243.94,Omnivore,Ocean,Critically Endangered,Yes,Europe,Yes,37.41,Low,2
+ANM_428,Kangaroo,55,3432.85,208.62,Omnivore,Urban,Vulnerable,No,Europe,Yes,65.02,Medium,1
+ANM_429,Tiger,35,4252.11,186.34,Omnivore,Ocean,Least Concern,No,Australia,No,50.66,High,2
+ANM_430,Tiger,32,3050.14,277.63,Herbivore,Wetland,Endangered,Yes,Africa,Yes,34.78,High,2
+ANM_431,Panda,56,698.2,274.9,Herbivore,Urban,Extinct,Yes,Africa,No,5.97,Medium,2
+ANM_432,Dog,73,1342.23,144.36,Carnivore,Grassland,Extinct,Yes,North America,No,45.07,High,5
+ANM_433,Dog,39,1465.87,182.74,Omnivore,Ocean,Critically Endangered,No,Australia,Yes,78.49,Low,4
+ANM_434,Deer,31,2282.4,84.63,Carnivore,Desert,Extinct,No,South America,No,5.62,Medium,5
+ANM_435,Deer,53,4655.64,273.32,Carnivore,Forest,Extinct,No,Africa,Yes,39.87,Low,3
+ANM_436,Horse,40,2297.02,51.1,Herbivore,Forest,Extinct,Yes,North America,No,44.35,Low,5
+ANM_437,Panda,48,3445.45,344.51,Herbivore,Urban,Extinct,No,Antarctica,Yes,86.58,Medium,4
+ANM_438,Deer,45,4831.43,227.48,Herbivore,Urban,Critically Endangered,No,Antarctica,Yes,48.39,High,1
+ANM_439,Panda,71,1433.64,171.81,Herbivore,Desert,Endangered,Yes,Asia,Yes,54.41,Medium,2
+ANM_440,Lion,43,2705.23,41.72,Herbivore,Forest,Vulnerable,No,Antarctica,No,14.81,High,3
+ANM_441,Horse,38,1684.27,110.89,Omnivore,Desert,Critically Endangered,Yes,Europe,No,95.06,High,2
+ANM_442,Deer,71,4231.01,70.08,Carnivore,Forest,Least Concern,Yes,Africa,Yes,85.84,Medium,1
+ANM_443,Tiger,74,865.17,306.5,Carnivore,Urban,Vulnerable,Yes,Antarctica,Yes,71.07,High,1
+ANM_444,Dog,56,586.38,253.82,Herbivore,Wetland,Least Concern,No,Antarctica,Yes,28.47,Medium,4
+ANM_445,Panda,26,229.95,378.25,Omnivore,Urban,Least Concern,No,Antarctica,No,44.14,High,2
+ANM_446,Tiger,17,3066.8,337.01,Omnivore,Wetland,Endangered,No,North America,Yes,19.5,Medium,4
+ANM_447,Dog,75,891.28,219.58,Carnivore,Wetland,Critically Endangered,Yes,Australia,No,67.08,Low,3
+ANM_448,Deer,76,3370.22,338.56,Herbivore,Ocean,Least Concern,No,Antarctica,Yes,12.07,High,2
+ANM_449,Cat,51,18.87,193.84,Carnivore,Ocean,Critically Endangered,No,Australia,No,91.23,High,3
+ANM_450,Elephant,50,3586.34,216.01,Carnivore,Desert,Least Concern,No,Antarctica,No,63.83,Low,4
+ANM_451,Tiger,78,2159.18,254.09,Carnivore,Desert,Vulnerable,No,Antarctica,No,74.58,Medium,5
+ANM_452,Lion,26,2706.22,99.31,Omnivore,Wetland,Vulnerable,Yes,Europe,Yes,36.98,Medium,3
+ANM_453,Lion,52,866.93,167.15,Omnivore,Ocean,Extinct,No,Europe,No,91.53,Medium,5
+ANM_454,Deer,38,2660.77,237.77,Herbivore,Forest,Vulnerable,No,Europe,Yes,79.43,High,5
+ANM_455,Dog,41,1759.81,99.46,Omnivore,Forest,Vulnerable,Yes,Africa,No,19.57,Medium,1
+ANM_456,Tiger,60,1709.34,255.28,Carnivore,Wetland,Least Concern,No,Australia,Yes,22.6,Low,2
+ANM_457,Giraffe,9,2681.54,68.99,Herbivore,Grassland,Critically Endangered,Yes,Africa,No,32.55,High,3
+ANM_458,Tiger,75,3540.71,346.98,Herbivore,Urban,Critically Endangered,No,Africa,Yes,38.13,Low,3
+ANM_459,Deer,7,319.99,180.75,Herbivore,Ocean,Critically Endangered,Yes,North America,Yes,69.58,High,1
+ANM_460,Elephant,63,1738.07,243.8,Carnivore,Urban,Vulnerable,No,Australia,No,21.81,Low,5
+ANM_461,Kangaroo,33,4206.96,204.1,Carnivore,Forest,Endangered,Yes,Antarctica,No,70.51,High,2
+ANM_462,Tiger,54,939.03,348.39,Carnivore,Grassland,Least Concern,No,Africa,No,8.05,Medium,2
+ANM_463,Elephant,25,4415.02,270.0,Omnivore,Grassland,Endangered,Yes,Africa,Yes,45.75,Medium,5
+ANM_464,Cat,10,378.41,296.11,Herbivore,Desert,Critically Endangered,Yes,Antarctica,No,91.03,Low,4
+ANM_465,Panda,63,429.22,274.25,Herbivore,Grassland,Critically Endangered,No,Europe,Yes,89.35,Low,5
+ANM_466,Horse,32,3938.22,290.17,Carnivore,Desert,Critically Endangered,Yes,Australia,No,60.62,Medium,5
+ANM_467,Giraffe,21,979.96,378.52,Carnivore,Forest,Critically Endangered,No,Europe,Yes,16.45,Low,5
+ANM_468,Dog,76,4547.65,167.05,Herbivore,Grassland,Least Concern,No,South America,No,40.59,Low,1
+ANM_469,Horse,66,4098.68,356.65,Omnivore,Wetland,Extinct,Yes,North America,No,44.86,High,2
+ANM_470,Cat,37,1989.44,23.64,Herbivore,Ocean,Critically Endangered,Yes,Europe,Yes,28.16,Medium,1
+ANM_471,Lion,56,3624.93,67.38,Herbivore,Urban,Critically Endangered,Yes,Asia,No,86.54,Low,3
+ANM_472,Deer,40,2434.74,41.36,Carnivore,Urban,Least Concern,Yes,Australia,Yes,20.08,Medium,1
+ANM_473,Deer,56,4989.68,174.12,Herbivore,Wetland,Critically Endangered,Yes,Asia,No,20.87,High,4
+ANM_474,Panda,17,1081.23,209.69,Herbivore,Urban,Endangered,No,Antarctica,Yes,72.78,Medium,4
+ANM_475,Tiger,7,1816.78,307.42,Omnivore,Wetland,Endangered,No,Africa,Yes,52.61,Medium,2
+ANM_476,Panda,32,1673.59,156.73,Carnivore,Wetland,Extinct,Yes,Africa,No,88.32,High,1
+ANM_477,Dog,34,1973.78,57.88,Herbivore,Urban,Least Concern,No,Europe,No,25.5,Medium,3
+ANM_478,Giraffe,48,1499.81,241.23,Omnivore,Ocean,Extinct,Yes,South America,No,80.01,Low,1
+ANM_479,Lion,33,1662.96,384.33,Carnivore,Urban,Critically Endangered,No,Europe,No,60.23,Medium,3
+ANM_480,Tiger,27,4394.12,121.22,Herbivore,Ocean,Least Concern,Yes,Australia,Yes,10.32,Medium,1
+ANM_481,Cat,18,3925.24,69.81,Carnivore,Forest,Critically Endangered,No,North America,Yes,95.04,High,5
+ANM_482,Deer,6,3865.34,103.15,Omnivore,Forest,Least Concern,Yes,Australia,Yes,87.28,Low,4
+ANM_483,Cat,57,3613.77,281.41,Herbivore,Ocean,Extinct,Yes,North America,No,80.12,Medium,4
+ANM_484,Kangaroo,54,700.68,354.31,Herbivore,Ocean,Vulnerable,No,Antarctica,No,47.76,Medium,2
+ANM_485,Panda,46,2497.12,164.81,Carnivore,Urban,Critically Endangered,Yes,Asia,Yes,84.07,High,5
+ANM_486,Elephant,24,2653.75,166.81,Omnivore,Ocean,Endangered,No,South America,Yes,81.44,Medium,2
+ANM_487,Tiger,49,30.14,279.91,Carnivore,Grassland,Extinct,Yes,Australia,No,84.04,Low,4
+ANM_488,Panda,45,4858.58,387.98,Omnivore,Ocean,Least Concern,No,Asia,Yes,25.97,Low,2
+ANM_489,Dog,32,2870.87,150.92,Omnivore,Grassland,Extinct,No,Africa,Yes,17.92,High,2
+ANM_490,Deer,74,1447.51,173.43,Carnivore,Ocean,Endangered,Yes,Europe,No,31.36,Medium,5
+ANM_491,Lion,70,531.01,110.94,Omnivore,Ocean,Vulnerable,Yes,Asia,Yes,27.78,Low,5
+ANM_492,Panda,59,4242.91,356.8,Carnivore,Ocean,Endangered,No,Antarctica,Yes,81.45,High,2
+ANM_493,Deer,62,4055.98,239.75,Omnivore,Forest,Vulnerable,No,Europe,No,99.63,High,4
+ANM_494,Horse,74,2832.04,168.62,Herbivore,Grassland,Extinct,No,Africa,Yes,43.45,Low,2
+ANM_495,Horse,57,4745.4,314.79,Herbivore,Grassland,Endangered,Yes,North America,Yes,95.04,Low,4
+ANM_496,Kangaroo,47,4438.34,273.81,Herbivore,Forest,Critically Endangered,No,South America,Yes,49.52,Medium,4
+ANM_497,Kangaroo,18,101.78,227.67,Carnivore,Forest,Vulnerable,Yes,South America,No,81.58,High,1
+ANM_498,Panda,58,819.63,341.25,Carnivore,Urban,Critically Endangered,No,Asia,No,76.44,Low,1
+ANM_499,Tiger,7,939.66,130.9,Herbivore,Desert,Critically Endangered,Yes,Asia,No,76.69,Low,1
+ANM_500,Elephant,28,4947.56,190.77,Omnivore,Wetland,Endangered,Yes,Africa,No,8.75,Medium,1
+ANM_501,Tiger,12,704.93,33.79,Herbivore,Desert,Least Concern,Yes,North America,No,82.68,Medium,1
+ANM_502,Giraffe,61,1027.38,106.98,Herbivore,Wetland,Endangered,No,Antarctica,Yes,38.4,Medium,3
+ANM_503,Kangaroo,19,4577.46,331.63,Herbivore,Grassland,Critically Endangered,Yes,North America,No,40.99,Low,4
+ANM_504,Kangaroo,63,4447.07,45.63,Herbivore,Forest,Least Concern,No,South America,No,10.96,High,1
+ANM_505,Dog,48,4488.04,54.31,Carnivore,Wetland,Extinct,No,North America,No,77.54,High,4
+ANM_506,Lion,11,4584.15,246.78,Carnivore,Wetland,Critically Endangered,No,South America,No,14.72,Medium,5
+ANM_507,Cat,67,3370.47,149.09,Omnivore,Grassland,Critically Endangered,Yes,Asia,No,67.63,Medium,1
+ANM_508,Lion,8,3337.63,122.15,Carnivore,Ocean,Least Concern,No,Antarctica,No,39.99,Low,4
+ANM_509,Tiger,31,4647.34,67.64,Omnivore,Wetland,Vulnerable,No,Africa,No,11.72,Medium,4
+ANM_510,Lion,9,772.26,251.57,Carnivore,Ocean,Critically Endangered,Yes,North America,No,73.21,Medium,4
+ANM_511,Elephant,76,244.17,63.01,Omnivore,Forest,Extinct,No,South America,Yes,72.85,Medium,1
+ANM_512,Horse,34,2585.07,281.89,Herbivore,Grassland,Least Concern,Yes,Antarctica,Yes,75.61,High,2
+ANM_513,Dog,76,970.03,105.72,Carnivore,Grassland,Extinct,Yes,Australia,No,40.63,High,1
+ANM_514,Kangaroo,42,3643.06,358.77,Omnivore,Ocean,Vulnerable,Yes,Asia,Yes,74.8,Medium,5
+ANM_515,Elephant,74,975.24,228.2,Carnivore,Desert,Endangered,Yes,North America,Yes,12.92,Medium,1
+ANM_516,Lion,35,4965.92,323.15,Omnivore,Grassland,Critically Endangered,No,Australia,Yes,84.21,High,3
+ANM_517,Lion,55,753.33,186.95,Carnivore,Forest,Vulnerable,No,North America,Yes,5.51,Medium,5
+ANM_518,Giraffe,36,2361.64,305.95,Omnivore,Forest,Least Concern,No,North America,Yes,17.67,Low,4
+ANM_519,Lion,26,808.63,366.56,Herbivore,Ocean,Extinct,No,North America,Yes,45.99,High,5
+ANM_520,Deer,58,996.65,209.24,Herbivore,Grassland,Critically Endangered,Yes,South America,No,63.02,High,4
+ANM_521,Deer,22,3208.32,214.73,Omnivore,Wetland,Vulnerable,No,Europe,Yes,30.54,High,5
+ANM_522,Elephant,47,2489.82,374.27,Carnivore,Wetland,Endangered,No,Antarctica,No,18.61,Low,3
+ANM_523,Deer,31,179.57,209.3,Carnivore,Ocean,Extinct,No,Australia,Yes,60.31,High,3
+ANM_524,Tiger,64,2316.97,113.41,Omnivore,Wetland,Least Concern,No,Antarctica,No,55.8,Low,2
+ANM_525,Horse,27,53.54,387.93,Carnivore,Desert,Critically Endangered,No,Asia,No,40.6,High,4
+ANM_526,Cat,73,4628.41,243.13,Carnivore,Urban,Endangered,No,Asia,Yes,18.51,High,2
+ANM_527,Tiger,11,3543.03,53.42,Herbivore,Urban,Vulnerable,No,Africa,No,44.16,High,4
+ANM_528,Deer,45,3333.11,383.83,Herbivore,Grassland,Vulnerable,Yes,Africa,No,90.4,Low,2
+ANM_529,Panda,37,1014.42,355.99,Carnivore,Ocean,Critically Endangered,No,Africa,No,15.18,High,3
+ANM_530,Kangaroo,18,2032.02,377.08,Herbivore,Grassland,Critically Endangered,No,Australia,Yes,14.82,Low,5
+ANM_531,Lion,11,390.11,166.3,Omnivore,Desert,Extinct,Yes,Europe,Yes,14.14,High,5
+ANM_532,Giraffe,49,1339.79,139.49,Omnivore,Urban,Extinct,Yes,North America,No,95.3,Medium,3
+ANM_533,Deer,57,884.12,338.38,Carnivore,Wetland,Endangered,No,Africa,Yes,27.84,Low,1
+ANM_534,Panda,74,3668.59,81.9,Omnivore,Desert,Vulnerable,Yes,South America,No,13.98,Medium,4
+ANM_535,Dog,72,4351.47,182.01,Herbivore,Ocean,Critically Endangered,No,South America,No,9.49,Medium,5
+ANM_536,Giraffe,22,4321.58,241.79,Omnivore,Urban,Least Concern,No,Africa,No,58.49,High,2
+ANM_537,Panda,31,2356.08,184.02,Carnivore,Desert,Least Concern,No,Antarctica,No,38.9,High,5
+ANM_538,Lion,74,3668.48,136.43,Herbivore,Ocean,Extinct,Yes,South America,Yes,27.93,Medium,4
+ANM_539,Cat,34,4738.23,307.86,Herbivore,Forest,Extinct,No,Antarctica,Yes,12.47,High,4
+ANM_540,Cat,70,2109.63,158.85,Carnivore,Forest,Extinct,Yes,Australia,No,49.26,Medium,2
+ANM_541,Giraffe,78,192.78,349.44,Herbivore,Grassland,Critically Endangered,Yes,Asia,Yes,38.81,Low,2
+ANM_542,Kangaroo,32,1601.15,45.64,Omnivore,Urban,Vulnerable,No,Europe,No,71.58,High,4
+ANM_543,Elephant,72,2651.98,363.39,Carnivore,Forest,Critically Endangered,No,Europe,No,39.97,Low,1
+ANM_544,Dog,47,4338.69,39.41,Omnivore,Desert,Endangered,Yes,Africa,No,33.5,Medium,1
+ANM_545,Cat,52,2407.66,24.2,Omnivore,Wetland,Least Concern,Yes,Africa,No,26.15,High,1
+ANM_546,Horse,57,900.83,91.2,Omnivore,Ocean,Vulnerable,Yes,Asia,Yes,26.38,Medium,3
+ANM_547,Lion,11,3106.23,114.48,Omnivore,Forest,Least Concern,Yes,Europe,Yes,65.54,Medium,5
+ANM_548,Cat,35,3762.17,116.56,Herbivore,Urban,Endangered,No,South America,No,60.98,High,3
+ANM_549,Horse,56,3792.74,174.35,Herbivore,Desert,Least Concern,No,Europe,No,96.8,High,3
+ANM_550,Elephant,49,1427.54,297.37,Carnivore,Forest,Endangered,No,North America,No,48.94,Low,3
+ANM_551,Elephant,58,3035.94,92.03,Herbivore,Forest,Vulnerable,Yes,Australia,Yes,19.75,High,5
+ANM_552,Cat,58,3881.82,116.66,Herbivore,Desert,Extinct,Yes,Antarctica,No,20.97,High,5
+ANM_553,Cat,74,2298.79,252.66,Omnivore,Ocean,Critically Endangered,No,Australia,No,8.39,Low,2
+ANM_554,Deer,38,2448.26,236.89,Carnivore,Desert,Extinct,Yes,Asia,No,22.19,Medium,4
+ANM_555,Panda,53,4494.65,329.1,Carnivore,Desert,Critically Endangered,No,Australia,No,58.47,Low,1
+ANM_556,Elephant,62,4096.17,179.21,Omnivore,Wetland,Least Concern,No,Antarctica,Yes,24.63,Low,5
+ANM_557,Tiger,11,245.04,240.48,Carnivore,Desert,Vulnerable,Yes,Europe,No,91.94,Low,2
+ANM_558,Cat,38,3596.05,48.74,Omnivore,Wetland,Endangered,Yes,Asia,No,85.61,High,3
+ANM_559,Deer,65,2964.8,307.66,Herbivore,Ocean,Least Concern,No,Antarctica,No,8.25,Medium,4
+ANM_560,Giraffe,66,4391.76,97.48,Carnivore,Grassland,Least Concern,Yes,Africa,No,83.21,Medium,1
+ANM_561,Panda,9,2059.05,197.24,Carnivore,Ocean,Critically Endangered,No,Antarctica,No,22.3,Medium,5
+ANM_562,Deer,44,1861.39,238.05,Omnivore,Urban,Least Concern,No,Africa,Yes,17.12,Low,1
+ANM_563,Kangaroo,31,755.84,199.24,Omnivore,Desert,Endangered,No,North America,No,50.84,Low,2
+ANM_564,Tiger,49,2055.41,210.62,Herbivore,Desert,Vulnerable,Yes,Antarctica,No,29.61,High,1
+ANM_565,Deer,59,4258.6,273.73,Herbivore,Wetland,Endangered,Yes,Antarctica,Yes,93.76,Low,3
+ANM_566,Lion,74,2029.87,68.41,Carnivore,Desert,Critically Endangered,No,Australia,No,92.36,Low,4
+ANM_567,Dog,65,3134.76,199.42,Herbivore,Wetland,Endangered,Yes,Asia,No,50.4,Medium,5
+ANM_568,Cat,39,4.84,137.66,Carnivore,Forest,Endangered,No,Australia,No,26.68,High,3
+ANM_569,Cat,9,3803.82,195.59,Omnivore,Wetland,Vulnerable,Yes,Asia,Yes,81.68,High,3
+ANM_570,Cat,32,99.01,358.79,Carnivore,Grassland,Vulnerable,Yes,Europe,Yes,10.96,High,4
+ANM_571,Deer,64,2656.72,242.19,Carnivore,Urban,Least Concern,No,Europe,Yes,60.84,Medium,5
+ANM_572,Cat,24,3464.1,184.23,Omnivore,Desert,Vulnerable,Yes,North America,Yes,10.87,High,2
+ANM_573,Kangaroo,9,570.93,358.28,Carnivore,Urban,Vulnerable,No,South America,Yes,10.9,High,3
+ANM_574,Kangaroo,19,3300.06,56.54,Herbivore,Grassland,Extinct,Yes,Europe,Yes,82.75,Medium,2
+ANM_575,Kangaroo,29,2117.29,241.88,Omnivore,Grassland,Endangered,No,South America,Yes,33.48,Low,4
+ANM_576,Panda,33,391.62,36.72,Omnivore,Forest,Extinct,Yes,Australia,No,41.52,Medium,3
+ANM_577,Panda,16,946.88,320.99,Herbivore,Grassland,Extinct,No,North America,No,99.22,High,5
+ANM_578,Dog,51,1285.43,66.71,Carnivore,Desert,Least Concern,No,North America,No,87.2,Medium,5
+ANM_579,Panda,63,1332.96,276.96,Herbivore,Wetland,Least Concern,Yes,Asia,Yes,11.46,Low,2
+ANM_580,Cat,65,3610.63,101.36,Omnivore,Wetland,Extinct,Yes,North America,No,73.04,Medium,5
+ANM_581,Deer,28,836.21,45.11,Carnivore,Urban,Critically Endangered,No,North America,Yes,78.12,Medium,5
+ANM_582,Elephant,50,260.31,173.5,Carnivore,Desert,Extinct,Yes,North America,Yes,72.94,Medium,3
+ANM_583,Deer,37,4702.68,187.4,Omnivore,Forest,Endangered,Yes,South America,Yes,7.35,High,5
+ANM_584,Kangaroo,41,501.37,365.22,Carnivore,Wetland,Critically Endangered,Yes,Australia,No,44.65,High,3
+ANM_585,Cat,32,2688.27,249.89,Omnivore,Ocean,Least Concern,Yes,Europe,Yes,35.25,High,1
+ANM_586,Dog,10,736.67,353.13,Herbivore,Forest,Least Concern,No,Antarctica,Yes,81.84,Medium,1
+ANM_587,Cat,24,4410.27,151.01,Carnivore,Grassland,Least Concern,Yes,North America,Yes,27.49,High,1
+ANM_588,Tiger,37,586.77,294.51,Omnivore,Forest,Endangered,Yes,Africa,Yes,66.33,Medium,3
+ANM_589,Horse,5,3195.72,42.89,Omnivore,Forest,Endangered,No,Antarctica,Yes,49.63,High,3
+ANM_590,Tiger,71,2942.96,28.24,Carnivore,Desert,Vulnerable,Yes,Europe,Yes,60.94,High,1
+ANM_591,Cat,33,4923.89,201.31,Omnivore,Ocean,Critically Endangered,Yes,Africa,Yes,63.19,Low,2
+ANM_592,Deer,58,3359.75,324.09,Omnivore,Urban,Least Concern,Yes,Europe,Yes,7.33,High,4
+ANM_593,Tiger,9,3904.42,212.31,Herbivore,Desert,Least Concern,No,Europe,No,59.5,Medium,4
+ANM_594,Elephant,10,2792.78,40.17,Carnivore,Ocean,Vulnerable,Yes,Antarctica,Yes,92.35,Medium,3
+ANM_595,Cat,46,4649.25,378.45,Herbivore,Grassland,Least Concern,No,Asia,No,14.22,Medium,1
+ANM_596,Dog,53,101.53,332.87,Herbivore,Grassland,Least Concern,No,Australia,Yes,17.27,Medium,1
+ANM_597,Dog,19,174.86,209.31,Herbivore,Forest,Least Concern,Yes,South America,No,9.76,High,3
+ANM_598,Elephant,9,4596.41,204.34,Carnivore,Forest,Extinct,Yes,Europe,No,98.7,Medium,1
+ANM_599,Lion,76,2269.33,265.56,Carnivore,Wetland,Vulnerable,No,Asia,No,75.71,Low,3
+ANM_600,Elephant,64,20.93,48.05,Herbivore,Grassland,Least Concern,Yes,Asia,Yes,74.38,Low,5
+ANM_601,Cat,15,134.33,307.05,Omnivore,Ocean,Least Concern,No,Europe,No,43.36,Medium,1
+ANM_602,Deer,69,237.11,331.86,Carnivore,Desert,Vulnerable,No,Australia,Yes,73.92,Medium,5
+ANM_603,Giraffe,24,4773.39,389.56,Herbivore,Urban,Endangered,Yes,Europe,Yes,7.14,High,3
+ANM_604,Horse,41,2694.58,379.77,Carnivore,Urban,Endangered,No,Europe,Yes,71.25,Low,3
+ANM_605,Giraffe,51,2563.55,281.31,Omnivore,Ocean,Least Concern,Yes,Europe,No,89.63,Medium,2
+ANM_606,Lion,34,2599.33,197.65,Omnivore,Wetland,Extinct,Yes,Asia,Yes,77.7,Medium,3
+ANM_607,Elephant,51,213.37,63.67,Carnivore,Forest,Least Concern,No,Asia,No,41.02,Low,5
+ANM_608,Panda,77,2940.23,105.57,Herbivore,Desert,Extinct,No,North America,Yes,83.76,Medium,1
+ANM_609,Panda,37,778.89,84.32,Omnivore,Forest,Extinct,No,Africa,No,96.74,Medium,3
+ANM_610,Horse,56,1921.41,256.84,Omnivore,Ocean,Least Concern,Yes,Australia,Yes,16.35,Low,4
+ANM_611,Horse,62,1404.4,341.16,Herbivore,Desert,Endangered,Yes,Australia,Yes,48.38,Low,5
+ANM_612,Kangaroo,68,1976.22,31.11,Carnivore,Urban,Least Concern,Yes,Europe,Yes,66.24,High,3
+ANM_613,Panda,22,1932.12,303.4,Omnivore,Forest,Least Concern,No,Antarctica,No,82.2,Low,4
+ANM_614,Elephant,62,4503.59,335.46,Herbivore,Desert,Critically Endangered,Yes,South America,No,94.87,Medium,3
+ANM_615,Horse,18,3774.42,79.51,Carnivore,Desert,Least Concern,Yes,North America,Yes,78.25,Low,1
+ANM_616,Panda,49,1099.46,183.46,Carnivore,Desert,Extinct,Yes,Africa,No,5.78,Low,5
+ANM_617,Giraffe,34,71.76,154.58,Carnivore,Forest,Extinct,No,Australia,Yes,92.35,Low,3
+ANM_618,Panda,61,2797.29,129.6,Carnivore,Desert,Least Concern,Yes,South America,Yes,7.32,High,4
+ANM_619,Tiger,71,1254.91,181.56,Carnivore,Forest,Extinct,No,North America,Yes,71.56,High,1
+ANM_620,Elephant,66,2028.67,323.4,Herbivore,Wetland,Vulnerable,Yes,Asia,No,46.85,High,5
+ANM_621,Horse,64,2611.7,155.09,Carnivore,Urban,Endangered,No,Australia,Yes,69.88,High,2
+ANM_622,Tiger,58,227.87,357.38,Herbivore,Wetland,Endangered,No,Asia,Yes,99.61,High,3
+ANM_623,Tiger,45,16.49,100.41,Carnivore,Grassland,Least Concern,No,South America,Yes,52.84,High,1
+ANM_624,Kangaroo,23,1242.67,373.21,Herbivore,Forest,Extinct,No,Antarctica,No,12.76,High,3
+ANM_625,Panda,8,326.8,243.22,Omnivore,Urban,Critically Endangered,No,Australia,Yes,81.2,Low,5
+ANM_626,Giraffe,47,2737.94,371.02,Carnivore,Ocean,Endangered,Yes,Europe,No,99.33,Low,3
+ANM_627,Kangaroo,13,160.57,197.37,Herbivore,Grassland,Extinct,No,Antarctica,Yes,99.37,Medium,1
+ANM_628,Panda,71,1983.54,295.77,Herbivore,Ocean,Critically Endangered,No,Australia,No,87.23,Low,4
+ANM_629,Dog,24,3925.06,273.01,Omnivore,Urban,Critically Endangered,No,Europe,No,81.58,Low,4
+ANM_630,Deer,15,1208.46,326.1,Carnivore,Desert,Extinct,No,South America,No,36.47,High,4
+ANM_631,Cat,48,4699.5,190.79,Omnivore,Grassland,Extinct,Yes,Africa,No,17.83,High,5
+ANM_632,Lion,39,1633.2,238.56,Herbivore,Ocean,Endangered,Yes,North America,Yes,30.59,High,4
+ANM_633,Horse,37,1888.77,356.44,Herbivore,Grassland,Least Concern,No,Australia,Yes,14.05,Medium,4
+ANM_634,Giraffe,74,1589.91,27.47,Herbivore,Grassland,Critically Endangered,No,Europe,No,14.04,Medium,3
+ANM_635,Dog,74,4618.62,398.39,Omnivore,Grassland,Extinct,No,Europe,No,36.39,Low,1
+ANM_636,Elephant,77,1798.2,87.59,Omnivore,Grassland,Critically Endangered,No,North America,No,73.07,Low,4
+ANM_637,Giraffe,54,399.2,248.41,Herbivore,Wetland,Critically Endangered,Yes,Antarctica,No,11.71,Medium,1
+ANM_638,Cat,67,4908.65,343.42,Omnivore,Forest,Vulnerable,Yes,Asia,Yes,42.43,Medium,3
+ANM_639,Elephant,14,4081.2,352.81,Omnivore,Desert,Extinct,No,North America,No,85.63,Low,5
+ANM_640,Cat,72,2544.06,205.44,Herbivore,Urban,Extinct,Yes,Australia,Yes,57.85,Low,1
+ANM_641,Tiger,12,1555.4,238.04,Herbivore,Ocean,Endangered,No,Australia,No,6.13,Medium,5
+ANM_642,Dog,69,3760.49,215.84,Carnivore,Wetland,Extinct,No,Australia,Yes,40.44,Low,5
+ANM_643,Tiger,17,1387.84,194.71,Carnivore,Urban,Extinct,Yes,Europe,Yes,49.39,High,5
+ANM_644,Tiger,29,3138.86,160.88,Herbivore,Desert,Least Concern,Yes,North America,No,9.93,Medium,2
+ANM_645,Dog,59,4389.65,129.1,Herbivore,Ocean,Endangered,Yes,North America,Yes,62.79,Medium,3
+ANM_646,Deer,73,3027.69,305.99,Omnivore,Ocean,Endangered,Yes,Africa,Yes,11.13,High,2
+ANM_647,Elephant,19,122.66,286.83,Carnivore,Urban,Vulnerable,No,Antarctica,No,16.21,Low,1
+ANM_648,Dog,56,4234.68,383.36,Carnivore,Grassland,Critically Endangered,No,Asia,Yes,58.69,Medium,4
+ANM_649,Panda,23,662.08,60.55,Carnivore,Grassland,Least Concern,Yes,South America,Yes,65.88,Low,4
+ANM_650,Tiger,48,859.13,194.48,Herbivore,Grassland,Extinct,Yes,Africa,Yes,6.62,Medium,3
+ANM_651,Dog,15,1089.64,45.35,Carnivore,Desert,Vulnerable,Yes,North America,Yes,70.18,Low,2
+ANM_652,Cat,13,1552.47,354.18,Omnivore,Grassland,Vulnerable,Yes,Europe,No,57.55,Medium,2
+ANM_653,Tiger,12,1316.58,356.06,Carnivore,Ocean,Least Concern,Yes,South America,Yes,32.43,Low,2
+ANM_654,Horse,15,4433.95,30.08,Omnivore,Urban,Extinct,Yes,Europe,Yes,48.47,High,3
+ANM_655,Kangaroo,22,3889.87,116.51,Omnivore,Grassland,Vulnerable,No,South America,No,95.05,High,1
+ANM_656,Kangaroo,40,3051.59,109.4,Herbivore,Wetland,Least Concern,No,Antarctica,No,51.93,Medium,3
+ANM_657,Lion,9,220.38,61.27,Carnivore,Urban,Vulnerable,Yes,Africa,No,12.96,High,2
+ANM_658,Deer,7,3465.38,21.81,Omnivore,Grassland,Least Concern,No,North America,No,5.18,Medium,1
+ANM_659,Elephant,16,3066.44,66.49,Carnivore,Ocean,Critically Endangered,Yes,North America,No,15.96,Low,1
+ANM_660,Dog,40,3327.86,229.47,Carnivore,Urban,Endangered,No,South America,Yes,60.77,Medium,5
+ANM_661,Giraffe,42,2386.81,201.78,Omnivore,Wetland,Vulnerable,Yes,Africa,No,49.17,High,5
+ANM_662,Elephant,42,2029.56,79.42,Omnivore,Desert,Extinct,No,Africa,Yes,74.13,High,3
+ANM_663,Cat,7,4598.56,163.08,Carnivore,Desert,Critically Endangered,No,North America,Yes,87.15,High,1
+ANM_664,Giraffe,70,611.69,189.21,Carnivore,Forest,Extinct,No,Asia,No,42.4,Medium,2
+ANM_665,Giraffe,63,870.43,82.02,Herbivore,Urban,Critically Endangered,Yes,South America,No,81.97,High,5
+ANM_666,Lion,71,793.38,398.76,Herbivore,Urban,Extinct,Yes,Africa,No,44.66,High,5
+ANM_667,Horse,9,455.23,239.75,Omnivore,Grassland,Extinct,No,Asia,No,63.67,Low,1
+ANM_668,Tiger,72,4369.81,256.92,Omnivore,Ocean,Vulnerable,Yes,South America,Yes,35.14,High,2
+ANM_669,Elephant,22,2656.11,36.04,Herbivore,Urban,Critically Endangered,Yes,South America,No,49.43,High,2
+ANM_670,Giraffe,37,3984.9,324.38,Carnivore,Wetland,Endangered,No,South America,Yes,9.66,Low,4
+ANM_671,Deer,52,525.64,188.96,Omnivore,Forest,Vulnerable,Yes,North America,No,91.86,Medium,5
+ANM_672,Horse,79,2347.5,311.85,Carnivore,Forest,Vulnerable,No,Antarctica,No,35.78,High,2
+ANM_673,Cat,74,3566.42,317.46,Herbivore,Desert,Extinct,Yes,Europe,No,16.91,Medium,5
+ANM_674,Panda,76,2680.44,28.46,Carnivore,Wetland,Critically Endangered,No,South America,Yes,67.64,High,5
+ANM_675,Dog,66,3388.51,377.35,Omnivore,Wetland,Least Concern,No,Africa,No,80.52,High,1
+ANM_676,Deer,26,2874.27,40.18,Carnivore,Urban,Critically Endangered,No,Africa,No,65.47,Medium,3
+ANM_677,Dog,46,3073.34,345.06,Herbivore,Forest,Endangered,No,Asia,No,75.03,Low,3
+ANM_678,Elephant,56,3452.49,81.31,Herbivore,Desert,Extinct,Yes,Australia,Yes,96.48,High,4
+ANM_679,Cat,7,1746.74,391.23,Omnivore,Grassland,Least Concern,No,North America,No,57.51,Medium,1
+ANM_680,Cat,9,2928.16,220.65,Herbivore,Forest,Least Concern,No,North America,Yes,25.01,High,2
+ANM_681,Elephant,12,2772.88,393.06,Herbivore,Ocean,Endangered,Yes,South America,No,30.58,Medium,2
+ANM_682,Deer,69,2353.28,290.58,Omnivore,Desert,Least Concern,Yes,Europe,Yes,38.67,Medium,3
+ANM_683,Lion,5,2402.19,208.32,Herbivore,Forest,Endangered,No,Europe,No,94.99,High,3
+ANM_684,Lion,11,3965.53,150.45,Herbivore,Grassland,Endangered,Yes,Asia,Yes,92.49,High,1
+ANM_685,Giraffe,75,3251.14,50.63,Carnivore,Urban,Endangered,Yes,Africa,Yes,22.05,High,5
+ANM_686,Giraffe,10,3678.13,317.37,Omnivore,Ocean,Least Concern,No,Antarctica,Yes,31.97,High,4
+ANM_687,Deer,24,4198.06,133.73,Omnivore,Wetland,Vulnerable,Yes,Australia,Yes,98.35,Medium,2
+ANM_688,Cat,43,4497.59,284.61,Carnivore,Forest,Endangered,Yes,South America,Yes,60.06,High,2
+ANM_689,Tiger,10,1358.54,93.22,Herbivore,Grassland,Least Concern,No,Australia,No,54.9,High,1
+ANM_690,Elephant,17,4448.78,196.64,Carnivore,Ocean,Vulnerable,No,Asia,Yes,18.27,Medium,4
+ANM_691,Giraffe,24,3310.96,344.93,Carnivore,Desert,Endangered,Yes,Australia,No,84.52,High,4
+ANM_692,Tiger,25,4716.0,388.9,Herbivore,Forest,Least Concern,Yes,Europe,Yes,38.61,High,5
+ANM_693,Cat,79,2419.98,350.77,Herbivore,Ocean,Extinct,Yes,South America,No,62.34,Medium,2
+ANM_694,Dog,20,881.09,296.18,Carnivore,Grassland,Endangered,No,North America,Yes,97.67,Low,3
+ANM_695,Giraffe,23,4183.13,219.22,Omnivore,Grassland,Extinct,No,Asia,No,76.35,Medium,3
+ANM_696,Kangaroo,57,3594.45,279.01,Omnivore,Desert,Critically Endangered,Yes,Australia,Yes,10.77,Medium,3
+ANM_697,Panda,8,3356.2,83.27,Herbivore,Urban,Vulnerable,No,North America,No,97.29,Medium,1
+ANM_698,Giraffe,58,716.69,343.57,Herbivore,Urban,Endangered,No,Europe,No,66.43,High,5
+ANM_699,Deer,64,3665.62,377.42,Omnivore,Grassland,Extinct,No,Australia,Yes,81.46,High,4
+ANM_700,Panda,14,2887.77,206.37,Omnivore,Wetland,Least Concern,Yes,Australia,No,16.64,Low,4
+ANM_701,Deer,74,454.79,165.79,Carnivore,Forest,Extinct,No,Africa,No,56.92,Low,1
+ANM_702,Panda,75,3596.8,126.38,Omnivore,Wetland,Extinct,No,Europe,Yes,72.56,Low,4
+ANM_703,Elephant,45,589.72,305.34,Carnivore,Wetland,Least Concern,No,South America,No,79.42,Medium,3
+ANM_704,Giraffe,35,4036.14,136.78,Carnivore,Ocean,Vulnerable,No,North America,No,40.37,Medium,2
+ANM_705,Cat,69,2006.94,69.69,Omnivore,Ocean,Least Concern,No,Africa,No,87.5,High,4
+ANM_706,Panda,16,495.28,176.59,Omnivore,Wetland,Endangered,Yes,Australia,No,92.79,Low,5
+ANM_707,Horse,62,545.53,316.83,Omnivore,Forest,Critically Endangered,Yes,Europe,No,56.54,High,1
+ANM_708,Giraffe,74,1111.5,38.18,Carnivore,Wetland,Endangered,Yes,Antarctica,No,93.77,Low,1
+ANM_709,Lion,58,4412.89,351.7,Omnivore,Forest,Extinct,No,North America,Yes,5.2,High,4
+ANM_710,Cat,73,288.1,343.11,Omnivore,Desert,Least Concern,Yes,North America,No,60.93,Low,3
+ANM_711,Dog,18,2544.7,69.36,Herbivore,Wetland,Extinct,No,Asia,Yes,12.99,Medium,2
+ANM_712,Deer,42,2734.39,374.05,Carnivore,Desert,Critically Endangered,No,Australia,Yes,46.2,Low,4
+ANM_713,Tiger,60,1180.65,211.72,Herbivore,Urban,Least Concern,Yes,Asia,Yes,75.18,Low,1
+ANM_714,Elephant,37,3139.62,336.38,Omnivore,Forest,Extinct,No,North America,Yes,95.09,Low,1
+ANM_715,Elephant,15,876.65,37.24,Carnivore,Forest,Vulnerable,No,Africa,No,89.28,Low,5
+ANM_716,Giraffe,22,4242.36,341.25,Herbivore,Urban,Critically Endangered,Yes,Australia,Yes,98.64,High,2
+ANM_717,Horse,63,973.03,91.2,Carnivore,Grassland,Critically Endangered,Yes,South America,Yes,34.29,High,1
+ANM_718,Tiger,41,50.66,101.07,Herbivore,Grassland,Extinct,No,North America,No,84.14,Medium,5
+ANM_719,Cat,50,757.02,28.4,Carnivore,Desert,Least Concern,No,Europe,No,67.46,Low,2
+ANM_720,Dog,54,3389.51,301.17,Carnivore,Forest,Least Concern,No,North America,No,51.96,Low,4
+ANM_721,Elephant,60,600.14,205.25,Herbivore,Grassland,Least Concern,Yes,Africa,Yes,9.34,Medium,4
+ANM_722,Giraffe,37,4554.68,138.22,Herbivore,Desert,Endangered,No,South America,Yes,94.47,Medium,4
+ANM_723,Deer,76,4526.29,347.63,Omnivore,Desert,Critically Endangered,No,Africa,Yes,94.86,Medium,3
+ANM_724,Elephant,31,4596.82,208.29,Carnivore,Forest,Vulnerable,Yes,Africa,No,95.6,Medium,2
+ANM_725,Tiger,76,649.88,306.49,Omnivore,Desert,Critically Endangered,Yes,Africa,Yes,62.89,High,3
+ANM_726,Lion,28,2668.99,89.15,Carnivore,Desert,Endangered,Yes,Africa,No,50.86,High,5
+ANM_727,Cat,68,2557.77,185.65,Herbivore,Forest,Least Concern,No,South America,Yes,84.99,Low,3
+ANM_728,Tiger,30,4328.67,89.74,Omnivore,Ocean,Endangered,No,Africa,No,83.09,High,3
+ANM_729,Cat,8,182.28,21.11,Carnivore,Wetland,Extinct,Yes,Antarctica,Yes,50.2,High,3
+ANM_730,Horse,62,260.22,227.87,Omnivore,Ocean,Critically Endangered,Yes,South America,Yes,79.26,Low,3
+ANM_731,Kangaroo,33,4520.16,184.33,Herbivore,Forest,Endangered,No,Australia,Yes,56.41,Low,2
+ANM_732,Horse,79,1283.19,205.68,Herbivore,Wetland,Extinct,Yes,Australia,No,70.37,Low,2
+ANM_733,Panda,42,3543.55,137.36,Herbivore,Wetland,Critically Endangered,Yes,North America,No,85.61,High,3
+ANM_734,Tiger,79,2501.19,199.64,Herbivore,Urban,Vulnerable,No,Antarctica,No,21.41,Low,1
+ANM_735,Tiger,13,2189.66,150.37,Carnivore,Forest,Extinct,No,Europe,No,63.83,High,1
+ANM_736,Tiger,53,4510.76,381.68,Carnivore,Desert,Vulnerable,Yes,Africa,Yes,56.96,High,4
+ANM_737,Horse,75,3246.25,178.37,Herbivore,Urban,Critically Endangered,No,Antarctica,No,73.35,Low,1
+ANM_738,Panda,28,4119.92,242.43,Carnivore,Urban,Endangered,Yes,Africa,No,45.69,Medium,3
+ANM_739,Dog,28,2639.82,82.12,Herbivore,Grassland,Extinct,Yes,Africa,Yes,21.76,Low,5
+ANM_740,Giraffe,22,3320.98,173.32,Herbivore,Ocean,Endangered,No,Australia,No,25.97,Medium,3
+ANM_741,Giraffe,8,2740.44,55.2,Omnivore,Ocean,Extinct,No,South America,Yes,24.16,Low,3
+ANM_742,Giraffe,78,2401.91,127.83,Carnivore,Desert,Critically Endangered,Yes,North America,No,69.38,Medium,1
+ANM_743,Giraffe,45,1533.59,113.89,Herbivore,Urban,Extinct,No,Asia,Yes,52.5,High,4
+ANM_744,Cat,58,4966.12,232.04,Herbivore,Desert,Endangered,No,North America,Yes,75.73,Medium,1
+ANM_745,Giraffe,50,1239.28,366.95,Omnivore,Grassland,Extinct,No,Europe,No,98.84,High,4
+ANM_746,Dog,41,1353.91,314.82,Carnivore,Urban,Endangered,No,Antarctica,No,18.5,Low,4
+ANM_747,Tiger,18,2430.9,356.06,Omnivore,Desert,Critically Endangered,Yes,Asia,Yes,14.8,Low,2
+ANM_748,Lion,78,2291.78,286.27,Herbivore,Desert,Endangered,No,Europe,Yes,46.47,Low,5
+ANM_749,Panda,25,4169.47,34.89,Omnivore,Ocean,Critically Endangered,Yes,Australia,Yes,51.7,Medium,5
+ANM_750,Kangaroo,69,1804.69,394.73,Omnivore,Wetland,Critically Endangered,No,Asia,No,66.3,High,1
+ANM_751,Kangaroo,25,2194.48,182.97,Omnivore,Forest,Extinct,No,South America,No,53.89,High,2
+ANM_752,Horse,6,1314.57,153.18,Carnivore,Desert,Extinct,No,Asia,Yes,43.25,Low,4
+ANM_753,Panda,65,751.04,368.53,Omnivore,Grassland,Least Concern,Yes,South America,Yes,66.08,Medium,1
+ANM_754,Kangaroo,10,3919.15,92.94,Carnivore,Wetland,Extinct,No,Africa,Yes,58.11,High,3
+ANM_755,Lion,64,4275.19,204.63,Herbivore,Forest,Vulnerable,No,North America,Yes,92.95,Low,3
+ANM_756,Elephant,74,4438.32,281.83,Carnivore,Wetland,Critically Endangered,Yes,North America,Yes,73.49,Medium,4
+ANM_757,Panda,68,365.99,72.62,Omnivore,Urban,Critically Endangered,Yes,South America,Yes,88.93,Low,4
+ANM_758,Panda,9,1758.39,165.55,Herbivore,Desert,Critically Endangered,Yes,Europe,No,92.36,High,5
+ANM_759,Lion,28,1906.74,261.04,Herbivore,Urban,Least Concern,No,South America,Yes,45.06,Medium,5
+ANM_760,Deer,21,1570.01,113.27,Herbivore,Desert,Vulnerable,Yes,Europe,Yes,8.95,Medium,4
+ANM_761,Elephant,41,1836.43,339.98,Herbivore,Forest,Vulnerable,Yes,North America,No,20.18,Low,4
+ANM_762,Elephant,29,2643.45,296.07,Omnivore,Desert,Critically Endangered,Yes,North America,No,28.28,Medium,2
+ANM_763,Lion,67,2337.99,307.19,Carnivore,Ocean,Vulnerable,No,South America,Yes,77.28,High,2
+ANM_764,Horse,79,4206.18,215.79,Omnivore,Desert,Least Concern,No,Africa,Yes,79.16,Medium,3
+ANM_765,Elephant,30,2705.48,140.71,Herbivore,Forest,Endangered,Yes,Australia,Yes,51.57,Medium,2
+ANM_766,Elephant,52,3708.46,40.86,Herbivore,Grassland,Extinct,Yes,Africa,No,94.35,High,4
+ANM_767,Panda,57,3989.88,246.13,Omnivore,Urban,Vulnerable,Yes,Africa,No,86.28,Low,2
+ANM_768,Dog,8,1426.27,362.12,Omnivore,Forest,Least Concern,No,South America,Yes,79.95,Low,4
+ANM_769,Panda,34,3322.51,399.57,Omnivore,Urban,Endangered,No,South America,No,69.54,Medium,2
+ANM_770,Horse,76,3838.05,132.98,Herbivore,Ocean,Extinct,Yes,Europe,No,15.89,Medium,2
+ANM_771,Elephant,75,3627.78,217.58,Omnivore,Wetland,Least Concern,No,Europe,Yes,69.4,High,4
+ANM_772,Tiger,64,1890.42,300.52,Omnivore,Forest,Extinct,No,Africa,Yes,44.34,Low,2
+ANM_773,Panda,42,607.58,296.54,Omnivore,Forest,Critically Endangered,Yes,South America,Yes,33.29,Medium,1
+ANM_774,Dog,39,3606.45,260.94,Herbivore,Urban,Critically Endangered,No,South America,No,71.56,High,2
+ANM_775,Cat,37,1426.71,293.31,Herbivore,Wetland,Endangered,Yes,Africa,No,49.29,Medium,3
+ANM_776,Elephant,9,1127.0,394.07,Carnivore,Grassland,Extinct,No,South America,Yes,45.07,Medium,2
+ANM_777,Lion,60,4333.72,361.23,Omnivore,Ocean,Extinct,No,Australia,Yes,95.65,Low,2
+ANM_778,Deer,52,321.92,345.19,Omnivore,Ocean,Vulnerable,Yes,Australia,Yes,53.54,High,3
+ANM_779,Deer,46,4486.17,168.61,Herbivore,Forest,Extinct,Yes,Australia,Yes,36.12,Medium,3
+ANM_780,Elephant,64,1485.83,228.57,Carnivore,Forest,Vulnerable,No,North America,No,70.18,High,2
+ANM_781,Elephant,46,1107.85,345.23,Herbivore,Forest,Endangered,No,South America,Yes,31.0,Medium,2
+ANM_782,Deer,8,2526.88,364.38,Carnivore,Urban,Vulnerable,No,North America,No,81.72,Medium,3
+ANM_783,Horse,36,1048.24,221.17,Herbivore,Desert,Endangered,No,North America,Yes,94.71,Medium,3
+ANM_784,Cat,23,1275.89,340.56,Carnivore,Grassland,Endangered,No,North America,No,30.24,Low,1
+ANM_785,Cat,9,1836.75,147.28,Omnivore,Ocean,Vulnerable,No,North America,Yes,81.56,Medium,2
+ANM_786,Elephant,69,3680.54,243.1,Omnivore,Desert,Vulnerable,Yes,Asia,Yes,61.89,High,5
+ANM_787,Kangaroo,76,1037.84,71.46,Herbivore,Grassland,Endangered,Yes,Europe,No,13.72,Medium,1
+ANM_788,Panda,73,4577.22,46.45,Herbivore,Grassland,Endangered,Yes,North America,Yes,85.29,Medium,5
+ANM_789,Deer,10,1311.08,24.99,Omnivore,Wetland,Extinct,No,Antarctica,Yes,85.22,High,5
+ANM_790,Panda,51,2535.01,390.05,Carnivore,Urban,Critically Endangered,Yes,Asia,No,85.41,Low,1
+ANM_791,Deer,77,870.27,283.12,Carnivore,Grassland,Extinct,Yes,Asia,Yes,79.62,Medium,2
+ANM_792,Elephant,50,4930.49,192.65,Omnivore,Forest,Extinct,No,South America,Yes,74.7,High,2
+ANM_793,Dog,61,2102.11,288.12,Carnivore,Urban,Extinct,Yes,Africa,No,61.76,High,4
+ANM_794,Panda,43,2070.91,184.85,Omnivore,Ocean,Critically Endangered,No,Europe,No,67.07,High,1
+ANM_795,Horse,31,780.59,302.54,Omnivore,Grassland,Vulnerable,No,North America,No,19.71,Medium,5
+ANM_796,Lion,12,626.52,147.41,Carnivore,Wetland,Least Concern,No,Antarctica,Yes,59.92,High,5
+ANM_797,Horse,14,4072.83,147.7,Herbivore,Desert,Least Concern,Yes,Africa,No,81.27,High,2
+ANM_798,Elephant,46,4478.57,390.71,Omnivore,Desert,Vulnerable,Yes,Antarctica,No,84.07,Low,2
+ANM_799,Deer,37,3625.44,46.78,Omnivore,Urban,Least Concern,Yes,Africa,Yes,16.33,Medium,4
+ANM_800,Tiger,15,600.27,32.21,Herbivore,Urban,Critically Endangered,Yes,South America,Yes,36.64,Medium,2
+ANM_801,Lion,16,1288.36,96.07,Omnivore,Urban,Endangered,Yes,Africa,Yes,44.6,Low,2
+ANM_802,Lion,70,2104.39,181.84,Omnivore,Desert,Extinct,No,South America,Yes,79.49,Low,1
+ANM_803,Dog,68,3930.23,22.62,Carnivore,Desert,Endangered,No,Australia,No,33.73,High,5
+ANM_804,Kangaroo,59,3688.51,386.52,Carnivore,Forest,Endangered,Yes,Australia,Yes,66.91,Low,5
+ANM_805,Kangaroo,29,1370.9,203.13,Omnivore,Desert,Least Concern,No,North America,No,46.59,Medium,2
+ANM_806,Deer,79,2995.59,197.62,Carnivore,Forest,Least Concern,Yes,North America,No,77.34,Medium,5
+ANM_807,Horse,29,3151.28,36.38,Omnivore,Urban,Critically Endangered,Yes,Asia,Yes,69.51,Medium,2
+ANM_808,Kangaroo,72,2083.67,393.88,Carnivore,Grassland,Least Concern,Yes,Europe,Yes,11.15,Low,2
+ANM_809,Panda,44,2397.02,145.21,Carnivore,Grassland,Endangered,Yes,Europe,No,87.54,High,4
+ANM_810,Panda,68,4912.87,158.67,Omnivore,Wetland,Endangered,Yes,Australia,No,88.47,High,5
+ANM_811,Deer,75,2858.56,339.85,Omnivore,Desert,Critically Endangered,Yes,Europe,Yes,95.48,Low,4
+ANM_812,Panda,36,2390.72,202.9,Carnivore,Desert,Least Concern,No,Europe,Yes,60.86,High,1
+ANM_813,Tiger,35,3824.39,64.68,Omnivore,Forest,Vulnerable,Yes,Australia,Yes,78.44,High,4
+ANM_814,Giraffe,51,1270.53,74.12,Herbivore,Urban,Least Concern,No,Antarctica,Yes,8.3,High,2
+ANM_815,Tiger,35,44.6,85.7,Carnivore,Ocean,Extinct,No,Asia,No,98.52,High,5
+ANM_816,Dog,28,4577.01,324.07,Herbivore,Forest,Vulnerable,Yes,Antarctica,No,7.64,Low,4
+ANM_817,Elephant,69,4561.93,273.74,Omnivore,Ocean,Vulnerable,No,Africa,Yes,93.02,Low,1
+ANM_818,Deer,38,4026.54,115.12,Herbivore,Grassland,Vulnerable,Yes,Antarctica,Yes,13.15,High,1
+ANM_819,Dog,46,748.76,373.88,Omnivore,Urban,Endangered,Yes,South America,Yes,60.08,High,5
+ANM_820,Panda,5,3247.52,60.53,Omnivore,Ocean,Critically Endangered,Yes,Europe,Yes,38.32,High,1
+ANM_821,Tiger,52,4911.22,270.18,Herbivore,Desert,Vulnerable,Yes,Asia,No,43.17,Medium,1
+ANM_822,Deer,23,4328.99,306.27,Herbivore,Ocean,Least Concern,No,South America,No,64.88,High,2
+ANM_823,Dog,26,2862.31,73.98,Carnivore,Ocean,Critically Endangered,Yes,North America,No,88.13,High,2
+ANM_824,Dog,73,363.05,250.69,Carnivore,Wetland,Least Concern,No,North America,No,38.15,High,2
+ANM_825,Lion,13,3786.94,49.05,Omnivore,Forest,Least Concern,Yes,Antarctica,No,96.11,High,1
+ANM_826,Horse,74,4888.21,165.03,Omnivore,Wetland,Vulnerable,No,Asia,Yes,85.58,High,2
+ANM_827,Dog,24,3062.22,241.65,Herbivore,Wetland,Extinct,No,Europe,Yes,21.97,Medium,1
+ANM_828,Lion,29,2934.61,30.43,Omnivore,Urban,Least Concern,No,Antarctica,Yes,9.06,Low,2
+ANM_829,Elephant,76,1258.57,335.06,Omnivore,Wetland,Endangered,No,Europe,No,69.09,Low,5
+ANM_830,Horse,21,4856.85,27.61,Herbivore,Grassland,Extinct,Yes,Asia,No,51.17,Low,3
+ANM_831,Horse,20,2039.17,216.3,Omnivore,Grassland,Vulnerable,No,South America,Yes,85.5,High,3
+ANM_832,Kangaroo,16,2015.94,145.51,Carnivore,Ocean,Endangered,No,South America,No,23.36,Low,4
+ANM_833,Deer,46,2167.94,325.85,Herbivore,Wetland,Least Concern,No,Europe,Yes,25.98,High,2
+ANM_834,Deer,73,2218.03,229.09,Omnivore,Forest,Vulnerable,No,North America,No,90.95,Low,1
+ANM_835,Panda,8,3837.95,326.32,Herbivore,Ocean,Extinct,No,Australia,Yes,60.43,Medium,4
+ANM_836,Tiger,39,1942.4,321.31,Omnivore,Ocean,Extinct,Yes,Africa,Yes,52.04,High,2
+ANM_837,Panda,27,4657.95,369.66,Carnivore,Forest,Endangered,No,Africa,Yes,75.53,Medium,1
+ANM_838,Panda,34,3498.04,85.05,Herbivore,Wetland,Critically Endangered,Yes,Asia,No,73.63,Low,1
+ANM_839,Elephant,77,2969.38,205.62,Carnivore,Forest,Extinct,Yes,South America,Yes,12.49,Medium,5
+ANM_840,Cat,26,532.26,90.65,Omnivore,Grassland,Critically Endangered,No,Africa,No,69.75,Low,1
+ANM_841,Giraffe,49,4414.14,305.63,Carnivore,Urban,Vulnerable,Yes,Antarctica,No,85.85,Medium,3
+ANM_842,Cat,12,4421.37,169.68,Omnivore,Urban,Extinct,No,North America,No,33.88,Medium,1
+ANM_843,Lion,73,2075.93,84.22,Omnivore,Grassland,Least Concern,No,Europe,Yes,47.18,High,2
+ANM_844,Elephant,26,2994.86,21.7,Herbivore,Wetland,Extinct,No,Asia,Yes,69.2,High,2
+ANM_845,Deer,16,572.67,43.53,Carnivore,Grassland,Extinct,Yes,Europe,No,60.12,Low,5
+ANM_846,Giraffe,34,4526.82,244.97,Omnivore,Grassland,Endangered,Yes,Australia,Yes,82.32,Low,3
+ANM_847,Dog,7,4675.89,250.93,Herbivore,Ocean,Endangered,Yes,North America,No,40.2,High,3
+ANM_848,Giraffe,34,831.74,197.19,Herbivore,Ocean,Extinct,No,Europe,No,66.65,Medium,3
+ANM_849,Giraffe,78,3208.28,151.02,Herbivore,Urban,Critically Endangered,No,Africa,Yes,44.46,Medium,2
+ANM_850,Horse,59,651.65,319.52,Carnivore,Forest,Least Concern,Yes,Europe,No,65.32,Medium,5
+ANM_851,Panda,65,257.83,300.17,Omnivore,Forest,Extinct,Yes,South America,Yes,7.15,Medium,1
+ANM_852,Lion,57,4847.65,48.31,Omnivore,Wetland,Least Concern,Yes,Europe,Yes,96.33,High,3
+ANM_853,Giraffe,48,4332.41,381.38,Herbivore,Ocean,Least Concern,No,Antarctica,No,7.63,Low,5
+ANM_854,Panda,37,4092.75,268.23,Herbivore,Forest,Least Concern,No,Africa,No,61.66,Medium,5
+ANM_855,Kangaroo,60,918.31,149.46,Carnivore,Desert,Endangered,Yes,Antarctica,Yes,10.84,Low,2
+ANM_856,Tiger,57,2110.94,362.18,Omnivore,Urban,Extinct,Yes,Europe,Yes,95.46,Medium,5
+ANM_857,Cat,76,2572.11,98.63,Omnivore,Desert,Critically Endangered,Yes,North America,No,74.06,High,3
+ANM_858,Panda,14,1951.28,330.85,Herbivore,Forest,Critically Endangered,No,North America,Yes,28.96,Medium,3
+ANM_859,Dog,55,4474.63,28.38,Carnivore,Forest,Critically Endangered,No,North America,No,27.75,High,2
+ANM_860,Tiger,39,574.43,282.02,Omnivore,Ocean,Vulnerable,No,Australia,No,87.45,Low,4
+ANM_861,Panda,45,3642.57,185.18,Omnivore,Urban,Extinct,No,Africa,Yes,26.88,High,2
+ANM_862,Dog,69,924.6,304.51,Herbivore,Ocean,Extinct,Yes,Asia,No,72.31,Low,4
+ANM_863,Kangaroo,68,177.15,380.07,Carnivore,Forest,Endangered,No,Africa,Yes,36.66,High,3
+ANM_864,Kangaroo,30,3267.4,280.97,Omnivore,Ocean,Critically Endangered,No,Europe,No,91.14,High,4
+ANM_865,Giraffe,59,483.33,91.59,Omnivore,Grassland,Least Concern,No,Antarctica,No,30.73,Medium,4
+ANM_866,Kangaroo,27,1537.7,129.27,Omnivore,Desert,Least Concern,No,Africa,Yes,83.29,High,1
+ANM_867,Elephant,10,2700.49,97.64,Omnivore,Urban,Endangered,Yes,Europe,Yes,41.46,High,3
+ANM_868,Panda,33,2059.32,91.56,Carnivore,Ocean,Vulnerable,Yes,Antarctica,No,56.75,Medium,5
+ANM_869,Kangaroo,12,349.26,221.18,Omnivore,Ocean,Extinct,Yes,Antarctica,Yes,8.95,High,4
+ANM_870,Tiger,6,1025.54,356.39,Herbivore,Wetland,Critically Endangered,No,Asia,No,69.11,Medium,3
+ANM_871,Giraffe,55,316.37,354.01,Omnivore,Urban,Least Concern,Yes,Antarctica,Yes,46.76,High,4
+ANM_872,Giraffe,22,2376.0,249.5,Omnivore,Desert,Least Concern,Yes,Asia,No,91.16,Low,4
+ANM_873,Elephant,66,1168.11,27.45,Herbivore,Wetland,Endangered,No,Antarctica,No,54.03,Low,4
+ANM_874,Cat,63,1814.37,224.6,Omnivore,Grassland,Endangered,No,Australia,Yes,96.38,High,4
+ANM_875,Elephant,79,1805.35,197.27,Omnivore,Ocean,Critically Endangered,No,Australia,Yes,71.53,Medium,3
+ANM_876,Horse,48,4136.1,42.45,Herbivore,Urban,Least Concern,No,Antarctica,No,33.86,High,1
+ANM_877,Elephant,69,1518.79,103.49,Carnivore,Urban,Endangered,No,North America,No,25.89,Low,1
+ANM_878,Dog,41,1640.1,345.67,Omnivore,Ocean,Least Concern,Yes,Africa,Yes,46.04,Medium,1
+ANM_879,Giraffe,13,1832.03,156.29,Herbivore,Forest,Critically Endangered,Yes,North America,Yes,34.52,Medium,5
+ANM_880,Lion,37,4694.81,45.11,Omnivore,Ocean,Least Concern,No,Australia,No,80.99,Low,3
+ANM_881,Deer,48,1845.65,64.05,Carnivore,Ocean,Critically Endangered,Yes,Antarctica,Yes,6.48,Low,3
+ANM_882,Elephant,56,1294.52,181.91,Herbivore,Forest,Least Concern,Yes,Africa,Yes,77.14,High,1
+ANM_883,Horse,52,1146.52,59.75,Omnivore,Urban,Endangered,No,Australia,Yes,73.93,Low,3
+ANM_884,Cat,39,1591.13,69.7,Herbivore,Desert,Critically Endangered,Yes,Antarctica,Yes,67.27,Medium,3
+ANM_885,Lion,44,1599.53,144.93,Herbivore,Grassland,Extinct,Yes,Asia,Yes,13.21,High,1
+ANM_886,Panda,73,1812.67,198.75,Carnivore,Desert,Extinct,Yes,Antarctica,Yes,98.1,High,3
+ANM_887,Tiger,27,4031.31,94.92,Herbivore,Desert,Endangered,No,Europe,No,7.28,Low,5
+ANM_888,Cat,50,3313.52,102.76,Carnivore,Forest,Critically Endangered,Yes,Asia,No,56.64,High,5
+ANM_889,Panda,20,1363.86,221.15,Carnivore,Ocean,Critically Endangered,Yes,Antarctica,No,22.07,Medium,1
+ANM_890,Panda,38,2235.84,113.92,Omnivore,Forest,Endangered,No,Asia,No,68.1,Medium,4
+ANM_891,Panda,56,442.52,314.99,Herbivore,Wetland,Extinct,No,North America,No,69.06,Low,4
+ANM_892,Panda,22,2277.1,389.26,Herbivore,Urban,Critically Endangered,No,Australia,Yes,43.1,Medium,2
+ANM_893,Lion,64,1760.97,322.35,Herbivore,Desert,Critically Endangered,No,Africa,No,19.34,High,2
+ANM_894,Panda,70,2268.71,227.59,Herbivore,Desert,Extinct,No,Africa,No,56.5,Medium,3
+ANM_895,Deer,57,4147.05,284.76,Carnivore,Ocean,Critically Endangered,Yes,Africa,No,60.72,High,5
+ANM_896,Cat,46,3275.67,175.91,Herbivore,Grassland,Vulnerable,Yes,Antarctica,Yes,94.19,High,4
+ANM_897,Giraffe,35,4299.64,32.95,Omnivore,Wetland,Least Concern,Yes,South America,No,75.69,Low,5
+ANM_898,Cat,75,1388.48,341.49,Herbivore,Forest,Vulnerable,No,Antarctica,Yes,99.72,Medium,3
+ANM_899,Kangaroo,5,1997.13,89.61,Omnivore,Wetland,Endangered,Yes,South America,No,9.11,Medium,1
+ANM_900,Horse,59,988.17,134.55,Carnivore,Forest,Extinct,Yes,Australia,No,10.2,Medium,5
+ANM_901,Cat,34,3686.94,124.88,Omnivore,Forest,Endangered,Yes,North America,No,49.92,High,3
+ANM_902,Dog,77,2019.19,31.16,Herbivore,Urban,Extinct,No,Antarctica,Yes,90.69,Medium,5
+ANM_903,Elephant,54,3124.16,84.21,Herbivore,Wetland,Endangered,Yes,Australia,Yes,32.06,High,1
+ANM_904,Lion,12,989.89,35.37,Herbivore,Grassland,Critically Endangered,Yes,Australia,No,91.77,Low,4
+ANM_905,Elephant,25,3110.68,183.68,Herbivore,Urban,Extinct,Yes,Asia,Yes,64.61,Low,1
+ANM_906,Horse,63,2791.75,341.53,Carnivore,Grassland,Vulnerable,No,North America,Yes,61.05,Low,5
+ANM_907,Panda,75,3030.83,318.21,Carnivore,Wetland,Vulnerable,No,Europe,No,87.41,Low,4
+ANM_908,Giraffe,69,826.45,395.18,Herbivore,Wetland,Endangered,No,Australia,Yes,9.1,Medium,1
+ANM_909,Tiger,40,996.23,203.64,Omnivore,Forest,Endangered,Yes,Asia,No,74.13,Medium,5
+ANM_910,Giraffe,5,495.8,89.92,Carnivore,Forest,Vulnerable,Yes,Antarctica,No,64.94,Medium,2
+ANM_911,Horse,53,673.44,351.38,Omnivore,Ocean,Vulnerable,No,Africa,Yes,40.02,Medium,5
+ANM_912,Panda,15,3185.19,237.34,Omnivore,Urban,Vulnerable,Yes,Australia,No,23.88,Medium,5
+ANM_913,Elephant,50,3369.36,73.56,Herbivore,Wetland,Critically Endangered,Yes,Antarctica,No,75.55,High,1
+ANM_914,Giraffe,42,3468.55,350.21,Omnivore,Ocean,Vulnerable,Yes,South America,Yes,76.86,Medium,5
+ANM_915,Dog,66,2164.75,392.32,Omnivore,Wetland,Vulnerable,Yes,Africa,Yes,17.84,Low,5
+ANM_916,Elephant,5,4149.64,214.81,Omnivore,Forest,Critically Endangered,Yes,Asia,No,93.38,Low,1
+ANM_917,Lion,42,1546.68,381.28,Carnivore,Wetland,Vulnerable,No,Europe,Yes,54.14,Medium,1
+ANM_918,Deer,21,3547.12,351.45,Omnivore,Wetland,Extinct,Yes,Antarctica,No,21.8,Low,2
+ANM_919,Cat,29,4913.71,372.02,Carnivore,Wetland,Critically Endangered,Yes,North America,No,91.63,High,5
+ANM_920,Horse,56,1030.52,62.34,Omnivore,Desert,Extinct,No,South America,Yes,68.93,Low,4
+ANM_921,Tiger,17,4548.96,339.35,Carnivore,Ocean,Least Concern,Yes,Europe,No,45.54,Low,5
+ANM_922,Cat,6,1516.09,214.73,Omnivore,Forest,Vulnerable,No,North America,No,87.35,High,5
+ANM_923,Deer,65,1949.95,175.93,Omnivore,Forest,Least Concern,No,Africa,Yes,77.42,Low,2
+ANM_924,Dog,41,4771.65,246.22,Herbivore,Desert,Vulnerable,No,Antarctica,No,28.4,Low,4
+ANM_925,Tiger,18,254.98,288.65,Herbivore,Wetland,Vulnerable,Yes,Africa,Yes,91.76,Low,5
+ANM_926,Elephant,70,599.1,83.83,Omnivore,Ocean,Extinct,No,South America,Yes,58.19,Medium,4
+ANM_927,Giraffe,51,555.76,241.82,Herbivore,Desert,Extinct,No,North America,No,96.74,High,1
+ANM_928,Horse,32,168.62,180.95,Herbivore,Grassland,Endangered,Yes,North America,Yes,47.04,High,2
+ANM_929,Tiger,17,343.07,105.9,Carnivore,Ocean,Endangered,Yes,Antarctica,No,98.89,High,3
+ANM_930,Panda,35,1823.2,238.88,Omnivore,Desert,Vulnerable,No,Europe,Yes,50.62,Low,4
+ANM_931,Tiger,24,2022.22,296.78,Herbivore,Grassland,Extinct,Yes,North America,No,68.95,High,4
+ANM_932,Cat,65,1774.95,43.72,Omnivore,Grassland,Critically Endangered,No,Antarctica,No,84.95,Low,2
+ANM_933,Tiger,21,1798.2,119.83,Omnivore,Wetland,Vulnerable,No,South America,No,95.74,High,5
+ANM_934,Elephant,8,660.78,274.31,Omnivore,Urban,Extinct,Yes,Africa,Yes,65.67,High,2
+ANM_935,Cat,23,456.74,189.16,Herbivore,Wetland,Endangered,No,North America,No,39.89,Medium,5
+ANM_936,Giraffe,42,3099.62,101.81,Omnivore,Desert,Least Concern,Yes,South America,No,5.39,Medium,5
+ANM_937,Giraffe,10,3368.73,315.35,Omnivore,Urban,Extinct,No,Africa,No,47.82,Low,1
+ANM_938,Tiger,29,66.65,388.69,Carnivore,Desert,Extinct,No,Australia,Yes,81.0,Medium,2
+ANM_939,Deer,5,1189.78,207.9,Herbivore,Urban,Least Concern,No,Australia,Yes,81.33,Low,4
+ANM_940,Tiger,11,1142.32,263.92,Herbivore,Grassland,Endangered,No,Europe,No,31.54,Low,4
+ANM_941,Panda,35,1392.3,373.07,Omnivore,Urban,Critically Endangered,Yes,North America,Yes,8.46,High,1
+ANM_942,Horse,40,3455.57,100.28,Carnivore,Desert,Vulnerable,Yes,Australia,Yes,62.65,Low,2
+ANM_943,Deer,9,3953.7,83.89,Herbivore,Grassland,Extinct,No,South America,No,76.87,Low,3
+ANM_944,Giraffe,18,4266.06,334.34,Omnivore,Forest,Least Concern,Yes,Asia,Yes,16.5,High,1
+ANM_945,Giraffe,15,1537.99,135.56,Carnivore,Urban,Least Concern,No,Africa,Yes,60.74,High,2
+ANM_946,Cat,7,4162.41,107.42,Herbivore,Wetland,Extinct,Yes,Asia,No,88.43,High,2
+ANM_947,Panda,21,1744.9,49.1,Herbivore,Desert,Critically Endangered,Yes,South America,Yes,72.32,Medium,3
+ANM_948,Panda,30,2156.3,234.44,Carnivore,Ocean,Extinct,Yes,Africa,No,79.05,High,1
+ANM_949,Cat,30,2793.44,138.3,Herbivore,Ocean,Endangered,No,North America,No,88.48,Medium,1
+ANM_950,Deer,45,1506.0,178.85,Herbivore,Forest,Critically Endangered,No,Australia,No,15.98,Medium,2
+ANM_951,Elephant,79,4166.62,262.48,Carnivore,Desert,Vulnerable,No,North America,No,9.91,Low,4
+ANM_952,Giraffe,31,4983.09,302.24,Herbivore,Wetland,Least Concern,Yes,Asia,Yes,98.91,High,1
+ANM_953,Tiger,51,4554.28,395.39,Omnivore,Grassland,Critically Endangered,Yes,North America,Yes,51.65,High,2
+ANM_954,Panda,49,4577.39,315.84,Omnivore,Ocean,Critically Endangered,Yes,South America,No,18.22,Low,1
+ANM_955,Elephant,33,4127.93,177.2,Carnivore,Forest,Least Concern,No,Europe,No,35.62,Medium,1
+ANM_956,Kangaroo,51,794.69,33.05,Herbivore,Ocean,Extinct,No,North America,No,43.73,Medium,2
+ANM_957,Elephant,62,4793.89,192.53,Herbivore,Ocean,Extinct,Yes,Africa,Yes,64.28,Low,5
+ANM_958,Horse,32,286.66,216.6,Herbivore,Ocean,Critically Endangered,No,Asia,Yes,92.81,High,2
+ANM_959,Dog,6,61.2,94.36,Carnivore,Wetland,Least Concern,Yes,Africa,Yes,92.96,High,5
+ANM_960,Kangaroo,13,2345.41,321.77,Carnivore,Forest,Critically Endangered,Yes,Asia,Yes,72.9,Low,1
+ANM_961,Lion,67,934.21,92.68,Omnivore,Urban,Least Concern,Yes,Antarctica,Yes,23.58,Medium,1
+ANM_962,Dog,72,4279.05,344.37,Carnivore,Urban,Endangered,Yes,North America,Yes,10.18,Low,1
+ANM_963,Horse,35,1363.17,83.96,Omnivore,Forest,Vulnerable,Yes,Australia,Yes,67.15,High,4
+ANM_964,Elephant,18,4180.39,159.78,Omnivore,Desert,Vulnerable,Yes,Europe,No,66.77,High,3
+ANM_965,Kangaroo,31,1409.91,263.47,Omnivore,Desert,Endangered,Yes,Africa,Yes,38.25,Medium,5
+ANM_966,Tiger,50,2673.12,26.75,Omnivore,Wetland,Critically Endangered,Yes,South America,No,8.02,Low,5
+ANM_967,Dog,25,1211.24,369.3,Omnivore,Forest,Extinct,Yes,Europe,Yes,95.39,High,5
+ANM_968,Elephant,13,3048.45,171.9,Carnivore,Wetland,Vulnerable,Yes,North America,No,69.09,Medium,3
+ANM_969,Elephant,57,3932.16,120.2,Herbivore,Desert,Endangered,Yes,Antarctica,Yes,25.6,Low,4
+ANM_970,Deer,27,577.68,256.38,Carnivore,Desert,Least Concern,Yes,South America,No,6.37,Medium,4
+ANM_971,Elephant,49,1837.55,387.3,Omnivore,Urban,Vulnerable,No,North America,Yes,97.44,Low,5
+ANM_972,Elephant,13,3002.47,204.25,Omnivore,Desert,Least Concern,Yes,Africa,No,72.79,Low,3
+ANM_973,Panda,52,3950.89,291.94,Carnivore,Urban,Vulnerable,No,Europe,No,11.95,Low,2
+ANM_974,Lion,52,473.4,139.58,Omnivore,Desert,Endangered,Yes,Australia,No,71.23,High,2
+ANM_975,Deer,22,3004.99,46.98,Carnivore,Grassland,Least Concern,Yes,South America,No,26.5,High,1
+ANM_976,Deer,77,1281.43,98.67,Omnivore,Urban,Least Concern,No,Asia,No,82.2,Medium,1
+ANM_977,Lion,15,2915.76,53.49,Carnivore,Grassland,Vulnerable,Yes,Africa,No,73.62,Medium,3
+ANM_978,Giraffe,31,1234.82,186.6,Herbivore,Forest,Extinct,No,Europe,Yes,85.69,Low,5
+ANM_979,Lion,30,76.55,31.55,Omnivore,Wetland,Least Concern,No,South America,Yes,33.48,Medium,2
+ANM_980,Dog,75,1697.21,148.46,Omnivore,Forest,Least Concern,No,Antarctica,No,15.56,Medium,1
+ANM_981,Deer,8,1457.67,322.46,Omnivore,Desert,Critically Endangered,Yes,South America,No,64.6,Medium,2
+ANM_982,Kangaroo,15,2394.77,289.51,Omnivore,Wetland,Extinct,Yes,South America,No,35.77,Medium,4
+ANM_983,Kangaroo,42,3542.01,274.93,Omnivore,Ocean,Least Concern,Yes,Antarctica,No,24.91,Low,1
+ANM_984,Deer,38,2263.71,261.59,Carnivore,Forest,Vulnerable,No,Antarctica,Yes,43.47,High,4
+ANM_985,Dog,12,275.94,384.16,Carnivore,Desert,Endangered,Yes,Australia,Yes,97.79,High,3
+ANM_986,Tiger,67,758.61,131.31,Omnivore,Forest,Least Concern,No,South America,No,12.03,Medium,4
+ANM_987,Deer,6,4091.65,257.73,Herbivore,Forest,Critically Endangered,No,South America,Yes,76.17,Low,5
+ANM_988,Horse,62,2023.9,194.0,Herbivore,Ocean,Least Concern,No,South America,No,61.48,Low,4
+ANM_989,Tiger,57,2162.23,391.85,Herbivore,Wetland,Critically Endangered,Yes,Asia,No,62.16,High,1
+ANM_990,Kangaroo,40,4200.32,49.66,Herbivore,Forest,Least Concern,No,Europe,Yes,97.19,Low,4
+ANM_991,Deer,26,4097.5,380.24,Carnivore,Urban,Critically Endangered,No,Antarctica,No,6.93,High,1
+ANM_992,Lion,20,3561.69,206.45,Omnivore,Forest,Least Concern,No,Africa,Yes,43.96,High,1
+ANM_993,Deer,29,2086.41,121.44,Carnivore,Urban,Vulnerable,Yes,Asia,Yes,55.69,Low,1
+ANM_994,Panda,59,3727.54,345.63,Omnivore,Grassland,Vulnerable,No,Asia,Yes,54.05,High,3
+ANM_995,Horse,22,1384.45,190.96,Carnivore,Grassland,Critically Endangered,Yes,South America,No,71.97,High,1
+ANM_996,Giraffe,60,251.4,227.21,Carnivore,Ocean,Extinct,Yes,North America,No,40.0,Medium,2
+ANM_997,Dog,45,2697.02,189.58,Herbivore,Urban,Vulnerable,Yes,North America,Yes,54.1,Medium,5
+ANM_998,Kangaroo,28,3031.93,172.79,Omnivore,Grassland,Extinct,No,Antarctica,No,95.46,Medium,1
+ANM_999,Deer,23,2370.52,142.29,Carnivore,Grassland,Least Concern,Yes,South America,Yes,61.46,Medium,5
+ANM_1000,Kangaroo,30,3690.49,243.21,Omnivore,Forest,Endangered,No,North America,Yes,19.25,Medium,2
