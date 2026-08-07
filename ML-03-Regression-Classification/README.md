@@ -1,4 +1,4 @@
-# ML-03-Regression-Classification
+# ML-03-Regression & Classification
 
 Explore and experiment with regression and classification techniques using Python. This module covers data loading, preprocessing, model training, evaluation, and performance analysis to help learners understand fundamental ML concepts.
 
