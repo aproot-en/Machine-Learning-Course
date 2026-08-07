@@ -3,7 +3,7 @@
 Build a simple KNN pipeline using Python, including data loading, preprocessing, feature scaling, model training, evaluation, and prediction.
 
 # ML-04-KNN
-ชุดข้อมูลที่ใช้: Kaggle https://www.kaggle.com/datasets/shyamalb2/animal-dataset-csv 
+Kaggle Cats and Dogs Dataset: Kaggle https://www.kaggle.com/datasets/shyamalb2/animal-dataset-csv 
 
 # Structure 
 ```text
