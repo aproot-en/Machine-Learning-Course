@@ -1,12 +1,12 @@
-## ML-5-Support Vector Machine (SVM)
+# ML-5-Support Vector Machine (SVM)
 
 Build a simple SVM pipeline using Python, including image data loading, preprocessing, feature scaling, model training, evaluation, and prediction.
 
-## Data
+# Data
 
 Kaggle Cats and Dogs Dataset: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
 
-## Structure
+# Structure
 
 ```text
 ML-05-SVM/
