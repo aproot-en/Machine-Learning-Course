@@ -37,3 +37,8 @@ ML-4-KNN/
 ├── requirements.txt
 └── link-data.txt
 ```
+
+# Summary
+
+This project demonstrates KNN for classification and clustering using an animal dataset. It includes data loading, preprocessing, model training, evaluation, visualization, and prediction through a modular Python pipeline.
+
