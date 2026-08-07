@@ -7,15 +7,20 @@ Kaggle : https://www.kaggle.com/code/rashedsumon/age-gender-and-ethnicity-face-d
 # Experiment
 
 ```text
-
-
-
-
-
+- Data Preprocessing Workflow
+- Types of Data in Machine Learning
+- Data Quality Assessment
+- Missing Data
+- Duplicate Data, Noise, and Outliers
+- Data Scaling and Normalization
+- Encoding Categorical Data
+- Feature Engineering and Feature Selection
+- Data Transformation
+- Unstructured Data
+- Train / Validation / Test Split and Data Leakage
+- Reading CSV, JSON, TXT, Image, and SQLite Files
+- Data Cleaning
 ```
-
-
-
 
 # Summary
 
