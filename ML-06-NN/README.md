@@ -5,7 +5,7 @@ Build a simple NN pipeline using Python for image recognition. The project cover
 # Data 
 Cats and Dogs Classification Dataset: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
 
-# Project Structure
+# Structure
 
 ```text
 ML-06-NN/
