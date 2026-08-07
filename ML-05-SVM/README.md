@@ -11,7 +11,7 @@ Build a simple SVM pipeline using Python, including image data loading, preproce
 ## Structure
 
 ```text
-ML-4-SVM/
+ML-05-SVM/
 │
 ├── PetImages/
 │   ├── Cat/
