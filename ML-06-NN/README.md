@@ -47,7 +47,7 @@ ML-06-NN/
 │
 └── requirements.txt
 ```
-
-The project uses a Neural Network (NN) for Cat and Dog image recognition. Images are automatically loaded from the dataset directories, resized to a fixed resolution, and converted from BGR to RGB format during preprocessing. The dataset is then split into training, validation, and test sets before being used to train the neural network. The trained model is evaluated using accuracy, precision, recall, F1-score, a confusion matrix, and training history plots to assess its classification performance.
+# Summary
+The project uses a NN for Cat and Dog image recognition. Images are automatically loaded from the dataset directories, resized to a fixed resolution, and converted from BGR to RGB format during preprocessing. The dataset is then split into training, validation, and test sets before being used to train the neural network. The trained model is evaluated using accuracy, precision, recall, F1-score, a confusion matrix, and training history plots to assess its classification performance.
 
 
