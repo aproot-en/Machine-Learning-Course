@@ -49,3 +49,7 @@ ML-08-DNN/
 
 ```
 
+# Summary
+
+This project implements a VGG-based DCNN for Cat and Dog image classification. It includes image loading, preprocessing, dataset splitting, model training, evaluation, and prediction using a modular Python pipeline.
+
