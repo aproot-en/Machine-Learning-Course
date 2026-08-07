@@ -1,6 +1,6 @@
-# ML-07-CNN
+# ML-07-Convolutional Neural Network (CNN)
 
-Build a Convolutional Neural Network (CNN) pipeline using Python for image recognition. The project covers image loading, preprocessing, dataset splitting, CNN model training, evaluation, and prediction.
+Build a CNN pipeline using Python for image recognition. The project covers image loading, preprocessing, dataset splitting, CNN model training, evaluation, and prediction.
 
 # Dataset
 
