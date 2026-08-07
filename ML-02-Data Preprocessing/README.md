@@ -5,12 +5,10 @@ Learn and experiment with essential data preprocessing techniques using Python f
 ```text
 
 ```
------
 # Experiment
 
 ```text
 - Data Preprocessing Workflow
-- Types of Data in Machine Learning
 - Data Quality Assessment
 - Missing Data
 - Duplicate Data, Noise, and Outliers
