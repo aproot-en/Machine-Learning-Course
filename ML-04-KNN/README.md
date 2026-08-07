@@ -1,4 +1,4 @@
-# ML-4-K-Nearest Neighbors (KNN)
+# ML-04-K-Nearest Neighbors (KNN)
 
 Build a simple KNN pipeline using Python, including data loading, preprocessing, feature scaling, model training, evaluation, and prediction.
 
