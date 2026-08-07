@@ -4,7 +4,7 @@ Learn and experiment with fundamental data preprocessing techniques using Python
 # Data
 Kaggle : https://www.kaggle.com/code/rashedsumon/age-gender-and-ethnicity-face-data
 
-# Experement
+# Experiment
 
 ```text
 
