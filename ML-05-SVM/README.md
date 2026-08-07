@@ -4,7 +4,7 @@ Build a simple SVM pipeline using Python, including image data loading, preproce
 
 ## Data
 
-Kaggle Cats and Dogs Dataset: [https://www.kaggle.com/c/dogs-vs-cats](https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset)
+Kaggle Cats and Dogs Dataset: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
 
 ## Structure
 
