@@ -4,9 +4,7 @@ Build a simple SVM pipeline using Python, including image data loading, preproce
 
 ## Data
 
-ชุดข้อมูลที่ใช้: Kaggle Cats and Dogs Dataset
-
-[https://www.kaggle.com/c/dogs-vs-cats](https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset)
+Kaggle Cats and Dogs Dataset: [https://www.kaggle.com/c/dogs-vs-cats](https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset)
 
 ## Structure
 
@@ -47,6 +45,5 @@ ML-05-SVM/
 ├── requirements.txt
 └── link-data.txt
 ```
-
 
 The project uses Support Vector Machine (SVM) for Cat and Dog image recognition. Images are loaded from class directories, resized, converted into feature vectors, scaled, and then used to train an SVM classifier. The trained model is evaluated using accuracy, precision, recall, F1-score, and a confusion matrix.
