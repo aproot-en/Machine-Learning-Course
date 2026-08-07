@@ -45,5 +45,6 @@ ML-05-SVM/
 ├── requirements.txt
 └── link-data.txt
 ```
+# Summary
 
-The project uses Support Vector Machine (SVM) for Cat and Dog image recognition. Images are loaded from class directories, resized, converted into feature vectors, scaled, and then used to train an SVM classifier. The trained model is evaluated using accuracy, precision, recall, F1-score, and a confusion matrix.
+The project uses SVM for Cat and Dog image recognition. Images are loaded from class directories, resized, converted into feature vectors, scaled, and then used to train an SVM classifier. The trained model is evaluated using accuracy, precision, recall, F1-score, and a confusion matrix.
