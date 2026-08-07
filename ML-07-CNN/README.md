@@ -4,8 +4,7 @@ Build a Convolutional Neural Network (CNN) pipeline using Python for image recog
 
 # Dataset
 
-Kaggle Dogs vs. Cats: [https://www.kaggle.com/c/dogs-vs-cats](https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset)
-
+Kaggle Dogs vs. Cats: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
 # Project Structure
 
 ```text
