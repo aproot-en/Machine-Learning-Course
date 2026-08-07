@@ -29,8 +29,7 @@ ML-06-NN/
 │   ├── nn_model.py                 # Build, train, save, and predict with the Neural Network
 │   ├── evaluate.py                 # Accuracy, classification report, confusion matrix, and training plots
 │   ├── test_nn.py                  # Test the trained model using four random images
-│   │
-│   └── outputs/                    # Generated files (excluded from Git)
+│   └── outputs/                   
 │       ├── features.npy
 │       ├── labels.npy
 │       ├── classes.json
@@ -46,8 +45,7 @@ ML-06-NN/
 │       ├── training_history.png
 │       └── prediction_sample.png
 │
-├── requirements.txt
-└── README.md
+└── requirements.txt
 ```
 
 The project uses a Neural Network (NN) for Cat and Dog image recognition. Images are automatically loaded from the dataset directories, resized to a fixed resolution, and converted from BGR to RGB format during preprocessing. The dataset is then split into training, validation, and test sets before being used to train the neural network. The trained model is evaluated using accuracy, precision, recall, F1-score, a confusion matrix, and training history plots to assess its classification performance.
