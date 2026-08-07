@@ -1,6 +1,6 @@
 # ML-03-Regression-Classification
 
-Build a machine learning pipeline using Python for regression and classification tasks. The project covers data loading, preprocessing, model training, evaluation, and performance analysis.
+Explore and experiment with regression and classification techniques using Python. This module covers data loading, preprocessing, model training, evaluation, and performance analysis to help learners understand fundamental ML concepts.
 
 # Data: 
 Kaggle : https://www.kaggle.com/code/rashedsumon/age-gender-and-ethnicity-face-data
