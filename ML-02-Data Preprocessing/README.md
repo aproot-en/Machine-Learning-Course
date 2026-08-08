@@ -8,7 +8,6 @@ Learn and experiment with essential data preprocessing techniques using Python f
 # Experiment
 
 ```text
-- Data Preprocessing Workflow
 - Data Quality Assessment
 - Missing Data
 - Duplicate Data, Noise, and Outliers
