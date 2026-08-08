@@ -2,7 +2,7 @@
 
 Build a DCNN based on the VGG architecture using Python for image recognition. The project covers image loading, preprocessing, dataset splitting, DCNN (VGG) model training, evaluation, and prediction for Cat and Dog image classification
 
-# Dataset
+# Data
 Kaggle Dogs vs. Cats: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
 
 # Project Structure
