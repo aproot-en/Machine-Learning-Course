@@ -2,7 +2,7 @@
 
 Build a CNN pipeline using Python for image recognition. The project covers image loading, preprocessing, dataset splitting, CNN model training, evaluation, and prediction.
 
-# Dataset
+# Data
 
 Kaggle Dogs vs. Cats: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
 # Project Structure
