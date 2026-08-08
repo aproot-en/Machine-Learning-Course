@@ -1,6 +1,6 @@
 # ML-08-Deep Convolutional Neural Network (DCNN)
 
-Build a DCNN based on the VGG architecture using Python for image classification. The project covers image loading, preprocessing, dataset splitting, DCNN (VGG) model training, evaluation, and prediction for Cat and Dog image classification
+Build a DCNN based on the VGG architecture using Python for image classification. The project covers image loading, preprocessing, dataset splitting, DCNN (VGG) model training, evaluation, and prediction for Cat and Dog classification
 
 # Data
 Kaggle Dogs vs. Cats: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
