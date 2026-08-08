@@ -1,5 +1,5 @@
 # ML-02-Data Preprocessing
-Learn and experiment with essential data preprocessing techniques using Python for ML. This module covers the complete preprocessing workflow, including data quality assessment, handling missing values, duplicate data, noise and outliers, feature scaling, categorical encoding, feature engineering, data transformation, unstructured data processing, train/validation/test splitting, data leakage prevention, data cleaning, and reading data from CSV, JSON, TXT, image, and SQLite files.
+Learn and experiment with essential data preprocessing techniques using Python for ML. This module covers the complete preprocessing workflow, including missing data, duplicate data, noise and outliers, feature scaling, categorical encoding, feature engineering, data transformation, unstructured data processing, train/validation/test splitting, data leakage prevention, data cleaning, and reading data from CSV, JSON, TXT, image, and SQLite files.
 
 # Data
 ```text
@@ -8,7 +8,6 @@ Learn and experiment with essential data preprocessing techniques using Python f
 # Experiment
 
 ```text
-- Data Quality Assessment
 - Missing Data
 - Duplicate Data, Noise, and Outliers
 - Data Scaling and Normalization
