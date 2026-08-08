@@ -1,6 +1,6 @@
 # ML-03-Regression & Classification
 
-Explore and experiment with regression and classification using facial image data. This module uses the same dataset for two machine learning tasks: age prediction using regression and gender prediction using classification.
+Explore and experiment with regression and classification using facial image data. This module uses the same dataset for two machine learning tasks: age prediction using regression and gender classification.
 
 The workflow starts by loading and preparing the dataset, then applies StandardScaler and PCA for preprocessing and dimensionality reduction. The processed features are used to train Ridge Regression for age prediction and Logistic Regression for gender classification. Finally, each model is evaluated using appropriate performance metrics and visualizations.
 
