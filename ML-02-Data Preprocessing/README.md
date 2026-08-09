@@ -2,12 +2,13 @@
 Learn and experiment with essential data preprocessing techniques using Python for ML. This module covers the complete preprocessing workflow, including missing data, duplicate data, noise and outliers, feature scaling, categorical encoding, feature engineering, data transformation, unstructured data processing, train/validation/test splitting, data leakage prevention, data cleaning, and reading data from CSV, JSON, TXT, image, and SQLite files.
 
 # Data
-```text
+Dataset from Kaggle:
 
-```
-# Experiment
+Age, Gender, and Ethnicity Face Data
 
-```text
+Kaggle : https://www.kaggle.com/code/rashedsumon/age-gender-and-ethnicity-face-data
+
+# Topics
 - Missing Data
 - Duplicate Data, Noise, and Outliers
 - Data Scaling and Normalization
@@ -18,6 +19,31 @@ Learn and experiment with essential data preprocessing techniques using Python f
 - Train / Validation / Test Split and Data Leakage
 - Reading CSV, JSON, TXT, Image, and SQLite Files
 - Data Cleaning
+
+# Structure 
+
+```text
+
+ML-02-Data-Preprocessing/
+│
+├── age_gender.csv                      # dataset
+├── main.py                             # Compiles all
+│
+├── 01-missing-data/
+│   ├── main.py                         # Run in missing-data
+│   ├── load_data.py                    # read age_gender.csv
+│   ├── plot_result.py                  # plot 
+│   └── outputs/                        # result 
+│
+├── 02-duplicate-noise-outliers/
+├── 03-scaling-normalization/
+├── 04-encoding-categorical/
+├── 05-feature-engineering-selection/
+├── 06-data-transformation/
+├── 07-unstructured-data/
+├── 08-train-val-test-split-leakage/
+├── 09-reading-file-formats/
+└── 10-data-cleaning/
 ```
 
 # Summary
