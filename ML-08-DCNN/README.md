@@ -5,7 +5,7 @@ Build a DCNN based on the VGG architecture using Python for image classification
 # Data
 Kaggle Dogs vs. Cats: https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
 
-# Project Structure
+# Structure
 
 ```text
 ML-08-DNN/
