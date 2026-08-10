@@ -16,13 +16,12 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 | Final Exam | 30 | Mini project in ML for an application system |
 
 
-## 🛠️ Software / Tools Used in Labs
+## 🛠️ Software / Tools
 
 - **Python** — Versatile programming language with rich libraries for data science, AI, and machine learning
 - **TensorFlow** — Open-source platform for building and deploying machine learning models
 - **Visual Studio Code** — Powerful, lightweight code editor with rich extensions and integrated tools
-- **PyTorch** — Flexible deep learning framework with dynamic computation graph and strong research support
-
+- 
 
 ## 🕰️ Historical Context
 > "I propose to consider the question, 'Can machines think?'" — **Alan Turing, 1950**
