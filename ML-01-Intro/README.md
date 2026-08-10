@@ -108,8 +108,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ## 1️⃣ Supervised Learning (SL)
 
-> "Supervised learning (SL) is learning a function that maps an input to an output based on example input-output pairs." — **[Mitchell, T. M. (1997)](https://www.cs.cmu.edu/~tom/mlbook.html)**  
-> *T. M. Mitchell, Machine Learning. New York, NY, USA: McGraw-Hill, 1997.*
+SL is learning a function that maps an input to an output based on example input-output pairs. — **[Mitchell, T. M. (1997)](https://www.cs.cmu.edu/~tom/mlbook.html)**  
 
 ### SL: Learning with Labeled Data
 
@@ -143,8 +142,7 @@ The model learns from labeled examples to make predictions on new data.
 
 ## 2️⃣ Unsupervised Learning (UL)
 
-> "Unsupervised learning (UL) is learning without a teacher." — **Mitchell, T. M. (1997)**
-> *T. M. Mitchell, Machine Learning. New York, NY, USA: McGraw-Hill, 1997. / IBM, "What is Unsupervised Learning?," 2023. Available: https://www.ibm.com/topics/unsupervised-learning*
+UL is learning without a teacher. It means that the model learns from unlabeled data, where no predefined correct answers or target outputs are provided. Instead of being told what to predict, the model analyzes the data by itself to discover hidden patterns, similarities, relationships, or structures. Common applications of unsupervised learning include clustering, dimensionality reduction, and pattern discovery.
 
 ### UL: Learning Hidden Patterns without Labeled Data
 
