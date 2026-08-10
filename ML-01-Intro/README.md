@@ -109,162 +109,220 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ## 1️⃣ Supervised Learning (SL)
 
-SL is learning a function that maps an input to an output based on example input-output pairs. — **[Mitchell, T. M. (1997)](https://www.cs.cmu.edu/~tom/mlbook.html)**  
+Supervised Learning (SL) learns a function that maps an input to an output based on labeled input-output examples. — **[Mitchell, T. M. (1997)](https://www.cs.cmu.edu/~tom/mlbook.html)**
 
 ### SL: Learning with Labeled Data
 
 | Stage | Description |
-|---|---|
-| **Labeled Data** | Examples come with correct answers (labels) |
-| **Model Training** | The model learns patterns from the labeled data |
+| --- | --- |
+| **Input Data** | Labeled data containing input features and correct answers |
+| **Model Training** | The model learns patterns between inputs and labels |
+| **Learning** | The model compares predictions with correct labels and improves |
 | **Prediction** | The trained model makes predictions on new data |
-| **Output** | Predicted labels (e.g., Dog or Cat) are produced |
+| **Output** | Predicted classes or values are produced |
 
-**Why is it called "SL?**
-1. A "teacher" (Label) provides the correct answer — every training example has a known Spam/Not Spam label
-2. It learns the relationship between Input and Label — the model learns patterns from correctly-labeled examples
-3. It measures error and improves — Loss + Backpropagation are used to make predictions as close to the true label as possible
-4. It predicts new data more accurately — once trained well, the model can accurately predict on new, unseen data
+### SL: The Goals of SL
 
-**Popular SL Models:**
+Supervised Learning aims to learn the relationship between input data and known target outputs so that the model can accurately predict outputs for new, unseen data.
 
-- **Linear Regression** — Predicts continuous values by learning the relationship between input features and a target value
-- **Logistic Regression** — Predicts class labels or probabilities for classification tasks
-- **k-Nearest Neighbors (KNN)** — Classifies new data based on the labels of its nearest neighbors
-- **Support Vector Machine (SVM)** — Finds an optimal decision boundary to separate different classes
-- **Decision Tree** — Makes predictions by learning decision rules from labeled data
-- **Random Forest** — Combines multiple decision trees to improve prediction accuracy and reduce overfitting
-- **Neural Network (NN)** — Learns complex patterns from labeled data through interconnected layers of neurons
-  
+**Goals:**
+
+1. **Learn from labeled data** — use examples with known correct answers to learn patterns
+2. **Predict classes** — classify new data into predefined categories
+3. **Predict values** — estimate continuous numerical values from input features
+4. **Minimize prediction error** — reduce the difference between predicted and actual outputs
+5. **Generalize to new data** — make accurate predictions on unseen data
+
+### SL: How Does SL Work?
+
+1. The model receives labeled training data
+2. The model learns the relationship between input features and target labels
+3. The model makes predictions and compares them with the correct answers
+4. The prediction error is calculated
+5. The model parameters are adjusted to reduce the error
+6. The trained model is used to predict new, unseen data
+
+### SL: Popular Models
+
+- **Linear Regression** — Predicts continuous values from input features
+- **Logistic Regression** — Predicts class labels or probabilities
+- **k-Nearest Neighbors (KNN)** — Classifies data based on its nearest neighbors
+- **Support Vector Machine (SVM)** — Finds an optimal decision boundary between classes
+- **Decision Tree** — Learns decision rules from labeled data
+- **Random Forest** — Combines multiple decision trees
+- **Neural Network (NN)** — Learns complex patterns using interconnected layers
+
 ### SL: Summary
 
-- Supervised learning needs labeled data
-- Two main tasks: classification & regression
-- Common models: Linear/Logistic Regression, Decision Tree, Neural Network
-- Key process: Train → Validate → Test
-
-> **Note:** "In SL, experience guides the model — every answer teaches the system to predict better."
+- Uses **labeled data**
+- Learns the relationship between **Input → Output**
+- Main tasks: **Classification and Regression**
+- Learns by minimizing prediction errors
+- Predicts outputs for new, unseen data
 
 ---
 
 ## 2️⃣ Unsupervised Learning (UL)
 
-UL is learning without a teacher. It means that the model learns from unlabeled data, where no predefined correct answers or target outputs are provided. Instead of being told what to predict, the model analyzes the data by itself to discover hidden patterns, similarities, relationships, or structures. Common applications of unsupervised learning include clustering, dimensionality reduction, and pattern discovery.
+Unsupervised Learning (UL) learns from unlabeled data without predefined correct answers or target outputs. The model analyzes the data to discover hidden patterns, similarities, relationships, or structures.
 
-### UL: Learning Hidden Patterns without Labeled Data
+### UL: Learning with Unlabeled Data
 
 | Stage | Description |
-|---|---|
-| **Input Raw Data** | Collection of raw, unlabeled data (e.g., images) |
-| **Interpretation** | The model analyzes the data to understand its structure |
-| **Model Training** | The model learns hidden patterns without using any labels |
-| **Processing** | The learned patterns are used to process and generate output |
-| **Output** | The model produces meaningful results (e.g., grouping or class) |
+| --- | --- |
+| **Input Data** | Unlabeled data without predefined correct answers |
+| **Model Training** | The model analyzes the characteristics of the data |
+| **Learning** | The model discovers hidden patterns, similarities, or structures |
+| **Processing** | The discovered patterns are used to organize or represent the data |
+| **Output** | Clusters, representations, reduced features, or anomalies are produced |
 
 ### UL: The Goals of UL
 
-UL is the process of discovering the structure, patterns, and relationships hidden in data that has not yet been labeled — without using any predefined answers.
+Unsupervised Learning aims to discover useful structures, patterns, and relationships hidden within data without using predefined target labels.
 
 **Goals:**
-1. **Discover hidden patterns** — find groups, structures, or patterns that are not obvious in the data
-2. **Reduce data complexity** — reduce the number of features (variables) or dimensions of the data while preserving key information
-3. **Group similar data** — cluster or split data into groups based on natural similarity
-4. **Detect anomalies** — identify data points that clearly differ from the majority of the data
-5. **Learn data representations** — learn meaningful representations (vectors or representative values) of the data that can reflect key factors or structures within it
 
-**Popular UL Models:**
-- **Autoencoder** — Learns to compress data into a low-dimensional latent space, then reconstructs it back to the original form; used for finding key features or detecting anomalies
-- **k-Means Clustering** — Divides data into k groups using cluster centroids
-- **DBSCAN** — Groups data based on density; can find clusters of irregular shapes and detect noise/outlier points
-- **Gaussian Mixture Model (GMM)** — Views data as a mixture of several Gaussian distributions; used for clustering data with complex distributions
+1. **Discover hidden patterns** — identify structures or patterns in the data
+2. **Group similar data** — organize similar data points into clusters
+3. **Reduce data complexity** — reduce dimensions while preserving important information
+4. **Detect anomalies** — identify unusual data points
+5. **Learn data representations** — create meaningful representations of the data
+
+### UL: How Does UL Work?
+
+1. The model receives unlabeled data
+2. The model analyzes features and relationships within the data
+3. Similarities, differences, and hidden structures are identified
+4. The model organizes or transforms the data based on discovered patterns
+5. The results are used for clustering, dimensionality reduction, anomaly detection, or data exploration
+
+### UL: Popular Models
+
+- **k-Means Clustering** — Divides data into k groups based on similarity
+- **DBSCAN** — Groups data based on density and identifies noise
+- **Gaussian Mixture Model (GMM)** — Uses multiple Gaussian distributions for probabilistic clustering
+- **Autoencoder** — Learns compressed representations and reconstructs the original input
+- **Principal Component Analysis (PCA)** — Reduces data dimensions while preserving important information
 
 ### UL: Summary
 
-- No labeled data → the model finds hidden patterns by itself
-- Main tasks: clustering, reducing data size, finding relationships
-- Used to explore and understand data
+- Uses **unlabeled data**
+- No predefined correct answers
+- Discovers patterns and structures automatically
+- Main tasks: **Clustering, Dimensionality Reduction, and Anomaly Detection**
+- Useful for exploring and understanding data
 
 ---
 
 ## 3️⃣ Reinforcement Learning (RL)
 
-> "RL is a way for an agent to learn by trying different actions and learning from rewards. The agent is not told the correct action. Instead, it learns which actions are best by trial and error to get the highest total reward." — **Sutton & Barto, 2018**
-> (https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)
+Reinforcement Learning (RL) is a learning approach in which an agent learns by interacting with an environment, taking actions, and receiving rewards or penalties. The goal is to learn a policy that maximizes the total reward over time. — **[Sutton & Barto, 2018](http://incompleteideas.net/book/the-book-2nd.html)**
 
 ### RL: Learning Through Interaction with the Environment
 
-**Key Components:**
-| Component | Meaning |
-|---|---|
-| Agent | The learner or decision-maker |
-| Action | The action the agent chooses to take (e.g., up, down, left, right) |
-| State | The current state observed by the agent |
-| Reward | The feedback from the environment (e.g., +1 for reaching the goal, -1 for hitting a wall) |
-| Policy | The method or rule the agent uses to make decisions |
+| Stage | Description |
+| --- | --- |
+| **Environment** | The world or system in which the agent operates |
+| **State** | The current situation observed by the agent |
+| **Action** | The decision or action selected by the agent |
+| **Reward** | Feedback received after performing an action |
+| **Learning** | The agent improves its policy based on experience |
+| **Output** | A learned policy for selecting appropriate actions |
 
-**What is RL?** RL learns from actions and outcomes, using reward as the signal of good or bad — there's no fixed correct answer; the agent must try actions and learn from the results.
+### RL: The Goals of RL
 
-**How does RL work?**
-1. The agent observes the current state from the environment
-2. The agent chooses an action
-3. The environment responds with a new state and gives a reward
-4. The agent learns and adjusts its policy to get more reward
+Reinforcement Learning aims to enable an agent to learn the best actions through interaction with an environment in order to maximize cumulative reward.
 
-**Key Concepts:**
-- **Goal:** maximize total reward over time
-- **Policy (π):** the method that converts states into actions
-- **Reward (r):** the feedback returned by the environment
-- **Exploration vs. Exploitation:** trying new things vs. using what is already known to work well
+**Goals:**
 
-**Advanced RL Agent Techniques:**
+1. **Learn from interaction** — gain experience by interacting with the environment
+2. **Maximize cumulative reward** — select actions that produce the highest total reward
+3. **Learn an optimal policy** — determine which action should be taken in each state
+4. **Balance exploration and exploitation** — explore new actions while using known successful actions
+5. **Adapt to the environment** — improve decisions based on experience and feedback
 
-- **Autonomous Agent** — Learns to make decisions and perform actions independently through interaction with an environment
-- **Deep RL Agent** — Uses deep neural networks to learn complex policies from high-dimensional observations
-- **Multi-Agent Reinforcement Learning (MARL)** — Multiple agents learn to cooperate or compete within a shared environment
-- **Cooperative Agents** — Multiple agents learn coordinated behaviors to achieve a shared goal
-- **Competitive Agents** — Agents learn strategies by competing against other agents in the environment
+### RL: How Does RL Work?
+
+1. The agent observes the current state
+2. The agent selects an action
+3. The environment responds to the action
+4. The agent receives a reward and observes the next state
+5. The agent updates its knowledge or policy
+6. The process repeats until the agent learns a better strategy
+
+### RL: Popular Models and Techniques
+
+- **Q-Learning** — Learns the expected reward of actions in different states
+- **Deep Q-Network (DQN)** — Combines Q-Learning with deep neural networks
+- **Policy Gradient** — Directly learns a policy that maximizes expected reward
+- **Actor-Critic** — Combines a policy-based Actor with a value-based Critic
+- **Proximal Policy Optimization (PPO)** — Uses controlled policy updates for stable training
+- **Deep RL Agent** — Uses deep neural networks to learn complex policies
+- **Multi-Agent Reinforcement Learning (MARL)** — Multiple agents learn to cooperate or compete
 - **Hierarchical RL Agent** — Divides complex tasks into high-level goals and lower-level actions
-- **Self-Play Agent** — Improves its policy by repeatedly competing against itself or previous versions
-- **Model-Based RL Agent** — Learns or uses a model of the environment to plan future actions
+- **Self-Play Agent** — Improves by competing against itself
+- **Model-Based RL Agent** — Uses a model of the environment to predict outcomes and plan actions
 
- **Summary:** RL learns by acting within an environment, trying many approaches, receiving rewards, and gradually improving to achieve the best possible outcome.
+### RL: Summary
+
+- Learns through **interaction with an environment**
+- Uses **rewards and penalties**
+- Learning cycle: **State → Action → Reward → Next State**
+- Main goal: **Maximize cumulative reward**
+- Common applications: **Robotics, Autonomous Systems, Games, and Intelligent Agents**
 
 ---
 
-## 📌 Comparative Summary Table — Types of ML by Example
+## 📌 Comparative Summary Table — Types of Machine Learning
+
+| Feature | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
+| --- | --- | --- | --- |
+| **Learning Data** | Labeled data | Unlabeled data | Environment interaction |
+| **Learning Signal** | Correct labels | Hidden patterns | Rewards / penalties |
+| **Main Goal** | Predict outputs | Discover structures | Maximize cumulative reward |
+| **Main Tasks** | Classification, Regression | Clustering, Dimensionality Reduction | Decision-making, Control |
+| **Output** | Class or value | Cluster or representation | Policy or action strategy |
+| **Example** | Cat/Dog classification | Customer clustering | Robot navigation |
+
+---
+
+## 📌 Types of ML by Example
 
 | Example | Type of ML | Input | Output |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Spam email filter | Supervised Learning | Email text | Spam or Not Spam |
-| Face unlock | Supervised Learning | Face image | Match or No Match |
-| Product recommendation | Unsupervised Learning | What you clicked or bought | Items you may like |
-| Music recommendation | Reinforcement Learning | Songs you listen to | Next songs to play |
-| Self-driving car | Reinforcement Learning | Camera and sensor data | Turn, stop, go |
-| Fraud detection | Supervised Learning | Payment history | Normal or Fraud |
+| Face recognition | Supervised Learning | Face image | Person / Identity |
 | House price prediction | Supervised Learning | House size, location | Predicted price |
-| Grouping customers | Unsupervised Learning | Age, purchase history | Group or segment |
-| Game AI (chess, Go) | Reinforcement Learning | Game state | Best move |
+| Fraud detection | Supervised Learning | Payment history | Normal or Fraud |
+| Customer segmentation | Unsupervised Learning | Customer information | Customer groups |
+| Anomaly detection | Unsupervised Learning | Sensor or transaction data | Normal / Anomaly pattern |
+| Robot navigation | Reinforcement Learning | Sensor and environment state | Movement action |
+| Game AI (Chess, Go) | Reinforcement Learning | Game state | Action / Move |
+| Autonomous agent | Reinforcement Learning | Environment state | Action / Decision |
 
 ---
 
-## ✅ Summary 
+## ✅ Summary
 
-**Conclusion**
-- We saw the differences between the types of learning in ML
-- We learned how ML is applied to different types of work today
+### Conclusion
 
-**ML Challenge**
-- A lightweight model for mobile phones?
-- A model that works well with limited training data?
+- We learned the differences between **Supervised, Unsupervised, and Reinforcement Learning**
+- Each learning type uses a different learning signal and solves different types of problems
+- Selecting the appropriate learning approach depends on the available data and the problem to be solved
 
-**Key Takeaways**
-- **Understand:** We understand the differences between AI, ML, DL
-- **Learn:** We learned how ML is used in many real-world applications
-- **Challenge:** We face real challenges in building practical ML models
-- **Improve:** We continue to learn, adapt, and improve our models
-  
+### ML Challenge
+
+- How can we build a lightweight model for mobile or edge devices?
+- How can we train a model effectively with limited training data?
+- How can an intelligent agent learn and adapt to a changing environment?
+
+### Key Takeaways
+
+- **Supervised Learning:** Labeled Data → **Predict**
+- **Unsupervised Learning:** Unlabeled Data → **Discover**
+- **Reinforcement Learning:** Environment + Reward → **Decide and Act**
+
 ---
-
 
 
 
