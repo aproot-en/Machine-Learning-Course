@@ -108,7 +108,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ## 1️⃣ Supervised Learning (SL)
 
-> "Supervised learning (SL) is learning a function that maps an input to an output based on example input-output pairs." — **Mitchell, T. M. (1997)**
+> "Supervised learning (SL) is learning a function that maps an input to an output based on example input-output pairs." — **[Mitchell, T. M. (1997)](https://www.cs.cmu.edu/~tom/mlbook.html)**  
 > *T. M. Mitchell, Machine Learning. New York, NY, USA: McGraw-Hill, 1997.*
 
 ### SL: Learning with Labeled Data
@@ -121,12 +121,6 @@ The model learns from labeled examples to make predictions on new data.
 | **Model Training** | The model learns patterns from the labeled data |
 | **Prediction** | The trained model makes predictions on new data |
 | **Output** | Predicted labels (e.g., Dog or Cat) are produced |
-
-### Example Task: Spam Email Filter (classifying emails as Spam or Not Spam)
-
-**Concept:** Input + Label → Learn mapping (X → y) → Predict on new data
-
-**Goal:** Build a model that learns the relationship between an email (Input) and its label (Spam/Not Spam) from labeled data, in order to accurately predict the label of new, unseen emails.
 
 **Why is it called "Supervised" Learning (SL)?**
 1. A "teacher" (Label) provides the correct answer — every training example has a known Spam/Not Spam label
@@ -162,9 +156,9 @@ The model learns from labeled examples to make predictions on new data.
 | **Processing** | The learned patterns are used to process and generate output |
 | **Output** | The model produces meaningful results (e.g., grouping or class) |
 
-### UL: The Goals of Unsupervised Learning
+### UL: The Goals of UL
 
-Unsupervised Learning (UL) is the process of discovering the structure, patterns, and relationships hidden in data that has not yet been labeled — without using any predefined answers.
+UL is the process of discovering the structure, patterns, and relationships hidden in data that has not yet been labeled — without using any predefined answers.
 
 **Five Key Goals:**
 1. **Discover hidden patterns** — find groups, structures, or patterns that are not obvious in the data
@@ -173,8 +167,6 @@ Unsupervised Learning (UL) is the process of discovering the structure, patterns
 4. **Detect anomalies** — identify data points that clearly differ from the majority of the data
 5. **Learn data representations** — learn meaningful representations (vectors or representative values) of the data that can reflect key factors or structures within it
 
-**Mathematical Framing:** Given an observed dataset X = {x₁, x₂, …, xₙ}, the goal is to learn a function f that transforms the data X into a latent representation Y = f(X), where Y is the latent representation (learned without any labeled/predetermined answers).
-
 **Example Tasks:**
 - Clustering (K-Means, Hierarchical Clustering, DBSCAN)
 - Dimensionality Reduction (PCA, t-SNE, UMAP, Autoencoder)
@@ -182,10 +174,9 @@ Unsupervised Learning (UL) is the process of discovering the structure, patterns
 - Association Rule Mining (Market Basket Analysis)
 - Density Estimation (Gaussian Mixture Models, KDE)
 
-**Key Summary:** Unsupervised Learning helps us understand unlabeled data by discovering hidden patterns, reducing complexity, and uncovering meaningful structures or relationships.
-(Raw Data → Discovered Structure → Data Understanding)
+**Key Summary:** UL helps us understand unlabeled data by discovering hidden patterns, reducing complexity, and uncovering meaningful structures or relationships.
 
-### UL: Types of Unsupervised Learning — Clustering
+### UL: Clustering
 
 Clustering groups similar data points together without using any labels.
 
@@ -195,27 +186,15 @@ Clustering groups similar data points together without using any labels.
 **Definition:** Clustering is grouping data points that look alike into the same group.
 
 **Key Takeaway:**
-- Clustering is a type of unsupervised learning
+- Clustering is a type of UL
 - It finds natural groupings in data without using labels
 - It helps us understand the structure of data
 
-### How Deep Learning Works with Unsupervised Learning
+### How DL Works with UL
 
 **Core Idea:** The model learns the structure, patterns, and relationships within data that has no labels (No Label), in order to discover hidden patterns or group the data (Grouping).
 
-**Example Task:** Customer Segmentation
-
-| Step | Description |
-|---|---|
-| 1. Input Data | Large volumes of unlabeled data (age, income, purchase frequency, order value, product category/interest) |
-| 2. Preprocessing | Remove outliers, handle missing values, encode categorical data, normalize/standardize the data |
-| 3. Model Selection | Autoencoder, k-Means, DBSCAN, Gaussian Mixture Model (GMM), Self-Organizing Map (SOM) |
-| 4. Unsupervised Training | The model learns patterns/structures from the data with no labels; weights are automatically adjusted |
-| 5. Output | 5.1 Representation (e.g., Autoencoder): key dimensionality-reduced features; 5.2 Clustering (e.g., k-Means): discovered clusters |
-| 6. Evaluation | Silhouette Score, Davies-Bouldin Index, Calinski-Harabasz Index, Reconstruction Error, expert/domain review |
-| 7. Deployment / Use | Segment customers for marketing, recommend suitable products, detect anomalies, discover patterns for strategic planning |
-
-**Popular Unsupervised Learning Models:**
+**Popular UL Models:**
 - **Autoencoder** — Learns to compress data into a low-dimensional latent space, then reconstructs it back to the original form; used for finding key features or detecting anomalies
 - **k-Means Clustering** — Divides data into k groups using cluster centroids
 - **DBSCAN** — Groups data based on density; can find clusters of irregular shapes and detect noise/outlier points
@@ -227,13 +206,11 @@ Clustering groups similar data points together without using any labels.
 - Main tasks: clustering, reducing data size, finding relationships
 - Used to explore and understand data
 
-> **Note:** "Unsupervised Learning helps reveal patterns that supervised data may hide."
-
 ---
 
 ## 3️⃣ Reinforcement Learning (RL)
 
-> "Reinforcement Learning (RL) is a way for an agent to learn by trying different actions and learning from rewards. The agent is not told the correct action. Instead, it learns which actions are best by trial and error to get the highest total reward." — **Sutton & Barto, 2018**
+> "RL is a way for an agent to learn by trying different actions and learning from rewards. The agent is not told the correct action. Instead, it learns which actions are best by trial and error to get the highest total reward." — **Sutton & Barto, 2018**
 > (https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)
 
 ### RL: Learning Through Interaction with the Environment
@@ -272,7 +249,7 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 | 6. Episode Loop | Repeat over many steps until the episode ends, then start a new episode |
 | 7. Optimal Policy | Obtain the policy π* that maximizes the cumulative return, ready for real-world deployment |
 
-**Example Applications of RL:** Games (Atari, Go, Chess, StarCraft), robotics and control, recommendation systems (product recommendations, online ads), resource allocation (Wi-Fi bandwidth, energy, cloud resources), finance (algorithmic trading, portfolio management)
+**Example Applications:** Games (Atari, Go, Chess, StarCraft), robotics and control, recommendation systems (product recommendations, online ads), resource allocation (Wi-Fi bandwidth, energy, cloud resources), finance (algorithmic trading, portfolio management)
 
 **Advantages of RL:**
 - Doesn't require labeled data
@@ -288,7 +265,7 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 
 **Summary:** Reinforcement Learning means having the Agent learn by interacting with the Environment — trying many actions, receiving rewards as feedback signals, and adjusting its policy to maximize cumulative reward.
  
-### RL: Overview Summary — RL
+### RL: Overview
 
 Learn by taking action, receiving rewards, and gradually improving.
 
@@ -352,16 +329,8 @@ Learn by taking action, receiving rewards, and gradually improving.
 - **Learn:** We learned how ML is used in many real-world applications
 - **Challenge:** We face real challenges in building practical ML models
 - **Improve:** We continue to learn, adapt, and improve our models
-
-> "Challenges push us to innovate. Better models come from better questions and solutions."
-
+  
 ---
-
-**Instructor:** Anuruk Prommakhot (P'Ball), Ph.D.
-**Email:** anuruk.p@en.rmutt.ac.th
-**Affiliation:** Signal Processing Research Laboratory (SPRL), Rajamangala University of Technology Thanyaburi (RMUTT)
-**Research Areas:** Optimization Algorithms, Machine Learning, AI Vision, RAG System, Agentic AI
-
 
 
 
