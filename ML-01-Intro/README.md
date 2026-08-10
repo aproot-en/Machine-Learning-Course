@@ -30,17 +30,17 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ### ML Timeline
 
-| Year | Model | Person / Org |
-|---|---|---|
-| 1943 | Neuron Model | Warren McCulloch |
-| 1957 | Perceptron | Frank Rosenblatt |
-| 1986 | Backpropagation | Ronald J. Williams |
-| 1989 | CNN | Yann LeCun |
-| 1995 | SVM | Vladimir Vapnik |
-| 1997 | LSTM | Sepp Hochreiter |
-| 2009 | ImageNet | Fei-Fei Li (Stanford U) |
-| 2017 | Transformer | Google AI |
-| 2020 | Vision Transformer | Google Research |
+| Year | Model              | Person / Org                         | Reference |
+| ---- | ------------------ | ------------------------------------ | --------- |
+| 1943 | Neuron Model       | Warren McCulloch & Walter Pitts      | [McCulloch & Pitts, 1943](https://doi.org/10.1007/BF02478259) |
+| 1958 | Perceptron         | Frank Rosenblatt                     | [Rosenblatt, 1958](https://doi.org/10.1037/h0042519) |
+| 1986 | Backpropagation    | Rumelhart, Hinton & Williams         | [Rumelhart et al., 1986](https://doi.org/10.1038/323533a0) |
+| 1989 | CNN                | Yann LeCun et al.                    | [LeCun et al., 1989](https://doi.org/10.1162/neco.1989.1.4.541) |
+| 1995 | SVM                | Corinna Cortes & Vladimir Vapnik     | [Cortes & Vapnik, 1995](https://doi.org/10.1007/BF00994018) |
+| 1997 | LSTM               | Sepp Hochreiter & Jürgen Schmidhuber | [Hochreiter & Schmidhuber, 1997](https://doi.org/10.1162/neco.1997.9.8.1735) |
+| 2009 | ImageNet           | Fei-Fei Li et al.                    | [Deng et al., 2009](https://ieeexplore.ieee.org/document/5206848) |
+| 2017 | Transformer        | Google                               | [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762) |
+| 2020 | Vision Transformer | Google Research                      | [Dosovitskiy et al., 2020](https://arxiv.org/abs/2010.11929) |
 
 ---
 
