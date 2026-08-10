@@ -34,9 +34,9 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 > ([https://doi.org/10.1093/mind/LIX.236.433](https://doi.org/10.1093/mind/LIX.236.433))
 
 
-### Machine Learning Timeline
+### ML Timeline
 
-| Year | Milestone | Key Person / Org |
+| Year | Milestone | Person / Org |
 |---|---|---|
 | 1943 | Neuron Model | Warren McCulloch |
 | 1957 | Perceptron | Frank Rosenblatt |
@@ -50,14 +50,13 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ---
 
-## AI, ML, and DL — The Relationship
+## 🧠 AI, ML, and DL — The Relationship
 
 - **Artificial Intelligence (AI):** The broad field of building intelligent systems that can perform tasks normally requiring human intelligence.
 - **Machine Learning (ML):** A subset of AI that enables computers to learn patterns from data and make decisions or predictions without being explicitly programmed.
 - **Deep Learning (DL):** A subset of ML that uses multi-layer neural networks to learn complex patterns from large amounts of data.
 
 **Key Takeaway:** AI is the big picture, ML is how machines learn from data, and DL is a powerful subset of ML using deep neural networks.
-**Hierarchy:** AI > ML > DL
 
 ### Key Areas within ML
 
@@ -72,12 +71,12 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ---
 
-
 ## ❓ What is Machine Learning?
 
-> "Machine Learning is any process by which a system improves performance from experience." — **Herbert Simon**
+> "Machine Learning is any process by which a system improves performance from experience." — **[Herbert Simon](https://en.wikipedia.org/wiki/Herbert_A._Simon)**
 
-> "Field of study that gives computers the ability to learn without being explicitly programmed." — **Arthur Samuel (1959)**
+> "Field of study that gives computers the ability to learn without being explicitly programmed." — **[Arthur Samuel (1959)](https://doi.org/10.1147/rd.33.0210)**
+
 
 ### Traditional Programming vs. Machine Learning
 
@@ -118,7 +117,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 > "Supervised learning (SL) is learning a function that maps an input to an output based on example input-output pairs." — **Mitchell, T. M. (1997)**
 > *T. M. Mitchell, Machine Learning. New York, NY, USA: McGraw-Hill, 1997.*
 
-### SL1: Learning with Labeled Data
+### SL: Learning with Labeled Data
 
 The model learns from labeled examples to make predictions on new data.
 
@@ -135,16 +134,7 @@ The model learns from labeled examples to make predictions on new data.
 
 **Goal:** Build a model that learns the relationship between an email (Input) and its label (Spam/Not Spam) from labeled data, in order to accurately predict the label of new, unseen emails.
 
-| Step | Description |
-|---|---|
-| 1) Labeled Data | Email text (Input) + Label: Spam(1) / Not Spam(0) |
-| 2) Preprocessing | Clean the text → Tokenization → Embedding (padding/truncation) |
-| 3) Model | Text Classification (CNN/LSTM/Transformer): Embedding → Encoder/Layers → Dropout → Dense (ReLU) → Output (Sigmoid) |
-| 4) Training | Model predicts P(Spam) → compute Loss against y → adjust parameters via Backpropagation → repeat over many epochs |
-| 5) Evaluation | Test on a held-out Test Set — Confusion Matrix (TP/FN/FP/TN); Metrics: Accuracy, Precision, Recall, F1-score, ROC-AUC |
-| 6) Prediction (Deployment) | New email → model predicts P(Spam), e.g., 0.98 → Result: Spam |
-
-**Why is it called "Supervised" Learning?**
+**Why is it called "Supervised" Learning (SL)?**
 1. A "teacher" (Label) provides the correct answer — every training example has a known Spam/Not Spam label
 2. It learns the relationship between Input and Label — the model learns patterns from correctly-labeled examples
 3. It measures error and improves — Loss + Backpropagation are used to make predictions as close to the true label as possible
@@ -168,7 +158,7 @@ The model learns from labeled examples to make predictions on new data.
 > "Unsupervised learning (UL) is learning without a teacher." — **Mitchell, T. M. (1997)**
 > *T. M. Mitchell, Machine Learning. New York, NY, USA: McGraw-Hill, 1997. / IBM, "What is Unsupervised Learning?," 2023. Available: https://www.ibm.com/topics/unsupervised-learning*
 
-### UL1: Learning Hidden Patterns without Labeled Data
+### UL: Learning Hidden Patterns without Labeled Data
 
 | Stage | Description |
 |---|---|
@@ -178,7 +168,7 @@ The model learns from labeled examples to make predictions on new data.
 | **Processing** | The learned patterns are used to process and generate output |
 | **Output** | The model produces meaningful results (e.g., grouping or class) |
 
-### UL2: The Goals of Unsupervised Learning
+### UL: The Goals of Unsupervised Learning
 
 Unsupervised Learning (UL) is the process of discovering the structure, patterns, and relationships hidden in data that has not yet been labeled — without using any predefined answers.
 
@@ -201,7 +191,7 @@ Unsupervised Learning (UL) is the process of discovering the structure, patterns
 **Key Summary:** Unsupervised Learning helps us understand unlabeled data by discovering hidden patterns, reducing complexity, and uncovering meaningful structures or relationships.
 (Raw Data → Discovered Structure → Data Understanding)
 
-### UL3A: Types of Unsupervised Learning — Clustering
+### UL: Types of Unsupervised Learning — Clustering
 
 Clustering groups similar data points together without using any labels.
 
@@ -237,13 +227,7 @@ Clustering groups similar data points together without using any labels.
 - **DBSCAN** — Groups data based on density; can find clusters of irregular shapes and detect noise/outlier points
 - **Gaussian Mixture Model (GMM)** — Views data as a mixture of several Gaussian distributions; used for clustering data with complex distributions
 
-**Advantages of Unsupervised Learning:**
-- Doesn't require labeled data, reducing cost and time in data preparation
-- Discovers patterns/relationships that humans might overlook
-- Works with large and diverse datasets
-- Serves as an important foundation for advanced data analysis tasks
-
-### UL5: Summary
+### UL: Summary
 
 - No labeled data → the model finds hidden patterns by itself
 - Main tasks: clustering, reducing data size, finding relationships
@@ -253,12 +237,12 @@ Clustering groups similar data points together without using any labels.
 
 ---
 
-## Reinforcement Learning (RL)
+## 3️⃣ Reinforcement Learning (RL)
 
 > "Reinforcement Learning (RL) is a way for an agent to learn by trying different actions and learning from rewards. The agent is not told the correct action. Instead, it learns which actions are best by trial and error to get the highest total reward." — **Sutton & Barto, 2018**
 > (https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)
 
-### RL1: Learning Through Interaction with the Environment
+### RL: Learning Through Interaction with the Environment
 
 An agent learns through trial and error, aiming to obtain the highest cumulative reward over the long term.
 
@@ -271,7 +255,7 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 | Reward | The feedback from the environment (e.g., +1 for reaching the goal, -1 for hitting a wall) |
 | Policy | The method or rule the agent uses to make decisions |
 
-**Learning Cycle (RL Cycle):**
+**RL Cycle:**
 1. The agent observes the current state sₜ
 2. The agent selects an action aₜ
 3. The environment returns a reward rₜ₊₁ and a new state sₜ₊₁
@@ -280,7 +264,7 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 
 **Goal:** Learn the best policy in order to obtain the maximum total reward throughout all interactions with the environment.
 
-### How Deep Learning Works with Reinforcement Learning (RL)
+### How DL Works with RL
 
 **Core Idea:** Learn through trial and error, with the Agent interacting with the Environment to maximize the Cumulative Reward.
 
@@ -293,12 +277,6 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 | 5. Learn & Update | The Agent uses its experience (sₜ, aₜ, rₜ₊₁, sₜ₊₁) to update its policy/value estimates |
 | 6. Episode Loop | Repeat over many steps until the episode ends, then start a new episode |
 | 7. Optimal Policy | Obtain the policy π* that maximizes the cumulative return, ready for real-world deployment |
-
-**Example RL Algorithms Used with Deep Learning:**
-1. **DQN (Deep Q-Network)** — Uses a Q-Network to estimate Q-values; selects the action with the highest Q(s,a), often combined with Experience Replay and a Target Network
-2. **Policy Gradient (REINFORCE)** — Learns the policy directly; updates the policy to increase cumulative reward using the gradient of the return
-3. **Actor-Critic** — Has both an Actor (Policy) and a Critic (Value); the Critic evaluates value to help the Actor learn faster and more stably
-4. **DDPG / SAC / TD3** — Designed for continuous action spaces; suited to tasks where the action is a continuous value, such as robotic control
 
 **Example Applications of RL:** Games (Atari, Go, Chess, StarCraft), robotics and control, recommendation systems (product recommendations, online ads), resource allocation (Wi-Fi bandwidth, energy, cloud resources), finance (algorithmic trading, portfolio management)
 
@@ -315,8 +293,8 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 - Training instability issues
 
 **Summary:** Reinforcement Learning means having the Agent learn by interacting with the Environment — trying many actions, receiving rewards as feedback signals, and adjusting its policy to maximize cumulative reward.
-
-### RL4: Overview Summary — Reinforcement Learning
+ 
+### RL: Overview Summary — RL
 
 Learn by taking action, receiving rewards, and gradually improving.
 
@@ -365,7 +343,7 @@ Learn by taking action, receiving rewards, and gradually improving.
 
 ---
 
-## ✅ Summary — What We Learned
+## ✅ Summary 
 
 **Conclusion**
 - We saw the differences between the types of learning in ML
