@@ -174,20 +174,6 @@ UL is the process of discovering the structure, patterns, and relationships hidd
 
 **Key Summary:** UL helps us understand unlabeled data by discovering hidden patterns, reducing complexity, and uncovering meaningful structures or relationships.
 
-### UL: Clustering
-
-Clustering groups similar data points together without using any labels.
-
-- **Raw Data (Unlabeled):** e.g., dog and cat images with no labels
-- **Clustering Result:** Data points close to each other are grouped together, each color represents a different cluster
-
-**Definition:** Clustering is grouping data points that look alike into the same group.
-
-**Key Takeaway:**
-- Clustering is a type of UL
-- It finds natural groupings in data without using labels
-- It helps us understand the structure of data
-
 ### How DL Works with UL
 
 **Core Idea:** The model learns the structure, patterns, and relationships within data that has no labels (No Label), in order to discover hidden patterns or group the data (Grouping).
@@ -231,24 +217,6 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 4. The agent updates its own policy
 5. Repeat until the goal is reached or the best policy is found
 
-**Goal:** Learn the best policy in order to obtain the maximum total reward throughout all interactions with the environment.
-
-### How DL Works with RL
-
-**Core Idea:** Learn through trial and error, with the Agent interacting with the Environment to maximize the Cumulative Reward.
-
-| Step | Description |
-|---|---|
-| 1. Define RL Problem | Identify the goal and components of the RL problem: State, Action, Reward, Policy, Goal |
-| 2. Observe State | The Agent receives the current state information from the Environment |
-| 3. Select Action | The Agent selects an action aₜ according to its policy π |
-| 4. Environment Response | The Environment changes state and provides a reward rₜ₊₁ |
-| 5. Learn & Update | The Agent uses its experience (sₜ, aₜ, rₜ₊₁, sₜ₊₁) to update its policy/value estimates |
-| 6. Episode Loop | Repeat over many steps until the episode ends, then start a new episode |
-| 7. Optimal Policy | Obtain the policy π* that maximizes the cumulative return, ready for real-world deployment |
-
-**Example Applications:** Games (Atari, Go, Chess, StarCraft), robotics and control, recommendation systems (product recommendations, online ads), resource allocation (Wi-Fi bandwidth, energy, cloud resources), finance (algorithmic trading, portfolio management)
-
 **Advantages of RL:**
 - Doesn't require labeled data
 - Learns directly from experience
@@ -260,12 +228,6 @@ An agent learns through trial and error, aiming to obtain the highest cumulative
 - Experimentation/trial can be costly
 - Designing an appropriate reward function is difficult
 - Training instability issues
-
-**Summary:** Reinforcement Learning means having the Agent learn by interacting with the Environment — trying many actions, receiving rewards as feedback signals, and adjusting its policy to maximize cumulative reward.
- 
-### RL: Overview
-
-Learn by taking action, receiving rewards, and gradually improving.
 
 **What is RL?** RL learns from actions and outcomes, using reward as the signal of good or bad — there's no fixed correct answer; the agent must try actions and learn from the results.
 
@@ -281,18 +243,7 @@ Learn by taking action, receiving rewards, and gradually improving.
 - **Reward (r):** the feedback returned by the environment
 - **Exploration vs. Exploitation:** trying new things vs. using what is already known to work well
 
-**Where is RL used?** Games, robotics and control, autonomous vehicles, finance and investment, medicine and public health
-
-**Comparison with Other Methods (does it require a predefined answer?):**
-| Method | Requires a Predefined Answer? |
-|---|---|
-| Supervised Learning | ✅ Yes |
-| Unsupervised Learning | ❌ No |
-| Reinforcement Learning | ❌ No (uses reward as the guiding signal) |
-
-**Things to Remember:** No predefined answer / learns by taking action / receives rewards or penalties as outcomes / gradually improves over time
-
-**Quick Summary:** RL learns by acting within an environment, trying many approaches, receiving rewards, and gradually improving to achieve the best possible outcome.
+**QSummary:** RL learns by acting within an environment, trying many approaches, receiving rewards, and gradually improving to achieve the best possible outcome.
 
 ---
 
