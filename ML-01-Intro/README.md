@@ -30,7 +30,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ### ML Timeline
 
-| Year | Milestone | Person / Org |
+| Year | Model | Person / Org |
 |---|---|---|
 | 1943 | Neuron Model | Warren McCulloch |
 | 1957 | Perceptron | Frank Rosenblatt |
