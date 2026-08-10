@@ -126,8 +126,6 @@ SL is learning a function that maps an input to an output based on example input
 3. It measures error and improves — Loss + Backpropagation are used to make predictions as close to the true label as possible
 4. It predicts new data more accurately — once trained well, the model can accurately predict on new, unseen data
 
-**Summary:** Supervised Learning means having the model "learn from data that already has answers (labels)" in order to build a function that maps Input → Output, and use it to accurately predict the answers for new data.
-
 **Popular SL Models:**
 
 - **Linear Regression** — Predicts continuous values by learning the relationship between input features and a target value
@@ -203,13 +201,6 @@ UL is the process of discovering the structure, patterns, and relationships hidd
 | State | The current state observed by the agent |
 | Reward | The feedback from the environment (e.g., +1 for reaching the goal, -1 for hitting a wall) |
 | Policy | The method or rule the agent uses to make decisions |
-
-**RL Cycle:**
-1. The agent observes the current state sₜ
-2. The agent selects an action aₜ
-3. The environment returns a reward rₜ₊₁ and a new state sₜ₊₁
-4. The agent updates its own policy
-5. Repeat until the goal is reached or the best policy is found
 
 **What is RL?** RL learns from actions and outcomes, using reward as the signal of good or bad — there's no fixed correct answer; the agent must try actions and learn from the results.
 
