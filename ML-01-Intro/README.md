@@ -200,8 +200,6 @@ UL is the process of discovering the structure, patterns, and relationships hidd
 
 ### RL: Learning Through Interaction with the Environment
 
-An agent learns through trial and error, aiming to obtain the highest cumulative reward over the long term.
-
 **Key Components:**
 | Component | Meaning |
 |---|---|
