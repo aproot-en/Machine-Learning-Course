@@ -228,13 +228,10 @@ Reinforcement Learning aims to enable an agent to learn the best actions through
 
 - **Q-Learning** — Learns the expected reward of actions in different states
 - **Deep Q-Network (DQN)** — Combines Q-Learning with deep neural networks
-- **Policy Gradient** — Directly learns a policy that maximizes expected reward
-- **Actor-Critic** — Combines a policy-based Actor with a value-based Critic
 - **Proximal Policy Optimization (PPO)** — Uses controlled policy updates for stable training
 - **Deep RL Agent** — Uses deep neural networks to learn complex policies
 - **Multi-Agent Reinforcement Learning (MARL)** — Multiple agents learn to cooperate or compete
 - **Hierarchical RL Agent** — Divides complex tasks into high-level goals and lower-level actions
-- **Self-Play Agent** — Improves by competing against itself
 - **Model-Based RL Agent** — Uses a model of the environment to predict outcomes and plan actions
 
 ### RL: Summary
