@@ -133,15 +133,6 @@ Supervised Learning aims to learn the relationship between input data and known 
 4. **Minimize prediction error** — reduce the difference between predicted and actual outputs
 5. **Generalize to new data** — make accurate predictions on unseen data
 
-### SL: How Does SL Work?
-
-1. The model receives labeled training data
-2. The model learns the relationship between input features and target labels
-3. The model makes predictions and compares them with the correct answers
-4. The prediction error is calculated
-5. The model parameters are adjusted to reduce the error
-6. The trained model is used to predict new, unseen data
-
 ### SL: Popular Models
 
 - **Linear Regression** — Predicts continuous values from input features
@@ -188,14 +179,6 @@ Unsupervised Learning aims to discover useful structures, patterns, and relation
 4. **Detect anomalies** — identify unusual data points
 5. **Learn data representations** — create meaningful representations of the data
 
-### UL: How Does UL Work?
-
-1. The model receives unlabeled data
-2. The model analyzes features and relationships within the data
-3. Similarities, differences, and hidden structures are identified
-4. The model organizes or transforms the data based on discovered patterns
-5. The results are used for clustering, dimensionality reduction, anomaly detection, or data exploration
-
 ### UL: Popular Models
 
 - **k-Means Clustering** — Divides data into k groups based on similarity
@@ -241,16 +224,7 @@ Reinforcement Learning aims to enable an agent to learn the best actions through
 4. **Balance exploration and exploitation** — explore new actions while using known successful actions
 5. **Adapt to the environment** — improve decisions based on experience and feedback
 
-### RL: How Does RL Work?
-
-1. The agent observes the current state
-2. The agent selects an action
-3. The environment responds to the action
-4. The agent receives a reward and observes the next state
-5. The agent updates its knowledge or policy
-6. The process repeats until the agent learns a better strategy
-
-### RL: Popular Models and Techniques
+### RL: Popular Models
 
 - **Q-Learning** — Learns the expected reward of actions in different states
 - **Deep Q-Network (DQN)** — Combines Q-Learning with deep neural networks
