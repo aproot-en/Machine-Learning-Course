@@ -113,8 +113,6 @@ SL is learning a function that maps an input to an output based on example input
 
 ### SL: Learning with Labeled Data
 
-The model learns from labeled examples to make predictions on new data.
-
 | Stage | Description |
 |---|---|
 | **Labeled Data** | Examples come with correct answers (labels) |
@@ -122,7 +120,7 @@ The model learns from labeled examples to make predictions on new data.
 | **Prediction** | The trained model makes predictions on new data |
 | **Output** | Predicted labels (e.g., Dog or Cat) are produced |
 
-**Why is it called "Supervised" Learning (SL)?**
+**Why is it called "SL?**
 1. A "teacher" (Label) provides the correct answer — every training example has a known Spam/Not Spam label
 2. It learns the relationship between Input and Label — the model learns patterns from correctly-labeled examples
 3. It measures error and improves — Loss + Backpropagation are used to make predictions as close to the true label as possible
@@ -130,7 +128,17 @@ The model learns from labeled examples to make predictions on new data.
 
 **Summary:** Supervised Learning means having the model "learn from data that already has answers (labels)" in order to build a function that maps Input → Output, and use it to accurately predict the answers for new data.
 
-### SL: Summary & Key Takeaways
+**Popular SL Models:**
+
+- **Linear Regression** — Predicts continuous values by learning the relationship between input features and a target value
+- **Logistic Regression** — Predicts class labels or probabilities for classification tasks
+- **k-Nearest Neighbors (KNN)** — Classifies new data based on the labels of its nearest neighbors
+- **Support Vector Machine (SVM)** — Finds an optimal decision boundary to separate different classes
+- **Decision Tree** — Makes predictions by learning decision rules from labeled data
+- **Random Forest** — Combines multiple decision trees to improve prediction accuracy and reduce overfitting
+- **Neural Network (NN)** — Learns complex patterns from labeled data through interconnected layers of neurons
+  
+### SL: Summary
 
 - Supervised learning needs labeled data
 - Two main tasks: classification & regression
@@ -159,25 +167,12 @@ UL is learning without a teacher. It means that the model learns from unlabeled 
 
 UL is the process of discovering the structure, patterns, and relationships hidden in data that has not yet been labeled — without using any predefined answers.
 
-**Five Key Goals:**
+**Goals:**
 1. **Discover hidden patterns** — find groups, structures, or patterns that are not obvious in the data
 2. **Reduce data complexity** — reduce the number of features (variables) or dimensions of the data while preserving key information
 3. **Group similar data** — cluster or split data into groups based on natural similarity
 4. **Detect anomalies** — identify data points that clearly differ from the majority of the data
 5. **Learn data representations** — learn meaningful representations (vectors or representative values) of the data that can reflect key factors or structures within it
-
-**Example Tasks:**
-- Clustering (K-Means, Hierarchical Clustering, DBSCAN)
-- Dimensionality Reduction (PCA, t-SNE, UMAP, Autoencoder)
-- Anomaly Detection (Isolation Forest, One-Class SVM)
-- Association Rule Mining (Market Basket Analysis)
-- Density Estimation (Gaussian Mixture Models, KDE)
-
-**Key Summary:** UL helps us understand unlabeled data by discovering hidden patterns, reducing complexity, and uncovering meaningful structures or relationships.
-
-### How DL Works with UL
-
-**Core Idea:** The model learns the structure, patterns, and relationships within data that has no labels (No Label), in order to discover hidden patterns or group the data (Grouping).
 
 **Popular UL Models:**
 - **Autoencoder** — Learns to compress data into a low-dimensional latent space, then reconstructs it back to the original form; used for finding key features or detecting anomalies
@@ -216,18 +211,6 @@ UL is the process of discovering the structure, patterns, and relationships hidd
 4. The agent updates its own policy
 5. Repeat until the goal is reached or the best policy is found
 
-**Advantages of RL:**
-- Doesn't require labeled data
-- Learns directly from experience
-- Well-suited for complex and changing problems
-- Can discover the optimal strategy
-
-**Limitations of RL:**
-- Requires a long training time
-- Experimentation/trial can be costly
-- Designing an appropriate reward function is difficult
-- Training instability issues
-
 **What is RL?** RL learns from actions and outcomes, using reward as the signal of good or bad — there's no fixed correct answer; the agent must try actions and learn from the results.
 
 **How does RL work?**
@@ -242,7 +225,18 @@ UL is the process of discovering the structure, patterns, and relationships hidd
 - **Reward (r):** the feedback returned by the environment
 - **Exploration vs. Exploitation:** trying new things vs. using what is already known to work well
 
-**QSummary:** RL learns by acting within an environment, trying many approaches, receiving rewards, and gradually improving to achieve the best possible outcome.
+**Advanced RL Agent Techniques:**
+
+- **Autonomous Agent** — Learns to make decisions and perform actions independently through interaction with an environment
+- **Deep RL Agent** — Uses deep neural networks to learn complex policies from high-dimensional observations
+- **Multi-Agent Reinforcement Learning (MARL)** — Multiple agents learn to cooperate or compete within a shared environment
+- **Cooperative Agents** — Multiple agents learn coordinated behaviors to achieve a shared goal
+- **Competitive Agents** — Agents learn strategies by competing against other agents in the environment
+- **Hierarchical RL Agent** — Divides complex tasks into high-level goals and lower-level actions
+- **Self-Play Agent** — Improves its policy by repeatedly competing against itself or previous versions
+- **Model-Based RL Agent** — Learns or uses a model of the environment to plan future actions
+
+ **Summary:** RL learns by acting within an environment, trying many approaches, receiving rewards, and gradually improving to achieve the best possible outcome.
 
 ---
 
