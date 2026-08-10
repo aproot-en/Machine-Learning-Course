@@ -21,7 +21,8 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 - **Python** — Versatile programming language with rich libraries for data science, AI, and ML
 - **TensorFlow** — Open-source platform for building and deploying ML models
 - **Visual Studio Code** — Powerful, lightweight code editor with rich extensions and integrated tools
-- 
+
+---- 
 
 ## 🕰️ Historical Context
 > "I propose to consider the question, 'Can machines think?'" — **Alan Turing, 1950**
