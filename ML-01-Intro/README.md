@@ -1,7 +1,7 @@
 
 # ML-01: Fundamentals of Machine Learning (ML)
 
-## Course Description
+## 📘 Course Description
 
 Fundamentals of machine learning, supervised and unsupervised learning, classification, clustering, decision tree, k-nearest neighbors, artificial neural networks, support vector machine, genetic algorithm.
 
