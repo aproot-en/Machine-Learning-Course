@@ -1,12 +1,7 @@
 
 # ML-01: Fundamentals of Machine Learning (ML)
 
-**Instructor:** Anuruk Prommakhot (P'Ball), Ph.D.
-**Email:** anuruk.p@en.rmutt.ac.th
-**Affiliation:** Signal Processing Research Laboratory (SPRL), Rajamangala University of Technology Thanyaburi (RMUTT)
-**Research Areas:** Optimization Algorithms, Machine Learning, AI Vision, RAG System, Agentic AI
-
-# Course Description
+## Course Description
 
 Fundamentals of machine learning, supervised and unsupervised learning, classification, clustering, decision tree, k-nearest neighbors, artificial neural networks, support vector machine, genetic algorithm.
 
@@ -363,7 +358,10 @@ Learn by taking action, receiving rewards, and gradually improving.
 
 ---
 
-
+**Instructor:** Anuruk Prommakhot (P'Ball), Ph.D.
+**Email:** anuruk.p@en.rmutt.ac.th
+**Affiliation:** Signal Processing Research Laboratory (SPRL), Rajamangala University of Technology Thanyaburi (RMUTT)
+**Research Areas:** Optimization Algorithms, Machine Learning, AI Vision, RAG System, Agentic AI
 
 
 
