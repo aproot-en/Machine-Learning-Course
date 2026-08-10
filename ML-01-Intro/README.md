@@ -18,8 +18,8 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ## 🛠️ Software / Tools
 
-- **Python** — Versatile programming language with rich libraries for data science, AI, and machine learning
-- **TensorFlow** — Open-source platform for building and deploying machine learning models
+- **Python** — Versatile programming language with rich libraries for data science, AI, and ML
+- **TensorFlow** — Open-source platform for building and deploying ML models
 - **Visual Studio Code** — Powerful, lightweight code editor with rich extensions and integrated tools
 - 
 
@@ -67,7 +67,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ## ❓ What is Machine Learning?
 
-> "Machine Learning is any process by which a system improves performance from experience." — **[Herbert Simon](https://en.wikipedia.org/wiki/Herbert_A._Simon)**
+> "ML is any process by which a system improves performance from experience." — **[Herbert Simon](https://en.wikipedia.org/wiki/Herbert_A._Simon)**
 
 > "Field of study that gives computers the ability to learn without being explicitly programmed." — **[Arthur Samuel (1959)](https://doi.org/10.1147/rd.33.0210)**
 
@@ -81,7 +81,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ---
 
-## ⚖️ Why Machine Learning?
+## ⚖️ Why ML?
 
 **Advantages**
 - Learns features from raw data
@@ -102,7 +102,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 | 02 | **Unsupervised Learning** | Unlabeled data | Clusters / Patterns |
 | 03 | **Reinforcement Learning** | Interaction with an environment (reward/penalty) | Optimal action policy |
 
-**In Summary:** Machine Learning helps computers learn from data, discover patterns, and make accurate predictions or decisions without being explicitly programmed.
+**In Summary:** ML helps computers learn from data, discover patterns, and make accurate predictions or decisions without being explicitly programmed.
 
 ---
 
