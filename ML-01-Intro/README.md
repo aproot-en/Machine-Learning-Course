@@ -68,9 +68,9 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ## ❓ What is Machine Learning?
 
-> "ML is any process by which a system improves performance from experience." — **[Herbert Simon](https://en.wikipedia.org/wiki/Herbert_A._Simon)**
+> "ML is any process by which a system improves performance from experience."
 
-> "Field of study that gives computers the ability to learn without being explicitly programmed." — **[Arthur Samuel (1959)](https://doi.org/10.1147/rd.33.0210)**
+> "Field of study that gives computers the ability to learn without being explicitly programmed."
 
 
 ### Traditional Programming vs. Machine Learning
