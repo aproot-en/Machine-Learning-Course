@@ -226,15 +226,15 @@ Reinforcement Learning aims to enable an agent to learn the best actions through
 4. **Balance exploration and exploitation** — explore new actions while using known successful actions
 5. **Adapt to the environment** — improve decisions based on experience and feedback
 
-### RL: Popular Models
+### RL: Popular Algorithms and Models
 
-- **Q-Learning** — Learns action values for different states and actions to find an optimal policy — **[Watkins & Dayan, 1992](https://doi.org/10.1007/BF00992698)**
-- **Deep Q-Network (DQN)** — Combines Q-Learning with deep neural networks to learn action values from high-dimensional inputs — **[Mnih et al., 2015](https://doi.org/10.1038/nature14236)**
-- **Proximal Policy Optimization (PPO)** — Improves a policy using controlled updates for stable and efficient training — **[Schulman et al., 2017](https://arxiv.org/abs/1707.06347)**
-- **Deep Reinforcement Learning (Deep RL)** — Combines reinforcement learning with deep neural networks to learn from complex, high-dimensional inputs — **[Mnih et al., 2015](https://doi.org/10.1038/nature14236)**
-- **Multi-Agent Reinforcement Learning (MARL)** — Multiple agents learn while interacting, cooperating, or competing in a shared environment — **[Busoniu et al., 2008](https://doi.org/10.1109/TSMCC.2007.913919)**
-- **Hierarchical Reinforcement Learning (HRL)** — Breaks complex problems into higher-level tasks and lower-level actions or subtasks — **[Sutton et al., 1999](https://doi.org/10.1016/S0004-3702(99)00052-1)**
-- **Model-Based Reinforcement Learning (MBRL)** — Uses or learns a model of the environment to predict outcomes and support planning — **[Sutton, 1991](https://doi.org/10.1145/122344.122377)**
+- **Proximal Policy Optimization (PPO)** — Improves a policy using a surrogate objective while limiting large policy updates for stable training — **[Schulman et al., 2017](https://arxiv.org/abs/1707.06347)**
+- **Soft Actor-Critic (SAC)** — Uses an off-policy actor-critic approach that maximizes both expected reward and policy entropy for stable and sample-efficient learning — **[Haarnoja et al., 2018](https://arxiv.org/abs/1801.01290)**
+- **Twin Delayed Deep Deterministic Policy Gradient (TD3)** — Improves actor-critic learning using twin critics, delayed policy updates, and target policy smoothing to reduce overestimation errors — **[Fujimoto et al., 2018](https://arxiv.org/abs/1802.09477)**
+- **MuZero** — Learns the representations, rewards, and value information needed for planning and combines them with tree search without requiring known environment dynamics — **[Schrittwieser et al., 2019](https://arxiv.org/abs/1911.08265)**
+- **DreamerV3** — Learns a world model and improves behavior by training on imagined future trajectories across different environments and tasks — **[Hafner et al., 2023](https://arxiv.org/abs/2301.04104)**
+- **Multi-Agent PPO (MAPPO)** — Applies PPO to cooperative multi-agent environments where multiple agents learn policies while interacting in a shared environment — **[Yu et al., 2021](https://arxiv.org/abs/2103.01955)**
+- **Decision Transformer (DT)** — Treats offline reinforcement learning as a conditional sequence modeling problem and predicts actions based on desired returns, states, and previous actions — **[Chen et al., 2021](https://arxiv.org/abs/2106.01345)**
   
 ### RL: Summary
 
@@ -272,8 +272,6 @@ Reinforcement Learning aims to enable an agent to learn the best actions through
 | **Robot navigation** | Reinforcement Learning | Sensor and environment state | Movement action | [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
 | **Game AI (Chess, Go)** | Reinforcement Learning | Game state | Action / Move | [Silver et al., 2018](https://doi.org/10.1126/science.aar6404) |
 | **Autonomous agent** | Reinforcement Learning | Environment state | Action / Decision | [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
-
----
 
 ---
 
