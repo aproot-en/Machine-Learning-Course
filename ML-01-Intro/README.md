@@ -109,7 +109,7 @@ Fundamentals of machine learning, supervised and unsupervised learning, classifi
 
 ## 1️⃣ Supervised Learning (SL)
 
-Supervised Learning (SL) learns a function that maps an input to an output based on labeled input-output examples. — **[Mitchell, T. M. (1997)](https://www.cs.cmu.edu/~tom/mlbook.html)**
+Supervised Learning (SL) learns a function that maps an input to an output based on labeled input-output examples. — **[Mitchell, T. M. (1997)](https://www.cs.cmu.edu/~tom/mlbook.html)**, **[Goodfellow et al. (2016)](https://www.deeplearningbook.org/)**, **[NIST (2025)](https://csrc.nist.gov/glossary/term/supervised_learning)**
 
 ### SL: Learning with Labeled Data
 
@@ -155,7 +155,8 @@ Supervised Learning aims to learn the relationship between input data and known 
 
 ## 2️⃣ Unsupervised Learning (UL)
 
-Unsupervised Learning (UL) learns from unlabeled data without predefined correct answers or target outputs. The model analyzes the data to discover hidden patterns, similarities, relationships, or structures.
+Unsupervised Learning (UL) learns from unlabeled data without predefined correct answers or target outputs. The model analyzes the data to discover hidden patterns, similarities, relationships, or structures. — **[Goodfellow et al. (2016)](https://www.deeplearningbook.org/)**, **[Schmarje et al. (2020)](https://arxiv.org/abs/2002.08721)**, **[IBM](https://www.ibm.com/think/topics/unsupervised-learning)**
+
 
 ### UL: Learning with Unlabeled Data
 
@@ -200,7 +201,7 @@ Unsupervised Learning aims to discover useful structures, patterns, and relation
 
 ## 3️⃣ Reinforcement Learning (RL)
 
-Reinforcement Learning (RL) is a learning approach in which an agent learns by interacting with an environment, taking actions, and receiving rewards or penalties. The goal is to learn a policy that maximizes the total reward over time. — **[Sutton & Barto, 2018](http://incompleteideas.net/book/the-book-2nd.html)**
+Reinforcement Learning (RL) is a learning approach in which an agent learns by interacting with an environment, taking actions, and receiving rewards or penalties. The goal is to learn a policy that maximizes the total reward over time. — **[Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/)**, **[Arulkumaran et al., 2017](https://arxiv.org/abs/1708.05866)**, **[Li, 2017](https://arxiv.org/abs/1701.07274)**
 
 ### RL: Learning Through Interaction with the Environment
 
