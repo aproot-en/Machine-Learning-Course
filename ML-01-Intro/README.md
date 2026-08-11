@@ -246,30 +246,32 @@ Reinforcement Learning aims to enable an agent to learn the best actions through
 
 ## 📌 Comparative Summary Table — Types of Machine Learning
 
-| Feature | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
-| --- | --- | --- | --- |
-| **Learning Data** | Labeled data | Unlabeled data | Environment interaction |
-| **Learning Signal** | Correct labels | Hidden patterns | Rewards / penalties |
-| **Main Goal** | Predict outputs | Discover structures | Maximize cumulative reward |
-| **Main Tasks** | Classification, Regression | Clustering, Dimensionality Reduction | Decision-making, Control |
-| **Output** | Class or value | Cluster or representation | Policy or action strategy |
-| **Example** | Cat/Dog classification | Customer clustering | Robot navigation |
+| Feature | Supervised Learning | Unsupervised Learning | Reinforcement Learning | Reference |
+| --- | --- | --- | --- | --- |
+| **Learning Data** | Labeled data | Unlabeled data | Environment interaction | [Bishop, 2006](https://link.springer.com/book/9780387310732) / [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
+| **Learning Signal** | Correct labels / target values | No explicit labels | Reward signal | [Bishop, 2006](https://link.springer.com/book/9780387310732) / [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
+| **Main Goal** | Predict outputs | Discover patterns or structures | Maximize cumulative reward | [Bishop, 2006](https://link.springer.com/book/9780387310732) / [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
+| **Main Tasks** | Classification, Regression | Clustering, Dimensionality Reduction | Decision-making, Control | [Bishop, 2006](https://link.springer.com/book/9780387310732) / [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
+| **Output** | Class or value | Cluster or representation | Policy or action strategy | [Bishop, 2006](https://link.springer.com/book/9780387310732) / [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
+| **Example** | Cat/Dog classification | Customer clustering | Robot navigation | [Bishop, 2006](https://link.springer.com/book/9780387310732) / [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
 
 ---
 
 ## 📌 Types of ML by Example
 
-| Example | Type of ML | Input | Output |
-| --- | --- | --- | --- |
-| Spam email filter | Supervised Learning | Email text | Spam or Not Spam |
-| Face recognition | Supervised Learning | Face image | Person / Identity |
-| House price prediction | Supervised Learning | House size, location | Predicted price |
-| Fraud detection | Supervised Learning | Payment history | Normal or Fraud |
-| Customer segmentation | Unsupervised Learning | Customer information | Customer groups |
-| Anomaly detection | Unsupervised Learning | Sensor or transaction data | Normal / Anomaly pattern |
-| Robot navigation | Reinforcement Learning | Sensor and environment state | Movement action |
-| Game AI (Chess, Go) | Reinforcement Learning | Game state | Action / Move |
-| Autonomous agent | Reinforcement Learning | Environment state | Action / Decision |
+| Example | Type of ML | Input | Output | Reference |
+| --- | --- | --- | --- | --- |
+| **Spam email filter** | Supervised Learning | Email text | Spam or Not Spam | [Sahami et al., 1998](https://aaai.org/papers/055-ws98-05-009/) |
+| **Face recognition** | Supervised Learning | Face image | Person / Identity | [Taigman et al., 2014](https://www.cv-foundation.org/openaccess/content_cvpr_2014/html/Taigman_DeepFace_Closing_the_2014_CVPR_paper.html) |
+| **House price prediction** | Supervised Learning | House size, location | Predicted price | [Harrison & Rubinfeld, 1978](https://doi.org/10.1016/0095-0696%2878%2990006-2) |
+| **Fraud detection** | Supervised Learning | Payment history | Normal or Fraud | [Bhattacharyya et al., 2011](https://doi.org/10.1016/j.dss.2010.08.008) |
+| **Customer segmentation** | Unsupervised Learning | Customer information | Customer groups | [MacQueen, 1967](https://projecteuclid.org/euclid.bsmsp/1200512992) |
+| **Anomaly detection** | Unsupervised Learning | Sensor or transaction data | Normal / Anomaly pattern | [Chandola et al., 2009](https://doi.org/10.1145/1541880.1541882) |
+| **Robot navigation** | Reinforcement Learning | Sensor and environment state | Movement action | [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
+| **Game AI (Chess, Go)** | Reinforcement Learning | Game state | Action / Move | [Silver et al., 2018](https://doi.org/10.1126/science.aar6404) |
+| **Autonomous agent** | Reinforcement Learning | Environment state | Action / Decision | [Sutton & Barto, 2018](https://mitpress.mit.edu/9780262039246/reinforcement-learning/) |
+
+---
 
 ---
 
