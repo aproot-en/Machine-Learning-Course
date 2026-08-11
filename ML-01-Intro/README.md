@@ -135,13 +135,13 @@ Supervised Learning aims to learn the relationship between input data and known 
 
 ### SL: Popular Models
 
-- **Linear Regression** — Predicts continuous values from input features
-- **Logistic Regression** — Predicts class labels or probabilities
-- **k-Nearest Neighbors (KNN)** — Classifies data based on its nearest neighbors
-- **Support Vector Machine (SVM)** — Finds an optimal decision boundary between classes
-- **Decision Tree** — Learns decision rules from labeled data
-- **Random Forest** — Combines multiple decision trees
-- **Neural Network (NN)** — Learns complex patterns using interconnected layers
+- **Linear Regression** — Predicts continuous values by learning a linear relationship between input features and the target — **[Legendre, 1805](https://archive.org/details/nouvellesmthode00legegoog)**
+- **Logistic Regression** — Predicts class probabilities, commonly for binary classification — **[Cox, 1958](https://doi.org/10.1111/j.2517-6161.1958.tb00292.x)**
+- **k-Nearest Neighbors (KNN)** — Classifies data based on the classes of its nearest neighbors — **[Cover & Hart, 1967](https://doi.org/10.1109/TIT.1967.1053964)**
+- **Support Vector Machine (SVM)** — Finds a decision boundary that separates classes using the maximum-margin principle — **[Cortes & Vapnik, 1995](https://doi.org/10.1007/BF00994018)**
+- **Decision Tree** — Learns decision rules by recursively splitting data based on input features — **[Quinlan, 1986](https://doi.org/10.1007/BF00116251)**
+- **Random Forest** — Combines multiple randomized decision trees to improve prediction performance — **[Breiman, 2001](https://doi.org/10.1023/A:1010933404324)**
+- **Neural Network (NN)** — Learns complex patterns through interconnected layers of neurons and trainable weights — **[Rumelhart et al., 1986](https://doi.org/10.1038/323533a0)**
 
 ### SL: Summary
 
@@ -181,12 +181,13 @@ Unsupervised Learning aims to discover useful structures, patterns, and relation
 
 ### UL: Popular Models
 
-- **k-Means Clustering** — Divides data into k groups based on similarity
-- **DBSCAN** — Groups data based on density and identifies noise
-- **Gaussian Mixture Model (GMM)** — Uses multiple Gaussian distributions for probabilistic clustering
-- **Autoencoder** — Learns compressed representations and reconstructs the original input
-- **Principal Component Analysis (PCA)** — Reduces data dimensions while preserving important information
+- **k-Means Clustering** — Divides data into k groups based on similarity — **[MacQueen, 1967](https://projecteuclid.org/euclid.bsmsp/1200512992)**
+- **DBSCAN** — Groups data based on density and identifies noise — **[Ester et al., 1996](https://f.aaai.org/Library/KDD/1996/kdd96-037.php)**
+- **Gaussian Mixture Model (GMM)** — Represents data as a mixture of multiple Gaussian distributions for probabilistic clustering — **[Reynolds, 2009](https://doi.org/10.1007/978-0-387-73003-5_196)**
+- **Autoencoder** — Learns compressed representations and reconstructs the original input — **[Hinton & Salakhutdinov, 2006](https://doi.org/10.1126/science.1127647)**
+- **Principal Component Analysis (PCA)** — Reduces data dimensions while preserving as much variance as possible — **[Pearson, 1901](https://doi.org/10.1080/14786440109462720)**
 
+  
 ### UL: Summary
 
 - Uses **unlabeled data**
@@ -226,14 +227,14 @@ Reinforcement Learning aims to enable an agent to learn the best actions through
 
 ### RL: Popular Models
 
-- **Q-Learning** — Learns the expected reward of actions in different states
-- **Deep Q-Network (DQN)** — Combines Q-Learning with deep neural networks
-- **Proximal Policy Optimization (PPO)** — Uses controlled policy updates for stable training
-- **Deep RL Agent** — Uses deep neural networks to learn complex policies
-- **Multi-Agent Reinforcement Learning (MARL)** — Multiple agents learn to cooperate or compete
-- **Hierarchical RL Agent** — Divides complex tasks into high-level goals and lower-level actions
-- **Model-Based RL Agent** — Uses a model of the environment to predict outcomes and plan actions
-
+- **Q-Learning** — Learns action values for different states and actions to find an optimal policy — **[Watkins & Dayan, 1992](https://doi.org/10.1007/BF00992698)**
+- **Deep Q-Network (DQN)** — Combines Q-Learning with deep neural networks to learn action values from high-dimensional inputs — **[Mnih et al., 2015](https://doi.org/10.1038/nature14236)**
+- **Proximal Policy Optimization (PPO)** — Improves a policy using controlled updates for stable and efficient training — **[Schulman et al., 2017](https://arxiv.org/abs/1707.06347)**
+- **Deep Reinforcement Learning (Deep RL)** — Combines reinforcement learning with deep neural networks to learn from complex, high-dimensional inputs — **[Mnih et al., 2015](https://doi.org/10.1038/nature14236)**
+- **Multi-Agent Reinforcement Learning (MARL)** — Multiple agents learn while interacting, cooperating, or competing in a shared environment — **[Busoniu et al., 2008](https://doi.org/10.1109/TSMCC.2007.913919)**
+- **Hierarchical Reinforcement Learning (HRL)** — Breaks complex problems into higher-level tasks and lower-level actions or subtasks — **[Sutton et al., 1999](https://doi.org/10.1016/S0004-3702(99)00052-1)**
+- **Model-Based Reinforcement Learning (MBRL)** — Uses or learns a model of the environment to predict outcomes and support planning — **[Sutton, 1991](https://doi.org/10.1145/122344.122377)**
+  
 ### RL: Summary
 
 - Learns through **interaction with an environment**
