@@ -15,7 +15,7 @@ The course follows the official course description while extending the content w
 - ML-03: Regression & Classification
 - ML-04: K-Nearest Neighbor
 - ML-05: Support Vector Machine
-- ML-06: Neural Networks
+- ML-06: Neural Network
 - ML-07: Convolutional Neural Network
 - ML-08: Deep Convolutional Neural Network
 - ML-09: Object Detection I
