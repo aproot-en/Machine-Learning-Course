@@ -13,11 +13,11 @@ The course follows the official course description while extending the content w
 - ML-01: Introduction
 - ML-02: Data Preprocessing
 - ML-03: Regression & Classification
-- ML-04: K-Nearest Neighbor (KNN)
-- ML-05: Support Vector Machine (SVM)
-- ML-06: Neural Networks (NN)
-- ML-07: Convolutional Neural Network (CNN)
-- ML-08: Deep Convolutional Neural Network (DCNN)
+- ML-04: K-Nearest Neighbor
+- ML-05: Support Vector Machine
+- ML-06: Neural Networks
+- ML-07: Convolutional Neural Network
+- ML-08: Deep Convolutional Neural Network
 - ML-09: Object Detection I
 - ML-10: Object Detection II
 - ML-11: Machine Learning Applications I
