@@ -20,9 +20,9 @@ The course follows the official course description while extending the content w
 - ML-08: Deep Convolutional Neural Network
 - ML-09: Object Detection I
 - ML-10: Object Detection II
-- ML-11: Machine Learning Applications I
-- ML-12: Machine Learning Applications II
-- ML-13: Machine Learning Applications III
+- ML-11: ML Applications I
+- ML-12: ML Applications II
+- ML-13: ML Applications III
  
 ## Repository Includes
 
