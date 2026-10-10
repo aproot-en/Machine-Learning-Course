@@ -74,7 +74,7 @@ Potential improvements include larger YOLO models, hyperparameter tuning, improv
 
 ## 6. References
 
-- [BDD100K / Berkeley DeepDrive](https://bdd-data.berkeley.edu/)
-- [Ultralytics YOLO Documentation](https://docs.ultralytics.com/)
+- [BDD100K / Berkeley DeepDrive](https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?resource=download/)
+- [Ultralytics YOLO Documentation]([https://docs.ultralytics.com/](https://docs.ultralytics.com/models/yolo26)/)
 
 
