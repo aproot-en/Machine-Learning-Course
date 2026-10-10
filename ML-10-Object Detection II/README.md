@@ -15,7 +15,7 @@ The project fine-tunes **Ultralytics YOLOv8n** with pretrained weights on the BD
 
 ## 2. Dataset
 
-The [BDD100K dataset](https://bdd-data.berkeley.edu/) is used in YOLO annotation format.
+The [BDD100K dataset](https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?resource=download) is used in YOLO annotation format.
 
 | Split | Images |
 |---|---:|
