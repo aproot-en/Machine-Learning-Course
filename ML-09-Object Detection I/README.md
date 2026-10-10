@@ -26,8 +26,6 @@ The [BDD100K dataset](https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?
 
 **Classes:** `person`, `rider`, `car`, `bus`, `truck`, `bike`, `motor`, `traffic light`, `traffic sign`, `train`.
 
-Each YOLO label line contains a class ID and normalized bounding-box coordinates.
-
 The dataset is shared across all four architectures. YOLO annotations can be converted into the required bounding-box format during preprocessing.
 
 ## 3. Project Structure
