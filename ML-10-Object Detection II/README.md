@@ -76,6 +76,5 @@ Potential improvements include larger YOLO models, hyperparameter tuning, improv
 
 - [BDD100K / Berkeley DeepDrive](https://bdd-data.berkeley.edu/)
 - [Ultralytics YOLO Documentation](https://docs.ultralytics.com/)
-- [PyTorch Documentation](https://pytorch.org/)
 
 
