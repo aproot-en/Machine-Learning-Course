@@ -1,7 +1,7 @@
 # ML-10-Object Detection II
 
 This project implements **YOLOv8-based object detection** using the Berkeley DeepDrive (BDD100K) dataset. It detects road objects such as vehicles, pedestrians, and traffic infrastructure, and covers training, evaluation, image inference, and real-time webcam detection.
-
+ 
 ## 1. Project Overview
 
 The project fine-tunes **Ultralytics YOLOv8n** with pretrained weights on the BDD100K dataset.
