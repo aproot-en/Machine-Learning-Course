@@ -22,7 +22,6 @@ The course follows the official course description while extending the content w
 - ML-10: Object Detection II
 - ML-11: Applications I
 - ML-12: Applications II
-- ML-13: Applications III
  
 ## Repository Includes
 
