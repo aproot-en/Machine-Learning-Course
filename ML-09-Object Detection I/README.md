@@ -1,6 +1,6 @@
 # ML-09-Object Detection I
 
-This project explores **R-CNN, Fast R-CNN, Faster R-CNN, and Mask R-CNN** using Python and TensorFlow/Keras with the Berkeley DeepDrive (BDD100K) dataset. It covers model training, evaluation, image inference, and real-time webcam testing through simplified educational implementations.
+This project explores **R-CNN, and Fast R-CNN** using Python and TensorFlow/Keras with the Berkeley DeepDrive (BDD100K) dataset. It covers model training, evaluation, image inference, and real-time webcam testing through simplified educational implementations.
 
 ## 1. Project Overview
 
@@ -52,20 +52,6 @@ ML-09-Object-Detection-I/
 │   ├── realtime_test.py
 │   └── outputs/
 │
-├── 03-Faster-R-CNN/
-│   ├── train.py
-│   ├── evaluate.py
-│   ├── image_test.py
-│   ├── realtime_test.py
-│   └── outputs/
-│
-├── 04-Mask-R-CNN/
-│   ├── train.py
-│   ├── evaluate.py
-│   ├── image_test.py
-│   ├── realtime_test.py
-│   └── outputs/
-│
 ├── requirements.txt
 └── README.md
 ```
@@ -85,13 +71,13 @@ Each architecture uses the same dataset and follows an independent workflow. Mod
 **Model training** — navigate to the selected architecture folder and run:
 
 ```bash
-python train.py
+python train.py --limit 200 --epochs 50
 ```
 
 **Model evaluation** — evaluate the trained model using labeled test images:
 
 ```bash
-python evaluate.py
+python evaluate.py --limit 200 --split test
 ```
 
 **Image testing** — select test images, run inference, and save prediction results:
@@ -103,17 +89,15 @@ python image_test.py
 **Real-time testing** — open webcam index 0 and perform real-time inference. Press **Q** to exit:
 
 ```bash
-python realtime_test.py
+python realtime_test.py --camera 0 --threshold 0.85 --regions 25
 ```
 
 The scripts must reference the correct dataset directory and trained model checkpoint.
 
-**Implementation note:** The current educational implementations may use simplified crop-classification baselines rather than complete R-CNN detection pipelines. Full object detection requires region proposals, bounding-box regression, and detection postprocessing. Mask R-CNN additionally requires instance-level segmentation annotations, which are not provided by the standard BDD100K YOLO bounding-box labels.
+**Implementation note:** The current R-CNN and Fast R-CNN implementations use simplified crop-classification baselines rather than complete object detection architectures. Full implementations require region proposals, bounding-box regression, and detection postprocessing. The BDD100K dataset provides YOLO-format bounding-box annotations for training and evaluation.
 
 ## 5. References
 
 - [BDD100K / Berkeley DeepDrive](https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?resource=download)
 - [R-CNN](https://arxiv.org/abs/1311.2524)
 - [Fast R-CNN](https://arxiv.org/abs/1504.08083)
-- [Faster R-CNN](https://arxiv.org/abs/1506.01497)
-- [Mask R-CNN](https://arxiv.org/abs/1703.06870)
