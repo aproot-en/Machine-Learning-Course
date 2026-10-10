@@ -70,16 +70,6 @@ Each architecture follows the same workflow:
 
 Each folder is standalone and uses the shared BDD100K dataset. Model creation, data loading, and preprocessing are implemented directly in the Python scripts. No additional `_core.py`, `common/`, or `network/` modules are required.
 
-## Important Notes
-
-All four implementations currently use educational **CNN crop-classification baselines**, rather than complete R-CNN, Fast R-CNN, Faster R-CNN, or Mask R-CNN architectures.
-
-Image and webcam testing use sliding-window classification. Evaluation supports Accuracy, Precision, Recall, and F1-score, but not detection mAP.
-
-A complete Mask R-CNN implementation also requires instance segmentation masks, which are not included in standard YOLO bounding-box annotations.
-
-These implementations are intended for educational purposes and should not be used for direct comparisons of full object detection architectures.
-
 # Summary
 
 This project explores **R-CNN, Fast R-CNN, Faster R-CNN, and Mask R-CNN** using Python and TensorFlow/Keras with the **BDD100K dataset**. It provides educational CNN-based crop-classification baselines with a simplified workflow for data loading, preprocessing, model training, evaluation, image testing, and real-time webcam testing. Each architecture is organized into a separate folder with four main Python scripts. The current implementations demonstrate object classification concepts rather than complete object detection or instance segmentation architectures.
