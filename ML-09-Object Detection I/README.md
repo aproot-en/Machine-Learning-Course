@@ -1,29 +1,43 @@
-# ML-09 Object Detection I
+# ML-09-Object Detection I
 
-This project explores **R-CNN, Fast R-CNN, Faster R-CNN, and Mask R-CNN** using Python and TensorFlow/Keras with the BDD100K dataset. It provides simplified educational baselines for model training, evaluation, image testing, and real-time webcam testing.
+This project explores **R-CNN, Fast R-CNN, Faster R-CNN, and Mask R-CNN** using Python and TensorFlow/Keras with the Berkeley DeepDrive (BDD100K) dataset. It covers model training, evaluation, image inference, and real-time webcam testing through simplified educational implementations.
 
-## Dataset
+## 1. Project Overview
 
-**BDD100K — YOLO Format**
+The project introduces four CNN-based object detection architectures using a shared BDD100K dataset. Each architecture is organized into a separate folder with independent scripts for training, evaluation, and inference.
 
-Kaggle Link: https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?resource=download
+**Features:**
+- Exploration of four R-CNN-based architectures
+- Shared BDD100K dataset with 10 road-object classes
+- Model training and evaluation
+- Image and real-time webcam testing
+- Model checkpoints and experiment outputs
+- Separate implementations for architectural comparison
 
-Download the dataset and organize it into `train`, `val`, and `test` directories, each containing `images` and `labels` folders, along with the `data.yaml` configuration file.
+## 2. Dataset
 
-# Structure
+The [BDD100K dataset](https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?resource=download) is used in YOLO annotation format.
+
+| Split | Images |
+|---|---:|
+| Training | 70,000 |
+| Validation | 10,000 |
+| Test | Provided in the dataset (count not specified) |
+
+**Classes:** `person`, `rider`, `car`, `bus`, `truck`, `bike`, `motor`, `traffic light`, `traffic sign`, `train`.
+
+Each YOLO label line contains a class ID and normalized bounding-box coordinates.
+
+The dataset is shared across all four architectures. YOLO annotations can be converted into the required bounding-box format during preprocessing.
+
+## 3. Project Structure
 
 ```text
 ML-09-Object-Detection-I/
-├── bdd100k/
-│   ├── train/
-│   │   ├── images/
-│   │   └── labels/
-│   ├── val/
-│   │   ├── images/
-│   │   └── labels/
-│   ├── test/
-│   │   ├── images/
-│   │   └── labels/
+├── dataset/
+│   ├── train/{images,labels}/
+│   ├── val/{images,labels}/
+│   ├── test/{images,labels}/
 │   └── data.yaml
 │
 ├── 01-R-CNN/
@@ -58,20 +72,50 @@ ML-09-Object-Detection-I/
 └── README.md
 ```
 
-## Project Structure
+| Script | Purpose |
+|---|---|
+| `train.py` | Train the model and save checkpoints |
+| `evaluate.py` | Evaluate model performance on labeled images |
+| `image_test.py` | Test the trained model on selected images |
+| `realtime_test.py` | Run webcam-based real-time inference |
+| `outputs/` | Store trained models, logs, and inference results |
 
-Each architecture follows the same workflow:
+Each architecture uses the same dataset and follows an independent workflow. Model creation, data loading, and preprocessing are implemented directly in the Python scripts.
 
-- `train.py` — Train the model.
-- `evaluate.py` — Evaluate model performance.
-- `image_test.py` — Test the trained model on images.
-- `realtime_test.py` — Run real-time testing using a webcam.
-- `outputs/` — Store trained models and results.
+## 4. Object Detection
 
-Each folder is standalone and uses the shared BDD100K dataset. Model creation, data loading, and preprocessing are implemented directly in the Python scripts. No additional `_core.py`, `common/`, or `network/` modules are required.
+**Model training** — navigate to the selected architecture folder and run:
 
-# Summary
+```bash
+python train.py
+```
 
-This project explores **R-CNN, Fast R-CNN, Faster R-CNN, and Mask R-CNN** using Python and TensorFlow/Keras with the **BDD100K dataset**. It provides educational CNN-based crop-classification baselines with a simplified workflow for data loading, preprocessing, model training, evaluation, image testing, and real-time webcam testing. Each architecture is organized into a separate folder with four main Python scripts. The current implementations demonstrate object classification concepts rather than complete object detection or instance segmentation architectures.
+**Model evaluation** — evaluate the trained model using labeled test images:
 
+```bash
+python evaluate.py
+```
 
+**Image testing** — select test images, run inference, and save prediction results:
+
+```bash
+python image_test.py
+```
+
+**Real-time testing** — open webcam index 0 and perform real-time inference. Press **Q** to exit:
+
+```bash
+python realtime_test.py
+```
+
+The scripts must reference the correct dataset directory and trained model checkpoint.
+
+**Implementation note:** The current educational implementations may use simplified crop-classification baselines rather than complete R-CNN detection pipelines. Full object detection requires region proposals, bounding-box regression, and detection postprocessing. Mask R-CNN additionally requires instance-level segmentation annotations, which are not provided by the standard BDD100K YOLO bounding-box labels.
+
+## 5. References
+
+- [BDD100K / Berkeley DeepDrive](https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?resource=download)
+- [R-CNN: Rich Feature Hierarchies for Accurate Object Detection](https://arxiv.org/abs/1311.2524)
+- [Fast R-CNN](https://arxiv.org/abs/1504.08083)
+- [Faster R-CNN](https://arxiv.org/abs/1506.01497)
+- [Mask R-CNN](https://arxiv.org/abs/1703.06870)
