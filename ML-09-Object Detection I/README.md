@@ -113,7 +113,7 @@ The scripts must reference the correct dataset directory and trained model check
 ## 5. References
 
 - [BDD100K / Berkeley DeepDrive](https://www.kaggle.com/datasets/a7madmostafa/bdd100k-yolo?resource=download)
-- [R-CNN: Rich Feature Hierarchies for Accurate Object Detection](https://arxiv.org/abs/1311.2524)
+- [R-CNN](https://arxiv.org/abs/1311.2524)
 - [Fast R-CNN](https://arxiv.org/abs/1504.08083)
 - [Faster R-CNN](https://arxiv.org/abs/1506.01497)
 - [Mask R-CNN](https://arxiv.org/abs/1703.06870)
