@@ -30,7 +30,7 @@ Each YOLO label line contains a class ID and normalized bounding-box coordinates
 ## 3. Project Structure
 
 ```text
-YOLO-BDD100K/
+ML-10-Object-Detection-II/
 ├── dataset/
 │   ├── train/{images,labels}/
 │   ├── val/{images,labels}/
