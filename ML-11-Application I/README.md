@@ -11,10 +11,10 @@ Automatic exam grading system is a web app for grading multiple-choice exams fro
 | Primary dataset | Kaggle A–Z Handwritten Alphabets |
 | Original / deduplicated images | 372,451 / 201,096; 171,355 exact duplicates removed |
 | Train / validation / test | 140,767 / 30,164 / 30,165 images; stratified 70% / 15% / 15% split |
-| Optimizer / initial learning rate | Adam / 0.001 |
+| Optimizer / learning rate | Adam / 0.001 |
 | Batch size | 128 |
 | Selected checkpoint / completed epochs | Epoch 50 |
-| Recorded training GPU | NVIDIA RTX 5060 Ti |
+| GPU | NVIDIA RTX 5060 Ti 16GB |
 
 ### Classification Performance
 
