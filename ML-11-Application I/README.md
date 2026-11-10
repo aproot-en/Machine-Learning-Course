@@ -99,9 +99,8 @@ Alternatively, double-click `examchecker.bat`, which prefers the Python environm
 
 ├── main_exam.py                 # Web application entry point
 ├── examchecker.bat              # Windows launcher
-├── requirements.txt            # Dependency installation entry point
 ├── requirements-full-freeze.txt # Full environment package versions
-├── exam_migrations/            # Database migrations
+├── exam_migrations/             # Database migrations
 ├── exam_cnn/
 │   ├── data/                   # Dataset preparation and augmentation
 │   ├── models/                 # CNN15, inference, and export
