@@ -1,8 +1,6 @@
 # ML-11-Application I
 
-**AEGS (Automatic Exam Grading System)** is a web app for grading multiple-choice exams from scanned answer sheets. It reads student IDs, checks answers against an answer key, calculates scores, lets users review the results, and exports them to Excel. The web interface is in Thai.
-
-The main system uses **OMR (Optical Mark Recognition)** to read crosses and filled marks on the answer sheet used by the Faculty of Engineering, Rajamangala University of Technology Thanyaburi (RMUTT). An optional **CNN15 model** can also recognize handwritten English letters (A–Z).
+Automatic exam grading system is a web app for grading multiple-choice exams from scanned answer sheets. It reads student IDs, checks answers against an answer key, calculates scores, lets users review the results, and exports them to Excel. The web interface is in Thai.
 
 ### Dataset and Training Setup
 
