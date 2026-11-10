@@ -6,36 +6,96 @@ The main system uses **OMR (Optical Mark Recognition)** to read crosses and fill
 
 ## Main Features
 
-- Create, rename, and manage exams by academic year.
+- Create, rename, and organize exams by academic year.
 - Create answer keys separately from exams and reuse existing keys.
 - Set correct answers, points per question, and canceled questions in the web interface.
-- Upload multiple answer sheet images and track grading progress.
-- Check image quality, find the four corner markers, and align images before reading them.
-- Read 13-digit student IDs from marked boxes and detect answers ก / ข / ค / ง (A / B / C / D).
-- Review unclear marks, check the original images, and correct student IDs.
-- Calculate scores automatically after grading or saving an answer key, with an option to recalculate.
-- View individual scores, score statistics, question difficulty, discrimination, and answer-choice distribution.
-- Export results for one exam to Excel, or combine results from multiple exams into separate sheets in one file.
-- Save grading job status in the database and resume unfinished jobs after restarting the app.
+- Upload multiple answer-sheet images and track grading progress.
+- Check image quality, detect four corner markers, and correct perspective.
+- Read 13-digit student IDs from filled bubbles and detect answers ก / ข / ค / ง (A / B / C / D).
+- Review ambiguous answers against the original image and correct student IDs.
+- Calculate scores automatically after processing or saving an answer key, with manual recalculation available.
+- View student results, score statistics, item difficulty, discrimination, and choice distributions.
+- Export individual exams or combine selected exams into separate worksheets in one Excel file.
+- Persist processing jobs in the database and resume unfinished jobs on startup.
 
 ## Supported Answer Sheet
 
-| Item | Details |
+| Property | Specification |
 | --- | --- |
-| Form | RMUTT Engineering, using the `rmutt_answer_sheet_v1` template |
-| Questions | 100 questions, arranged in 5 columns × 20 rows |
-| Choices | ก / ข / ค / ง (A / B / C / D), marked with a cross |
-| Student ID | 13-digit ID marked in number boxes |
-| Alignment markers | Black circles at all four corners |
-| Upload formats | PNG and JPEG, up to 50 MiB per file |
-| Minimum resolution | Shorter side at least 800 pixels; images must also pass blur, brightness, and marker checks |
+| Template | RMUTT Engineering, `rmutt_answer_sheet_v1` |
+| Layout | 100 questions, arranged in 5 columns of 20 rows |
+| Answer choices | ก / ข / ค / ง (A / B / C / D), marked with an X inside a box |
+| Student ID | 13 digits, read from filled bubbles |
+| Reference markers | Black circles at all four corners |
+| Web uploads | PNG and JPEG, up to 50 MiB per file |
+| Minimum resolution | Short side of at least 800 pixels; blur, brightness, and marker checks must also pass |
 
-The exam setup page lets you choose the number of questions and answer choices, but the current image reader uses fixed positions from the 100-question form above. Other forms need an updated template and detection testing first.
+### Dataset and Training Setup
 
-Form details: [Real Answer Sheet Template](exam_docs/answer_sheet_real_template.md)
+| Setting | Recorded value |
+| --- | --- |
+| Architecture | CNN15: 12 convolutional layers + 3 linear layers, approximately 2.23 million parameters |
+| Input / output | 28 × 28 grayscale images normalized to [0, 1] / 26 A–Z classes |
+| Primary dataset | Kaggle A–Z Handwritten Alphabets |
+| Original / deduplicated images | 372,451 / 201,096; 171,355 exact duplicates removed |
+| Train / validation / test | 140,767 / 30,164 / 30,165 images; stratified 70% / 15% / 15% split |
+| Random seed | 42 |
+| Optimizer / initial learning rate | Adam / 0.001 |
+| Batch size | 128 |
+| Loss settings | Class weighting enabled; label smoothing 0.05 |
+| Learning-rate scheduler | ReduceLROnPlateau; factor 0.5, patience 5, monitored validation loss |
+| Training limit / early stopping | 100 epochs / patience 12, monitored validation accuracy |
+| Selected checkpoint / completed epochs | Epoch 50 |
+| Recorded training GPU | NVIDIA RTX 5060 Ti |
+| Real student handwriting fine-tuning | Not performed; calibration data was not collected |
 
+### Classification Performance
 
-## 🛠️ Tech Stack
+| Model | Evaluation dataset | Images | Accuracy | Macro F1 | Weighted F1 |
+| --- | --- | ---: | ---: | ---: | ---: |
+| CNN15, epoch 60 | Kaggle A–Z validation | 30,164 | 99.24% | — | — |
+| CNN15, epoch 60 | Kaggle A–Z held-out test | 30,165 | **99.25%** | **0.9913** | **0.9926** |
+| CNN15, epoch 60 | EMNIST Letters test, orientation corrected | 20,800 | **71.52%** | — | — |
+| CNN15 | Real student handwriting | Not collected | Not evaluated | — | — |
+
+Accuracy is displayed as a percentage; F1 scores use a 0–1 scale. A dash means the metric was not reported. On the Kaggle test split, **225 of 30,165 images were misclassified**.
+
+EMNIST Letters combines uppercase and lowercase forms within each class, while the Kaggle training data contains uppercase letters. The cross-dataset result therefore includes a case-distribution mismatch and cannot be interpreted as an uppercase-only generalization score.
+
+These results measure **handwritten character classification**. They do not establish the accuracy of the OMR grading pipeline or performance on real student answer sheets.
+
+Sources: [evaluation summary](exam_cnn/reports/phase5_summary.json), [evaluation report](exam_cnn/docs/phase5_evaluation.md), and [error analysis](exam_cnn/reports/error_analysis.json). Raw and normalized confusion matrices are available in [test counts](exam_cnn/reports/confusion_matrix_test.csv) and [normalized counts](exam_cnn/reports/confusion_matrix_test_normalized.csv).
+
+---
+
+### Confidence Threshold Experiment
+
+Coverage is the fraction of all Kaggle test images whose predicted confidence meets the threshold. Accuracy is measured only among those accepted predictions.
+
+| Confidence threshold | Test coverage | Accuracy among accepted predictions |
+| ---: | ---: | ---: |
+| 0.80 | 72.4% | 99.67% |
+| 0.85 | 68.5% | 99.70% |
+| 0.90 | 44.6% | 99.70% |
+| 0.95 | 17.0% | 99.63% |
+| 0.99 | 1.1% | 99.37% |
+
+---
+
+The evaluation selected **0.80** as the lowest tested threshold meeting its 99.5% accuracy target. The current [inference wrapper](exam_cnn/models/inference.py) defaults to **0.90** and returns `UNKNOWN` below that threshold. These are different settings; the evaluation choice does not automatically change the application default. Source: [confidence analysis](exam_cnn/docs/phase5_evaluation.md).
+
+### Inference and Export Checks
+
+| Measurement | Recorded result |
+| --- | --- |
+| Single-image inference | 1.89 ms/image |
+| Batch inference, 256 images | 4.30 ms/batch, approximately 0.017 ms/image |
+| Export prediction agreement | 100% agreement across four formats on 1,000 test images |
+| Verified formats | PyTorch state dictionary, TorchScript, ONNX, dynamically quantized TorchScript |
+
+---
+
+## Tech Stack
 
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-4051B5?style=for-the-badge)
@@ -56,14 +116,11 @@ Form details: [Real Answer Sheet Template](exam_docs/answer_sheet_real_template.
 ![openpyxl](https://img.shields.io/badge/openpyxl-217346?style=for-the-badge)
 ![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
-
 ## Installation on Windows
 
-Run the following commands in **PowerShell** from the project root folder.
+Run the following PowerShell commands from the project root. Use **64-bit Python 3.10** with the project's pinned dependencies.
 
 ### 1. Set Up Python
-
-Download or clone this repository and open PowerShell in the project folder. Use **64-bit Python 3.10** to match the pinned dependencies.
 
 ```powershell
 py -3.10 --version
@@ -77,31 +134,23 @@ py -3.10 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-`requirements.txt` includes the web app and testing packages, and references `exam_cnn/requirements.txt` for machine learning packages. The ML requirements use the PyTorch CUDA 12.8 package source. `requirements-full-freeze.txt` lists all package versions from the checked environment.
+[requirements.txt](requirements.txt) includes the web and test dependencies plus [ML dependencies](exam_cnn/requirements.txt). The ML dependency file specifies PyTorch `2.11.0+cu128` from the CUDA 12.8 wheel index and NumPy `1.26.4`. The installation also includes training and export packages, which can require substantial download space. The inference wrapper selects CPU when CUDA is unavailable.
 
-The installation also includes packages for model training and export, so it may take some time and disk space. An NVIDIA GPU is optional for CNN tasks. Model inference falls back to the CPU when CUDA is not available.
-
-Check that the main packages can be imported:
+Check the installed packages:
 
 ```powershell
 .\.venv\Scripts\python.exe -c "import torch, cv2, numpy; print('NumPy:', numpy.__version__); print('PyTorch:', torch.__version__); print('CUDA:', torch.cuda.is_available())"
 ```
 
-The project specifies NumPy `1.26.4` and PyTorch `2.11.0+cu128`. Seeing `CUDA: False` is fine if you are using the CPU.
-
-> The ML code uses PyTorch, not TensorFlow. TensorBoard 2.20.0 is used for training logs and compatibility with ONNX's protobuf dependencies. See [Environment Notes](exam_docs/environment.md) for issues found in an earlier environment.
+The ML code uses PyTorch; TensorFlow is not required. TensorBoard `2.20.0` is included for training logs. See [environment notes](exam_docs/environment.md) and the [full environment freeze](requirements-full-freeze.txt).
 
 ### 3. Add the Optional CNN Model
 
-The OMR grading system works without a CNN checkpoint. To use the A–Z handwriting prediction API, place a compatible checkpoint at:
+OMR grading works without the CNN checkpoint. To enable the A–Z prediction API, place a compatible checkpoint at:
 
 ```text
 exam_cnn/models_export/cnn15_best.pt
 ```
-
-Model files and datasets are excluded by `.gitignore`, so they are not included when you clone the repository. If you do not have a checkpoint, you can train one using the steps below.
-
-The web app can still start without this file. However, `/api/predict/single` will return HTTP `503`, and `/api/health` will show `model_loaded: false`.
 
 ### 4. Run the App
 
@@ -109,87 +158,61 @@ The web app can still start without this file. However, `/api/predict/single` wi
 .\.venv\Scripts\python.exe main_exam.py --open-browser
 ```
 
-You can also double-click `examchecker.bat`. It looks for Python in `.venv` first and opens the browser when the server is ready.
+Alternatively, double-click `examchecker.bat`, which prefers the Python environment in `.venv` and opens the browser after the server becomes ready.
 
-- Web app: [http://127.0.0.1:8000](http://127.0.0.1:8000)
-- Interactive API docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- Health check: [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health)
-
-At startup, Alembic automatically creates or updates the `aegs.db` database structure. Press `Ctrl+C` in the server terminal to stop the app.
-
-The current version is designed for local use. All sessions share the same data, there is no login system, and the launcher binds the server to `127.0.0.1`.
+- Application: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- Interactive API documentation: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- Health endpoint: [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health)
 
 ## How to Use
 
-1. Open the Dashboard and create an exam. Enter its name, academic year, question count, and answer choices to match the answer sheet.
-2. Enter an answer key or copy one from an existing exam or key set. Set points per question and canceled questions, then save.
-3. Open the upload page, select PNG/JPEG answer sheet images, and start grading.
-4. Wait for grading to finish. Review student IDs and any answers flagged for checking. Confirm or correct them using the scanned images.
-5. Check the scores and recalculate after making changes if needed. If you uploaded sheets before creating an answer key, save the key to calculate the scores.
-6. View the statistics and export to Excel. You can set score weights. To combine exams, choose the exams, sheet names, and score weights for each one.
+1. Create an exam from the dashboard, specifying its name, academic year, question count, and choices to match the answer sheet.
+2. Enter or copy an answer key, configure points and canceled questions, and save it.
+3. Upload PNG/JPEG answer-sheet images and start processing.
+4. When processing finishes, review student IDs and flagged answers using the displayed images. Images that fail quality checks must be corrected or rescanned before answer extraction.
+5. Check scores and recalculate after corrections as needed. If images were processed before a key existed, save the key to calculate scores.
+6. View statistics and export Excel results. For combined exports, select exams and set worksheet names and score weights.
 
-A single-exam Excel export has four sheets: **Scores**, **Statistics Summary**, **Question Analysis**, and **CLO**. A combined export creates separate score sheets for the selected exams. CLO information must already be set up in the database for that part of the report to contain data.
+An individual-exam Excel export contains four worksheets: **คะแนน** (Scores), **สรุปสถิติ** (Statistics), **วิเคราะห์ข้อ** (Item Analysis), and **CLO** (Course Learning Outcomes). CLO reporting requires CLO mappings in the database. Combined exports create a score worksheet for each selected exam.
 
 ## Project Structure
 
 ```text
-.
-├── main_exam.py                  # Web app entry point
-├── examchecker.bat               # Windows launcher
-├── config.yaml                   # Data, model, form, and database settings
-├── requirements.txt             # Main dependency installer
-├── requirements-full-freeze.txt # Full package version list
-├── alembic.ini
-├── exam_migrations/             # Database migrations
-├── exam_cnn/                    # ML code, data, models, and reports
-│   ├── data/                    # Data preparation, cleaning, augmentation
-│   ├── models/                  # CNN15, inference, and export
-│   ├── training/                # Model training and evaluation
-│   ├── datasets/                # Raw, interim, and processed data
-│   ├── models_export/           # Checkpoints, TorchScript, and ONNX
-│   ├── reports/                 # Evaluation results and training logs
-│   ├── tests/                   # CNN tests
-│   └── docs/                    # Model and dataset documentation
+
+├── main_exam.py                 # Web application entry point
+├── examchecker.bat              # Windows launcher
+├── requirements.txt            # Dependency installation entry point
+├── requirements-full-freeze.txt # Full environment package versions
+├── exam_migrations/            # Database migrations
+├── exam_cnn/
+│   ├── data/                   # Dataset preparation and augmentation
+│   ├── models/                 # CNN15, inference, and export
+│   ├── training/               # Training and evaluation
+│   ├── datasets/               # Raw, interim, and processed data
+│   ├── models_export/          # Checkpoints and exported models
+│   ├── reports/                # Metrics, training logs, and TensorBoard
+│   ├── tests/                  # CNN tests
+│   └── docs/                   # Model and dataset documentation
 ├── exam_src/
-│   ├── api/                     # FastAPI, schemas, and endpoints
-│   ├── db/                      # SQLAlchemy models and sessions
-│   ├── vision/                  # Image alignment, markers, and OMR
-│   │   └── templates/           # Answer sheet coordinates
-│   ├── scoring/                 # Detection results, review, and scoring
-│   └── analytics/               # Statistics, question analysis, Excel export
-├── exam_web/
-│   ├── templates/               # Jinja2 pages
-│   └── static/                  # CSS and images
-├── exam_tests/                  # Automated tests
-├── exam_docs/                   # Technical documentation
-├── exam_scan_data/              # Real scanned data
-├── exam_input_files/            # Sample images and test forms
-├── exam_incorrect_results/      # Previous incorrect results for reference
-├── exam_compro/                 # Original exam documents
-└── exam_reports/                # Reports, debug output, and uploaded files
+│   ├── api/                    # FastAPI endpoints and schemas
+│   ├── db/                     # Database models and sessions
+│   ├── vision/                 # Image correction, markers, and OMR
+│   │   └── templates/          # Answer-sheet coordinates
+│   ├── scoring/                # Recognition results, review, and grading
+│   └── analytics/              # Statistics and Excel export
+├── exam_web/                   # Jinja2 templates and static assets
+├── exam_tests/                 # Application tests
+├── exam_docs/                  # Technical documentation
+├── exam_scan_data/             # Real scanned sheets
+├── exam_input_files/           # Sample images and test forms
+├── exam_incorrect_results/     # Historical result images
+├── exam_compro/                # Original exam documents
+└── exam_reports/               # Application reports, debug files, uploads
 ```
-
-## Configuration and Stored Data
-
-The main settings are in [config.yaml](config.yaml), including data paths, model paths, training settings, and minimum image resolution.
-
-ML code and files are under [exam_cnn](exam_cnn/README.md). The web app loads the model through `exam_cnn.models.inference`. Training data paths use `paths.data_*`, exported models use `paths.models_export`, and ML reports use `paths.ml_reports`.
-
-- SQLite data is stored in `aegs.db` by default. The current database code does not support PostgreSQL.
-- Uploaded images are saved in `exam_reports/uploads/<exam_id>/`.
-- Answer sheet coordinates are defined in [rmutt_answer_sheet_v1.json](exam_src/vision/templates/rmutt_answer_sheet_v1.json).
-- Some mark-detection thresholds are in [answer_detection.py](exam_src/vision/answer_detection.py), and image quality checks are in [preprocess.py](exam_src/vision/preprocess.py).
-- Some model and inference settings are hardcoded, so check the related Python files when changing `config.yaml`.
-
-To back up your work, stop the app and copy both `aegs.db` and `exam_reports/uploads/`. Deleting an exam in the app removes its related database records but does not delete uploaded images from disk.
-
-Top-level project folders use the `exam_` prefix, while inner folder names stay the same. When starting with a database from the older folder structure, Alembic updates saved image and grading-job paths to match the new names.
 
 ## Training and Exporting the A–Z Model (Optional)
 
-CNN15 takes **28 × 28 grayscale images** and predicts one of **26 English letters (A–Z)**. This is separate from the OMR answer-reading process.
-
-Prepare the Kaggle A–Z dataset as described in [Dataset Provenance](exam_cnn/docs/dataset_provenance.md), then place the CSV file at:
+Prepare the Kaggle A–Z dataset as described in [dataset provenance](exam_cnn/docs/dataset_provenance.md), placing its CSV at:
 
 ```text
 exam_cnn/datasets/raw/kaggle_az/A_Z Handwritten Data.csv
@@ -204,42 +227,22 @@ Run these commands in order from the project root:
 .\.venv\Scripts\python.exe -m exam_cnn.models.export
 ```
 
-Data preparation creates `exam_cnn/datasets/processed/az_dataset.npz`. Training saves `exam_cnn/models_export/cnn15_best.pt`. Export creates TorchScript, ONNX, and quantized TorchScript versions. Cross-dataset evaluation also needs EMNIST data prepared at the path described in the documentation.
-
-The results recorded in the [Model Card](exam_cnn/docs/model_card.md) are **99.25% accuracy on the Kaggle test set** and **71.52% on EMNIST Letters**. These are results from earlier letter-classification experiments, **not the accuracy of the exam grading system**. The model has not yet been validated on real student handwriting.
-
 ## Testing
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-The tests cover scoring, question analysis, Excel export, answer-key reuse, exam management, synthetic image reading, detection robustness, and background grading jobs. Some inference tests need a prepared checkpoint and dataset.
-
-`pytest.ini` automatically includes tests from both `exam_tests` and `exam_cnn/tests`.
+The suite covers scoring, item analysis, Excel export, answer-key reuse, exam management, synthetic image extraction, detection robustness, and background processing. Some inference tests require a checkpoint and prepared data. `pytest.ini` includes both `exam_tests` and `exam_cnn/tests`.
 
 ## Current Limitations
 
-- The upload page accepts PNG/JPEG but not PDF directly. Convert PDF pages to images before uploading.
-- OMR is designed for the supported form. Scan quality, erased marks, faint marks, or multiple marks may need manual review.
-- The system does not automatically read handwritten names, departments, or course codes.
-- The CNN model recognizes English letters A–Z; it is not used to classify Thai answer choices on the current form.
-- The launcher uses development mode with auto-reload, and the app has no authentication. Review the server settings and add access controls before making it available over a network.
+- Uploads accept PNG/JPEG; convert PDF pages to images before uploading.
+- OMR depends on the supported sheet layout. Scan quality, erasures, faint marks, and multiple selections can require manual review.
+- Handwritten names, departments, and subject codes are not read automatically.
+- CNN15 supports Latin A–Z characters; real student handwriting performance has not been evaluated.
+- The launcher uses development reload mode. Network deployment requires reviewing server configuration and adding access controls because the application has no authentication.
 
-## More Documentation
+---
 
-- [Real Answer Sheet Template](exam_docs/answer_sheet_real_template.md)
-- [Environment and Dependency Notes](exam_docs/environment.md)
-- [Dataset Provenance](exam_cnn/docs/dataset_provenance.md)
-- [Data Preparation](exam_cnn/docs/phase2_preprocessing.md)
-- [CNN15 Model Design](exam_cnn/docs/phase3_model_design.md)
-- [Model Evaluation](exam_cnn/docs/phase5_evaluation.md)
-- [Model Card](exam_cnn/docs/model_card.md)
-- [Image Processing Pipeline](exam_docs/phase7_9_vision_pipeline.md)
-- [Scoring](exam_docs/phase10_11_scoring.md)
-- [Web App and Testing](exam_docs/phase12_16_web_and_testing.md)
-
-Some files in `exam_docs/` are notes from earlier development stages. For the current behavior, check them alongside the code and this README.
-
-Recovered files, test results, and limitations of previously deleted data are listed in the [Recovery Audit Report](exam_docs/recovery_audit.md)
-
+⭐ Research • Teaching • Innovation
