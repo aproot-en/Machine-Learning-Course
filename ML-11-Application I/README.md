@@ -33,20 +33,6 @@ The main system uses **OMR (Optical Mark Recognition)** to read crosses and fill
 
 ---
 
-### Confidence Threshold Experiment
-
-Coverage is the fraction of all Kaggle test images whose predicted confidence meets the threshold. Accuracy is measured only among those accepted predictions.
-
-| Confidence threshold | Test coverage | Accuracy among accepted predictions |
-| ---: | ---: | ---: |
-| 0.80 | 72.4% | 99.67% |
-| 0.85 | 68.5% | 99.70% |
-| 0.90 | 44.6% | 99.70% |
-| 0.95 | 17.0% | 99.63% |
-| 0.99 | 1.1% | 99.37% |
-
----
-
 ### Inference and Export Checks
 
 | Measurement | Recorded result |
