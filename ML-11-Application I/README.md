@@ -91,7 +91,7 @@ Alternatively, double-click `examchecker.bat`, which prefers the Python environm
 ## Project Structure
 
 ```text
-
+exam_grading/
 ├── main_exam.py                 # Web application entry point
 ├── examchecker.bat              # Windows launcher
 ├── requirements-full-freeze.txt # Full environment package versions
