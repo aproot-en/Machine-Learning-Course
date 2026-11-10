@@ -8,7 +8,7 @@ The main system uses **OMR (Optical Mark Recognition)** to read crosses and fill
 
 | Setting | Recorded value |
 | --- | --- |
-| Architecture | CNN15: 12 convolutional layers + 3 linear layers, approximately 2.23 million parameters |
+| Architecture | CNN15: 12 convolutional layers + 3 linear layers, approximately 2.23 M |
 | Input / output | 28 × 28 grayscale images normalized to [0, 1] / 26 A–Z classes |
 | Primary dataset | Kaggle A–Z Handwritten Alphabets |
 | Original / deduplicated images | 372,451 / 201,096; 171,355 exact duplicates removed |
@@ -16,12 +16,9 @@ The main system uses **OMR (Optical Mark Recognition)** to read crosses and fill
 | Random seed | 42 |
 | Optimizer / initial learning rate | Adam / 0.001 |
 | Batch size | 128 |
-| Loss settings | Class weighting enabled; label smoothing 0.05 |
-| Learning-rate scheduler | ReduceLROnPlateau; factor 0.5, patience 5, monitored validation loss |
-| Training limit / early stopping | 100 epochs / patience 12, monitored validation accuracy |
 | Selected checkpoint / completed epochs | Epoch 50 |
 | Recorded training GPU | NVIDIA RTX 5060 Ti |
-| Real student handwriting fine-tuning | Not performed; calibration data was not collected |
+| --- | --- |
 
 ### Classification Performance
 
