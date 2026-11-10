@@ -135,11 +135,7 @@ Alternatively, double-click `examchecker.bat`, which prefers the Python environm
 
 ## Current Limitations
 
-- Uploads accept PNG/JPEG; convert PDF pages to images before uploading.
-- OMR depends on the supported sheet layout. Scan quality, erasures, faint marks, and multiple selections can require manual review.
-- Handwritten names, departments, and subject codes are not read automatically.
-- CNN15 supports Latin A–Z characters; real student handwriting performance has not been evaluated.
-- The launcher uses development reload mode. Network deployment requires reviewing server configuration and adding access controls because the application has no authentication.
+The current system supports PNG and JPEG uploads, while PDF files must be converted into images before processing. OMR accuracy depends on the supported sheet layout and scan quality, and unclear or multiple marks may require manual review. Handwritten names, departments, and subject codes are not automatically recognized. The CNN15 model supports only Latin A–Z characters, and its performance on real student handwriting has not yet been evaluated. Additionally, the application currently runs in development mode without authentication, so network deployment requires further server configuration and access controls.
 
 ---
 
