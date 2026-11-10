@@ -90,8 +90,6 @@ Alternatively, double-click `examchecker.bat`, which prefers the Python environm
 - Interactive API documentation: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 - Health endpoint: [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health)
 
-### 5. Web Application Interface
-
 ![Web Application Interface](image-web-.png)
 
 
