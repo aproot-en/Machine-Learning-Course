@@ -122,9 +122,9 @@ exam_grading/
 └── exam_reports/               # Application reports, debug files, uploads
 ```
 
-## Current Limitations
+## Summary
 
-The current system supports PNG and JPEG uploads, while PDF files must be converted into images before processing. OMR accuracy depends on the supported sheet layout and scan quality, and unclear or multiple marks may require manual review. Handwritten names, departments, and subject codes are not automatically recognized. The CNN15 model supports only Latin A–Z characters, and its performance on real student handwriting has not yet been evaluated. Additionally, the application currently runs in development mode without authentication, so network deployment requires further server configuration and access controls.
+The system provides automated OMR grading and handwriting recognition, with limitations in file formats, scan quality, handwriting accuracy, and network security.
 
 ---
 
