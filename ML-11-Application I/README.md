@@ -4,18 +4,6 @@
 
 The main system uses **OMR (Optical Mark Recognition)** to read crosses and filled marks on the answer sheet used by the Faculty of Engineering, Rajamangala University of Technology Thanyaburi (RMUTT). An optional **CNN15 model** can also recognize handwritten English letters (A–Z).
 
-## Supported Answer Sheet
-
-| Property | Specification |
-| --- | --- |
-| Template | RMUTT Engineering, `rmutt_answer_sheet_v1` |
-| Layout | 100 questions, arranged in 5 columns of 20 rows |
-| Answer choices | ก / ข / ค / ง (A / B / C / D), marked with an X inside a box |
-| Student ID | 13 digits, read from filled bubbles |
-| Reference markers | Black circles at all four corners |
-| Web uploads | PNG and JPEG, up to 50 MiB per file |
-| Minimum resolution | Short side of at least 800 pixels; blur, brightness, and marker checks must also pass |
-
 ### Dataset and Training Setup
 
 | Setting | Recorded value |
@@ -39,10 +27,9 @@ The main system uses **OMR (Optical Mark Recognition)** to read crosses and fill
 
 | Model | Evaluation dataset | Images | Accuracy | Macro F1 | Weighted F1 |
 | --- | --- | ---: | ---: | ---: | ---: |
-| CNN15, epoch 60 | Kaggle A–Z validation | 30,164 | 99.24% | — | — |
-| CNN15, epoch 60 | Kaggle A–Z held-out test | 30,165 | **99.25%** | **0.9913** | **0.9926** |
-| CNN15, epoch 60 | EMNIST Letters test, orientation corrected | 20,800 | **71.52%** | — | — |
-| CNN15 | Real student handwriting | Not collected | Not evaluated | — | — |
+| CNN15, epoch 50 | Kaggle A–Z validation | 30,164 | 99.24% | — | — |
+| CNN15, epoch 50 | Kaggle A–Z held-out test | 30,165 | **99.25%** | **0.9913** | **0.9926** |
+| CNN15, epoch 50 | EMNIST Letters test, orientation corrected | 20,800 | **71.52%** | — | — |
 
 ---
 
