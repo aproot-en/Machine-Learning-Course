@@ -8,17 +8,15 @@ The main system uses **OMR (Optical Mark Recognition)** to read crosses and fill
 
 | Setting | Recorded value |
 | --- | --- |
-| Architecture | CNN15: 12 convolutional layers + 3 linear layers, approximately 2.23 M |
+| Architecture | CNN15: 12 convolutional layers + 3 linear layers, 2.23 M |
 | Input / output | 28 × 28 grayscale images normalized to [0, 1] / 26 A–Z classes |
 | Primary dataset | Kaggle A–Z Handwritten Alphabets |
 | Original / deduplicated images | 372,451 / 201,096; 171,355 exact duplicates removed |
 | Train / validation / test | 140,767 / 30,164 / 30,165 images; stratified 70% / 15% / 15% split |
-| Random seed | 42 |
 | Optimizer / initial learning rate | Adam / 0.001 |
 | Batch size | 128 |
 | Selected checkpoint / completed epochs | Epoch 50 |
 | Recorded training GPU | NVIDIA RTX 5060 Ti |
-| --- | --- |
 
 ### Classification Performance
 
@@ -44,23 +42,17 @@ The main system uses **OMR (Optical Mark Recognition)** to read crosses and fill
 ## Tech Stack
 
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Uvicorn](https://img.shields.io/badge/Uvicorn-4051B5?style=for-the-badge)
-![Jinja2](https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge)
-![Alembic](https://img.shields.io/badge/Alembic-6BA81E?style=for-the-badge)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![CNN15](https://img.shields.io/badge/CNN15-6F42C1?style=for-the-badge)
 ![TorchScript](https://img.shields.io/badge/TorchScript-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![ONNX](https://img.shields.io/badge/ONNX-005CED?style=for-the-badge&logo=onnx&logoColor=white)
 ![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
 ![openpyxl](https://img.shields.io/badge/openpyxl-217346?style=for-the-badge)
-![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
 ## Installation on Windows
 
@@ -97,6 +89,11 @@ Alternatively, double-click `examchecker.bat`, which prefers the Python environm
 - Application: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 - Interactive API documentation: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 - Health endpoint: [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health)
+
+### 5. Web Application Interface
+
+![Web Application Interface](image-web-.png)
+
 
 ## Project Structure
 
