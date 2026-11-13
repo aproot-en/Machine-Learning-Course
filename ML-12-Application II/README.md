@@ -71,21 +71,11 @@ You can also launch it from PowerShell:
 
 Keep the launcher window open while using the app. Press `Ctrl+C` in that window to stop the server. If the browser does not open, use the URL printed in the terminal, normally [http://127.0.0.1:5173](http://127.0.0.1:5173). No API key or separate database is required.
 
-## Production Build
+## Summary
 
-```powershell
-npm run build
-npm run preview
-```
+The system provides interactive 3D machine learning simulations, neural network building, model training, and educational visualizations in Thai and English. Its limitations include browser and WebGL performance, compact teaching models, and restricted training scope for some architectures.
 
-Publish the contents of `dist/` to a static host. The application uses hash-based routes, such as `/#/algorithms/knn`.
+---
 
-For GitHub Pages hosted under a repository path, build with a relative asset base:
-
-```powershell
-npm run build -- --base=./
-```
-
-Configure the hosting workflow to publish the resulting `dist/` contents. Keep both preview images in the repository root so the README image links display correctly on GitHub
-
+⭐ Research • Teaching • Innovation
 
