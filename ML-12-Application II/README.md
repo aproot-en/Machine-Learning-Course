@@ -2,37 +2,6 @@
 
 ML Visual Lab is an interactive web app for learning machine learning and deep learning through 3D simulations. Students can adjust algorithm parameters, build neural networks, train supported models, inspect intermediate calculations, and compare experimental results. The interface supports Thai and English. Computation runs locally in the browser.
 
-## Project Structure
-
-```text
-ML-12-3D-Simulation/
-├── index.html                  # Main HTML entry point
-├── ML_App.bat                  # Windows launcher
-├── package.json                # Dependencies and npm scripts
-├── package-lock.json           # Locked dependency versions
-├── vite.config.ts              # Development and build configuration
-├── tailwind.config.js          # Theme and styling configuration
-├── tsconfig.json               # TypeScript configuration
-├── src/
-│   ├── main.tsx                # React entry point and hash routing
-│   ├── App.tsx                 # Application routes
-│   ├── components/             # Shared interface components
-│   ├── content/                # Algorithm and lesson content
-│   ├── data/                   # Datasets, generators, image input, CNN weights
-│   ├── engine3d/               # 3D stage, controls, meshes, and labels
-│   ├── features/               # Labs, builders, datasets, comparison, lessons
-│   ├── i18n/                   # Language and learning-level settings
-│   ├── lib/                    # Shared utilities
-│   ├── ml/                     # Computation engines and unit tests
-│   └── pages/                  # Home, algorithm gallery, and information pages
-├── scripts/
-│   └── pretrain-cnn.ts          # Train and export the default CNN
-├── prototype-standalone.html   # Earlier standalone prototype
-├── AUDIT.md                    # Technical verification and known limitations
-├── image-3D.png                # Home page screenshot
-└── image-3D-CNN.png            # CNN lab screenshot
-```
-
 ## Tech Stack
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
