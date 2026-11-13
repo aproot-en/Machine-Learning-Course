@@ -69,8 +69,6 @@ You can also launch it from PowerShell:
 .\ML_App.bat
 ```
 
-Node.js and npm must already be installed and available in PATH. The pinned Vite version supports Node.js `^18.0.0 || ^20.0.0 || >=22.0.0`. Use a browser with WebGL support; an internet connection is needed when installing dependencies.
-
 Keep the launcher window open while using the app. Press `Ctrl+C` in that window to stop the server. If the browser does not open, use the URL printed in the terminal, normally [http://127.0.0.1:5173](http://127.0.0.1:5173). No API key or separate database is required.
 
 ## Production Build
