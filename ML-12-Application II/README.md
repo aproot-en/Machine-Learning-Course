@@ -42,26 +42,6 @@ Metrics in the screenshot describe that particular experiment and vary with the 
 
 The Algorithms gallery contains 20 runnable algorithm/model labs. Additional pages provide a Dataset Explorer, Model Comparison, and 21 lessons with quizzes and selectable learning levels.
 
-### Dataset and Training Setup
-
-The following settings describe the bundled pretrained CNN in `src/data/cnnPretrained.json` and its training script, `scripts/pretrain-cnn.ts`.
-
-| Setting | Recorded value |
-| --- | --- |
-| Dataset | UCI optical handwritten digits, distributed through scikit-learn's `load_digits` |
-| Original images | 1,797 grayscale images, 8 × 8 pixels, values 0–16 |
-| Model input / output | 16 × 16 grayscale images / 10 classes, digits 0–9 |
-| Architecture | Conv(6, 3×3, same) → MaxPool(2×2) → Conv(8, 3×3, valid) → MaxPool(2×2) → Flatten → Dense(24) → Output(10) |
-| Hidden activations | ReLU |
-| Train / test | 1,438 / 359 images; stratified 80% / 20% split, seed 42 |
-| Optimizer / learning rate | Adam / 0.003 |
-| Batch size / epochs | 16 / 8 |
-| Model initialization seed | 7 |
-| Recorded held-out test accuracy | **97.49%** |
-| Execution | TypeScript computation in the browser; no Python backend required |
-
-Other available datasets include Iris, Wine, Breast Cancer, and seeded synthetic datasets. The Dataset Explorer also supports CSV import.
-
 ## Installation
 
 Run the following PowerShell commands from the project root. Install Node.js with npm first. The pinned Vite version supports Node.js `^18.0.0 || ^20.0.0 || >=22.0.0`. The browser must support WebGL.
