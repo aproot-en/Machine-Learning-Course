@@ -30,3 +30,8 @@ The course follows the official course description while extending the content w
 - 📝 Assignments
 - 🚀 Course Projects
 - 📚 Additional Learning Resources
+
+---
+
+⭐ Research • Teaching • Innovation
+
