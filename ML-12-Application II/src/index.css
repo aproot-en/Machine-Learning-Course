@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { font-size: 100%; }
+body { font-size: 1.125rem; line-height: 1.65; }
+button, input, select, textarea { line-height: 1.5; }
+html, body, #root { min-height: 100%; }
+body { margin: 0; background: #070B14; color: #E5E7EB; font-family: "IBM Plex Sans Thai", "Leelawadee UI", Tahoma, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 2px solid #00D9FF; outline-offset: 2px; }
+input[type="range"] { accent-color: #00D9FF; }
+.katex { font-size: 1.05em; }
+.scroll-thin { scrollbar-width: thin; scrollbar-color: #1F2A44 transparent; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; } }
+
+@layer components {
+  .glass { @apply bg-surface/85 backdrop-blur-md border border-line rounded-xl shadow-[0_8px_40px_-12px_rgba(0,0,0,0.6)]; }
+  .label-xs { @apply font-mono text-[0.875rem] uppercase tracking-[0.14em] text-muted; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-0.5 text-xs text-muted; }
+  .tag-3d { @apply pointer-events-none select-none whitespace-nowrap rounded bg-bg/80 px-1.5 py-0.5 font-mono text-[0.875rem] text-ink; }
+  .num { font-variant-numeric: tabular-nums; }
+}

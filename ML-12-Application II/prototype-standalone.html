@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ML Lab 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
+<style>
+/* Layout: instrument-panel sidebar (lesson + controls) on the left, full-bleed 3D stage with a HUD readout on the right */
+:root {
+  --bg: #060911;
+  --panel: #0b101c;
+  --panel-2: #111a2b;
+  --line: #1c2843;
+  --fg: #dce5f6;
+  --muted: #8a97b3;
+  --accent: #5ee1ff;
+  --accent-ink: #03141b;
+  --f-display: "Chakra Petch", "IBM Plex Sans Thai", "Leelawadee UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans Thai", "Leelawadee UI", Tahoma, system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+html, body { height: 100%; margin: 0; background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 15px; line-height: 1.6; }
+* { box-sizing: border-box; }
+.app { display: grid; grid-template-columns: minmax(320px, 400px) 1fr; height: 100%; }
+
+.panel { background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 12px; padding: 18px 20px 14px; }
+.brand-mark { width: 30px; height: 30px; flex: none; }
+.brand b { display: block; font-family: var(--f-display); font-size: 19px; font-weight: 600; letter-spacing: .02em; line-height: 1.1; }
+.brand small { color: var(--muted); font-size: 12.5px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 20px 14px; border-bottom: 1px solid var(--line); }
+.tab { font: 500 13.5px var(--f-display); letter-spacing: .02em; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 5px 11px; cursor: pointer; }
+.tab:hover { color: var(--fg); border-color: #2c3d63; }
+.tab[aria-selected="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+.panel-body { flex: 1; min-height: 0; overflow-y: auto; padding: 20px 20px 32px; display: flex; flex-direction: column; gap: 22px; }
+
+.eyebrow { margin: 0; font: 500 11px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.mod-head h2 { font-family: var(--f-display); font-weight: 600; font-size: 27px; line-height: 1.15; margin: 4px 0 8px; text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); }
+.group { display: flex; flex-direction: column; gap: 12px; }
+.group h3 { margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--line); font: 500 11px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.group p { margin: 0; font-size: 14px; }
+.ctl { display: flex; flex-direction: column; gap: 2px; }
+.ctl-top { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; }
+.ctl-top output { font-family: var(--f-mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+input[type="range"] { width: 100%; accent-color: var(--accent); margin: 4px 0; }
+select { width: 100%; font: 14px var(--f-body); color: var(--fg); background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+.check { display: flex; gap: 9px; align-items: center; font-size: 13.5px; cursor: pointer; }
+.check input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { font: 500 13.5px var(--f-body); color: var(--fg); background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.notes { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 7px; font-size: 14px; }
+.notes li::marker { color: var(--accent); font-family: var(--f-mono); font-size: 12.5px; }
+.formula { font: 13px/1.75 var(--f-mono); background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; overflow-x: auto; white-space: nowrap; }
+.formula span { color: var(--muted); }
+.note { font-size: 13px !important; color: var(--muted); border-left: 2px solid #ffc857; padding-left: 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.legend i.bar { width: 18px; height: 3px; border-radius: 2px; vertical-align: 3px; }
+
+.pad-wrap { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; }
+.pad { width: 176px; height: 176px; background: #000; border: 1px solid var(--line); border-radius: 8px; touch-action: none; cursor: crosshair; }
+.pad-side { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--muted); }
+.pad-preview { width: 84px; height: 84px; image-rendering: pixelated; border: 1px solid var(--line); border-radius: 4px; background: #000; }
+.kernels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.kernel { display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; }
+.kernel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; font: 12px var(--f-mono); text-align: center; }
+.kernel-grid span { padding: 3px 0; border-radius: 3px; background: var(--panel-2); }
+
+.stage { position: relative; min-width: 0; min-height: 0; overflow: hidden; background: var(--bg); }
+.stage canvas { display: block; width: 100%; height: 100%; }
+.hud { position: absolute; top: 16px; left: 16px; min-width: 230px; max-width: min(360px, calc(100% - 32px)); padding: 10px 12px; font: 12.5px/1.6 var(--f-mono); background: rgba(6, 9, 17, .66); border: 1px solid var(--line); border-radius: 8px; backdrop-filter: blur(6px); pointer-events: none; }
+.hud:empty { display: none; }
+.hud-title { font: 600 13px var(--f-display); letter-spacing: .04em; color: var(--accent); margin-bottom: 4px; }
+.hud-row { display: flex; justify-content: space-between; gap: 18px; }
+.hud-row span { color: var(--muted); white-space: nowrap; }
+.hud-row b { font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+.toolbar { position: absolute; top: 16px; right: 16px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.tool { font: 500 12.5px var(--f-body); color: var(--muted); background: rgba(6, 9, 17, .66); border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.tool:hover { color: var(--fg); }
+.tool[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+.hint { position: absolute; right: 16px; bottom: 12px; font-size: 12px; color: var(--muted); pointer-events: none; }
+.err { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--fg); }
+
+@media (max-width: 820px) {
+  html, body { height: auto; }
+  .app { display: flex; flex-direction: column; height: auto; }
+  .stage { order: -1; height: 60vh; min-height: 340px; }
+  .panel { border-right: 0; border-top: 1px solid var(--line); }
+  .panel-body { overflow: visible; }
+  .brand, .tabs, .panel-body { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .hud { top: 10px; left: 10px; min-width: 0; font-size: 11px; padding: 7px 9px; }
+  .toolbar { top: auto; bottom: 10px; right: 10px; }
+  .hint { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="panel">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" aria-hidden="true">
+        <g stroke="#5ee1ff" stroke-width="1" opacity=".55"><path d="M5 8 15 5M5 8 15 15M5 8 15 25M5 22 15 5M5 22 15 15M5 22 15 25M15 5 25 15M15 15 25 15M15 25 25 15"/></g>
+        <circle cx="5" cy="8" r="2.6" fill="#4fd1ff"/><circle cx="5" cy="22" r="2.6" fill="#ff5d73"/>
+        <circle cx="15" cy="5" r="2.6" fill="#ffc857"/><circle cx="15" cy="15" r="2.6" fill="#7cf29c"/><circle cx="15" cy="25" r="2.6" fill="#4fd1ff"/>
+        <circle cx="25" cy="15" r="3" fill="#dce5f6"/>
+      </svg>
+      <div><b>ML Lab 3D</b><small>สื่อการสอน Machine Learning แบบโต้ตอบ</small></div>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="เลือกอัลกอริทึม"></nav>
+    <div class="panel-body" id="panel-body"></div>
+  </aside>
+  <main class="stage" id="stage">
+    <div class="hud" id="hud"></div>
+    <div class="toolbar">
+      <button class="tool" id="tool-rotate" type="button" aria-pressed="false">หมุนอัตโนมัติ</button>
+      <button class="tool" id="tool-glow" type="button" aria-pressed="true">แสงเรือง</button>
+      <button class="tool" id="tool-reset" type="button">รีเซ็ตมุมมอง</button>
+    </div>
+    <div class="hint">ลากเพื่อหมุน · ล้อเมาส์เพื่อซูม · คลิกขวาลากเพื่อเลื่อน</div>
+    <div class="err" id="err" hidden>โหลดไลบรารี 3D (three.js) ไม่สำเร็จ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ตแล้วรีเฟรชหน้าอีกครั้ง</div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/Pass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/MaskPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script>
+'use strict';
+(function () {
+if (!window.THREE || !THREE.OrbitControls) { document.getElementById('err').hidden = false; return; }
+
+/* ================================================================
+   Shared constants & helpers
+   ================================================================ */
+const CLASS = [0x4fd1ff, 0xff5d73, 0xffc857, 0x7cf29c, 0xc792ff, 0xff9f5a, 0x9fe8ff];
+const CLASS_NAME = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+const POS_W = 0x5aa9ff, NEG_W = 0xff8a4c, DIM = 0x0d1424;
+const css = h => '#' + h.toString(16).padStart(6, '0');
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+let rand = mulberry32(1);
+function gauss() { let u = 0; while (u === 0) u = rand(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * rand()); }
+
+const _m = new THREE.Matrix4(), _p = new THREE.Vector3(), _s = new THREE.Vector3(), _q = new THREE.Quaternion(), _q0 = new THREE.Quaternion();
+const _c = new THREE.Color(), _c2 = new THREE.Color(), _e = new THREE.Euler();
+function mix(a, b, t) { return _c.setHex(a).lerp(_c2.setHex(b), clamp(t, 0, 1)); }
+
+const sphereGeo = new THREE.SphereGeometry(1, 20, 14);
+const boxGeo = new THREE.BoxGeometry(1, 1, 1);
+const SHARED = new Set([sphereGeo, boxGeo]);
+
+function instanced(geo, count, o = {}) {
+  const mat = o.basic
+    ? new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: !!o.wire, transparent: o.opacity != null, opacity: o.opacity ?? 1, depthWrite: o.opacity == null, blending: o.additive ? THREE.AdditiveBlending : THREE.NormalBlending })
+    : new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: o.rough ?? 0.35, metalness: 0.05 });
+  const m = new THREE.InstancedMesh(geo, mat, count);
+  m.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  _m.makeScale(0, 0, 0);
+  for (let i = 0; i < count; i++) { m.setMatrixAt(i, _m); m.setColorAt(i, _c.setHex(0xffffff)); }
+  m.frustumCulled = false;
+  return m;
+}
+// s: number (uniform) or [sx, sy, sz]; color: hex, THREE.Color, or null to keep
+function setInst(m, i, x, y, z, s, color, q) {
+  _p.set(x, y, z);
+  if (typeof s === 'number') _s.set(s, s, s); else _s.set(s[0], s[1], s[2]);
+  _m.compose(_p, q || _q0, _s);
+  m.setMatrixAt(i, _m);
+  if (color != null) m.setColorAt(i, typeof color === 'number' ? _c.setHex(color) : color);
+}
+function commit(m) { m.instanceMatrix.needsUpdate = true; if (m.instanceColor) m.instanceColor.needsUpdate = true; }
+
+function makeLines(max, o = {}) {
+  const pos = new Float32Array(max * 6), col = new Float32Array(max * 6);
+  const g = new THREE.BufferGeometry();
+  const pa = new THREE.BufferAttribute(pos, 3).setUsage(THREE.DynamicDrawUsage);
+  const ca = new THREE.BufferAttribute(col, 3).setUsage(THREE.DynamicDrawUsage);
+  g.setAttribute('position', pa); g.setAttribute('color', ca); g.setDrawRange(0, 0);
+  const mat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: o.opacity ?? 0.85, depthWrite: false, blending: o.normal ? THREE.NormalBlending : THREE.AdditiveBlending });
+  const obj = new THREE.LineSegments(g, mat); obj.frustumCulled = false;
+  let n = 0;
+  const put = (k, v, c, ia) => {
+    pos[k] = v.x ?? v[0]; pos[k + 1] = v.y ?? v[1]; pos[k + 2] = v.z ?? v[2];
+    if (typeof c === 'number') _c.setHex(c); else _c.copy(c);
+    col[k] = _c.r * ia; col[k + 1] = _c.g * ia; col[k + 2] = _c.b * ia;
+  };
+  return {
+    obj,
+    clear() { n = 0; },
+    add(a, b, ca_, cb_ = ca_, ia = 1, ib = ia) { if (n >= max) return; put(n * 6, a, ca_, ia); put(n * 6 + 3, b, cb_, ib); n++; },
+    commit() { g.setDrawRange(0, n * 2); pa.needsUpdate = true; ca.needsUpdate = true; }
+  };
+}
+
+function makeLabel(text, o = {}) {
+  const font = o.font || '600 44px "Chakra Petch", "IBM Plex Sans Thai", sans-serif';
+  const c = document.createElement('canvas'), x = c.getContext('2d');
+  x.font = font;
+  const w = Math.ceil(x.measureText(text).width) + 20;
+  c.width = w; c.height = 64;
+  x.font = font; x.fillStyle = o.color || '#dce5f6'; x.textBaseline = 'middle'; x.textAlign = 'center';
+  x.fillText(text, w / 2, 34);
+  const tex = new THREE.CanvasTexture(c); tex.minFilter = THREE.LinearFilter;
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+  const size = o.size || 0.6;
+  s.scale.set(size * w / 64, size, 1);
+  return s;
+}
+
+function addFrame(root, R, labels = ['x₁', 'x₂', 'x₃']) {
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(2 * R, 2 * R, 2 * R)),
+    new THREE.LineBasicMaterial({ color: 0x26365a, transparent: true, opacity: 0.75 }));
+  const grid = new THREE.GridHelper(2 * R, 12, 0x22325a, 0x141e35); grid.position.y = -R;
+  const lx = makeLabel(labels[0], { color: '#8a97b3', size: 0.6 }); lx.position.set(R + 0.8, -R, R);
+  const ly = makeLabel(labels[1], { color: '#8a97b3', size: 0.6 }); ly.position.set(-R, R + 0.7, R);
+  const lz = makeLabel(labels[2], { color: '#8a97b3', size: 0.6 }); lz.position.set(R, -R, -R - 0.8);
+  root.add(edges, grid, lx, ly, lz);
+}
+function boxClip(R) {
+  return [new THREE.Plane(new THREE.Vector3(1, 0, 0), R), new THREE.Plane(new THREE.Vector3(-1, 0, 0), R),
+    new THREE.Plane(new THREE.Vector3(0, 1, 0), R), new THREE.Plane(new THREE.Vector3(0, -1, 0), R),
+    new THREE.Plane(new THREE.Vector3(0, 0, 1), R), new THREE.Plane(new THREE.Vector3(0, 0, -1), R)];
+}
+function disposeTree(o) {
+  o.traverse(n => {
+    if (n.geometry && !SHARED.has(n.geometry)) n.geometry.dispose();
+    if (n.material) [].concat(n.material).forEach(m => { if (m.map) m.map.dispose(); m.dispose(); });
+  });
+}
+
+/* ---------- panel UI builder ---------- */
+function makeUI(panel) {
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const ui = {
+    el,
+    head(eyebrow, title, lede) { const h = el('header', 'mod-head'); h.append(el('p', 'eyebrow', eyebrow), el('h2', null, title), el('p', 'lede', lede)); panel.append(h); },
+    group(title) { const g = el('section', 'group'); if (title) g.append(el('h3', null, title)); panel.append(g); return g; },
+    slider(parent, { id, label, min, max, step, value, fmt = v => v, onInput }) {
+      const wrap = el('label', 'ctl'), top = el('span', 'ctl-top'), out = el('output'), inp = el('input');
+      top.append(el('span', null, label), out);
+      Object.assign(inp, { type: 'range', id, min, max, step, value });
+      out.textContent = fmt(+inp.value);
+      inp.addEventListener('input', () => { out.textContent = fmt(+inp.value); onInput && onInput(+inp.value); });
+      wrap.append(top, inp); parent.append(wrap);
+      return { wrap, get value() { return +inp.value; }, set(v) { inp.value = v; out.textContent = fmt(+inp.value); } };
+    },
+    select(parent, { id, label, options, value, onChange }) {
+      const wrap = el('label', 'ctl'), s = el('select');
+      s.id = id;
+      options.forEach(([v, t]) => { const o = el('option', null, t); o.value = v; s.append(o); });
+      s.value = value;
+      s.addEventListener('change', () => onChange(s.value));
+      wrap.append(el('span', 'ctl-top', label), s); parent.append(wrap);
+      return { wrap, el: s };
+    },
+    check(parent, { id, label, checked, onChange }) {
+      const wrap = el('label', 'check'), c = el('input');
+      Object.assign(c, { type: 'checkbox', id, checked });
+      c.addEventListener('change', () => onChange(c.checked));
+      wrap.append(c, el('span', null, label)); parent.append(wrap);
+      return { wrap, set(v) { c.checked = v; } };
+    },
+    buttons(parent, list) {
+      const row = el('div', 'btn-row');
+      const btns = list.map(([text, fn, cls, id]) => {
+        const b = el('button', 'btn' + (cls ? ' ' + cls : ''), text); b.type = 'button'; if (id) b.id = id;
+        b.addEventListener('click', () => fn(b)); row.append(b); return b;
+      });
+      parent.append(row); return btns;
+    },
+    list(title, items, ordered) { const g = ui.group(title); const l = el(ordered ? 'ol' : 'ul', 'notes'); items.forEach(t => l.append(el('li', null, t))); g.append(l); return g; },
+    html(parent, cls, html) { const d = el('div', cls, html); parent.append(d); return d; }
+  };
+  return ui;
+}
+
+/* ---------- HUD (throttled) ---------- */
+const hudEl = document.getElementById('hud');
+let hudPending = null, hudLast = 0;
+function setHud(title, rows) { hudPending = { title, rows }; }
+function flushHud(now) {
+  if (!hudPending || now - hudLast < 0.1) return;
+  const { title, rows } = hudPending;
+  hudEl.innerHTML = `<div class="hud-title">${title}</div>` + rows.map(([k, v, c]) =>
+    `<div class="hud-row"><span>${k}</span><b${c ? ` style="color:${c}"` : ''}>${v}</b></div>`).join('');
+  hudPending = null; hudLast = now;
+}
+
+/* ================================================================
+   Renderer, scene, camera
+   ================================================================ */
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.localClippingEnabled = true;
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x05070d);
+scene.fog = new THREE.FogExp2(0x05070d, 0.011);
+const camera = new THREE.PerspectiveCamera(48, 1, 0.1, 600);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.autoRotateSpeed = 0.7;
+
+scene.add(new THREE.HemisphereLight(0xa9c6ff, 0x141a2a, 0.85));
+const key = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(10, 22, 14); scene.add(key);
+const rim = new THREE.DirectionalLight(0x5ee1ff, 0.35); rim.position.set(-16, 6, -12); scene.add(rim);
+
+const floor = new THREE.GridHelper(160, 80, 0x0f1729, 0x0b1120); floor.position.y = -8; scene.add(floor);
+{ // faint background dust
+  const n = 600, p = new Float32Array(n * 3), r = mulberry32(99);
+  for (let i = 0; i < n; i++) { const a = r() * Math.PI * 2, b = Math.acos(2 * r() - 1), d = 60 + r() * 90; p[i * 3] = d * Math.sin(b) * Math.cos(a); p[i * 3 + 1] = d * Math.cos(b) * 0.6; p[i * 3 + 2] = d * Math.sin(b) * Math.sin(a); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(p, 3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({ color: 0x3b5687, size: 0.35, transparent: true, opacity: 0.6, fog: false })));
+}
+
+let composer = null, glow = true;
+try {
+  if (THREE.EffectComposer && THREE.RenderPass && THREE.UnrealBloomPass) {
+    composer = new THREE.EffectComposer(renderer);
+    composer.addPass(new THREE.RenderPass(scene, camera));
+    composer.addPass(new THREE.UnrealBloomPass(new THREE.Vector2(512, 512), 0.75, 0.45, 0.18));
+  }
+} catch (e) { composer = null; }
+
+function resize() {
+  const w = stage.clientWidth || 1, h = stage.clientHeight || 1;
+  renderer.setSize(w, h, false);
+  if (composer) { composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h); }
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(stage);
+resize();
+
+/* ================================================================
+   Module 1 — KNN
+   ================================================================ */
+function KNN(ctx) {
+  const { root, ui } = ctx;
+  const R = 6, NC = 3, NPER = 40;
+  const S = { k: 5, metric: 'euclid', spread: 1.3, region: false, auto: !reduceMotion, seed: 7 };
+  let data = [], autoT = 0;
+  addFrame(root, R);
+
+  const pts = instanced(sphereGeo, NC * NPER); root.add(pts);
+  const qMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.55, roughness: 0.25 });
+  const query = new THREE.Mesh(new THREE.SphereGeometry(0.34, 32, 20), qMat); root.add(query);
+  const ballWire = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.16, depthWrite: false });
+  const ballFill = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.05, depthWrite: false, side: THREE.DoubleSide });
+  const sph = new THREE.SphereGeometry(1, 28, 18), oct = new THREE.OctahedronGeometry(1, 0);
+  const ballE = new THREE.Group(); ballE.add(new THREE.Mesh(sph, ballWire), new THREE.Mesh(sph, ballFill));
+  const ballM = new THREE.Group(); ballM.add(new THREE.Mesh(oct, ballWire), new THREE.Mesh(oct, ballFill));
+  root.add(ballE, ballM);
+  const links = makeLines(16); root.add(links.obj);
+  const G = 12;
+  const region = instanced(boxGeo, G * G * G, { basic: true, opacity: 0.22 }); region.visible = false; root.add(region);
+  const q = new THREE.Vector3(1.2, 0.4, -0.8);
+
+  const dist = (a, b) => S.metric === 'euclid'
+    ? Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2])
+    : Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]);
+
+  function classify(p) {
+    const ds = data.map((d, i) => ({ i, d: dist(p, d.p) })).sort((a, b) => a.d - b.d);
+    const nb = ds.slice(0, S.k), votes = new Array(NC).fill(0);
+    nb.forEach(n => votes[data[n.i].c]++);
+    const max = Math.max(...votes), tied = votes.map((v, c) => v === max ? c : -1).filter(c => c >= 0);
+    const pred = tied.length === 1 ? tied[0] : data[nb.find(n => tied.includes(data[n.i].c)).i].c;
+    return { nb, votes, pred, tie: tied.length > 1 };
+  }
+  function gen() {
+    rand = mulberry32(S.seed);
+    const centers = [[-2.6, -1.4, -1.8], [2.4, 1.2, -1.6], [0.2, 1.6, 2.8]];
+    data = [];
+    for (let c = 0; c < NC; c++) for (let i = 0; i < NPER; i++)
+      data.push({ c, p: centers[c].map(v => clamp(v + gauss() * S.spread, -R + 0.3, R - 0.3)) });
+    data.forEach((d, i) => setInst(pts, i, d.p[0], d.p[1], d.p[2], 0.17, CLASS[d.c]));
+    commit(pts);
+    buildRegion();
+  }
+  function buildRegion() {
+    region.visible = S.region;
+    if (!S.region) return;
+    const step = 2 * R / G; let i = 0;
+    for (let a = 0; a < G; a++) for (let b = 0; b < G; b++) for (let c = 0; c < G; c++) {
+      const p = [-R + step * (a + 0.5), -R + step * (b + 0.5), -R + step * (c + 0.5)];
+      setInst(region, i++, p[0], p[1], p[2], step * 0.2, CLASS[classify(p).pred]);
+    }
+    commit(region);
+  }
+  function refresh() {
+    const p = [q.x, q.y, q.z], r = classify(p), near = new Set(r.nb.map(n => n.i));
+    data.forEach((d, i) => setInst(pts, i, d.p[0], d.p[1], d.p[2], near.has(i) ? 0.27 : 0.17, null));
+    commit(pts);
+    links.clear(); r.nb.forEach(n => links.add(p, data[n.i].p, 0xffffff, CLASS[data[n.i].c], 0.9)); links.commit();
+    const rk = r.nb[r.nb.length - 1].d, col = CLASS[r.pred];
+    ballE.visible = S.metric === 'euclid'; ballM.visible = !ballE.visible;
+    [ballE, ballM].forEach(b => { b.scale.setScalar(rk); b.position.copy(q); });
+    qMat.color.setHex(col); qMat.emissive.setHex(col); ballWire.color.setHex(col); ballFill.color.setHex(col);
+    ctx.hud('KNN · จำแนกจุดคำถาม', [
+      ['K', S.k], ['ระยะทาง', S.metric === 'euclid' ? 'Euclidean (L2)' : 'Manhattan (L1)'],
+      ['จุดคำถาม', `(${q.x.toFixed(1)}, ${q.y.toFixed(1)}, ${q.z.toFixed(1)})`],
+      ...r.votes.map((v, c) => [`โหวตคลาส ${CLASS_NAME[c]}`, '■'.repeat(v) + (v ? ' ' : '') + v, css(CLASS[c])]),
+      ['ระยะถึงเพื่อนบ้านตัวที่ K', rk.toFixed(2)],
+      ['ผลทำนาย', 'คลาส ' + CLASS_NAME[r.pred] + (r.tie ? ' (เสมอ)' : ''), css(col)]
+    ]);
+  }
+
+  ui.head('Supervised · Classification', 'K-Nearest Neighbors (KNN)',
+    'จำแนกจุดข้อมูลใหม่โดยดูจาก K จุดที่อยู่ใกล้ที่สุด แล้วให้จุดเหล่านั้นโหวตว่าเป็นคลาสไหน KNN ไม่มีขั้นตอนฝึก มันเก็บข้อมูลทั้งหมดไว้แล้วคำนวณระยะตอนทำนาย');
+  const g = ui.group('ปรับค่า');
+  ui.slider(g, { id: 'knn-k', label: 'จำนวนเพื่อนบ้าน K', min: 1, max: 15, step: 1, value: S.k, onInput: v => { S.k = v; buildRegion(); refresh(); } });
+  ui.select(g, { id: 'knn-metric', label: 'วิธีวัดระยะ', value: S.metric, options: [['euclid', 'Euclidean — ระยะเส้นตรง'], ['manhattan', 'Manhattan — ระยะตามแนวแกน']], onChange: v => { S.metric = v; buildRegion(); refresh(); } });
+  ui.slider(g, { id: 'knn-spread', label: 'ความกระจายของข้อมูล', min: 0.6, max: 2.6, step: 0.1, value: S.spread, fmt: v => v.toFixed(1), onInput: v => { S.spread = v; gen(); refresh(); } });
+  const g2 = ui.group('ตำแหน่งจุดคำถาม');
+  const autoChk = ui.check(g2, { id: 'knn-auto', label: 'ให้จุดคำถามเคลื่อนที่เอง', checked: S.auto, onChange: v => { S.auto = v; } });
+  const setAxis = (a, v) => { q[a] = v; S.auto = false; autoChk.set(false); refresh(); };
+  const sx = ui.slider(g2, { id: 'knn-x', label: 'x₁', min: -6, max: 6, step: 0.1, value: q.x, fmt: v => v.toFixed(1), onInput: v => setAxis('x', v) });
+  const sy = ui.slider(g2, { id: 'knn-y', label: 'x₂', min: -6, max: 6, step: 0.1, value: q.y, fmt: v => v.toFixed(1), onInput: v => setAxis('y', v) });
+  const sz = ui.slider(g2, { id: 'knn-z', label: 'x₃', min: -6, max: 6, step: 0.1, value: q.z, fmt: v => v.toFixed(1), onInput: v => setAxis('z', v) });
+  ui.check(g2, { id: 'knn-region', label: 'แสดงพื้นที่ตัดสินใจ (decision region)', checked: S.region, onChange: v => { S.region = v; buildRegion(); } });
+  ui.buttons(g2, [
+    ['สุ่มข้อมูลชุดใหม่', () => { S.seed++; gen(); refresh(); }],
+    ['สุ่มตำแหน่งจุดคำถาม', () => { q.set((Math.random() - .5) * 10, (Math.random() - .5) * 10, (Math.random() - .5) * 10); S.auto = false; autoChk.set(false); sx.set(q.x); sy.set(q.y); sz.set(q.z); refresh(); }]
+  ]);
+  ui.html(ui.group('สูตรระยะทาง'), 'formula', 'Euclidean: d = √Σ(pᵢ − qᵢ)²<br>Manhattan: d = Σ|pᵢ − qᵢ|');
+  ui.list('ขั้นตอนการทำงาน', [
+    'วัดระยะจากจุดคำถาม (ทรงกลมสว่าง) ไปยังทุกจุดในชุดข้อมูล',
+    'เรียงระยะจากน้อยไปมาก แล้วเลือก K จุดแรก (เส้นที่ลากออกไป)',
+    'นับคะแนนโหวตของแต่ละคลาส',
+    'คลาสที่ได้คะแนนมากที่สุดคือผลทำนาย ถ้าเสมอกันให้ใช้คลาสของจุดที่ใกล้ที่สุด'
+  ], true);
+  ui.list('ลองสังเกต', [
+    'K = 1 ไวต่อจุดรบกวน (noise) มาก เปิดพื้นที่ตัดสินใจแล้วเทียบกับ K = 15',
+    'ทรงกลมโปร่งแสงคือขอบเขตเพื่อนบ้าน รัศมีเท่ากับระยะถึงเพื่อนบ้านตัวที่ K',
+    'เปลี่ยนเป็นระยะ Manhattan แล้วขอบเขตจะกลายเป็นทรงแปดหน้า เพราะระยะวัดตามแนวแกน',
+    'เพิ่มความกระจายให้คลาสซ้อนกัน แล้วดูว่าผลทำนายบริเวณรอยต่อเปลี่ยนบ่อยแค่ไหน'
+  ]);
+
+  gen(); refresh();
+  return {
+    camera: [13, 9, 16], target: [0, 0, 0],
+    update(dt, t) {
+      if (S.auto) {
+        autoT += dt * 0.22;
+        q.set(4.3 * Math.sin(autoT * 1.3), 3 * Math.sin(autoT * 0.9 + 1), 4.3 * Math.cos(autoT));
+        sx.set(q.x); sy.set(q.y); sz.set(q.z);
+        refresh();
+      }
+      query.position.copy(q);
+      query.scale.setScalar(1 + 0.08 * Math.sin(t * 4));
+    }
+  };
+}
+
+/* ================================================================
+   Module 2 — K-Means
+   ================================================================ */
+function KMeans(ctx) {
+  const { root, ui } = ctx;
+  const R = 6, N = 240, MAXK = 7;
+  const S = { k: 4, trueK: 4, init: 'pp', speed: 1, playing: true, seed: 3, run: 0 };
+  let data = [], assign = [], cents = [], targets = [], hist = [];
+  let phase = 'assign', iter = 0, converged = false, timer = 0, changed = 0;
+  addFrame(root, R);
+
+  const pts = instanced(sphereGeo, N); root.add(pts);
+  const centMesh = instanced(new THREE.OctahedronGeometry(0.55, 0), MAXK, { rough: 0.2 }); root.add(centMesh);
+  const links = makeLines(N, { opacity: 0.28 }); root.add(links.obj);
+  const trails = makeLines(MAXK * 80, { opacity: 0.95 }); root.add(trails.obj);
+
+  function gen() {
+    rand = mulberry32(S.seed);
+    const centers = [];
+    while (centers.length < S.trueK) {
+      const c = new THREE.Vector3((rand() - .5) * 8, (rand() - .5) * 8, (rand() - .5) * 8);
+      if (centers.every(o => o.distanceTo(c) > 4.2)) centers.push(c);
+    }
+    data = Array.from({ length: N }, (_, i) => {
+      const c = centers[i % S.trueK];
+      return new THREE.Vector3(clamp(c.x + gauss() * 1.05, -R + .2, R - .2), clamp(c.y + gauss() * 1.05, -R + .2, R - .2), clamp(c.z + gauss() * 1.05, -R + .2, R - .2));
+    });
+    init();
+  }
+  function init() {
+    rand = mulberry32(S.seed * 31 + S.run * 7 + 1);
+    const chosen = [data[Math.floor(rand() * N)]];
+    while (chosen.length < S.k) {
+      if (S.init === 'random') { chosen.push(data[Math.floor(rand() * N)]); continue; }
+      const d2 = data.map(p => Math.min(...chosen.map(c => p.distanceToSquared(c))));
+      let r = rand() * d2.reduce((a, b) => a + b, 0), i = 0;
+      while (r > d2[i] && i < N - 1) { r -= d2[i]; i++; }
+      chosen.push(data[i]);
+    }
+    cents = chosen.map(c => c.clone()); targets = chosen.map(c => c.clone()); hist = chosen.map(c => [c.clone()]);
+    assign = new Array(N).fill(-1); phase = 'assign'; iter = 0; converged = false; changed = 0; timer = 0;
+    data.forEach((p, i) => setInst(pts, i, p.x, p.y, p.z, 0.15, 0x5b6684));
+    commit(pts);
+  }
+  function step() {
+    if (converged) return;
+    if (phase === 'assign') {
+      changed = 0;
+      data.forEach((p, i) => {
+        let best = 0, bd = Infinity;
+        targets.forEach((c, j) => { const d = p.distanceToSquared(c); if (d < bd) { bd = d; best = j; } });
+        if (assign[i] !== best) { changed++; assign[i] = best; }
+      });
+      data.forEach((p, i) => setInst(pts, i, p.x, p.y, p.z, 0.15, CLASS[assign[i]]));
+      commit(pts);
+      if (changed === 0) converged = true; else phase = 'update';
+    } else {
+      targets.forEach((t, j) => {
+        const mem = data.filter((_, i) => assign[i] === j);
+        if (mem.length) { t.set(0, 0, 0); mem.forEach(p => t.add(p)); t.divideScalar(mem.length); }
+        hist[j].push(t.clone());
+      });
+      iter++; phase = 'assign';
+    }
+  }
+  const wcss = () => assign[0] < 0 ? null : data.reduce((s, p, i) => s + p.distanceToSquared(targets[assign[i]]), 0);
+
+  ui.head('Unsupervised · Clustering', 'K-Means Clustering',
+    'จัดกลุ่มข้อมูลที่ไม่มีป้ายกำกับให้เป็น K กลุ่ม โดยสลับทำสองขั้นซ้ำ ๆ คือ ให้แต่ละจุดเข้ากลุ่มของจุดศูนย์กลางที่ใกล้ที่สุด แล้วย้ายจุดศูนย์กลางไปที่ค่าเฉลี่ยของกลุ่ม');
+  const g = ui.group('ปรับค่า');
+  ui.slider(g, { id: 'km-k', label: 'จำนวนกลุ่ม K ที่ให้อัลกอริทึมหา', min: 2, max: MAXK, step: 1, value: S.k, onInput: v => { S.k = v; init(); } });
+  ui.slider(g, { id: 'km-true', label: 'จำนวนกลุ่มจริงในข้อมูล', min: 2, max: 6, step: 1, value: S.trueK, onInput: v => { S.trueK = v; gen(); } });
+  ui.select(g, { id: 'km-init', label: 'วิธีวางจุดศูนย์กลางเริ่มต้น', value: S.init, options: [['pp', 'k-means++ (กระจายห่างกัน)'], ['random', 'สุ่มจากจุดข้อมูลธรรมดา']], onChange: v => { S.init = v; init(); } });
+  ui.slider(g, { id: 'km-speed', label: 'ความเร็วแอนิเมชัน', min: 0.25, max: 4, step: 0.25, value: S.speed, fmt: v => v + '×', onInput: v => { S.speed = v; } });
+  const [playBtn] = ui.buttons(g, [
+    ['หยุด', b => { S.playing = !S.playing; b.textContent = S.playing ? 'หยุด' : 'เล่นต่อ'; }, 'primary', 'km-play'],
+    ['ทีละขั้น', () => { S.playing = false; playBtn.textContent = 'เล่นต่อ'; step(); }],
+    ['เริ่มใหม่', () => { S.run++; init(); }],
+    ['ข้อมูลชุดใหม่', () => { S.seed++; gen(); }]
+  ]);
+  ui.html(ui.group('ฟังก์ชันที่ลดลงทุกรอบ'), 'formula', 'WCSS = Σₖ Σ<sub>x∈Cₖ</sub> ‖x − μₖ‖²<br><span>μₖ = ค่าเฉลี่ยของจุดในกลุ่ม k</span>');
+  ui.list('ขั้นตอนการทำงาน', [
+    'วางจุดศูนย์กลาง (centroid ทรงแปดหน้า) เริ่มต้น K จุด',
+    '<b>Assign</b> — แต่ละจุดเลือก centroid ที่ใกล้ที่สุด แล้วเปลี่ยนเป็นสีของกลุ่มนั้น',
+    '<b>Update</b> — ย้าย centroid ไปที่ค่าเฉลี่ยของสมาชิก เส้นที่ลากตามคือร่องรอยการเคลื่อนที่',
+    'ทำซ้ำจนไม่มีจุดไหนเปลี่ยนกลุ่ม แปลว่าลู่เข้าแล้ว'
+  ], true);
+  ui.list('ลองสังเกต', [
+    'WCSS ลดลงหรือคงที่ทุกรอบ ไม่เคยเพิ่ม',
+    'ตั้ง K ไม่ตรงกับจำนวนกลุ่มจริง แล้วดูว่ากลุ่มจริงถูกแบ่งครึ่งหรือถูกรวมกันอย่างไร',
+    'เลือกการสุ่มธรรมดาแล้วกด "เริ่มใหม่" หลายครั้ง บางครั้งจะติดคำตอบที่ไม่ดี (local minimum) ซึ่ง k-means++ ช่วยลดปัญหานี้'
+  ]);
+
+  gen();
+  return {
+    camera: [14, 9, 15], target: [0, 0, 0],
+    update(dt, t) {
+      if (S.playing && !converged) { timer += dt * S.speed; if (timer > 0.85) { timer = 0; step(); } }
+      const a = 1 - Math.exp(-dt * 6);
+      cents.forEach((c, j) => c.lerp(targets[j], a));
+      centMesh.count = S.k;
+      cents.forEach((c, j) => { _q.setFromEuler(_e.set(t * 0.6, t * 0.9, 0)); setInst(centMesh, j, c.x, c.y, c.z, 1 + 0.08 * Math.sin(t * 3 + j), CLASS[j], _q); });
+      commit(centMesh);
+      links.clear();
+      data.forEach((p, i) => { if (assign[i] >= 0) links.add(p, cents[assign[i]], CLASS[assign[i]], CLASS[assign[i]], 0.5, 0.15); });
+      links.commit();
+      trails.clear();
+      hist.forEach((h, j) => { for (let i = 1; i < h.length; i++) trails.add(h[i - 1], h[i], 0xffffff, CLASS[j], 0.5, 0.9); trails.add(h[h.length - 1], cents[j], CLASS[j], CLASS[j], 0.9); });
+      trails.commit();
+      const w = wcss();
+      ctx.hud('K-Means · จัดกลุ่ม', [
+        ['K', S.k], ['รอบที่ (iteration)', iter],
+        ['ขั้นถัดไป', converged ? '—' : phase === 'assign' ? 'Assign: จัดจุดเข้ากลุ่ม' : 'Update: ย้าย centroid'],
+        ['จุดที่เปลี่ยนกลุ่มรอบล่าสุด', assign[0] < 0 ? '—' : changed],
+        ['WCSS', w == null ? '—' : w.toFixed(1)],
+        ['สถานะ', converged ? 'ลู่เข้าแล้ว ✓' : S.playing ? 'กำลังทำงาน' : 'หยุดชั่วคราว', converged ? '#7cf29c' : null]
+      ]);
+    }
+  };
+}
+
+/* ================================================================
+   Module 3 — SVM (linear + kernel lift)
+   ================================================================ */
+function SVM(ctx) {
+  const { root, ui } = ctx;
+  const R = 6, NMAX = 200, LIFT_S = 0.4, BASE = -5;
+  const S = { mode: 'linear', logC: 0, spread: 1.2, seed: 11, lift: 0, liftTarget: 0, training: true };
+  let X = [], Y = [], base = [], w = [0, 0, 0], b = 0, it = 0, sv = 0, acc = 0;
+  addFrame(root, R);
+
+  const pts = instanced(sphereGeo, NMAX); root.add(pts);
+  const svMesh = instanced(sphereGeo, NMAX, { basic: true, wire: true, opacity: 0.55 }); root.add(svMesh);
+  const clip = boxClip(R);
+  const mkPlane = (color, fillOp, wireOp) => {
+    const grp = new THREE.Group();
+    grp.add(new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.MeshBasicMaterial({ color, transparent: true, opacity: fillOp, side: THREE.DoubleSide, depthWrite: false, clippingPlanes: clip })));
+    grp.add(new THREE.Mesh(new THREE.PlaneGeometry(40, 40, 40, 40), new THREE.MeshBasicMaterial({ color, wireframe: true, transparent: true, opacity: wireOp, depthWrite: false, clippingPlanes: clip })));
+    root.add(grp); return grp;
+  };
+  const hyper = mkPlane(0xe8f1ff, 0.14, 0.2), mPos = mkPlane(CLASS[0], 0.05, 0.12), mNeg = mkPlane(CLASS[1], 0.05, 0.12);
+  const lathePts = []; for (let r = 0; r <= 5.01; r += 0.25) lathePts.push(new THREE.Vector2(r, LIFT_S * r * r));
+  const bowl = new THREE.Mesh(new THREE.LatheGeometry(lathePts, 48), new THREE.MeshBasicMaterial({ color: 0x5ee1ff, wireframe: true, transparent: true, opacity: 0.07, depthWrite: false, clippingPlanes: clip }));
+  bowl.position.y = BASE; root.add(bowl);
+  const curve = makeLines(260, { opacity: 1 }); root.add(curve.obj);
+  const stems = makeLines(NMAX, { opacity: 0.25 }); root.add(stems.obj);
+  const Z = new THREE.Vector3(0, 0, 1), n3 = new THREE.Vector3();
+
+  function gen() {
+    rand = mulberry32(S.seed);
+    X = []; Y = []; base = [];
+    if (S.mode === 'linear') {
+      const cA = [-2, -1.2, -1.4], cB = [2, 1.4, 1.5];
+      for (let i = 0; i < 140; i++) {
+        const y = i % 2 ? -1 : 1, c = y > 0 ? cA : cB;
+        X.push(c.map(v => clamp(v + gauss() * S.spread, -R + .3, R - .3))); Y.push(y);
+      }
+    } else {
+      for (let i = 0; i < 180; i++) {
+        const y = i % 2 ? -1 : 1, r = y > 0 ? 1.5 + gauss() * 0.45 : 4 + gauss() * 0.4, a = rand() * Math.PI * 2;
+        base.push([clamp(r, 0.05, 5.4) * Math.cos(a), clamp(r, 0.05, 5.4) * Math.sin(a)]); Y.push(y); X.push([0, 0, 0]);
+      }
+      liftPositions();
+    }
+    resetTrain();
+  }
+  function liftPositions() { base.forEach((p, i) => { X[i][0] = p[0]; X[i][2] = p[1]; X[i][1] = BASE + S.lift * LIFT_S * (p[0] * p[0] + p[1] * p[1]); }); }
+  function resetTrain() { rand = mulberry32(S.seed + 5); w = [gauss() * 0.3, gauss() * 0.3, gauss() * 0.3]; b = 0; it = 0; }
+  function trainStep() {
+    const n = X.length, lam = 0.05 / Math.pow(10, S.logC), lr = 0.03 / Math.sqrt(1 + it / 80);
+    const gw = [lam * w[0], lam * w[1], lam * w[2]]; let gb = 0;
+    for (let i = 0; i < n; i++) {
+      const x = X[i], f = w[0] * x[0] + w[1] * x[1] + w[2] * x[2] + b;
+      if (Y[i] * f < 1) { gw[0] -= Y[i] * x[0] / n; gw[1] -= Y[i] * x[1] / n; gw[2] -= Y[i] * x[2] / n; gb -= Y[i] / n; }
+    }
+    w = w.map((v, k) => v - lr * gw[k]); b -= lr * gb; it++;
+  }
+  function placePlane(grp, nrm, d) { grp.quaternion.setFromUnitVectors(Z, nrm); grp.position.copy(nrm).multiplyScalar(d); }
+
+  ui.head('Supervised · Classification', 'Support Vector Machine (SVM)',
+    'หาระนาบ (hyperplane) ที่แบ่งสองคลาสออกจากกันโดยเว้นระยะห่าง (margin) ให้กว้างที่สุด จุดที่อยู่บนหรือล้ำเข้ามาในขอบ margin เรียกว่า support vector และเป็นจุดเดียวที่กำหนดตำแหน่งของระนาบ');
+  const g = ui.group('ปรับค่า');
+  let liftBtn;
+  ui.select(g, { id: 'svm-mode', label: 'ชุดข้อมูล', value: S.mode, options: [['linear', 'สองกลุ่มใน 3 มิติ — แบ่งด้วยระนาบตรง'], ['kernel', 'วงกลมซ้อน 2 มิติ — ใช้ Kernel trick']], onChange: v => {
+    S.mode = v; S.lift = S.liftTarget = 0; spreadCtl.wrap.hidden = v !== 'linear'; liftRow.hidden = v !== 'kernel'; liftBtn.textContent = 'ยกข้อมูลขึ้นมิติที่ 3 ด้วย φ'; gen();
+  } });
+  ui.slider(g, { id: 'svm-c', label: 'C — ลงโทษจุดที่ล้ำ margin', min: -1.5, max: 1.5, step: 0.05, value: S.logC, fmt: v => Math.pow(10, v).toFixed(2), onInput: v => { S.logC = v; it = Math.min(it, 200); } });
+  const spreadCtl = ui.slider(g, { id: 'svm-spread', label: 'ความกระจายของข้อมูล', min: 0.6, max: 2.4, step: 0.1, value: S.spread, fmt: v => v.toFixed(1), onInput: v => { S.spread = v; gen(); } });
+  ui.check(g, { id: 'svm-train', label: 'ฝึกต่อเนื่อง (gradient descent)', checked: S.training, onChange: v => { S.training = v; } });
+  [liftBtn] = ui.buttons(g, [['ยกข้อมูลขึ้นมิติที่ 3 ด้วย φ', btn => {
+    S.liftTarget = S.liftTarget ? 0 : 1; it = 0;
+    btn.textContent = S.liftTarget ? 'วางข้อมูลกลับลง 2 มิติ' : 'ยกข้อมูลขึ้นมิติที่ 3 ด้วย φ';
+  }, 'primary', 'svm-lift']]);
+  const liftRow = liftBtn.parentElement; liftRow.hidden = true;
+  ui.buttons(g, [['สุ่มข้อมูลใหม่', () => { S.seed++; gen(); }], ['เริ่มฝึกใหม่', resetTrain]]);
+  ui.html(ui.group('สมการ'), 'formula',
+    'f(x) = w·x + b &nbsp;<span>→ ทำนาย sign(f(x))</span><br>margin = 2 / ‖w‖<br>L = (λ/2)‖w‖² + (1/n) Σ max(0, 1 − yᵢ f(xᵢ))<br><span>λ ∝ 1/C · ส่วนหลังคือ hinge loss</span><br>Kernel: φ(x₁, x₂) = (x₁, x₂, x₁² + x₂²)');
+  ui.html(ui.group('สีในฉาก'), 'legend',
+    `<span><i style="background:${css(CLASS[0])}"></i>คลาส A (y = +1)</span><span><i style="background:${css(CLASS[1])}"></i>คลาส B (y = −1)</span><span><i class="bar" style="background:#e8f1ff"></i>ระนาบตัดสินใจ</span><span><i style="border:1px solid #fff"></i>support vector</span>`);
+  ui.list('ขั้นตอนการทำงาน', [
+    'เริ่มจากระนาบสุ่ม',
+    'ทุกรอบ หาจุดที่อยู่ผิดฝั่งหรือล้ำเข้ามาใน margin (hinge loss > 0)',
+    'ปรับ w และ b ด้วย gradient descent ให้จุดเหล่านั้นออกไปพ้นขอบ พร้อมกับทำให้ ‖w‖ เล็กลง (margin กว้างขึ้น)',
+    'ระนาบนิ่งเมื่อได้ margin กว้างที่สุดเท่าที่ค่า C อนุญาต'
+  ], true);
+  ui.list('ลองสังเกต', [
+    'C มาก: ไม่ยอมให้จุดล้ำ margin ทำให้ margin แคบ · C น้อย: margin กว้างและมี support vector มากขึ้น',
+    'จุดที่อยู่ไกลจากระนาบไม่มีผลต่อคำตอบ ลบทิ้งไประนาบก็ไม่ขยับ',
+    'ชุดวงกลมซ้อน: ก่อนยกข้อมูล ระนาบแบ่งไม่ได้ หลังยกด้วย φ ระนาบแบนแบ่งได้ทันที เส้นสว่างที่พื้นคือรอยตัดที่ฉายกลับมา ซึ่งกลายเป็นวงกลมในมิติเดิม'
+  ]);
+
+  gen();
+  return {
+    camera: [14, 8, 15], target: [0, -0.5, 0],
+    update(dt) {
+      if (S.mode === 'kernel') {
+        const prev = S.lift;
+        S.lift += (S.liftTarget - S.lift) * (1 - Math.exp(-dt * 2.2));
+        if (Math.abs(S.lift - S.liftTarget) < 0.002) S.lift = S.liftTarget;
+        if (S.lift !== prev) liftPositions();
+      }
+      if (S.training) for (let i = 0; i < 8; i++) trainStep();
+      const nw = Math.hypot(w[0], w[1], w[2]);
+      sv = 0; let correct = 0;
+      X.forEach((x, i) => {
+        const f = w[0] * x[0] + w[1] * x[1] + w[2] * x[2] + b, yf = Y[i] * f;
+        if (yf > 0) correct++;
+        setInst(pts, i, x[0], x[1], x[2], 0.17, CLASS[Y[i] > 0 ? 0 : 1]);
+        if (yf <= 1.02) setInst(svMesh, sv++, x[0], x[1], x[2], 0.36, CLASS[Y[i] > 0 ? 0 : 1]);
+      });
+      acc = correct / X.length;
+      pts.count = X.length; svMesh.count = sv; commit(pts); commit(svMesh);
+      const ok = nw > 1e-4;
+      [hyper, mPos, mNeg].forEach(p => p.visible = ok);
+      if (ok) {
+        n3.set(w[0] / nw, w[1] / nw, w[2] / nw);
+        placePlane(hyper, n3, -b / nw); placePlane(mPos, n3, (1 - b) / nw); placePlane(mNeg, n3, (-1 - b) / nw);
+      }
+      bowl.visible = S.mode === 'kernel' && S.lift > 0.01; bowl.scale.y = Math.max(S.lift, 0.001);
+      stems.clear(); curve.clear();
+      if (S.mode === 'kernel') {
+        if (S.lift > 0.01) base.forEach((p, i) => stems.add([p[0], BASE, p[1]], X[i], 0x8a97b3, CLASS[Y[i] > 0 ? 0 : 1], 0.2, 0.7));
+        // boundary: plane ∩ paraboloid, solved per angle, drawn on the floor (back in 2D) and on the bowl
+        const A = w[1] * S.lift * LIFT_S, Cc = b + BASE * w[1], ring = [];
+        for (let k = 0; k <= 128; k++) {
+          const th = k / 128 * Math.PI * 2, B = w[0] * Math.cos(th) + w[2] * Math.sin(th);
+          let r = null;
+          if (Math.abs(A) > 1e-6) { const disc = B * B - 4 * A * Cc; if (disc >= 0) { const r1 = (-B + Math.sqrt(disc)) / (2 * A), r2 = (-B - Math.sqrt(disc)) / (2 * A); const c = [r1, r2].filter(v => v > 0 && v < 5.6); if (c.length) r = Math.min(...c); } }
+          else if (Math.abs(B) > 1e-6) { const v = -Cc / B; if (v > 0 && v < 5.6) r = v; }
+          ring.push(r == null ? null : [r * Math.cos(th), r * Math.sin(th), r]);
+        }
+        for (let k = 1; k < ring.length; k++) {
+          const p = ring[k - 1], q = ring[k];
+          if (!p || !q) continue;
+          curve.add([p[0], -R + 0.02, p[1]], [q[0], -R + 0.02, q[1]], 0xffffff, 0xffffff, 0.9);
+          if (S.lift > 0.01) curve.add([p[0], BASE + S.lift * LIFT_S * p[2] * p[2], p[1]], [q[0], BASE + S.lift * LIFT_S * q[2] * q[2], q[1]], 0xffc857, 0xffc857, 0.9);
+        }
+      }
+      stems.commit(); curve.commit();
+      ctx.hud('SVM · ' + (S.mode === 'linear' ? 'ระนาบเชิงเส้น' : 'Kernel trick'), [
+        ['รอบฝึก', it], ['C', Math.pow(10, S.logC).toFixed(2)],
+        ['w', `(${w.map(v => v.toFixed(2)).join(', ')})`], ['b', b.toFixed(2)],
+        ['ความกว้าง margin  2/‖w‖', ok ? (2 / nw).toFixed(2) : '—'],
+        ['Support vectors', sv], ['ความแม่นยำ (train)', (acc * 100).toFixed(1) + '%', acc > 0.97 ? '#7cf29c' : null],
+        ...(S.mode === 'kernel' ? [['ระดับการยก φ', (S.lift * 100).toFixed(0) + '%']] : [])
+      ]);
+    }
+  };
+}
+
+/* ================================================================
+   Module 4 — Neural network (MLP) trained live
+   ================================================================ */
+function NeuralNet(ctx) {
+  const { root, ui } = ctx;
+  const S = { dataset: 'circle', layers: 2, width: 5, act: 'tanh', lr: 0.1, speed: 3, training: true, seed: 21 };
+  let data = [], net = null, epoch = 0, loss = 0, acc = 0, frame = 0;
+  const SIZE = 8, H = 4, SX = -9, SY = -4.5;
+
+  // decision surface: height = P(class B) over the 2D input space
+  const SG = 36, NV = (SG + 1) * (SG + 1);
+  const spos = new Float32Array(NV * 3), scol = new Float32Array(NV * 3), idx = [];
+  for (let i = 0; i <= SG; i++) for (let j = 0; j <= SG; j++) { const v = i * (SG + 1) + j; spos[v * 3] = (j / SG - 0.5) * SIZE; spos[v * 3 + 2] = (i / SG - 0.5) * SIZE; }
+  for (let i = 0; i < SG; i++) for (let j = 0; j < SG; j++) { const a = i * (SG + 1) + j, b = a + 1, c = a + SG + 1, d = c + 1; idx.push(a, c, b, b, c, d); }
+  const sgeo = new THREE.BufferGeometry();
+  sgeo.setIndex(idx); sgeo.setAttribute('position', new THREE.BufferAttribute(spos, 3)); sgeo.setAttribute('color', new THREE.BufferAttribute(scol, 3));
+  const surfG = new THREE.Group(); surfG.position.set(SX, SY, 0); root.add(surfG);
+  surfG.add(new THREE.Mesh(sgeo, new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide, transparent: true, opacity: 0.86, depthWrite: false })));
+  surfG.add(new THREE.Mesh(sgeo, new THREE.MeshBasicMaterial({ color: 0x9fb4dd, wireframe: true, transparent: true, opacity: 0.07, depthWrite: false })));
+  const cage = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(SIZE, H, SIZE)), new THREE.LineBasicMaterial({ color: 0x26365a }));
+  cage.position.y = H / 2; surfG.add(cage);
+  const surfLabel = makeLabel('พื้นผิว = P(คลาส B)', { color: '#8a97b3', size: 0.55 }); surfLabel.position.set(0, H + 0.8, 0); surfG.add(surfLabel);
+  const dataPts = instanced(sphereGeo, 300); surfG.add(dataPts);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.04, 8, 36), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+  ring.rotation.x = Math.PI / 2; surfG.add(ring);
+  const feed = makeLines(2, { opacity: 0.8 }); root.add(feed.obj);
+
+  let netG = null, nodeMesh = null, edgeLines = null, pulseMesh = null, nodePos = [], edges = [], labels = [];
+  let phase = 0, sample = 0;
+
+  const ACT = { tanh: z => Math.tanh(z), relu: z => z > 0 ? z : 0.01 * z };
+  const DACT = { tanh: a => 1 - a * a, relu: a => a > 0 ? 1 : 0.01 };
+  const sig = z => 1 / (1 + Math.exp(-z));
+
+  function genData() {
+    rand = mulberry32(S.seed);
+    data = [];
+    const n = 240;
+    for (let i = 0; i < n; i++) {
+      const y = i % 2; let x;
+      if (S.dataset === 'xor') { const sx = rand() < .5 ? -1 : 1, sy = y ? sx : -sx; x = [sx * 0.5 + gauss() * 0.17, sy * 0.5 + gauss() * 0.17]; }
+      else if (S.dataset === 'circle') { const r = y ? 0.6 + rand() * 0.33 : rand() * 0.42, a = rand() * Math.PI * 2; x = [r * Math.cos(a), r * Math.sin(a)]; }
+      else if (S.dataset === 'spiral') { const k = Math.floor(i / 2) / (n / 2), r = 0.08 + k * 0.85, a = k * 3.2 * Math.PI + y * Math.PI; x = [r * Math.sin(a) + gauss() * 0.025, r * Math.cos(a) + gauss() * 0.025]; }
+      else { const c = y ? 0.45 : -0.45; x = [c + gauss() * 0.25, c * 0.6 + gauss() * 0.25]; }
+      data.push({ x: x.map(v => clamp(v, -0.98, 0.98)), y });
+    }
+    dataPts.count = data.length;
+    data.forEach((d, i) => setInst(dataPts, i, d.x[0] * SIZE / 2, d.y * H + (d.y ? 0.12 : -0.12), d.x[1] * SIZE / 2, 0.1, CLASS[d.y]));
+    commit(dataPts);
+  }
+  function makeNet() {
+    rand = mulberry32(S.seed * 13 + S.layers * 7 + S.width);
+    const sizes = [2, ...Array(S.layers).fill(S.width), 1], W = [], B = [], VW = [], VB = [];
+    for (let l = 0; l < sizes.length - 1; l++) {
+      const nin = sizes[l], nout = sizes[l + 1], sc = Math.sqrt(2 / (nin + nout)) * (S.act === 'relu' ? 1.4 : 1);
+      W.push(Array.from({ length: nout }, () => Array.from({ length: nin }, () => gauss() * sc)));
+      B.push(new Array(nout).fill(0)); VW.push(W[l].map(r => r.map(() => 0))); VB.push(new Array(nout).fill(0));
+    }
+    net = { sizes, W, B, VW, VB }; epoch = 0; loss = 0; acc = 0;
+    buildGraph();
+  }
+  function forward(x) {
+    const A = [x], L = net.sizes.length;
+    for (let l = 0; l < L - 1; l++) {
+      const a = A[l], Wl = net.W[l], out = new Array(Wl.length);
+      for (let j = 0; j < Wl.length; j++) { let s = net.B[l][j]; for (let i = 0; i < a.length; i++) s += Wl[j][i] * a[i]; out[j] = l === L - 2 ? sig(s) : ACT[S.act](s); }
+      A.push(out);
+    }
+    return A;
+  }
+  function trainEpoch() {
+    const L = net.sizes.length, n = data.length;
+    const GW = net.W.map(m => m.map(r => r.map(() => 0))), GB = net.B.map(r => r.map(() => 0));
+    let ls = 0, ok = 0;
+    for (const d of data) {
+      const A = forward(d.x), p = A[L - 1][0];
+      ls -= d.y * Math.log(p + 1e-9) + (1 - d.y) * Math.log(1 - p + 1e-9);
+      if ((p > 0.5 ? 1 : 0) === d.y) ok++;
+      let delta = [p - d.y];
+      for (let l = L - 2; l >= 0; l--) {
+        const ain = A[l];
+        for (let j = 0; j < delta.length; j++) { GB[l][j] += delta[j]; for (let i = 0; i < ain.length; i++) GW[l][j][i] += delta[j] * ain[i]; }
+        if (l > 0) {
+          const nd = new Array(ain.length).fill(0);
+          for (let i = 0; i < ain.length; i++) { for (let j = 0; j < delta.length; j++) nd[i] += net.W[l][j][i] * delta[j]; nd[i] *= DACT[S.act](ain[i]); }
+          delta = nd;
+        }
+      }
+    }
+    for (let l = 0; l < L - 1; l++) for (let j = 0; j < net.W[l].length; j++) {
+      net.VB[l][j] = 0.9 * net.VB[l][j] - S.lr * GB[l][j] / n; net.B[l][j] += net.VB[l][j];
+      for (let i = 0; i < net.W[l][j].length; i++) { net.VW[l][j][i] = 0.9 * net.VW[l][j][i] - S.lr * GW[l][j][i] / n; net.W[l][j][i] += net.VW[l][j][i]; }
+    }
+    loss = ls / n; acc = ok / n; epoch++;
+  }
+  function updateSurface() {
+    for (let i = 0; i <= SG; i++) for (let j = 0; j <= SG; j++) {
+      const v = i * (SG + 1) + j, p = forward([j / SG * 2 - 1, i / SG * 2 - 1])[net.sizes.length - 1][0];
+      spos[v * 3 + 1] = p * H;
+      const c = mix(CLASS[0], CLASS[1], p).multiplyScalar(0.75);
+      scol[v * 3] = c.r; scol[v * 3 + 1] = c.g; scol[v * 3 + 2] = c.b;
+    }
+    sgeo.attributes.position.needsUpdate = true; sgeo.attributes.color.needsUpdate = true; sgeo.computeVertexNormals();
+  }
+  function buildGraph() {
+    if (netG) { root.remove(netG); disposeTree(netG); }
+    netG = new THREE.Group(); root.add(netG);
+    const sizes = net.sizes, L = sizes.length, x0 = -1.5, dx = Math.min(3.6, 12 / (L - 1));
+    nodePos = sizes.map((n, l) => Array.from({ length: n }, (_, j) => new THREE.Vector3(x0 + l * dx, (j - (n - 1) / 2) * 1.25, 0)));
+    nodeMesh = instanced(sphereGeo, sizes.reduce((a, b) => a + b, 0), { rough: 0.2 }); netG.add(nodeMesh);
+    edges = [];
+    for (let l = 0; l < L - 1; l++) for (let j = 0; j < sizes[l + 1]; j++) for (let i = 0; i < sizes[l]; i++) edges.push({ l, j, i });
+    edgeLines = makeLines(edges.length, { opacity: 0.95 }); netG.add(edgeLines.obj);
+    pulseMesh = instanced(sphereGeo, Math.max(...sizes.slice(1).map((n, l) => n * sizes[l])), { basic: true, additive: true, opacity: 0.95 }); netG.add(pulseMesh);
+    labels = sizes.map((n, l) => {
+      const s = makeLabel(l === 0 ? 'อินพุต (x₁, x₂)' : l === L - 1 ? 'เอาต์พุต σ' : 'ชั้นซ่อน ' + l, { color: '#8a97b3', size: 0.5 });
+      s.position.set(x0 + l * dx, (n - 1) / 2 * 1.25 + 1, 0); netG.add(s); return s;
+    });
+    phase = 0;
+  }
+
+  ui.head('Deep learning · Training', 'Neural Network (MLP)',
+    'โครงข่ายประสาทเทียมหลายชั้นรับอินพุต 2 ค่า แต่ละโหนดในชั้นซ่อนคำนวณผลรวมถ่วงน้ำหนัก บวก bias แล้วผ่าน activation function จากนั้นโมเดลปรับน้ำหนักทั้งหมดด้วย backpropagation ทุก epoch ซึ่งเกิดขึ้นสด ๆ ในเบราว์เซอร์นี้');
+  const g = ui.group('ปรับค่า');
+  ui.select(g, { id: 'nn-data', label: 'ชุดข้อมูล', value: S.dataset, options: [['circle', 'วงกลม (circle)'], ['xor', 'XOR'], ['spiral', 'เกลียว (spiral) — ยาก'], ['linear', 'สองกลุ่มแยกด้วยเส้นตรง']], onChange: v => { S.dataset = v; genData(); makeNet(); } });
+  ui.slider(g, { id: 'nn-layers', label: 'จำนวนชั้นซ่อน', min: 1, max: 3, step: 1, value: S.layers, onInput: v => { S.layers = v; makeNet(); } });
+  ui.slider(g, { id: 'nn-width', label: 'จำนวนโหนดต่อชั้น', min: 2, max: 8, step: 1, value: S.width, onInput: v => { S.width = v; makeNet(); } });
+  ui.select(g, { id: 'nn-act', label: 'Activation function', value: S.act, options: [['tanh', 'tanh — โค้งเรียบ'], ['relu', 'ReLU — เส้นตรงต่อกันเป็นเหลี่ยม']], onChange: v => { S.act = v; makeNet(); } });
+  ui.slider(g, { id: 'nn-lr', label: 'Learning rate η', min: 0.01, max: 0.6, step: 0.01, value: S.lr, fmt: v => v.toFixed(2), onInput: v => { S.lr = v; } });
+  ui.slider(g, { id: 'nn-speed', label: 'จำนวน epoch ต่อเฟรม', min: 1, max: 20, step: 1, value: S.speed, onInput: v => { S.speed = v; } });
+  ui.buttons(g, [
+    ['หยุดฝึก', b => { S.training = !S.training; b.textContent = S.training ? 'หยุดฝึก' : 'ฝึกต่อ'; }, 'primary', 'nn-play'],
+    ['สุ่มน้ำหนักใหม่', () => { S.seed++; makeNet(); }]
+  ]);
+  ui.html(ui.group('อ่านภาพ 3 มิติ'), 'legend',
+    `<span><i class="bar" style="background:${css(POS_W)}"></i>น้ำหนักบวก</span><span><i class="bar" style="background:${css(NEG_W)}"></i>น้ำหนักลบ</span><span><i style="background:#fff"></i>สัญญาณ forward pass</span><span><i style="background:${css(CLASS[0])}"></i>คลาส A (y=0)</span><span><i style="background:${css(CLASS[1])}"></i>คลาส B (y=1)</span>`);
+  const gp = ui.group(); gp.append(ui.el('p', null, 'เส้นยิ่งสว่างแปลว่า |w| ยิ่งมาก อนุภาคที่วิ่งไปตามเส้นคือการส่งตัวอย่างหนึ่งจุด (วงแหวนสีขาวบนพื้นผิว) ผ่านโครงข่ายทีละชั้น พื้นผิวด้านซ้ายคือ P(คลาส B) ที่โมเดลทำนายทุกตำแหน่ง จุดคลาส B ลอยที่ความสูง 1 จุดคลาส A อยู่ที่ 0 ระหว่างฝึก พื้นผิวจะยกตัวเข้าหาจุดเหล่านั้น'));
+  ui.html(ui.group('สมการ'), 'formula', 'a⁽ˡ⁾ = f(W⁽ˡ⁾ a⁽ˡ⁻¹⁾ + b⁽ˡ⁾)<br>p = σ(z) = 1 / (1 + e⁻ᶻ)<br>L = −[y log p + (1−y) log(1−p)]<br>W ← W − η ∂L/∂W <span>(+ momentum 0.9)</span>');
+  ui.list('ลองสังเกต', [
+    'ชุดเกลียวต้องใช้หลายชั้นหรือหลายโหนด ลองตั้ง 1 ชั้น 2 โหนดแล้วดูว่า loss ลงไม่ถึง',
+    'ชุดเส้นตรงใช้แค่ 1 ชั้น 2 โหนดก็พอ โมเดลใหญ่เกินจำเป็นไม่ได้ช่วยอะไร',
+    'ตั้ง learning rate สูงมาก แล้วดู loss แกว่งไปมาแทนที่จะลดลงเรื่อย ๆ',
+    'ReLU ให้เส้นแบ่งเป็นเหลี่ยม tanh ให้เส้นแบ่งโค้งเรียบ'
+  ]);
+
+  genData(); makeNet(); updateSurface();
+  return {
+    camera: [1, 7, 23], target: [-1.5, -0.5, 0],
+    update(dt) {
+      frame++;
+      if (S.training) { for (let i = 0; i < S.speed; i++) trainEpoch(); if (frame % 3 === 0) updateSurface(); }
+      const L = net.sizes.length;
+      phase += dt * 1.5;
+      if (phase > L - 1 + 0.7) { phase = 0; sample = (sample + 37) % data.length; }
+      const d = data[sample], A = forward(d.x), tl = Math.floor(phase), frac = phase - tl, p = A[L - 1][0];
+      // nodes
+      let k = 0;
+      nodePos.forEach((layer, l) => layer.forEach((pos, j) => {
+        const lit = l <= tl, a = A[l][j];
+        const mag = l === L - 1 ? 1 : clamp(Math.abs(a), 0, 1);
+        const col = l === L - 1 ? mix(CLASS[0], CLASS[1], p).clone() : mix(DIM, l === 0 ? 0xdce5f6 : 0x5ee1ff, lit ? 0.25 + 0.75 * mag : 0.12).clone();
+        if (l === L - 1 && !lit) col.lerp(_c2.setHex(DIM), 0.75);
+        setInst(nodeMesh, k++, pos.x, pos.y, pos.z, l === 0 || l === L - 1 ? 0.36 : 0.28, col);
+      }));
+      commit(nodeMesh);
+      // edges & pulses
+      edgeLines.clear(); let pc = 0;
+      edges.forEach(e => {
+        const wv = net.W[e.l][e.j][e.i], m = clamp(Math.abs(wv) / 2, 0, 1), c = wv > 0 ? POS_W : NEG_W;
+        const boost = e.l === tl ? 0.35 * clamp(Math.abs(A[e.l][e.i]), 0, 1) : 0;
+        edgeLines.add(nodePos[e.l][e.i], nodePos[e.l + 1][e.j], c, c, 0.06 + 0.55 * m + boost);
+        if (e.l === tl && tl < L - 1) {
+          const a = nodePos[e.l][e.i], b = nodePos[e.l + 1][e.j], s = clamp(Math.abs(wv * A[e.l][e.i]), 0, 1);
+          setInst(pulseMesh, pc++, a.x + (b.x - a.x) * frac, a.y + (b.y - a.y) * frac, a.z + (b.z - a.z) * frac, 0.05 + 0.09 * s, mix(0xffffff, c, 0.4));
+        }
+      });
+      edgeLines.commit(); pulseMesh.count = pc; commit(pulseMesh);
+      // sample marker + feed lines into input nodes
+      const sx = d.x[0] * SIZE / 2, sz = d.x[1] * SIZE / 2;
+      ring.position.set(sx, p * H + 0.03, sz);
+      feed.clear();
+      const wp = new THREE.Vector3(SX + sx, SY + p * H, sz);
+      nodePos[0].forEach(n => feed.add(wp, n, 0xffffff, 0xdce5f6, 0.15, 0.6));
+      feed.commit();
+      ctx.hud('Neural Network · กำลังฝึก', [
+        ['สถาปัตยกรรม', net.sizes.join(' → ')],
+        ['จำนวนพารามิเตอร์', net.W.reduce((s, m, l) => s + m.length * m[0].length + net.B[l].length, 0)],
+        ['Epoch', epoch], ['Loss (cross-entropy)', loss.toFixed(4)],
+        ['ความแม่นยำ', (acc * 100).toFixed(1) + '%', acc > 0.97 ? '#7cf29c' : null],
+        ['ตัวอย่างที่ส่งผ่าน', `(${d.x[0].toFixed(2)}, ${d.x[1].toFixed(2)})`],
+        ['P(คลาส B) / ค่าจริง', `${p.toFixed(2)} / ${CLASS_NAME[d.y]}`, css(CLASS[d.y])]
+      ]);
+    }
+  };
+}
+
+/* ================================================================
+   Module 5 — CNN on a hand-drawn digit
+   ================================================================ */
+const FILTERS = [
+  { name: 'ขอบแนวตั้ง', k: [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], color: 0x4fd1ff },
+  { name: 'ขอบแนวนอน', k: [[-1, -2, -1], [0, 0, 0], [1, 2, 1]], color: 0xff5d73 },
+  { name: 'ทแยง \\', k: [[0, 1, 2], [-1, 0, 1], [-2, -1, 0]], color: 0xffc857 },
+  { name: 'ทแยง /', k: [[2, 1, 0], [1, 0, -1], [0, -1, -2]], color: 0x7cf29c }
+];
+// hand-drawn style strokes for digits in a unit box (used for samples and as part of the prototypes)
+const DIGIT_PATH = [
+  c => { c.ellipse(0.5, 0.5, 0.25, 0.38, 0, 0, Math.PI * 2); },
+  c => { c.moveTo(0.34, 0.26); c.lineTo(0.52, 0.1); c.lineTo(0.52, 0.9); },
+  c => { c.arc(0.5, 0.32, 0.22, Math.PI, Math.PI * 2.25); c.lineTo(0.24, 0.88); c.lineTo(0.8, 0.88); },
+  c => { c.arc(0.48, 0.3, 0.2, Math.PI * 1.1, Math.PI * 2.5); c.arc(0.48, 0.7, 0.2, Math.PI * 1.5, Math.PI * 2.9); },
+  c => { c.moveTo(0.64, 0.9); c.lineTo(0.64, 0.1); c.lineTo(0.2, 0.64); c.lineTo(0.82, 0.64); },
+  c => { c.moveTo(0.76, 0.12); c.lineTo(0.32, 0.12); c.lineTo(0.3, 0.46); c.arc(0.48, 0.64, 0.24, Math.PI * 1.25, Math.PI * 2.8); },
+  c => { c.moveTo(0.68, 0.1); c.quadraticCurveTo(0.28, 0.3, 0.28, 0.68); c.arc(0.5, 0.68, 0.22, Math.PI, Math.PI * 3); },
+  c => { c.moveTo(0.2, 0.14); c.lineTo(0.8, 0.14); c.lineTo(0.42, 0.9); },
+  c => { c.arc(0.5, 0.3, 0.18, 0, Math.PI * 2); c.moveTo(0.72, 0.7); c.arc(0.5, 0.7, 0.22, 0, Math.PI * 2); },
+  c => { c.arc(0.5, 0.32, 0.21, 0, Math.PI * 2); c.moveTo(0.71, 0.32); c.lineTo(0.64, 0.9); }
+];
+function drawDigitStroke(ctx2, d, jitter) {
+  const r = jitter ? Math.random : () => 0.5;
+  ctx2.save();
+  ctx2.translate(112 + (r() - .5) * 24, 112 + (r() - .5) * 24);
+  ctx2.rotate((r() - .5) * 0.4);
+  const sx = 170 * (0.85 + r() * 0.3), sy = 170 * (0.9 + r() * 0.2);
+  ctx2.scale(sx, sy); ctx2.translate(-0.5, -0.5);
+  ctx2.lineWidth = (jitter ? 14 + r() * 6 : 16) / Math.min(sx, sy);
+  ctx2.lineCap = ctx2.lineJoin = 'round'; ctx2.strokeStyle = '#fff';
+  ctx2.beginPath(); DIGIT_PATH[d](ctx2); ctx2.stroke();
+  ctx2.restore();
+}
+// crop ink, fit into a 20×20 box centred in 28×28 (MNIST-style)
+function normalize28(src) {
+  const W = src.width, img = src.getContext('2d').getImageData(0, 0, W, W).data;
+  let x0 = W, y0 = W, x1 = -1, y1 = -1;
+  for (let y = 0; y < W; y++) for (let x = 0; x < W; x++) if (img[(y * W + x) * 4] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  const out = new Float32Array(784);
+  if (x1 < 0) return out;
+  const bw = x1 - x0 + 1, bh = y1 - y0 + 1, s = 20 / Math.max(bw, bh), tw = bw * s, th = bh * s;
+  const t = document.createElement('canvas'); t.width = t.height = 28;
+  const tc = t.getContext('2d'); tc.fillStyle = '#000'; tc.fillRect(0, 0, 28, 28);
+  tc.imageSmoothingEnabled = true; tc.imageSmoothingQuality = 'high';
+  tc.drawImage(src, x0, y0, bw, bh, (28 - tw) / 2, (28 - th) / 2, tw, th);
+  const d = tc.getImageData(0, 0, 28, 28).data;
+  for (let i = 0; i < 784; i++) out[i] = d[i * 4] / 255;
+  return out;
+}
+function convolve(img, k) {
+  const raw = new Float32Array(676), relu = new Float32Array(676);
+  for (let r = 0; r < 26; r++) for (let c = 0; c < 26; c++) {
+    let s = 0;
+    for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) s += k[i][j] * img[(r + i) * 28 + c + j];
+    raw[r * 26 + c] = s; relu[r * 26 + c] = Math.max(0, s);
+  }
+  return { raw, relu };
+}
+function maxpool(m) {
+  const o = new Float32Array(169);
+  for (let r = 0; r < 13; r++) for (let c = 0; c < 13; c++) o[r * 13 + c] = Math.max(m[(2 * r) * 26 + 2 * c], m[(2 * r) * 26 + 2 * c + 1], m[(2 * r + 1) * 26 + 2 * c], m[(2 * r + 1) * 26 + 2 * c + 1]);
+  return o;
+}
+function cnnForward(img) {
+  const maps = FILTERS.map(f => convolve(img, f.k)), pooled = maps.map(m => maxpool(m.relu));
+  const v = new Float32Array(676);
+  pooled.forEach((p, m) => { // light 3×3 blur so matching tolerates small shifts
+    for (let r = 0; r < 13; r++) for (let c = 0; c < 13; c++) {
+      let s = 0;
+      for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) { const rr = r + i, cc = c + j; if (rr >= 0 && rr < 13 && cc >= 0 && cc < 13) s += p[rr * 13 + cc]; }
+      v[m * 169 + r * 13 + c] = s;
+    }
+  });
+  let n = 0; for (let i = 0; i < 676; i++) n += v[i] * v[i]; n = Math.sqrt(n) || 1;
+  for (let i = 0; i < 676; i++) v[i] /= n;
+  return { maps, pooled, v };
+}
+let PROTOS = null;
+function buildPrototypes() {
+  const c = document.createElement('canvas'); c.width = c.height = 224;
+  const x = c.getContext('2d');
+  const fonts = ['bold 170px Arial, sans-serif', '170px Georgia, serif', '600 170px "Chakra Petch", sans-serif', '170px "Comic Sans MS", "Segoe Print", cursive'];
+  PROTOS = Array.from({ length: 10 }, () => []);
+  for (let d = 0; d < 10; d++) {
+    const draws = [...fonts.map(f => () => { x.font = f; x.fillStyle = '#fff'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(String(d), 112, 120); }), () => drawDigitStroke(x, d, false)];
+    draws.forEach(fn => { x.fillStyle = '#000'; x.fillRect(0, 0, 224, 224); fn(); PROTOS[d].push(cnnForward(normalize28(c)).v); });
+  }
+}
+
+function CNN(ctx) {
+  const { root, ui } = ctx;
+  if (!PROTOS) buildPrototypes();
+  const S = { animate: !reduceMotion, speed: 70 };
+  const XI = -12, XC = -4, XP = 4, XO = 11, CI = 0.34, CC = 0.17, CP = 0.3, GAP = 0.4;
+  const inPos = (r, c) => [XI, (13.5 - r) * CI, (c - 13.5) * CI];
+  const convPos = (m, r, c) => { const h = 26 * CC / 2 + GAP / 2; return [XC, (m < 2 ? h : -h) + (12.5 - r) * CC, (m % 2 ? h : -h) + (c - 12.5) * CC]; };
+  const poolPos = (m, r, c) => { const h = 13 * CP / 2 + GAP / 2; return [XP, (m < 2 ? h : -h) + (6 - r) * CP, (m % 2 ? h : -h) + (c - 6) * CP]; };
+  const outPos = d => [XO, (4.5 - d) * 0.95, 0];
+
+  let img = new Float32Array(784), F = cnnForward(img), probs = new Array(10).fill(0.1), shown = new Array(10).fill(0), scan = 0, label = '';
+  const inMesh = instanced(boxGeo, 784), convMesh = instanced(boxGeo, 2704), poolMesh = instanced(boxGeo, 676), outMesh = instanced(sphereGeo, 10, { rough: 0.2 });
+  root.add(inMesh, convMesh, poolMesh, outMesh);
+  const win = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(1, 1, 1)), new THREE.LineBasicMaterial({ color: 0xffffff }));
+  win.scale.set(0.9, 3 * CI, 3 * CI); root.add(win);
+  const scanLines = makeLines(36 + 16, { opacity: 0.9 }); root.add(scanLines.obj);
+  const dense = makeLines(360, { opacity: 0.7 }); root.add(dense.obj);
+  const pairs = Array.from({ length: 360 }, (_, i) => ({ m: i % 4, cell: Math.floor(Math.random() * 169), d: Math.floor(Math.random() * 10) }));
+  [['Input 28×28', XI, 5.6], ['Conv 3×3 ×4 + ReLU → 26×26×4', XC, 5.6], ['MaxPool 2×2 → 13×13×4', XP, 5.2], ['Output 10 (softmax)', XO, 5.6]].forEach(([t, x, y]) => { const s = makeLabel(t, { color: '#8a97b3', size: 0.5 }); s.position.set(x, y, 0); root.add(s); });
+  const digitLabels = Array.from({ length: 10 }, (_, d) => { const s = makeLabel(String(d), { size: 0.62 }); const p = outPos(d); s.position.set(p[0] + 0.9, p[1], p[2]); root.add(s); return s; });
+
+  // ---- panel ----
+  ui.head('Deep learning · Computer vision', 'Convolutional Neural Network (CNN)',
+    'CNN ไม่ได้มองภาพทั้งภาพทีเดียว แต่เลื่อนตัวกรอง (filter หรือ kernel) ขนาด 3×3 ไปทั่วภาพเพื่อหาลวดลายเฉพาะจุด เช่น ขอบแนวตั้งหรือแนวนอน ผลลัพธ์คือ feature map ที่บอกว่าลวดลายนั้นอยู่ตรงไหนของภาพ');
+  const gd = ui.group('วาดตัวเลข 0–9');
+  const wrap = ui.el('div', 'pad-wrap'), pad = document.createElement('canvas'), prev = document.createElement('canvas'), side = ui.el('div', 'pad-side');
+  pad.width = pad.height = 224; pad.className = 'pad'; pad.id = 'cnn-pad'; pad.setAttribute('aria-label', 'พื้นที่วาดตัวเลข');
+  prev.width = prev.height = 28; prev.className = 'pad-preview';
+  side.append(prev, ui.el('span', null, 'ภาพที่โมเดลเห็น<br>28×28 พิกเซล'));
+  wrap.append(pad, side); gd.append(wrap);
+  const px = pad.getContext('2d');
+  ui.buttons(gd, [['ล้าง', () => { clearPad(); recompute(true); }], ['สุ่มตัวอย่าง', () => sampleDigit(), 'primary']]);
+  const gk = ui.group('ตัวกรอง (kernel) 4 ตัว');
+  const kd = ui.el('div', 'kernels');
+  FILTERS.forEach(f => {
+    const k = ui.el('div', 'kernel'); k.append(ui.el('span', null, `<b style="color:${css(f.color)}">■</b> ${f.name}`));
+    const gr = ui.el('div', 'kernel-grid');
+    f.k.flat().forEach(v => { const s = ui.el('span', null, v > 0 ? '+' + v : String(v)); s.style.color = v > 0 ? css(f.color) : v < 0 ? '#8a97b3' : '#56627e'; gr.append(s); });
+    k.append(gr); kd.append(k);
+  });
+  gk.append(kd);
+  const gc = ui.group('การสแกน');
+  ui.check(gc, { id: 'cnn-anim', label: 'แสดงการเลื่อนตัวกรองทีละตำแหน่ง', checked: S.animate, onChange: v => { S.animate = v; } });
+  ui.slider(gc, { id: 'cnn-speed', label: 'ความเร็ว (ตำแหน่ง/วินาที)', min: 10, max: 400, step: 10, value: S.speed, onInput: v => { S.speed = v; } });
+  ui.buttons(gc, [['สแกนใหม่', () => { scan = 0; }]]);
+  ui.list('ขั้นตอนการทำงาน', [
+    '<b>Input</b> — ภาพขาวดำ 28×28 ค่าความสว่าง 0–1',
+    '<b>Convolution</b> — ตัวกรอง 3×3 เลื่อนทีละช่อง คูณค่าทีละตำแหน่งแล้วรวมกัน ได้ 26×26 ต่อหนึ่งตัวกรอง (กรอบสีขาวคือหน้าต่างที่กำลังคำนวณ)',
+    '<b>ReLU</b> — ค่าติดลบกลายเป็น 0 เหลือเฉพาะจุดที่ลวดลายตรงกับตัวกรอง',
+    '<b>Max pooling 2×2</b> — เก็บค่ามากสุดของทุก 4 ช่อง ย่อเหลือ 13×13 ทำให้ทนต่อการเลื่อนตำแหน่งเล็กน้อย',
+    '<b>Flatten + Output</b> — เรียง feature 676 ค่าเป็นเวกเตอร์ แล้วให้คะแนนตัวเลข 0–9 ผ่าน softmax'
+  ], true);
+  ui.list('ลองสังเกต', [
+    'วาดเลข 1 แล้วดูว่า feature map ขอบแนวตั้งสว่างกว่าแนวนอน ส่วนเลข 7 จะเห็นขอบแนวนอนด้านบนและแนวทแยง',
+    'ความสูงของแท่งในแต่ละ feature map คือค่า activation หลัง ReLU',
+    'ขนาดลดจาก 28 → 26 เพราะตัวกรอง 3×3 วางได้ 26 ตำแหน่งต่อแถว (ไม่มี padding)'
+  ]);
+  const gn = ui.group(); gn.append(ui.el('p', 'note', 'หมายเหตุสำหรับผู้สอน: ตัวกรองในเดโมนี้กำหนดเอง (Sobel) และชั้น Output คำนวณจากความคล้าย (cosine similarity) ระหว่าง feature ของภาพกับต้นแบบตัวเลขที่สร้างจากฟอนต์ ไม่ได้ฝึกด้วยข้อมูลจริง ผลทำนายจึงพลาดได้ ใน CNN จริง ทั้งตัวกรองและน้ำหนักชั้น Dense เรียนรู้จากภาพตัวอย่างหลายหมื่นภาพด้วย backpropagation'));
+
+  function clearPad() { px.setTransform(1, 0, 0, 1, 0, 0); px.fillStyle = '#000'; px.fillRect(0, 0, 224, 224); label = ''; }
+  function sampleDigit(d = Math.floor(Math.random() * 10)) { clearPad(); drawDigitStroke(px, d, true); label = 'ตัวอย่างเลข ' + d; recompute(true); }
+  function recompute(restart) {
+    img = normalize28(pad); F = cnnForward(img);
+    const id = prev.getContext('2d').createImageData(28, 28);
+    for (let i = 0; i < 784; i++) { const v = img[i] * 255; id.data[i * 4] = id.data[i * 4 + 1] = id.data[i * 4 + 2] = v; id.data[i * 4 + 3] = 255; }
+    prev.getContext('2d').putImageData(id, 0, 0);
+    const empty = img.every(v => v === 0);
+    const sims = PROTOS.map(list => Math.max(...list.map(p => { let s = 0; for (let i = 0; i < 676; i++) s += p[i] * F.v[i]; return s; })));
+    const mx = Math.max(...sims), ex = sims.map(s => Math.exp((s - mx) * 30)), sum = ex.reduce((a, b) => a + b, 0);
+    probs = empty ? new Array(10).fill(0) : ex.map(e => e / sum);
+    if (restart) scan = 0;
+  }
+  let drawing = false, last = null;
+  const pt = e => { const r = pad.getBoundingClientRect(); return [(e.clientX - r.left) * 224 / r.width, (e.clientY - r.top) * 224 / r.height]; };
+  pad.addEventListener('pointerdown', e => { drawing = true; last = pt(e); pad.setPointerCapture(e.pointerId); label = 'ภาพที่วาดเอง'; px.setTransform(1, 0, 0, 1, 0, 0); px.fillStyle = '#fff'; px.beginPath(); px.arc(last[0], last[1], 8, 0, Math.PI * 2); px.fill(); recompute(false); scan = 676; });
+  pad.addEventListener('pointermove', e => {
+    if (!drawing) return;
+    const p = pt(e);
+    px.strokeStyle = '#fff'; px.lineWidth = 16; px.lineCap = 'round'; px.beginPath(); px.moveTo(last[0], last[1]); px.lineTo(p[0], p[1]); px.stroke();
+    last = p; recompute(false); scan = 676;
+  });
+  const end = () => { if (drawing) { drawing = false; recompute(true); } };
+  pad.addEventListener('pointerup', end); pad.addEventListener('pointercancel', end);
+
+  sampleDigit(7);
+  return {
+    camera: [-9, 8, 21], target: [0, 0, 0],
+    update(dt) {
+      if (S.animate && scan < 676) scan = Math.min(676, scan + S.speed * dt); else if (!S.animate) scan = 676;
+      const idx = Math.floor(scan), done = idx >= 676, ci = Math.min(idx, 675), cr = Math.floor(ci / 26), cc = ci % 26;
+      for (let r = 0; r < 28; r++) for (let c = 0; c < 28; c++) {
+        const v = img[r * 28 + c], inWin = !done && r >= cr && r < cr + 3 && c >= cc && c < cc + 3, p = inPos(r, c);
+        setInst(inMesh, r * 28 + c, p[0], p[1], p[2], [0.06 + v * 0.7, CI * 0.88, CI * 0.88], inWin ? mix(0x33415f, 0xffffff, 0.4 + v * 0.6) : mix(DIM, 0xe9f0ff, v));
+      }
+      commit(inMesh);
+      FILTERS.forEach((f, m) => {
+        const relu = F.maps[m].relu;
+        for (let k = 0; k < 676; k++) {
+          const r = Math.floor(k / 26), c = k % 26, p = convPos(m, r, c), v = clamp(relu[k] / 3, 0, 1), rev = k < idx, cur = k === idx && !done;
+          setInst(convMesh, m * 676 + k, p[0], p[1], p[2], [cur ? 0.5 : rev ? 0.04 + v * 0.55 : 0.02, CC * 0.86, CC * 0.86], cur ? 0xffffff : rev ? mix(0x111a2c, f.color, 0.08 + v) : 0x0a0f1b);
+        }
+        for (let k = 0; k < 169; k++) {
+          const r = Math.floor(k / 13), c = k % 13, p = poolPos(m, r, c), v = clamp(F.pooled[m][k] / 3, 0, 1), rev = done || idx > (2 * r + 1) * 26 + 2 * c + 1;
+          setInst(poolMesh, m * 169 + k, p[0], p[1], p[2], [rev ? 0.05 + v * 0.7 : 0.03, CP * 0.86, CP * 0.86], rev ? mix(0x111a2c, f.color, 0.08 + v) : 0x0a0f1b);
+        }
+      });
+      commit(convMesh); commit(poolMesh);
+      const best = probs.indexOf(Math.max(...probs));
+      for (let d = 0; d < 10; d++) {
+        shown[d] += ((done ? probs[d] : 0) - shown[d]) * (1 - Math.exp(-dt * 5));
+        const p = outPos(d);
+        setInst(outMesh, d, p[0], p[1], p[2], 0.16 + 0.34 * shown[d], mix(0x1a2338, done && d === best ? 0xffc857 : 0x5ee1ff, 0.15 + 0.85 * Math.sqrt(shown[d])));
+        digitLabels[d].material.opacity = 0.35 + 0.65 * Math.sqrt(shown[d]);
+      }
+      commit(outMesh);
+      win.visible = !done;
+      scanLines.clear();
+      if (!done) {
+        const wc = inPos(cr + 1, cc + 1); win.position.set(wc[0], wc[1], wc[2]);
+        FILTERS.forEach((f, m) => {
+          const t = convPos(m, cr, cc);
+          for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) scanLines.add(inPos(cr + i, cc + j), t, 0xffffff, f.color, 0.25, 0.8);
+          const pr = cr >> 1, pcc = cc >> 1, pp = poolPos(m, pr, pcc);
+          for (let a = 0; a < 2; a++) for (let b = 0; b < 2; b++) if (2 * pr + a < 26 && 2 * pcc + b < 26) scanLines.add(convPos(m, 2 * pr + a, 2 * pcc + b), pp, f.color, f.color, 0.5, 0.8);
+        });
+      }
+      scanLines.commit();
+      dense.clear();
+      pairs.forEach(q => {
+        const v = clamp(F.pooled[q.m][q.cell] / 3, 0, 1), r = Math.floor(q.cell / 13), c = q.cell % 13;
+        const ia = (done ? 0.05 + 0.6 * v * (0.15 + shown[q.d]) : 0.03);
+        if (ia > 0.02) dense.add(poolPos(q.m, r, c), outPos(q.d), FILTERS[q.m].color, q.d === best && done ? 0xffc857 : 0x5ee1ff, ia * 0.6, ia);
+      });
+      dense.commit();
+      const top = probs.map((p, d) => [d, p]).sort((a, b) => b[1] - a[1]).slice(0, 3);
+      const rows = [['ภาพ', label || '—'], ['ขนาดแต่ละชั้น', '28² → 26²×4 → 13²×4 → 10']];
+      if (!done) {
+        const raw = F.maps[0].raw[ci];
+        rows.push(['ตำแหน่งตัวกรอง (แถว, คอลัมน์)', `(${cr}, ${cc})`], ['Σ w·x (ขอบแนวตั้ง)', raw.toFixed(2)], ['หลัง ReLU', Math.max(0, raw).toFixed(2), css(FILTERS[0].color)], ['สแกนแล้ว', Math.round(idx / 6.76) + '%']);
+      } else if (probs[best] > 0) {
+        rows.push(['ผลทำนาย', `เลข ${best}`, '#ffc857'], ...top.map(([d, p]) => [`  P(${d})`, (p * 100).toFixed(1) + '%']));
+      } else rows.push(['ผลทำนาย', 'วาดตัวเลขในกรอบด้านซ้าย']);
+      ctx.hud('CNN · ' + (done ? 'ผลลัพธ์' : 'กำลังเลื่อนตัวกรอง'), rows);
+    }
+  };
+}
+
+/* ================================================================
+   App shell: tabs, routing, toolbar, render loop
+   ================================================================ */
+const MODULES = [
+  { id: 'knn', name: 'KNN', fn: KNN },
+  { id: 'kmeans', name: 'K-Means', fn: KMeans },
+  { id: 'svm', name: 'SVM', fn: SVM },
+  { id: 'nn', name: 'Neural Net', fn: NeuralNet },
+  { id: 'cnn', name: 'CNN', fn: CNN }
+];
+const tabsEl = document.getElementById('tabs'), panelBody = document.getElementById('panel-body');
+MODULES.forEach(m => {
+  const b = document.createElement('button');
+  b.className = 'tab'; b.type = 'button'; b.role = 'tab'; b.id = 'tab-' + m.id; b.textContent = m.name;
+  b.addEventListener('click', () => { if (location.hash.slice(1) !== m.id) { try { location.hash = m.id; } catch (e) { load(m.id); } } else load(m.id); });
+  tabsEl.append(b);
+});
+
+let current = null, root = null, currentId = null, camHome = null;
+function load(id) {
+  if (!MODULES.some(m => m.id === id)) id = 'knn';
+  if (id === currentId) return;
+  currentId = id;
+  if (root) { scene.remove(root); disposeTree(root); }
+  root = new THREE.Group(); scene.add(root);
+  panelBody.innerHTML = ''; panelBody.scrollTop = 0; hudEl.innerHTML = '';
+  MODULES.forEach(m => document.getElementById('tab-' + m.id).setAttribute('aria-selected', String(m.id === id)));
+  current = MODULES.find(m => m.id === id).fn({ root, ui: makeUI(panelBody), hud: setHud });
+  camHome = { pos: current.camera, target: current.target };
+  resetView();
+}
+function resetView() {
+  camera.position.set(...camHome.pos); controls.target.set(...camHome.target); controls.update();
+}
+window.addEventListener('hashchange', () => load(location.hash.slice(1)));
+
+const rotBtn = document.getElementById('tool-rotate'), glowBtn = document.getElementById('tool-glow');
+rotBtn.addEventListener('click', () => { controls.autoRotate = !controls.autoRotate; rotBtn.setAttribute('aria-pressed', String(controls.autoRotate)); });
+glowBtn.addEventListener('click', () => { glow = !glow; glowBtn.setAttribute('aria-pressed', String(glow)); });
+if (!composer) glowBtn.hidden = true;
+document.getElementById('tool-reset').addEventListener('click', resetView);
+
+const clock = new THREE.Clock();
+function frame() {
+  requestAnimationFrame(frame);
+  const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+  if (current) current.update(dt, t);
+  controls.update();
+  flushHud(t);
+  if (composer && glow) composer.render(); else renderer.render(scene, camera);
+}
+
+const fontsReady = document.fonts ? Promise.race([
+  Promise.all(['600 44px "Chakra Petch"', '400 16px "IBM Plex Sans Thai"'].map(f => document.fonts.load(f))),
+  new Promise(r => setTimeout(r, 2500))
+]).catch(() => {}) : Promise.resolve();
+fontsReady.then(() => { load(location.hash.slice(1) || 'knn'); frame(); });
+})();
+</script>
+</body>
+</html>
