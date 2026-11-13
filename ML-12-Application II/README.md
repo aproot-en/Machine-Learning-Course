@@ -44,8 +44,6 @@ The Algorithms gallery contains 20 runnable algorithm/model labs. Additional pag
 
 ## Installation
 
-Run the following PowerShell commands from the project root. Install Node.js with npm first. The pinned Vite version supports Node.js `^18.0.0 || ^20.0.0 || >=22.0.0`. The browser must support WebGL.
-
 ### 1. Check Node.js and npm
 
 ```powershell
