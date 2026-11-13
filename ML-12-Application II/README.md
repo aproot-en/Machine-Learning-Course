@@ -61,13 +61,17 @@ npm ci
 
 ### 3. Run the App
 
+Double-click **`ML_App.bat`** in the project folder to start the application. It installs dependencies if Vite is missing, starts the server, and opens the web app in your browser automatically.
+
+You can also launch it from PowerShell:
+
 ```powershell
-npm run dev
+.\ML_App.bat
 ```
 
-Open the URL printed in the terminal, normally [http://localhost:5173](http://localhost:5173). Press `Ctrl+C` to stop the server.
+Node.js and npm must already be installed and available in PATH. The pinned Vite version supports Node.js `^18.0.0 || ^20.0.0 || >=22.0.0`. Use a browser with WebGL support; an internet connection is needed when installing dependencies.
 
-Alternatively, double-click `ML_App.bat`. It checks for Node.js and npm, installs dependencies if Vite is missing, and starts the development server with the browser opening automatically. No API key or separate database is required.
+Keep the launcher window open while using the app. Press `Ctrl+C` in that window to stop the server. If the browser does not open, use the URL printed in the terminal, normally [http://127.0.0.1:5173](http://127.0.0.1:5173). No API key or separate database is required.
 
 ## Production Build
 
