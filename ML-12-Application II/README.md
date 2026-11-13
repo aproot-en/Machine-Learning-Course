@@ -29,7 +29,7 @@ Metrics in the screenshot describe that particular experiment and vary with the 
 
 ## Supported Algorithms and Labs
 
-| Area | Algorithms / models | Main features |
+| Area | Algorithms / models | Features |
 | --- | --- | --- |
 | Classification and regression | KNN, SVM, Linear Regression, Logistic Regression | Distances, votes, kernels, margins, residuals, and decision boundaries |
 | Clustering | K-Means, DBSCAN | Cluster updates, neighborhoods, core/border/noise points |
