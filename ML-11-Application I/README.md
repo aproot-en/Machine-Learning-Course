@@ -16,6 +16,43 @@ Automatic exam grading system is a web app for grading multiple-choice exams fro
 | Selected checkpoint / completed epochs | Epoch 50 |
 | GPU | NVIDIA RTX 5060 Ti 16GB |
 
+
+
+## Project Structure
+
+```text
+exam_grading/
+├── main_exam.py                 # Web application entry point
+├── examchecker.bat              # Windows launcher
+├── requirements-full-freeze.txt # Full environment package versions
+├── exam_migrations/             # Database migrations
+├── exam_cnn/
+│   ├── data/                   # Dataset preparation and augmentation
+│   ├── models/                 # CNN15, inference, and export
+│   ├── training/               # Training and evaluation
+│   ├── datasets/               # Raw, interim, and processed data
+│   ├── models_export/          # Checkpoints and exported models
+│   ├── reports/                # Metrics, training logs, and TensorBoard
+│   ├── tests/                  # CNN tests
+│   └── docs/                   # Model and dataset documentation
+├── exam_src/
+│   ├── api/                    # FastAPI endpoints and schemas
+│   ├── db/                     # Database models and sessions
+│   ├── vision/                 # Image correction, markers, and OMR
+│   │   └── templates/          # Answer-sheet coordinates
+│   ├── scoring/                # Recognition results, review, and grading
+│   └── analytics/              # Statistics and Excel export
+├── exam_web/                   # Jinja2 templates and static assets
+├── exam_tests/                 # Application tests
+├── exam_docs/                  # Technical documentation
+├── exam_scan_data/             # Real scanned sheets
+├── exam_input_files/           # Sample images and test forms
+├── exam_incorrect_results/     # Historical result images
+├── exam_compro/                # Original exam documents
+└── exam_reports/               # Application reports, debug files, uploads
+```
+
+
 ### Classification Performance
 
 | Model | Evaluation dataset | Images | Accuracy | Macro F1 | Weighted F1 |
@@ -87,40 +124,6 @@ Alternatively, double-click `examchecker.bat`, which prefers the Python environm
 
 ![Web Application Interface](image-web-.png)
 
-
-## Project Structure
-
-```text
-exam_grading/
-├── main_exam.py                 # Web application entry point
-├── examchecker.bat              # Windows launcher
-├── requirements-full-freeze.txt # Full environment package versions
-├── exam_migrations/             # Database migrations
-├── exam_cnn/
-│   ├── data/                   # Dataset preparation and augmentation
-│   ├── models/                 # CNN15, inference, and export
-│   ├── training/               # Training and evaluation
-│   ├── datasets/               # Raw, interim, and processed data
-│   ├── models_export/          # Checkpoints and exported models
-│   ├── reports/                # Metrics, training logs, and TensorBoard
-│   ├── tests/                  # CNN tests
-│   └── docs/                   # Model and dataset documentation
-├── exam_src/
-│   ├── api/                    # FastAPI endpoints and schemas
-│   ├── db/                     # Database models and sessions
-│   ├── vision/                 # Image correction, markers, and OMR
-│   │   └── templates/          # Answer-sheet coordinates
-│   ├── scoring/                # Recognition results, review, and grading
-│   └── analytics/              # Statistics and Excel export
-├── exam_web/                   # Jinja2 templates and static assets
-├── exam_tests/                 # Application tests
-├── exam_docs/                  # Technical documentation
-├── exam_scan_data/             # Real scanned sheets
-├── exam_input_files/           # Sample images and test forms
-├── exam_incorrect_results/     # Historical result images
-├── exam_compro/                # Original exam documents
-└── exam_reports/               # Application reports, debug files, uploads
-```
 
 ## Summary
 
