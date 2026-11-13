@@ -42,12 +42,14 @@ Metrics in the screenshot describe that particular experiment and vary with the 
 
 The Algorithms gallery contains 20 runnable algorithm/model labs. Additional pages provide a Dataset Explorer, Model Comparison, and 21 lessons with quizzes and selectable learning levels.
 
-## Installation
+## ⚙️ Getting Started
 
-Clone the repository and navigate to the ML-12-Application II directory.
+Clone the repository to access the application source code and required files.
 
+```bash
 git clone https://github.com/aproot-en/Machine-Learning-Course.git
 cd "Machine-Learning-Course/ML-12-Application II"
+```
 
 ##  How to Run
 
