@@ -44,20 +44,12 @@ The Algorithms gallery contains 20 runnable algorithm/model labs. Additional pag
 
 ## Installation
 
-### 1. Check Node.js and npm
+Clone the repository and navigate to the ML-12-Application II directory.
 
-```powershell
-node --version
-npm --version
-```
+git clone https://github.com/aproot-en/Machine-Learning-Course.git
+cd "Machine-Learning-Course/ML-12-Application II"
 
-### 2. Install Dependencies
-
-```powershell
-npm ci
-```
-
-### 3. Run the App
+##  How to Run
 
 Double-click **`ML_App.bat`** in the project folder to start the application. It installs dependencies if Vite is missing, starts the server, and opens the web app in your browser automatically.
 
