@@ -1,31 +1,6 @@
 # ML-12-Application II 
 
 ML Visual Lab is an interactive web app for learning machine learning and deep learning through 3D simulations. Students can adjust algorithm parameters, build neural networks, train supported models, inspect intermediate calculations, and compare experimental results. The interface supports Thai and English. Computation runs locally in the browser.
- 
-## Tech Stack
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
-
-React Three Fiber, Drei, and React Three Postprocessing provide the 3D rendering layer. Zustand manages application state, React Router handles navigation, Framer Motion provides animation, Plotly.js displays charts, and KaTeX renders equations.
-
-## Web Application Preview
-
-The home page introduces the application with an interactive 3D neural network and navigation to the learning labs.
-
-![ML Visual Lab home page](image-3D.png)
-
-### CNN Lab
-
-The CNN lab displays the input image, convolution and pooling feature maps, dense layers, and output probabilities for digits 0–9. Controls allow students to edit the architecture, train the model, draw or upload an image, and inspect calculations.
-
-![CNN lab showing input, feature maps, neural connections, and predictions](image-3D-CNN.png)
-
-Metrics in the screenshot describe that particular experiment and vary with the model, input, and training settings.
 
 ## Supported Algorithms and Labs
 
@@ -41,6 +16,17 @@ Metrics in the screenshot describe that particular experiment and vary with the 
 | Vision architectures | VGG16, ResNet50, DenseNet121, InceptionV3, MobileNetV2, ViT | Compact executable teaching models and full-architecture references |
 
 The Algorithms gallery contains 20 runnable algorithm/model labs. Additional pages provide a Dataset Explorer, Model Comparison, and 21 lessons with quizzes and selectable learning levels.
+
+## Tech Stack
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+
+React Three Fiber, Drei, and React Three Postprocessing provide the 3D rendering layer. Zustand manages application state, React Router handles navigation, Framer Motion provides animation, Plotly.js displays charts, and KaTeX renders equations.
 
 ## ⚙️ Getting Started
 
@@ -62,6 +48,21 @@ You can also launch it from PowerShell:
 ```
 
 Keep the launcher window open while using the app. Press `Ctrl+C` in that window to stop the server. If the browser does not open, use the URL printed in the terminal, normally [http://127.0.0.1:5173](http://127.0.0.1:5173). No API key or separate database is required.
+
+
+## Web Application Preview
+
+The home page introduces the application with an interactive 3D neural network and navigation to the learning labs.
+
+![ML Visual Lab home page](image-3D.png)
+
+### CNN Lab
+
+The CNN lab displays the input image, convolution and pooling feature maps, dense layers, and output probabilities for digits 0–9. Controls allow students to edit the architecture, train the model, draw or upload an image, and inspect calculations.
+
+![CNN lab showing input, feature maps, neural connections, and predictions](image-3D-CNN.png)
+
+Metrics in the screenshot describe that particular experiment and vary with the model, input, and training settings.
 
 ## Summary
 
