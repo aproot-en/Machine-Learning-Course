@@ -1,0 +1,48 @@
+{
+  "note": "FABRICATED answer key -- scores here are a plumbing check, not real grades",
+  "exam_id": 1,
+  "review_queue_size_before_demo_review": 20,
+  "scores": [
+    {
+      "student_id": "123142?63531?",
+      "correct": 23,
+      "max_score": 100.0,
+      "percentage": 24.0,
+      "review_pending": 0
+    },
+    {
+      "student_id": "124137531?31?",
+      "correct": 34,
+      "max_score": 100.0,
+      "percentage": 35.0,
+      "review_pending": 2
+    },
+    {
+      "student_id": "1315412583419",
+      "correct": 19,
+      "max_score": 100.0,
+      "percentage": 20.0,
+      "review_pending": 6
+    },
+    {
+      "student_id": "1493314?4541?",
+      "correct": 29,
+      "max_score": 100.0,
+      "percentage": 30.0,
+      "review_pending": 1
+    },
+    {
+      "student_id": "2351134213421",
+      "correct": 24,
+      "max_score": 100.0,
+      "percentage": 25.0,
+      "review_pending": 2
+    }
+  ],
+  "sanity_check": {
+    "ok": false,
+    "issues": [
+      "3 sheet(s) have an unresolved student_id: ['CCF_000002.png', 'CCF_000003.png', 'CCF_000001.png']"
+    ]
+  }
+}

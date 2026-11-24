@@ -1,0 +1,52 @@
+[
+  {
+    "file": "exam_input_files\\test-data-image-org\\CCF_000001.png",
+    "source": "exam_reports\\uploads\\1\\0772b0e28fbb43acb5d006eaf59bb823_CCF_000001.png",
+    "sha256": "aa962f46b837d4f32eefccb9013bd823607ab9e30878ee44ca90a1a304c1fc88"
+  },
+  {
+    "file": "exam_input_files\\CCF_000001.png",
+    "source": "exam_reports\\uploads\\2\\2f5de2d302c2499987561ec5c290caca_CCF_000001.png",
+    "sha256": "bd2513ebc69f5454bfb003db7b92e4274e93f7edb5ec4735f4426c8f34bbe7cb"
+  },
+  {
+    "file": "exam_input_files\\test-data-image-org\\CCF_000002.png",
+    "source": "exam_reports\\uploads\\1\\33901bb05ab740a489e31088f26e4561_CCF_000002.png",
+    "sha256": "6a396477583eb8b7565a468c3bff8d9ec58ee3375b3ecc580b02b0c6243e4942"
+  },
+  {
+    "file": "exam_input_files\\CCF_000002.png",
+    "source": "exam_reports\\uploads\\2\\4bf94e1e626446b3a23df95dd7445415_CCF_000002.png",
+    "sha256": "004ba00e7fcc0385cc774f84c144380be375c9533dd5e73f8965a4c5c7748bba"
+  },
+  {
+    "file": "exam_input_files\\test-data-image-org\\CCF_000003.png",
+    "source": "exam_reports\\uploads\\1\\03e3d07dbb6943aeb09d86d2a2eccf06_CCF_000003.png",
+    "sha256": "a3c6feeda89458471fb65d1ba8f8fef1bc556a3a2ea006ed8ea86dd4b32e293f"
+  },
+  {
+    "file": "exam_input_files\\CCF_000003.png",
+    "source": "exam_reports\\uploads\\2\\22a55725ec984319a2567d39c1134b75_CCF_000003.png",
+    "sha256": "f8987aeff7daba6059f8dfc31d859d202694b77e18ae5d36fe076d9a04e946c5"
+  },
+  {
+    "file": "exam_input_files\\test-data-image-org\\CCF_000004.png",
+    "source": "exam_reports\\uploads\\1\\0d8d9a8fb61d4e4991ac6acc1c3a0b01_CCF_000004.png",
+    "sha256": "88478b9efd8ff0581875d1400a714bd6cb0ec5ff7944a853567b31a6909c1551"
+  },
+  {
+    "file": "exam_input_files\\CCF_000004.png",
+    "source": "exam_reports\\uploads\\2\\f03c32bd7c6f46ada32fd891d680fa4c_CCF_000004.png",
+    "sha256": "0c4ce0201ebcbd9b907921a852dcc09e73ccafcf6346cd525717324f6dd63cdc"
+  },
+  {
+    "file": "exam_input_files\\test-data-image-org\\CCF_000005.png",
+    "source": "exam_reports\\uploads\\1\\0c4aedfc4d874015835e47704f36b4fb_CCF_000005.png",
+    "sha256": "75055cf55d1b636f806b85fbd5a25c1c42cf82d50a04aaefb9c6ec7272c88f78"
+  },
+  {
+    "file": "exam_input_files\\CCF_000005.png",
+    "source": "exam_reports\\uploads\\2\\42bacdb6953a4986a2ffbfdffd3fca94_CCF_000005.png",
+    "sha256": "f421107cfe99c04b8f9e44af301365017048882b6c201f75ac0a199855353d1c"
+  }
+]
