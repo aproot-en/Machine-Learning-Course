@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AEGS{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a href="/dashboard" class="sidebar-logo">
+        <img src="/static/img/logoRMUTT.png" alt="RMUTT">
+        <span>Exam Checker</span>
+      </a>
+
+      <div class="sidebar-section">
+        <a class="btn-new-exam" href="/exams/new">📝 สร้างข้อสอบใหม่</a>
+      </div>
+
+      <div class="sidebar-record-lists">
+        <div class="sidebar-section sidebar-exam-scroll">
+          <div class="label">รายการข้อสอบ</div>
+          <div id="sidebar-exam-list"></div>
+        </div>
+
+        <div class="sidebar-section sidebar-answer-key-scroll">
+          <div class="label">รายการเฉลย</div>
+          <div id="sidebar-answer-key-list"></div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <button type="button" class="btn-new-exam" id="open-combined-export-btn">📤 ส่งออก</button>
+        <a class="btn-new-exam" href="/answer-keys/new">✅ เฉลยข้อสอบ</a>
+      </div>
+    </aside>
+
+    <div class="content-area">
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </div>
+
+  <dialog id="combined-export-dialog" class="export-dialog">
+    <form id="combined-export-form">
+      <div class="export-dialog-heading">
+        <h2>ส่งออกผลคะแนนหลายชุดข้อสอบ</h2>
+        <button type="button" class="secondary" id="close-combined-export-btn" aria-label="ปิด">✕</button>
+      </div>
+      <p>เลือกชุดข้อสอบที่ต้องการ แต่ละชุดจะอยู่ในชีตแยกกันภายในไฟล์ Excel เดียว</p>
+      <p>
+        <label for="combined-export-filename">ชื่อไฟล์:</label><br>
+        <input id="combined-export-filename" value="ผลคะแนนรวม" maxlength="150" required>
+        <span>.xlsx</span>
+      </p>
+      <div class="export-exam-header">
+        <label class="export-select-all-label"><input type="checkbox" id="export-select-all"> ทั้งหมด</label>
+        <span>ชุดข้อสอบ</span><span>ชื่อชีต</span><span>คิดเป็น (%)</span>
+      </div>
+      <div id="combined-export-exam-list" class="export-exam-list"></div>
+      <div id="combined-export-error" class="flash-error" hidden></div>
+      <div class="export-dialog-actions">
+        <button type="button" class="secondary" id="cancel-combined-export-btn">ยกเลิก</button>
+        <button type="submit" id="download-combined-export-btn">⬇️ ดาวน์โหลด Excel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    // Escape user text before inserting it into HTML.
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+    }
+
+    async function apiFetch(url, options = {}) {
+      options.headers = Object.assign({'Content-Type': 'application/json'}, options.headers || {});
+      const res = await fetch(url, options);
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({detail: res.statusText}));
+        throw new Error(body.detail || 'request failed');
+      }
+      const ct = res.headers.get('content-type') || '';
+      return ct.includes('application/json') ? res.json() : res;
+    }
+    const CURRENT_EXAM_ID = {{ exam_id | default('null') }};
+    let sidebarExams = [];
+
+    async function initSidebar() {
+      await Promise.all([loadSidebarExams(), loadSidebarAnswerKeys()]);
+    }
+
+    async function loadSidebarAnswerKeys() {
+      const templates = await apiFetch('/api/exams/answer-key-templates');
+      const listEl = document.getElementById('sidebar-answer-key-list');
+      if (templates.length === 0) {
+        listEl.innerHTML = '<div class="exam-list-empty">ยังไม่มีเฉลยที่บันทึกไว้</div>';
+        return;
+      }
+      listEl.innerHTML = templates.map(template => `
+        <div class="exam-nav-item" style="margin-bottom:0.5rem;">
+          <div class="exam-title">${escapeHtml(template.title)}${template.id === CURRENT_EXAM_ID ? ' ✓' : ''}</div>
+          <div class="exam-links">
+            <a href="/exams/${template.id}/answer-key">แก้ไขเฉลย</a>
+            <a href="#" class="rename-exam-link" data-exam-id="${template.id}" data-exam-title="${escapeHtml(template.title)}" data-record-label="เฉลย">เปลี่ยนชื่อ</a>
+            <a href="#" class="delete-exam-link" data-exam-id="${template.id}" data-exam-title="${escapeHtml(template.title)}" data-record-label="เฉลย" style="color:#ffb3b3;">ลบ</a>
+          </div>
+        </div>`).join('');
+    }
+
+    async function loadSidebarExams() {
+      sidebarExams = await apiFetch('/api/exams');
+      const exams = sidebarExams;
+      const listEl = document.getElementById('sidebar-exam-list');
+      if (exams.length === 0) {
+        listEl.innerHTML = '<div class="exam-list-empty">ยังไม่มีข้อสอบ</div>';
+        return;
+      }
+      listEl.innerHTML = exams.map(exam => `
+        <div class="exam-nav-item" style="margin-bottom:0.5rem;">
+          <div class="exam-title">${escapeHtml(exam.title)}${exam.id === CURRENT_EXAM_ID ? ' ✓' : ''}</div>
+          <div class="exam-links">
+            <a href="/exams/${exam.id}/upload">อัปโหลด</a>
+            <a href="/exams/${exam.id}/review">ตรวจ</a>
+            <a href="/exams/${exam.id}/results">ผลคะแนน</a>
+            <a href="#" class="rename-exam-link" data-exam-id="${exam.id}" data-exam-title="${escapeHtml(exam.title)}">เปลี่ยนชื่อ</a>
+            <a href="#" class="delete-exam-link" data-exam-id="${exam.id}" data-exam-title="${escapeHtml(exam.title)}" style="color:#ffb3b3;">ลบ</a>
+          </div>
+        </div>`).join('');
+    }
+
+    for (const listId of ['sidebar-exam-list', 'sidebar-answer-key-list']) {
+      document.getElementById(listId).addEventListener('click', (event) => {
+        const link = event.target.closest('.rename-exam-link, .delete-exam-link');
+        if (!link) return;
+        event.preventDefault();
+        const examId = parseInt(link.dataset.examId, 10);
+        const title = link.dataset.examTitle;
+        const recordLabel = link.dataset.recordLabel || 'ข้อสอบ';
+        if (link.classList.contains('rename-exam-link')) {
+          renameExam(examId, title, recordLabel);
+        } else {
+          deleteExam(examId, title, recordLabel);
+        }
+      });
+    }
+
+    async function renameExam(examId, currentTitle, recordLabel = 'ข้อสอบ') {
+      const enteredTitle = prompt(`กรอกชื่อ${recordLabel}ใหม่`, currentTitle);
+      if (enteredTitle === null) return null;
+      const title = enteredTitle.trim();
+      if (!title) {
+        alert(`กรุณากรอกชื่อ${recordLabel}`);
+        return null;
+      }
+      if (title === currentTitle) return null;
+      try {
+        const exam = await apiFetch(`/api/exams/${examId}`, {
+          method: 'PATCH',
+          body: JSON.stringify({title}),
+        });
+        await Promise.all([loadSidebarExams(), loadSidebarAnswerKeys()]);
+        return exam;
+      } catch (error) {
+        alert(`เปลี่ยนชื่อไม่สำเร็จ: ${error.message}`);
+        return null;
+      }
+    }
+
+    async function deleteExam(examId, title, recordLabel = 'ข้อสอบ') {
+      const detail = recordLabel === 'เฉลย'
+        ? 'จะลบชุดคำตอบนี้ออกจากระบบ'
+        : 'จะลบเฉลย กระดาษที่อัปโหลด และผลคะแนนทั้งหมดของข้อสอบนี้ด้วย';
+      if (!confirm(`ลบ${recordLabel} "${title}" ทิ้งถาวร? (${detail})`)) return;
+      await apiFetch(`/api/exams/${examId}`, {method: 'DELETE'});
+      if (CURRENT_EXAM_ID === examId) {
+        window.location.href = '/dashboard';
+      } else {
+        await Promise.all([loadSidebarExams(), loadSidebarAnswerKeys()]);
+      }
+    }
+
+    function savedWeightForExam(examId) {
+      const raw = localStorage.getItem(`exam-${examId}-score-weight-percent`);
+      const value = raw === null ? 30 : Number(raw);
+      return Number.isFinite(value) && value >= 0 && value <= 100 ? value : 30;
+    }
+
+    function renderCombinedExportExams() {
+      const list = document.getElementById('combined-export-exam-list');
+      const selectAll = document.getElementById('export-select-all');
+      selectAll.checked = false;
+      selectAll.indeterminate = false;
+      selectAll.disabled = sidebarExams.length === 0;
+      if (sidebarExams.length === 0) {
+        list.innerHTML = '<p class="muted">ยังไม่มีชุดข้อสอบให้ส่งออก</p>';
+        return;
+      }
+      list.innerHTML = sidebarExams.map((exam, index) => `
+        <div class="export-exam-row" data-exam-id="${exam.id}">
+          <input type="checkbox" class="export-exam-check" aria-label="เลือก ${escapeHtml(exam.title)}">
+          <span class="export-exam-title">${escapeHtml(exam.title)} (${exam.year})</span>
+          <input class="export-sheet-name" value="sec${index + 1}" maxlength="31" disabled aria-label="ชื่อชีตของ ${escapeHtml(exam.title)}">
+          <input type="number" class="export-weight-percent" value="${savedWeightForExam(exam.id)}" min="0" max="100" step="1" disabled aria-label="เปอร์เซ็นต์ของ ${escapeHtml(exam.title)}">
+        </div>`).join('');
+    }
+
+    function setExportRowSelected(row, selected) {
+      row.querySelector('.export-exam-check').checked = selected;
+      row.querySelector('.export-sheet-name').disabled = !selected;
+      row.querySelector('.export-weight-percent').disabled = !selected;
+    }
+
+    function updateExportSelectAllState() {
+      const checkboxes = [...document.querySelectorAll('.export-exam-check')];
+      const selectedCount = checkboxes.filter(checkbox => checkbox.checked).length;
+      const selectAll = document.getElementById('export-select-all');
+      selectAll.checked = checkboxes.length > 0 && selectedCount === checkboxes.length;
+      selectAll.indeterminate = selectedCount > 0 && selectedCount < checkboxes.length;
+    }
+
+    document.getElementById('export-select-all').addEventListener('change', (event) => {
+      document.querySelectorAll('.export-exam-row').forEach(row => {
+        setExportRowSelected(row, event.target.checked);
+      });
+      updateExportSelectAllState();
+    });
+
+    document.getElementById('combined-export-exam-list').addEventListener('change', (event) => {
+      if (!event.target.classList.contains('export-exam-check')) return;
+      const row = event.target.closest('.export-exam-row');
+      setExportRowSelected(row, event.target.checked);
+      updateExportSelectAllState();
+    });
+
+    document.getElementById('open-combined-export-btn').addEventListener('click', async () => {
+      if (sidebarExams.length === 0) await loadSidebarExams();
+      renderCombinedExportExams();
+      document.getElementById('combined-export-error').hidden = true;
+      document.getElementById('combined-export-dialog').showModal();
+    });
+
+    function closeCombinedExportDialog() {
+      document.getElementById('combined-export-dialog').close();
+    }
+    document.getElementById('close-combined-export-btn').addEventListener('click', closeCombinedExportDialog);
+    document.getElementById('cancel-combined-export-btn').addEventListener('click', closeCombinedExportDialog);
+
+    document.getElementById('combined-export-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const errorBox = document.getElementById('combined-export-error');
+      const filenameInput = document.getElementById('combined-export-filename');
+      let filename = filenameInput.value.trim().replace(/\.xlsx$/i, '').trim();
+      const selectedRows = [...document.querySelectorAll('.export-exam-row')]
+        .filter(row => row.querySelector('.export-exam-check').checked);
+
+      if (!filename) {
+        errorBox.textContent = 'กรอกชื่อไฟล์ก่อน';
+        errorBox.hidden = false;
+        return;
+      }
+      if (selectedRows.length === 0) {
+        errorBox.textContent = 'เลือกชุดข้อสอบอย่างน้อย 1 ชุด';
+        errorBox.hidden = false;
+        return;
+      }
+
+      const exams = selectedRows.map(row => ({
+        exam_id: Number(row.dataset.examId),
+        sheet_name: row.querySelector('.export-sheet-name').value.trim(),
+        weight_percent: Number(row.querySelector('.export-weight-percent').value),
+      }));
+      const forbiddenSheetChars = '[]:*?/\\';
+      const invalidSheet = exams.find(item =>
+        !item.sheet_name || item.sheet_name.length > 31 ||
+        [...item.sheet_name].some(char => forbiddenSheetChars.includes(char))
+      );
+      const sheetNames = exams.map(item => item.sheet_name.toLocaleLowerCase());
+      if (invalidSheet) {
+        errorBox.textContent = 'ชื่อชีตต้องมี 1–31 ตัวอักษร และห้ามมีอักขระ [ ] : * ? / \\';
+        errorBox.hidden = false;
+        return;
+      }
+      if (new Set(sheetNames).size !== sheetNames.length) {
+        errorBox.textContent = 'ชื่อชีตต้องไม่ซ้ำกัน';
+        errorBox.hidden = false;
+        return;
+      }
+      if (exams.some(item => !Number.isFinite(item.weight_percent) || item.weight_percent < 0 || item.weight_percent > 100)) {
+        errorBox.textContent = 'ค่าคิดเป็นต้องอยู่ระหว่าง 0–100%';
+        errorBox.hidden = false;
+        return;
+      }
+
+      const downloadButton = document.getElementById('download-combined-export-btn');
+      downloadButton.disabled = true;
+      errorBox.hidden = true;
+      try {
+        const response = await apiFetch('/api/exams/export/combined', {
+          method: 'POST', body: JSON.stringify({filename, exams}),
+        });
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const download = document.createElement('a');
+        download.href = url;
+        download.download = `${filename}.xlsx`;
+        document.body.appendChild(download);
+        download.click();
+        download.remove();
+        // Give the browser time to start the download before releasing the URL.
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        closeCombinedExportDialog();
+      } catch (error) {
+        errorBox.textContent = `ส่งออกไม่สำเร็จ: ${error.message}`;
+        errorBox.hidden = false;
+      } finally {
+        downloadButton.disabled = false;
+      }
+    });
+
+    initSidebar();
+  </script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
