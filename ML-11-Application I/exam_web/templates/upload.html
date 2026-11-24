@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block title %}อัปโหลดและตรวจ - AEGS{% endblock %}
+{% block content %}
+<h1>อัปโหลดกระดาษคำตอบและเริ่มตรวจ</h1>
+<div class="card">
+  <label id="dropzone" for="file-input" style="display:block; border: 2px dashed #99a; border-radius: 8px; padding: 3rem; text-align: center; cursor: pointer;">
+    ลากไฟล์ภาพมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์ (PNG/JPG)
+    <input type="file" id="file-input" multiple accept="image/png,image/jpeg" style="position:absolute; width:1px; height:1px; opacity:0; overflow:hidden;">
+  </label>
+  <div id="file-list" style="margin-top:1rem;"></div>
+  <div id="upload-status" style="margin-top:0.75rem;"></div>
+</div>
+
+<div class="card" id="grade-card" hidden>
+  <h2>เริ่มตรวจ</h2>
+  <button id="grade-btn">เริ่มตรวจ</button>
+  <div id="progress-wrap" style="margin-top:1rem; display:none;">
+    <div style="background:#e2e2e2; border-radius: 6px; overflow:hidden;">
+      <div id="progress-bar" style="background:#1f3a5f; color:white; text-align:center; width:0%; padding: 0.3rem 0;">0%</div>
+    </div>
+    <p id="progress-text"></p>
+  </div>
+  <div id="grade-summary"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+const examId = {{ exam_id }};
+let selectedFiles = [];
+let uploadedPaths = [];
+
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('file-input');
+// ## The label opens the file picker; these events handle drag and drop.
+dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.style.background = '#eef'; });
+dropzone.addEventListener('dragleave', () => { dropzone.style.background = ''; });
+dropzone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropzone.style.background = '';
+  addFiles(e.dataTransfer.files);
+});
+fileInput.addEventListener('change', () => {
+  addFiles(fileInput.files);
+});
+
+function renderFileList() {
+  const box = document.getElementById('file-list');
+  box.innerHTML = selectedFiles.map(f => `<div>${escapeHtml(f.name)} (${(f.size/1024).toFixed(0)} KB)</div>`).join('');
+}
+
+function setUploadStatus(text, isError) {
+  const box = document.getElementById('upload-status');
+  box.textContent = text;
+  box.className = isError ? 'flash-error' : 'badge ok';
+  box.style.display = text ? 'inline-block' : 'none';
+}
+
+// ## Upload files as soon as they are selected or dropped.
+async function addFiles(fileListObj) {
+  const files = Array.from(fileListObj);
+  if (files.length === 0) return;
+  selectedFiles.push(...files);
+  renderFileList();
+
+  setUploadStatus(`กำลังอัปโหลด ${files.length} ไฟล์...`, false);
+  try {
+    const formData = new FormData();
+    for (const f of files) formData.append('files', f);
+    const res = await fetch(`/api/exams/${examId}/upload`, {method: 'POST', body: formData});
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      setUploadStatus(`อัปโหลดไม่สำเร็จ: ${body.detail || res.statusText}`, true);
+      return;
+    }
+    const data = await res.json();
+    uploadedPaths.push(...data.saved_files);
+    document.getElementById('grade-card').hidden = false;
+    setUploadStatus(`อัปโหลดสำเร็จแล้ว ${uploadedPaths.length} ไฟล์`, false);
+  } catch (err) {
+    console.error('[upload] failed', err);
+    setUploadStatus(`อัปโหลดไม่สำเร็จ: ${err.message}`, true);
+  }
+}
+
+document.getElementById('grade-btn').addEventListener('click', async () => {
+  const button = document.getElementById('grade-btn');
+  button.disabled = true;
+  document.getElementById('grade-summary').textContent = '';
+  try {
+    const job = await apiFetch(`/api/exams/${examId}/grade`, {
+      method: 'POST', body: JSON.stringify(uploadedPaths),
+    });
+    document.getElementById('progress-wrap').style.display = 'block';
+    await pollJob(job.job_id);
+  } catch (error) {
+    showGradingError(error.message);
+  }
+});
+
+function showGradingError(message) {
+  const summary = document.getElementById('grade-summary');
+  summary.textContent = `เกิดข้อผิดพลาด: ${message}`;
+  summary.className = 'flash-error';
+  document.getElementById('grade-btn').disabled = false;
+}
+
+async function pollJob(jobId) {
+  const job = await apiFetch(`/api/jobs/${jobId}`);
+  const pct = job.total ? Math.round((job.progress / job.total) * 100) : 0;
+  const bar = document.getElementById('progress-bar');
+  bar.style.width = pct + '%';
+  bar.textContent = pct + '%';
+  document.getElementById('progress-text').textContent = `กำลังตรวจแผ่นที่ ${job.progress}/${job.total}`;
+
+  if (job.status === 'done') {
+    document.getElementById('grade-btn').disabled = false;
+    document.getElementById('grade-summary').className = '';
+    const scoreMessage = job.warning
+      ? `<span class="flash-error">${escapeHtml(job.warning)}</span> — <a href="/exams/${examId}/answer-key">กรอก/คัดลอกเฉลยตอนนี้</a>`
+      : 'คำนวณคะแนนให้อัตโนมัติแล้ว';
+    document.getElementById('grade-summary').innerHTML =
+      `<p>ตรวจเสร็จแล้ว ${job.total} แผ่น — ${scoreMessage}<br><a href="/exams/${examId}/review">ไปหน้าตรวจข้อสอบด้วยตัวเอง</a> หรือ <a href="/exams/${examId}/results">ดูผลคะแนน</a></p>`;
+  } else if (job.status === 'error') {
+    showGradingError(job.error);
+  } else {
+    setTimeout(async () => {
+      try {
+        await pollJob(jobId);
+      } catch (error) {
+        showGradingError(error.message);
+      }
+    }, 1000);
+  }
+}
+</script>
+{% endblock %}

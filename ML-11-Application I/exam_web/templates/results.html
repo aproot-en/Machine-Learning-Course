@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% block title %}exam-checker-cpe{% endblock %}
+{% block content %}
+<h1>ผลคะแนน</h1>
+<div id="answer-key-warning" class="flash-error" hidden></div>
+<div class="card">
+  <button id="recompute-btn">🔄 คำนวณคะแนนใหม่</button>
+  <a class="btn" id="export-excel-link" href="/api/exams/{{ exam_id }}/export/excel?weight_percent=30" style="text-decoration:none; display:inline-block;"> ⬇️ดาวน์โหลด (.xlsx)</a>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>สถิติการทำข้อสอบของ นศ. ทั้งหมด</h2>
+    <table id="summary-table"><tbody></tbody></table>
+  </div>
+  <div class="card">
+    <h2>สัดส่วนการทำข้อสอบของ นศ. ทั้งหมด</h2>
+    <div style="max-width: 50%; margin: 0 auto;">
+      <canvas id="histogram"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>ตารางคะแนน</h2>
+  <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.75rem;">
+    <input id="search-box" placeholder="ค้นหารหัสนักศึกษา...">
+    <label for="score-weight-percent">คำนวณคะแนนคิดเป็น</label>
+    <input id="score-weight-percent" type="number" min="0" max="100" step="1" value="30" style="width:85px;">
+    <span>%</span>
+    <small class="muted">ปรับค่าเพื่อเปรียบเทียบคะแนนถ่วงน้ำหนักได้ทันที</small>
+  </div>
+  <div class="results-table-scroll">
+    <table>
+      <thead><tr><th>รหัสนักศึกษา</th><th>คะแนนดิบ</th><th>คะแนนเต็ม</th><th>คิดเป็น (100%)</th><th id="weighted-score-heading">คิดเป็น (30%)</th><th>ถูก</th><th>ผิด</th><th>ไม่ตอบ</th><th>ควรตรวจซ้ำ</th></tr></thead>
+      <tbody id="results-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h2>แสดงผลคะแนนรายข้อ</h2>
+  <p>
+    <label>เลือกนักศึกษา:</label>
+    <select id="qstats-student-select"></select>
+  </p>
+  <div class="results-table-scroll question-results-scroll">
+    <table>
+      <thead><tr><th>ข้อ</th><th>คำตอบของ นศ.</th><th>ผลเฉลย</th><th>ผลการทดสอบ</th></tr></thead>
+      <tbody id="qstats-body"></tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+const examId = {{ exam_id }};
+let allResults = [];
+let scoreWeightPercent = 30;
+
+const scoreWeightInput = document.getElementById('score-weight-percent');
+const savedScoreWeightRaw = localStorage.getItem(`exam-${examId}-score-weight-percent`);
+const savedScoreWeight = savedScoreWeightRaw === null ? NaN : Number(savedScoreWeightRaw);
+if (Number.isFinite(savedScoreWeight) && savedScoreWeight >= 0 && savedScoreWeight <= 100) {
+  scoreWeightPercent = savedScoreWeight;
+  scoreWeightInput.value = String(savedScoreWeight);
+}
+
+function updateExportLink() {
+  document.getElementById('export-excel-link').href =
+    `/api/exams/${examId}/export/excel?weight_percent=${encodeURIComponent(scoreWeightPercent)}`;
+}
+updateExportLink();
+
+document.getElementById('recompute-btn').addEventListener('click', async () => {
+  await apiFetch(`/api/exams/${examId}/recompute`, {method: 'POST', body: JSON.stringify({})});
+  await loadAll();
+  alert('คำนวณคะแนนใหม่แล้ว');
+});
+
+async function loadAll() {
+  const [exam, answerKey] = await Promise.all([
+    apiFetch(`/api/exams/${examId}`),
+    apiFetch(`/api/exams/${examId}/answer-key`),
+  ]);
+  const warning = document.getElementById('answer-key-warning');
+  if (answerKey.length === 0) {
+    warning.innerHTML = `ยังไม่มีเฉลยข้อสอบ จึงไม่สามารถคำนวณคะแนนได้ — <a href="/exams/${examId}/answer-key">กรอกหรือคัดลอกเฉลย</a>`;
+    warning.hidden = false;
+    document.getElementById('recompute-btn').disabled = true;
+  } else if (answerKey.length < exam.num_questions) {
+    warning.innerHTML = `เฉลยมี ${answerKey.length}/${exam.num_questions} ข้อ คะแนนจึงยังไม่ครบ — <a href="/exams/${examId}/answer-key">แก้ไขเฉลย</a>`;
+    warning.hidden = false;
+    document.getElementById('recompute-btn').disabled = false;
+  } else {
+    warning.hidden = true;
+    document.getElementById('recompute-btn').disabled = false;
+  }
+
+  allResults = await apiFetch(`/api/exams/${examId}/results`);
+  renderResultsTable(allResults);
+  populateStudentSelect(allResults);
+
+  const summary = await apiFetch(`/api/exams/${examId}/analytics`);
+  renderSummary(summary);
+  renderResultBreakdown(allResults);
+}
+
+function populateStudentSelect(results) {
+  const select = document.getElementById('qstats-student-select');
+  select.innerHTML = results.map(r => `<option value="${escapeHtml(r.student_id)}">${escapeHtml(r.student_id)}</option>`).join('');
+  if (results.length > 0) loadStudentQuestionDetail(results[0].student_id);
+  else document.getElementById('qstats-body').innerHTML = '<tr><td colspan="4">ยังไม่มีผลคะแนน</td></tr>';
+}
+
+document.getElementById('qstats-student-select').addEventListener('change', (e) => {
+  loadStudentQuestionDetail(e.target.value);
+});
+
+async function loadStudentQuestionDetail(studentId) {
+  const detail = await apiFetch(`/api/exams/${examId}/results/${encodeURIComponent(studentId)}`);
+  renderQuestionStats(detail.answers);
+}
+
+function formatScore(n) {
+  // ## Show decimal places only when needed.
+  return Number.isInteger(n) ? String(n) : n.toFixed(2).replace(/\.?0+$/, '');
+}
+
+function renderResultsTable(results) {
+  document.getElementById('weighted-score-heading').textContent = `คิดเป็น (${formatScore(scoreWeightPercent)}%)`;
+  const tbody = document.getElementById('results-body');
+  tbody.innerHTML = results.map(r => `
+    <tr>
+      <td>${escapeHtml(r.student_id)}</td><td>${formatScore(r.raw_score)}</td><td>${formatScore(r.max_score)}</td>
+      <td>${r.percentage}%</td>
+      <td>${formatScore(r.percentage * scoreWeightPercent / 100)}</td>
+      <td>${r.correct}</td><td>${r.incorrect}</td><td>${r.blank}</td><td>${r.review_pending}</td>
+    </tr>`).join('') || '<tr><td colspan="9">ยังไม่มีผลคะแนน — ตรวจกระดาษและกด "คำนวณคะแนนใหม่"</td></tr>';
+}
+
+document.getElementById('search-box').addEventListener('input', (e) => {
+  const q = e.target.value.trim();
+  renderResultsTable(allResults.filter(r => r.student_id.includes(q)));
+});
+
+scoreWeightInput.addEventListener('input', () => {
+  if (scoreWeightInput.value.trim() === '') return;
+  const value = Number(scoreWeightInput.value);
+  if (!Number.isFinite(value) || value < 0 || value > 100) return;
+  scoreWeightPercent = value;
+  localStorage.setItem(`exam-${examId}-score-weight-percent`, String(value));
+  updateExportLink();
+  const query = document.getElementById('search-box').value.trim();
+  renderResultsTable(allResults.filter(r => r.student_id.includes(query)));
+});
+
+scoreWeightInput.addEventListener('change', () => {
+  const value = Number(scoreWeightInput.value);
+  if (scoreWeightInput.value.trim() === '' || !Number.isFinite(value) || value < 0 || value > 100) {
+    scoreWeightInput.value = String(scoreWeightPercent);
+  }
+});
+
+function renderSummary(s) {
+  const tbody = document.querySelector('#summary-table tbody');
+  if (!s.n) { tbody.innerHTML = '<tr><td>ยังไม่มีข้อมูล</td></tr>'; return; }
+  const rows = [
+    ['จำนวนผู้เข้าสอบ', s.n], ['คะแนนเฉลี่ย (%)', s.mean.toFixed(2)], ['มัธยฐาน (%)', s.median.toFixed(2)],
+    ['SD', s.sd.toFixed(2)], ['สูงสุด', s.max.toFixed(2)], ['ต่ำสุด', s.min.toFixed(2)],
+  ];
+  tbody.innerHTML = rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+}
+
+let chart = null;
+function renderResultBreakdown(results) {
+  const totals = {correct: 0, incorrect: 0, blank: 0, review_pending: 0};
+  for (const r of results) {
+    totals.correct += r.correct;
+    totals.incorrect += r.incorrect;
+    totals.blank += r.blank;
+    totals.review_pending += r.review_pending;
+  }
+  const ctx = document.getElementById('histogram');
+  if (chart) chart.destroy();
+  chart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['ถูก', 'ผิด', 'ไม่ตอบ', 'ควรตรวจซ้ำ'],
+      datasets: [{
+        data: [totals.correct, totals.incorrect, totals.blank, totals.review_pending],
+        backgroundColor: ['#2c7a2c', '#b23b3b', '#888888', '#b8860b'],
+      }],
+    },
+    plugins: [ChartDataLabels],
+    options: {
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 14 } },
+        datalabels: {
+          color: '#fff',
+          font: { weight: 'bold' },
+          formatter: (value, ctx) => {
+            const total = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+            return total && value ? `${(value / total * 100).toFixed(1)}%` : '';
+          },
+        },
+      },
+    },
+  });
+}
+
+function renderQuestionStats(answers) {
+  const tbody = document.getElementById('qstats-body');
+  tbody.innerHTML = answers.map(a => {
+    let resultCell;
+    if (a.is_cancelled) resultCell = '➖ ยกเลิกข้อนี้';
+    else if (a.is_correct === true) resultCell = a.provisional ? '⚠️ ถูก (ผลอัตโนมัติ—ควรตรวจซ้ำ)' : '✅ ถูก';
+    else if (a.is_correct === false) resultCell = a.provisional ? '⚠️ ผิด (ผลอัตโนมัติ—ควรตรวจซ้ำ)' : '❌ ผิด';
+    else resultCell = `⏳ ${a.status}`; // ## no answer yet, or still awaiting human review
+    return `
+      <tr>
+        <td>${a.question_no}</td>
+        <td>${escapeHtml(a.answer || '(ไม่ตอบ)')}</td>
+        <td>${escapeHtml(a.correct_answer || '-')}</td>
+        <td>${resultCell}</td>
+      </tr>`;
+  }).join('') || '<tr><td colspan="4">ไม่มีข้อมูล</td></tr>';
+}
+
+loadAll();
+</script>
+{% endblock %}
